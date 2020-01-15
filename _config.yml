@@ -26,9 +26,12 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: joebuschmann
 github_username:  joebuschmann
+show_downloads: false
+google_analytics: UA-64657873-1
+repository: joebuschmann/joebuschmann.github.io
 
 # Build settings
-theme: minima
+theme: jekyll-theme-minimal
 plugins:
   - jekyll-feed
 
@@ -51,3 +54,6 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+exclude:
+   - joe-buschmann.ghost.2020-01-12.json
