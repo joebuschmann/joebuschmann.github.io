@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>patterns on Joe Buschmann</title>
-    <link>https://joebuschmann.com/tags/patterns/</link>
+    <link>https://joebuschmann.github.io/tags/patterns/</link>
     <description>Recent content in patterns on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Mon, 30 Jan 2012 20:38:44 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.com/tags/patterns/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joebuschmann.github.io/tags/patterns/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The Best Design Patterns</title>
-      <link>https://joebuschmann.com/posts/2012-01-30-the-best-design-patterns/</link>
+      <link>https://joebuschmann.github.io/posts/2012-01-30-the-best-design-patterns/</link>
       <pubDate>Mon, 30 Jan 2012 20:38:44 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2012-01-30-the-best-design-patterns/</guid>
+      <guid>https://joebuschmann.github.io/posts/2012-01-30-the-best-design-patterns/</guid>
       <description>The first time I read the Gang of Four Design Patterns book, I was impressed, no blown away, by the brilliance of what I was reading.┬á The Visitor pattern utilizing double-dispatch.┬á Brilliant.┬á Chain of Responsibility.┬á Why didn&#39;t I think of that?┬á Adapter.┬á Simple and powerful.
 Of course I was itching to start implementing these patterns.┬á In practice though they seemed to be applicable only in rare situations.┬á Adapter, Builder, Factory, Strategy, were the most useful.</description>
     </item>

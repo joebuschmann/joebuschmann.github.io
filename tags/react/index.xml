@@ -2,62 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>react on Joe Buschmann</title>
-    <link>https://joebuschmann.com/tags/react/</link>
+    <link>https://joebuschmann.github.io/tags/react/</link>
     <description>Recent content in react on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Sun, 31 Jul 2016 19:30:54 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.com/tags/react/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joebuschmann.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>In Defense of JSX</title>
-      <link>https://joebuschmann.com/posts/2016-07-31-in-defense-of-jsx/</link>
+      <link>https://joebuschmann.github.io/posts/2016-07-31-in-defense-of-jsx/</link>
       <pubDate>Sun, 31 Jul 2016 19:30:54 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2016-07-31-in-defense-of-jsx/</guid>
+      <guid>https://joebuschmann.github.io/posts/2016-07-31-in-defense-of-jsx/</guid>
       <description>JSX is the much maligned JavaScript syntax extension that tells React how to build the UI. It gets translated into JavaScript which then builds out the virtual DOM. Later the virtual DOM is translated into the real DOM, and you&#39;ve got a UI.
 For some reason many people don&#39;t like JSX. Their criticism usually goes along the lines of: JSX is ugly and you shouldn&#39;t mix the view and controller. You should have separation of concerns (aka MVC) for better reuse.</description>
     </item>
     
     <item>
       <title>How to Convert a React Mixin to a Component</title>
-      <link>https://joebuschmann.com/posts/2016-06-22-how-to-convert-a-react-mixin-to-a-component/</link>
+      <link>https://joebuschmann.github.io/posts/2016-06-22-how-to-convert-a-react-mixin-to-a-component/</link>
       <pubDate>Wed, 22 Jun 2016 13:39:42 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2016-06-22-how-to-convert-a-react-mixin-to-a-component/</guid>
+      <guid>https://joebuschmann.github.io/posts/2016-06-22-how-to-convert-a-react-mixin-to-a-component/</guid>
       <description>In a previous post I covered an example of a React mixin which I called ClickAway that detected clicks anywhere outside of a component. I also mentioned mixins are not React&#39;s preferred method of reuse. Composition with components is the way to go, and mixins are on the way out.
 With this in mind, I decided to convert the ClickAway mixin into a component. I was skeptical about how clean the new implementation would be, but it turned out well.</description>
     </item>
     
     <item>
       <title>React By Example: Mixins</title>
-      <link>https://joebuschmann.com/posts/2016-06-16-react-by-example-mixins/</link>
+      <link>https://joebuschmann.github.io/posts/2016-06-16-react-by-example-mixins/</link>
       <pubDate>Thu, 16 Jun 2016 02:44:00 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2016-06-16-react-by-example-mixins/</guid>
+      <guid>https://joebuschmann.github.io/posts/2016-06-16-react-by-example-mixins/</guid>
       <description>Components are React&#39;s preferred reuse mechanism, but it&#39;s not the only one. Sometimes different components share the same functions. It may be awkward to wrap these cross-cutting concerns in a higher order component, or the common code may need access to a component&#39;s state. In these scenarios, React mixins are useful.
 Before I continue, I should note mixins seem to be on the way out. The React team is focused on making components more powerful versus continuing to build on the mixin concept.</description>
     </item>
     
     <item>
       <title>React by Example: Stateless Functional Components</title>
-      <link>https://joebuschmann.com/posts/2016-05-24-react-by-example-stateless-functional-components/</link>
+      <link>https://joebuschmann.github.io/posts/2016-05-24-react-by-example-stateless-functional-components/</link>
       <pubDate>Tue, 24 May 2016 02:21:10 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2016-05-24-react-by-example-stateless-functional-components/</guid>
+      <guid>https://joebuschmann.github.io/posts/2016-05-24-react-by-example-stateless-functional-components/</guid>
       <description>In v0.14 the React team introduced stateless functional components. They are implemented by functions that take a props argument and return JSX. They&#39;re simpler and offer performance benefits. The drawbacks are the lack of state and the inability to interact directly with the DOM.
 Icon Component In a typical app, most React components will be presentational only and should be stateless functional components. A good example is an Icon component I created to encapsulate Font Awesome icons.</description>
     </item>
     
     <item>
       <title>React: First Impressions</title>
-      <link>https://joebuschmann.com/posts/2016-05-16-react-first-impressions/</link>
+      <link>https://joebuschmann.github.io/posts/2016-05-16-react-first-impressions/</link>
       <pubDate>Mon, 16 May 2016 13:30:13 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2016-05-16-react-first-impressions/</guid>
+      <guid>https://joebuschmann.github.io/posts/2016-05-16-react-first-impressions/</guid>
       <description>I&#39;m a React newbie who just completed my first React web app, a rewrite of an internal tool at work. Previously the UI was written in ASP.NET plus lots of JQuery on the client side. It worked well but was starting to show its age.
 Actually this wasn&#39;t my first attempt at React. I started porting a web app written in Knockout to React last October. It was a side project and a good place to start.</description>
     </item>

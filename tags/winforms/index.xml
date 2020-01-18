@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>winforms on Joe Buschmann</title>
-    <link>https://joebuschmann.com/tags/winforms/</link>
+    <link>https://joebuschmann.github.io/tags/winforms/</link>
     <description>Recent content in winforms on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Mon, 12 Mar 2012 19:58:25 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.com/tags/winforms/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joebuschmann.github.io/tags/winforms/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ditch the Grids and Use DockPanels</title>
-      <link>https://joebuschmann.com/posts/2012-03-12-why-arent-dock-panels-used-more/</link>
+      <link>https://joebuschmann.github.io/posts/2012-03-12-why-arent-dock-panels-used-more/</link>
       <pubDate>Mon, 12 Mar 2012 19:58:25 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2012-03-12-why-arent-dock-panels-used-more/</guid>
+      <guid>https://joebuschmann.github.io/posts/2012-03-12-why-arent-dock-panels-used-more/</guid>
       <description>I have worked extensively with WinForms and WPF/Silverlight and noticed that docking/dock panels are not used that often.&amp;#160; At least this is the case where I work.&amp;#160; I find this surprising given their power and ease of use.
 Using XAML, why would a programmer choose a complex Grid/StackPanel setup over a DockPanel?&amp;#160; Or on the WinForms side, set the anchor properties for control rather than simplify things with the dock property?</description>
     </item>
     
     <item>
       <title>Best Practices for Creating and Consuming Modal Dialogs in WinForms</title>
-      <link>https://joebuschmann.com/posts/2011-07-28-best-practices-for-creating-and-consuming-modal-dialogs-in-winforms/</link>
+      <link>https://joebuschmann.github.io/posts/2011-07-28-best-practices-for-creating-and-consuming-modal-dialogs-in-winforms/</link>
       <pubDate>Thu, 28 Jul 2011 19:37:55 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2011-07-28-best-practices-for-creating-and-consuming-modal-dialogs-in-winforms/</guid>
+      <guid>https://joebuschmann.github.io/posts/2011-07-28-best-practices-for-creating-and-consuming-modal-dialogs-in-winforms/</guid>
       <description>This is an article I wrote a few years ago after seeing some bad coding practices around modal dialogs in WinForms.┬á Bad habits like explicitly closing the dialog form and using custom OK/Cancel flags irked me, so I came up with some best practices.┬á I hope you find them useful.
 Tip 1: Set the AcceptButton and CancelButton properties
 Windows Forms have two properties, AcceptButton and CancelButton, for determining what should be done when the user presses the Enter or Escape keys.</description>

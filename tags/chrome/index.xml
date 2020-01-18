@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>chrome on Joe Buschmann</title>
-    <link>https://joebuschmann.com/tags/chrome/</link>
+    <link>https://joebuschmann.github.io/tags/chrome/</link>
     <description>Recent content in chrome on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Fri, 08 Jul 2016 01:04:00 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.com/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joebuschmann.github.io/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Top 6 Industry Shifts During My IT Career</title>
-      <link>https://joebuschmann.com/posts/2016-07-08-top-6-industry-shifts-during-my-it-career/</link>
+      <link>https://joebuschmann.github.io/posts/2016-07-08-top-6-industry-shifts-during-my-it-career/</link>
       <pubDate>Fri, 08 Jul 2016 01:04:00 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2016-07-08-top-6-industry-shifts-during-my-it-career/</guid>
+      <guid>https://joebuschmann.github.io/posts/2016-07-08-top-6-industry-shifts-during-my-it-career/</guid>
       <description>In the fall of 1999, I dropped my plans to attend grad school to embark on a career in IT. The industry has changed considerably since then mostly for the better. In fact I&#39;ve never been more excited to be a software developer.
 As part of a personal retrospective on my career, below are my thoughts on the top six shifts in IT. By a &amp;ldquo;shift&amp;rdquo; I mean a change that has profoundly affected the way developers go about their daily work.</description>
     </item>

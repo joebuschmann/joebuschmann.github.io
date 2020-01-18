@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>fit-js on Joe Buschmann</title>
-    <link>https://joebuschmann.com/tags/fit-js/</link>
+    <link>https://joebuschmann.github.io/tags/fit-js/</link>
     <description>Recent content in fit-js on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Tue, 22 Apr 2014 01:10:56 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.com/tags/fit-js/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joebuschmann.github.io/tags/fit-js/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Fit.js Documentation</title>
-      <link>https://joebuschmann.com/posts/2014-04-22-fit-js-documentation/</link>
+      <link>https://joebuschmann.github.io/posts/2014-04-22-fit-js-documentation/</link>
       <pubDate>Tue, 22 Apr 2014 01:10:56 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2014-04-22-fit-js-documentation/</guid>
+      <guid>https://joebuschmann.github.io/posts/2014-04-22-fit-js-documentation/</guid>
       <description>While I don&#39;t use the Fit.js javascript library in my day-to-day work, I was struck by its simple and effective documentation. Check out the README and demo page. In just minutes, you can read the doc and know exactly what the library is and what it can do for you. Even the tagline is cool.
 fit( theThing, /* into */ theOtherThing ); This documentation style (not sure what to call it) inspired me to add a Quick Start section to my own Javascript libary SProxy with a similar feel.</description>
     </item>

@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ghost-post on Joe Buschmann</title>
-    <link>https://joebuschmann.com/tags/ghost-post/</link>
+    <link>https://joebuschmann.github.io/tags/ghost-post/</link>
     <description>Recent content in ghost-post on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Fri, 26 Sep 2014 16:26:51 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.com/tags/ghost-post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joebuschmann.github.io/tags/ghost-post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Customizing a Ghost Theme</title>
-      <link>https://joebuschmann.com/posts/2014-09-26-customizing-a-ghost-theme/</link>
+      <link>https://joebuschmann.github.io/posts/2014-09-26-customizing-a-ghost-theme/</link>
       <pubDate>Fri, 26 Sep 2014 16:26:51 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2014-09-26-customizing-a-ghost-theme/</guid>
+      <guid>https://joebuschmann.github.io/posts/2014-09-26-customizing-a-ghost-theme/</guid>
       <description>Customizing a Ghost blog theme can be as easy as taking the default Casper theme and tweaking it to your taste. I finally got around to creating my own theme to correct some niggling annoyances with Casper. I could have downloaded a prebuilt theme from the Ghost marketplace, but my changes were minor so I opted to create my own. I started by checking out the themes documentation.
 To test out my new theme, I installed the Ghost platform.</description>
     </item>
     
     <item>
       <title>Switching to Ghost</title>
-      <link>https://joebuschmann.com/posts/2013-12-29-switchimg-to-ghost/</link>
+      <link>https://joebuschmann.github.io/posts/2013-12-29-switchimg-to-ghost/</link>
       <pubDate>Sun, 29 Dec 2013 22:01:55 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2013-12-29-switchimg-to-ghost/</guid>
+      <guid>https://joebuschmann.github.io/posts/2013-12-29-switchimg-to-ghost/</guid>
       <description>I had been blogging with Wordpress for over two years, and while Wordpress has some great features like the statistics and comments engine, the core writing experience was never completely smooth for me. The online editor has a tendency to get spacing wrong and reformat blocks of text on a whim. Editing with Windows Live Writer is a improvement, but doing simple things like adding snippets of code or XML was always more difficult than necessary.</description>
     </item>
     
