@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2019-01-10-a-poor-mans-queue/</loc>
+    <lastmod>2019-01-10T14:29:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/</loc>
+    <lastmod>2019-01-10T14:29:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/</loc>
+    <lastmod>2019-01-10T14:29:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/sql/</loc>
+    <lastmod>2019-01-10T14:29:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/sql-server/</loc>
+    <lastmod>2019-01-10T14:29:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/</loc>
+    <lastmod>2019-01-10T14:29:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/tsql/</loc>
+    <lastmod>2019-01-10T14:29:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/c/</loc>
+    <lastmod>2018-08-31T01:07:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/gherkin/</loc>
+    <lastmod>2018-08-31T01:07:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/net/</loc>
+    <lastmod>2018-08-31T01:07:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2018-08-31-scaling-specflow-with-proper-architecture/</loc>
+    <lastmod>2018-08-31T01:07:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/specflow/</loc>
+    <lastmod>2018-08-31T01:07:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2018-08-31-specflow-step-definition-report/</loc>
+    <lastmod>2018-08-31T00:42:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/fun/</loc>
+    <lastmod>2018-08-24T22:53:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/off-topic/</loc>
+    <lastmod>2018-08-24T22:53:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2018-08-24-you-dont-drive-to-work-huh/</loc>
+    <lastmod>2018-08-24T22:53:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/transportation/</loc>
+    <lastmod>2018-08-24T22:53:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2018-08-24-running-specflow-scenarios-in-parallel/</loc>
+    <lastmod>2018-08-24T22:48:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2018-08-13-reusable-bindings-in-specflow/</loc>
+    <lastmod>2018-08-13T13:44:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2018-08-10-working-effectively-with-specflow-tables/</loc>
+    <lastmod>2018-08-10T21:41:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2018-08-10-gherkin-tips/</loc>
+    <lastmod>2018-08-10T13:22:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2018-08-08-specflow-basics/</loc>
+    <lastmod>2018-08-08T13:41:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2017-12-14-the-csharp-language-overflow-checking-for-integral-operations/</loc>
+    <lastmod>2017-12-14T23:06:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2017-10-22-specflow-nunit3-generator-plugin/</loc>
+    <lastmod>2017-10-22T02:44:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2017-05-30-how-to-win-friends-and-influence-people-in-a-nutshell/</loc>
+    <lastmod>2017-05-30T20:30:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/self-improvement/</loc>
+    <lastmod>2017-05-30T20:30:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2017-05-30-getting-started-with-selenium-specflow-and-dot-net/</loc>
+    <lastmod>2017-05-30T19:54:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/selenium/</loc>
+    <lastmod>2017-05-30T19:54:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2017-05-03-workplace-trends-whats-in-and-whats-out/</loc>
+    <lastmod>2017-05-03T13:17:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2017-03-01-row-level-security-in-sql-server/</loc>
+    <lastmod>2017-03-01T14:18:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2017-02-10-a-normal-everyday-sociopath/</loc>
+    <lastmod>2017-02-10T14:33:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/donald-trump/</loc>
+    <lastmod>2017-02-10T14:33:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/sociopath/</loc>
+    <lastmod>2017-02-10T14:33:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/lightning/</loc>
+    <lastmod>2017-01-16T10:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/lightning-component/</loc>
+    <lastmod>2017-01-16T10:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/salesforce/</loc>
+    <lastmod>2017-01-16T10:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2017-01-16-salesforce-lightning-navigation-events-in-a-visualforce-page/</loc>
+    <lastmod>2017-01-16T10:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2017-01-16-salesforce-lightning-hosting-a-component-in-visualforce/</loc>
+    <lastmod>2017-01-16T08:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2016-11-28-salesforce-lightning-fixing-the-built-in-components/</loc>
+    <lastmod>2016-11-28T14:21:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2016-11-18-salesforce-lightning-the-bad-parts/</loc>
+    <lastmod>2016-11-18T14:25:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2016-10-25-callbacks-as-lightning-component-attributes/</loc>
+    <lastmod>2016-10-25T14:15:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/exercise/</loc>
+    <lastmod>2016-09-09T14:48:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2016-09-09-forget-100-a-realistic-guide-to-physical-fitness/</loc>
+    <lastmod>2016-09-09T14:48:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/physical-fitness/</loc>
+    <lastmod>2016-09-09T14:48:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/workout/</loc>
+    <lastmod>2016-09-09T14:48:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/async/</loc>
+    <lastmod>2016-08-15T13:28:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/await/</loc>
+    <lastmod>2016-08-15T13:28:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/task/</loc>
+    <lastmod>2016-08-15T13:28:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2016-08-15-taskcompletionsource-bridging-the-gap-between-old-and-new/</loc>
+    <lastmod>2016-08-15T13:28:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2016-07-31-in-defense-of-jsx/</loc>
+    <lastmod>2016-07-31T19:30:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/javascript/</loc>
+    <lastmod>2016-07-31T19:30:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/jsx/</loc>
+    <lastmod>2016-07-31T19:30:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/react/</loc>
+    <lastmod>2016-07-31T19:30:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/chrome/</loc>
+    <lastmod>2016-07-08T01:04:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/firefox/</loc>
+    <lastmod>2016-07-08T01:04:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/osx/</loc>
+    <lastmod>2016-07-08T01:04:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2016-07-08-top-6-industry-shifts-during-my-it-career/</loc>
+    <lastmod>2016-07-08T01:04:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2016-06-22-how-to-convert-a-react-mixin-to-a-component/</loc>
+    <lastmod>2016-06-22T13:39:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2016-06-16-react-by-example-mixins/</loc>
+    <lastmod>2016-06-16T02:44:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2016-05-24-react-by-example-stateless-functional-components/</loc>
+    <lastmod>2016-05-24T02:21:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2016-05-16-react-first-impressions/</loc>
+    <lastmod>2016-05-16T13:30:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2016-04-06-the-open-closed-principle-and-build-systems/</loc>
+    <lastmod>2016-04-06T13:20:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2016-02-09-convert-truthy-falsy-to-true-false-with/</loc>
+    <lastmod>2016-02-09T13:31:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2015-12-09-a-short-and-easy-introduction-to-dotnet-task-class/</loc>
+    <lastmod>2015-12-09T22:09:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/parallel/</loc>
+    <lastmod>2015-12-09T22:09:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/iis/</loc>
+    <lastmod>2015-11-14T23:33:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2015-11-14-two-tips-for-debugging-apps-in-iis/</loc>
+    <lastmod>2015-11-14T23:33:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2015-11-09-frank-drebin-on-it-and-life/</loc>
+    <lastmod>2015-11-09T23:23:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/frank-drebin/</loc>
+    <lastmod>2015-11-09T23:23:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2015-10-26-specflow-tags-done-right/</loc>
+    <lastmod>2015-10-26T13:30:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2015-10-22-an-introduction-to-scoped-bindings-in-specflow/</loc>
+    <lastmod>2015-10-22T12:28:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2015-09-22-refactoring-to-composable-specflow-steps/</loc>
+    <lastmod>2015-09-22T12:15:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2015-08-19-frank-drebin-it-manager-the-employee-lifecycle/</loc>
+    <lastmod>2015-08-19T11:02:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2015-08-18-tidying-up-code-with-using-alias-directives/</loc>
+    <lastmod>2015-08-18T21:52:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/knockout-js/</loc>
+    <lastmod>2015-08-14T12:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/nancy/</loc>
+    <lastmod>2015-08-14T12:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2015-08-14-this-week-in-programming-gotchas/</loc>
+    <lastmod>2015-08-14T12:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/best-practices-2/</loc>
+    <lastmod>2015-08-06T15:22:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2015-08-06-string-dot-empty-versus-string-literal/</loc>
+    <lastmod>2015-08-06T15:22:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2015-03-25-asyncawait-and-recursion/</loc>
+    <lastmod>2015-03-25T18:52:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2015-02-17-a-shared-development-database-is-bad-very-bad/</loc>
+    <lastmod>2015-02-17T23:52:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2015-01-19-about/</loc>
+    <lastmod>2015-01-19T15:07:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2015-01-07-my-life-as-narrated-by-detective-frank-drebin/</loc>
+    <lastmod>2015-01-07T16:51:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2014-12-29-code-this-not-that-specflow-edition/</loc>
+    <lastmod>2014-12-29T20:06:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/code-this-not-that/</loc>
+    <lastmod>2014-12-29T20:06:20+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/automation/</loc>
+    <lastmod>2014-12-21T15:18:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2014-12-21-lessons-from-2014/</loc>
+    <lastmod>2014-12-21T15:18:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2014-12-03-generate-sql-delete-statements-that-respect-fk-relationships/</loc>
+    <lastmod>2014-12-03T21:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2014-10-18-useful-regex-for-specflow-bindings/</loc>
+    <lastmod>2014-10-18T10:20:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2014-10-10-overusing-generics-in-dot-net/</loc>
+    <lastmod>2014-10-10T12:31:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2014-09-30-strategies-for-managing-state-in-specflow/</loc>
+    <lastmod>2014-09-30T18:40:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2014-09-26-customizing-a-ghost-theme/</loc>
+    <lastmod>2014-09-26T16:26:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/ghost-post/</loc>
+    <lastmod>2014-09-26T16:26:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/appcmd/</loc>
+    <lastmod>2014-06-02T14:04:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2014-06-02-automating-iis-configuration-using-appcmd-exe/</loc>
+    <lastmod>2014-06-02T14:04:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/fit-js/</loc>
+    <lastmod>2014-04-22T01:10:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2014-04-22-fit-js-documentation/</loc>
+    <lastmod>2014-04-22T01:10:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2014-04-01-microsoft-to-integrate-git-into-windows/</loc>
+    <lastmod>2014-04-01T12:32:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2013-12-30-a-tribute-to-two-ladies-in-my-life/</loc>
+    <lastmod>2013-12-30T03:53:46+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2013-12-29-switchimg-to-ghost/</loc>
+    <lastmod>2013-12-29T22:01:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2013-10-22-specflow-nested-tables-a-bad-idea/</loc>
+    <lastmod>2013-10-22T07:45:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2013-07-20-more-specflow-tips/</loc>
+    <lastmod>2013-07-20T11:21:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2013-02-17-some-specflow-tips/</loc>
+    <lastmod>2013-02-17T11:49:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2012-12-31-lessons-from-the-past-year/</loc>
+    <lastmod>2012-12-31T14:54:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/singleton/</loc>
+    <lastmod>2012-12-01T23:20:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2012-12-01-singleton-access-from-a-container/</loc>
+    <lastmod>2012-12-01T23:20:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2012-03-12-why-arent-dock-panels-used-more/</loc>
+    <lastmod>2012-03-12T19:58:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/winforms/</loc>
+    <lastmod>2012-03-12T19:58:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/wpf/</loc>
+    <lastmod>2012-03-12T19:58:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2012-02-14-executing-actions-before-and-after-code-blocks-with-idisposable/</loc>
+    <lastmod>2012-02-14T21:06:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/f/</loc>
+    <lastmod>2012-02-14T21:06:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/patterns/</loc>
+    <lastmod>2012-01-30T20:38:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2012-01-30-the-best-design-patterns/</loc>
+    <lastmod>2012-01-30T20:38:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/unit-testing/</loc>
+    <lastmod>2012-01-30T20:38:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2012-01-15-getting-over-my-fear-of-parsing-text/</loc>
+    <lastmod>2012-01-15T21:02:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/text-parsing/</loc>
+    <lastmod>2012-01-15T21:02:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2011-10-13-creating-mocks-with-f-object-expressions/</loc>
+    <lastmod>2011-10-13T19:59:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/mocks/</loc>
+    <lastmod>2011-10-13T19:59:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/object-expressions/</loc>
+    <lastmod>2011-10-13T19:59:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2011-10-06-creating-a-crawl-control-in-wpf/</loc>
+    <lastmod>2011-10-06T19:45:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/tags/xaml/</loc>
+    <lastmod>2011-10-06T19:45:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2011-08-15-the-dangers-of-mutable-data/</loc>
+    <lastmod>2011-08-15T20:06:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2011-07-28-best-practices-for-creating-and-consuming-modal-dialogs-in-winforms/</loc>
+    <lastmod>2011-07-28T19:37:55+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2011-07-18-f-functions-tuple-syntax/</loc>
+    <lastmod>2011-07-18T19:35:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/posts/2011-07-16-my-first-blog-post/</loc>
+    <lastmod>2011-07-16T14:08:34+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joebuschmann.com/categories/</loc>
+  </url>
+  
+</urlset>

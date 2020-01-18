@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Text Parsing with F# | Joe Buschmann</title>
+
+
+
+<link href="https://joebuschmann.com/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://joebuschmann.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://joebuschmann.com/posts/2012-01-15-getting-over-my-fear-of-parsing-text/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://joebuschmann.com">
+          <h1 id="nav-heading" class="title is-4">Joe Buschmann</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="github" href='https://github.com/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="facebook" href='https://facebook.com/joe.buschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="twitter" href='https://twitter.com/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="email" href='mailto:joseph.buschmann@gmail.com'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/net">#net</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/f">#f</a>
+  
+  | <a class="subtitle is-6" href="/tags/text-parsing">#text-parsing</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">January 15, 2012</h2>
+    <h1 class="title">Text Parsing with F#</h1>
+    
+    <div class="content">
+      <p>IΓÇÖve always had a fear of parsing text.&nbsp; Strange since itΓÇÖs a basic programmerΓÇÖs task.&nbsp; IΓÇÖve always found it to be tedious and boring, and the resulting code is a jumbled mess of indexes and string parsing methods.&nbsp; I avoid it every chance I get.</p> <p>And thereΓÇÖs regex.&nbsp; The syntax is cryptic and difficult to remember.&nbsp; ItΓÇÖs another thing I should know well, but, again, I avoid it.</p> <p>Recently I decided to come to grips with this weakness and parse a text file containing information about TCP sockets in a TIME_WAIT status.&nbsp; It was generated by a co-worker investigating network performance.&nbsp; He wanted to get a list of IP addresses along with the amount of time they spent with a status of TIME_WAIT.&nbsp; Then he could pull it into Excel to visualize the data.</p> <p>IΓÇÖve been told that functional languages are great for parsing text, so I decided to use F#.&nbsp; While doing some research, I came to a sudden realization.&nbsp; The reason why it has always been difficult for me was I had been taking the wrong approach.&nbsp; I was intermingling the parsing code with the business logic code.&nbsp; My approach was along the lines of:&nbsp; parse a line, pull some string values from previous lines from state, run some logic for the current line, store the string values in state, and move to the next line.&nbsp; Included in the code were lots of index values into the text, helper methods, and conversions to data types like dates, integers, etc.&nbsp; All that mixed in with the business logic.&nbsp; No wonder I hated it.</p> <p>The correct approach (or at least a better one) is to convert the textual representation of the data into data structures before running any business logic.&nbsp; There should be a clear separation between the two.&nbsp; With this step, the logic becomes easier.&nbsp; There are no indexes or type conversions.&nbsp; All thatΓÇÖs been done, and the business logic is focused and concise.</p> <h3>The Data Structures</h3> <p>Before I could continue, I needed to understand the data represented in the file from my co-worker and map them to data structures.&nbsp; A portion of the file is below.</p><pre>Time : 2011-11-09_08:36:19
+Time : 2011-11-09_08:36:24
+Time : 2011-11-09_08:36:29
+Time : 2011-11-09_08:36:34
+Time : 2011-11-09_08:36:40
+Time : 2011-11-09_08:36:45
+Time : 2011-11-09_08:36:50
+Time : 2011-11-09_08:36:56
+Time : 2011-11-09_08:37:01
+TCP&nbsp;&nbsp;&nbsp; 10.28.65.14:1804&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.28.65.15:808&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIME_WAIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0
+TCP&nbsp;&nbsp;&nbsp; 10.28.65.14:1812&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.28.65.15:808&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIME_WAIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0
+TCP&nbsp;&nbsp;&nbsp; 10.28.65.14:1818&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.28.65.15:808&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIME_WAIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0
+Time :&nbsp; 2011-11-09_08:37:06
+TCP&nbsp;&nbsp;&nbsp; 10.28.65.14:1804&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.28.65.15:808&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIME_WAIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0
+TCP&nbsp;&nbsp;&nbsp; 10.28.65.14:1809&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.28.65.15:808&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIME_WAIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0
+TCP&nbsp;&nbsp;&nbsp; 10.28.65.14:1812&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.28.65.15:808&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIME_WAIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0
+TCP&nbsp;&nbsp;&nbsp; 10.28.65.14:1813&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.28.65.15:808&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIME_WAIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0
+TCP&nbsp;&nbsp;&nbsp; 10.28.65.14:1818&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.28.65.15:808&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIME_WAIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0
+TCP&nbsp;&nbsp;&nbsp; 10.28.65.14:1819&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.28.65.15:808&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIME_WAIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0
+TCP&nbsp;&nbsp;&nbsp; 10.28.65.14:1829&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.28.65.15:808&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIME_WAIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0
+TCP&nbsp;&nbsp;&nbsp; 10.28.65.14:1831&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.28.65.15:808&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIME_WAIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0
+TCP&nbsp;&nbsp;&nbsp; 10.28.65.14:1834&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.28.65.15:808&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIME_WAIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</pre>
+<p>Each line was written in intervals of about 5 seconds.&nbsp; There seemed to be two types of information recorded, a timestamp and an IP address of a socket with a status of TIME_WAIT, and each needed its own data structure.&nbsp; The IP address lines were consistent in their format; however, the timestamps were not.&nbsp; Sometimes there was a line break between the ΓÇ£Time :ΓÇ¥ label and the value and other times they were on the same line.&nbsp; The table below breaks down each type of line format and the action to take.</p>
+<table border="0" cellspacing="0" cellpadding="2" width="587">
+<tbody>
+<tr>
+<td valign="top" width="429">
+<h5>Format</h5></td>
+<td valign="top" width="156">
+<h5>Action</h5></td></tr>
+<tr>
+<td valign="top" width="429">Time : 2011-11-09_08:37:01</td>
+<td valign="top" width="156">Create a data structure representation</td></tr>
+<tr>
+<td valign="top" width="429">Time :</td>
+<td valign="top" width="156">Ignore</td></tr>
+<tr>
+<td valign="top" width="429">2011-11-09_08:37:11</td>
+<td valign="top" width="156">Create a data structure representation</td></tr>
+<tr>
+<td valign="top" width="429">TCP&nbsp;&nbsp;&nbsp; 10.28.65.14:1834&nbsp;&nbsp;&nbsp; 10.28.65.15:808&nbsp;&nbsp;&nbsp; TIME_WAIT&nbsp;&nbsp;&nbsp; 0</td>
+<td valign="top" width="156">Create a data structure representation</td></tr></tbody></table>
+<p>&nbsp;</p>
+<p>To represent the data, I used a discriminated union with two discriminators that store the timestamp and IP address.&nbsp; For the lines with the IP addresses, there are two addresses, and only the first one is useful because it is the one in a TIME_WAIT state.&nbsp; The remaining information is superfluous and can be discarded.</p><pre class="code"><span style="color: blue">type </span>LineRecord =
+| TimeRecord <span style="color: blue">of </span>DateTime
+| TimeWaitRecord <span style="color: blue">of </span>int * int * int * int * int</pre>
+<h3>Active Patterns</h3>
+<p>To parse each line into a LineRecord, I used an F# feature called <a href="http://msdn.microsoft.com/en-us/library/dd233248.aspx" target="_blank">active patterns</a> which allowed me to set up pattern matching expressions for text values just as I would for a discriminated union.&nbsp; I created four active pattern definitions.&nbsp; The first two take a string value and attempt to return a date or an IP address.&nbsp; The next two take a line of text from the file and return a LineRecord discriminator value.&nbsp; Once these were in place, writing a function to convert the text file into a list of LineRecord values became trivial.</p><pre class="code"><span style="color: green">// Attempt to convert a string value into a date.
+</span><span style="color: blue">let </span>(|Date|_|) (input:string) =
+  <span style="color: blue">let </span>(success, date) = DateTime.TryParse(input)
+  <span style="color: blue">if </span>(success) <span style="color: blue">then </span>Some(date)
+  <span style="color: blue">else </span>None
+<p><span style="color: green">// Attempt to convert a string value into an IP address
+// represented by a tuple with four or five integers with
+// the port being optional.
+</span><span style="color: blue">let </span>(|IP|_|) (input:string) =
+<span style="color: blue">let </span>delimChars = [|<span style="color: maroon">&rsquo;.&lsquo;</span>; <span style="color: maroon">&rsquo;:&lsquo;</span>|]
+<span style="color: blue">let </span>arr = input.Split(delimChars)
+<span style="color: blue">match </span>arr.Length <span style="color: blue">with
+</span>| 4 <span style="color: blue">-&gt; </span>Some((int(arr.[0]), int(arr.[1]), int(arr.[2]), int(arr.[3]), 0))
+| 5 <span style="color: blue">-&gt; </span>Some((int(arr.[0]), int(arr.[1]), int(arr.[2]), int(arr.[3]),
+int(arr.[4])))
+| _ <span style="color: blue">-&gt; </span>None</p>
+<p><span style="color: green">// Attempt to convert a time record.
+</span><span style="color: blue">let </span>(|TimeEntry|_|) (line:string) =
+<span style="color: blue">let </span>line = line.Trim().Replace(<span style="color: maroon">&quot;Time : &ldquo;</span>, <span style="color: maroon">&quot;&ldquo;</span>).Replace(<span style="color: maroon">&rsquo;_&lsquo;</span>, <span style="color: maroon">&rsquo; &lsquo;</span>)
+<span style="color: blue">match </span>line <span style="color: blue">with
+</span>| Date dateTime <span style="color: blue">-&gt; </span>Some(TimeRecord(dateTime))
+| _ <span style="color: blue">-&gt; </span>None</p>
+<p><span style="color: green">// Attempt to convert a TIME_WAIT record.
+</span><span style="color: blue">let </span>(|TimeWaitEntry|_|) (line:string) =
+<span style="color: blue">let </span>line = line.Replace(<span style="color: maroon">&quot;TCP&quot;</span>, <span style="color: maroon">&quot;&ldquo;</span>).Trim()
+<span style="color: blue">let </span>index = line.IndexOf(<span style="color: maroon">&rsquo; &lsquo;</span>)</p>
+<p><span style="color: blue">match </span>index <span style="color: blue">with
+</span>| -1 <span style="color: blue">-&gt; </span>None
+| index <span style="color: blue">-&gt;
+let </span>line = line.Substring(0, index)
+<span style="color: blue">match </span>line <span style="color: blue">with
+</span>| IP (ip) <span style="color: blue">-&gt; </span>Some(TimeWaitRecord ip)
+| _ <span style="color: blue">-&gt; </span>None</p>
+<p><span style="color: green">// Parses lines from the file into a list of LineRecords.
+</span><span style="color: blue">let </span>parseFile lines =
+<span style="color: blue">let </span>lines = lines |&gt; List.rev
+<span style="color: blue">let rec </span>parseFileUtil lines acc =
+<span style="color: blue">match </span>lines <span style="color: blue">with
+</span>| hd :: tl <span style="color: blue">-&gt;
+let </span>acc = <span style="color: blue">match </span>hd <span style="color: blue">with
+</span>| TimeEntry timeRecord <span style="color: blue">-&gt; </span>timeRecord :: acc
+| TimeWaitEntry timeWaitRecord <span style="color: blue">-&gt; </span>timeWaitRecord :: acc
+| _ <span style="color: blue">-&gt; </span>acc
+parseFileUtil tl acc
+| [] <span style="color: blue">-&gt; </span>acc
+parseFileUtil lines []</pre></p>
+<h3>Running the Business Logic</h3>
+<p>Now that the contents of the file were represented neatly as a data structure, it was much easier to manipulate the data.&nbsp; For example, I could get a list of times and the number of IP addresses in a TIME_WAIT state and save this list to a CSV file.</p><pre class="code"><span style="color: blue">open </span>System
+<span style="color: blue">open </span>System.Collections.Generic
+<span style="color: blue">open </span>System.IO
+<span style="color: blue">open </span>DataStructures
+<p><span style="color: blue">let </span>lines = File.ReadAllLines(<span style="color: maroon">&quot;out_time0.txt&quot;</span>) |&gt; Array.toList
+<span style="color: blue">let </span>items = parseFile lines</p>
+<p><span style="color: green">// Find the times of each TIME_WAIT record and return a tuple
+// with the time and IP address.  Since the time was written
+// to the file once for a set of addresses, it has to be
+// passed into the util function as state.  The accumulator
+// parameter exists to enable tail call optimization.
+</span><span style="color: blue">let </span>getTimeWaitTimes items =
+<span style="color: blue">let rec </span>util items (currentTime:DateTime) acc =
+<span style="color: blue">match </span>items <span style="color: blue">with
+</span>| hd :: tl <span style="color: blue">-&gt;
+let </span>currentTime = <span style="color: blue">match </span>hd <span style="color: blue">with
+</span>| TimeRecord newTime <span style="color: blue">-&gt; </span>newTime
+| _ <span style="color: blue">-&gt; </span>currentTime</p>
+<pre><code>    &lt;span style=&quot;color: blue&quot;&gt;let &lt;/span&gt;acc = &lt;span style=&quot;color: blue&quot;&gt;match &lt;/span&gt;hd &lt;span style=&quot;color: blue&quot;&gt;with
+              &lt;/span&gt;| TimeWaitRecord (val1, val2, val3, val4, val5) &lt;span style=&quot;color: blue&quot;&gt;-&amp;gt;
+                &lt;/span&gt;(currentTime, (val1, val2, val3, val4, val5)) :: acc
+              | _ &lt;span style=&quot;color: blue&quot;&gt;-&amp;gt; &lt;/span&gt;acc
+
+    &lt;span style=&quot;color: green&quot;&gt;//printfn &quot;Current Time %s&quot; (currentTime.ToString())
+    &lt;/span&gt;util tl currentTime acc
+  | [] &lt;span style=&quot;color: blue&quot;&gt;-&amp;gt; &lt;/span&gt;acc
+</code></pre>
+<p>util items DateTime.MinValue []</p>
+<p><span style="color: blue">let </span>timeWaits = getTimeWaitTimes items</p>
+<p><span style="color: green">// Create a map of the number of IP addresses in a
+// TIME_WAIT state at a give time.  The time is the key.
+</span><span style="color: blue">let </span>counts = timeWaits |&gt; List.fold (<span style="color: blue">fun </span>(state:Map&lt;<em>,</em>&gt;) (time, _) <span style="color: blue">-&gt;
+if </span>(state.ContainsKey(time)) <span style="color: blue">then
+</span>state |&gt; Map.map
+(<span style="color: blue">fun </span>k v <span style="color: blue">-&gt;
+if </span>k = time <span style="color: blue">then
+</span>v + 1
+<span style="color: blue">else </span>v)
+<span style="color: blue">else
+</span>state.Add(time, 1)
+) (Map.empty)</p>
+<p><span style="color: green">// Write the results to a CSV file.
+</span><span style="color: blue">let </span>file = File.CreateText(<span style="color: maroon">&quot;results.csv&quot;</span>)
+file.WriteLine(<span style="color: maroon">&quot;Time,Count&quot;</span>)</p>
+<p>counts |&gt; Map.iter (<span style="color: blue">fun </span>k v <span style="color: blue">-&gt; </span>file.WriteLine(<span style="color: maroon">&rdquo;{0},{1}&ldquo;</span>, k, v) )</p>
+<p>file.Flush()</p>
+<p>ignore(Console.ReadLine())</pre></p>
+<p>You can find the full source code including unit tests <a href="https://github.com/joebuschmann/FSharpTextParsing" target="_blank">on GitHub</a>.</p>
+<p>This was a simple example, but it demonstrates the power of converting the textual data to an internal representation.&nbsp; With the parsing done, the business logic comes together much easier.&nbsp; Also, the active pattern language feature in F# makes the textual analysis simpler.</p>
+<p>Now, if I could only master regex.</p>
+      
+    </div>
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+  
+    <script type="text/javascript">
+      var disqus_shortname = 'joebuschmann';
+      function disqus() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+  
+      disqus();
+  
+
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; Joe Buschmann 2020</p>
+    
+  </div>
+</section>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-64657873-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+</body>
+</html>
+

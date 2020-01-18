@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>selenium on Joe Buschmann</title>
+    <link>https://joebuschmann.com/tags/selenium/</link>
+    <description>Recent content in selenium on Joe Buschmann</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Joe Buschmann 2020</copyright>
+    <lastBuildDate>Tue, 30 May 2017 19:54:01 +0000</lastBuildDate>
+    
+	<atom:link href="https://joebuschmann.com/tags/selenium/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Started with Selenium, SpecFlow, and .NET</title>
+      <link>https://joebuschmann.com/posts/2017-05-30-getting-started-with-selenium-specflow-and-dot-net/</link>
+      <pubDate>Tue, 30 May 2017 19:54:01 +0000</pubDate>
+      
+      <guid>https://joebuschmann.com/posts/2017-05-30-getting-started-with-selenium-specflow-and-dot-net/</guid>
+      <description>Selenium is a library used to automate web browsers. It uses a common web driver interface, and each web browser, Chrome, Firefox, IE, has a corresponding implementation that takes advantage of the browser&#39;s native API.
+I don&#39;t have much experience with browser automation. In fact, I try to avoid it as much as possible in favor of testing at the unit and service level. Tests running through the browser tend to be brittle due to the non-deterministic nature of web pages.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jsx on Joe Buschmann</title>
+    <link>https://joebuschmann.com/tags/jsx/</link>
+    <description>Recent content in jsx on Joe Buschmann</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Joe Buschmann 2020</copyright>
+    <lastBuildDate>Sun, 31 Jul 2016 19:30:54 +0000</lastBuildDate>
+    
+	<atom:link href="https://joebuschmann.com/tags/jsx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>In Defense of JSX</title>
+      <link>https://joebuschmann.com/posts/2016-07-31-in-defense-of-jsx/</link>
+      <pubDate>Sun, 31 Jul 2016 19:30:54 +0000</pubDate>
+      
+      <guid>https://joebuschmann.com/posts/2016-07-31-in-defense-of-jsx/</guid>
+      <description>JSX is the much maligned JavaScript syntax extension that tells React how to build the UI. It gets translated into JavaScript which then builds out the virtual DOM. Later the virtual DOM is translated into the real DOM, and you&#39;ve got a UI.
+For some reason many people don&#39;t like JSX. Their criticism usually goes along the lines of: JSX is ugly and you shouldn&#39;t mix the view and controller. You should have separation of concerns (aka MVC) for better reuse.</description>
+    </item>
+    
+  </channel>
+</rss>

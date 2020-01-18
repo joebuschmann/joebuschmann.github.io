@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>The Open-Closed Principle and Build Systems | Joe Buschmann</title>
+
+
+
+<link href="https://joebuschmann.com/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://joebuschmann.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://joebuschmann.com/posts/2016-04-06-the-open-closed-principle-and-build-systems/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://joebuschmann.com">
+          <h1 id="nav-heading" class="title is-4">Joe Buschmann</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="github" href='https://github.com/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="facebook" href='https://facebook.com/joe.buschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="twitter" href='https://twitter.com/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="email" href='mailto:joseph.buschmann@gmail.com'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+    </div>
+    <h2 class="subtitle is-6">April 6, 2016</h2>
+    <h1 class="title">The Open-Closed Principle and Build Systems</h1>
+    
+    <div class="content">
+      <p>Most developers are familiar with the <strong>Open-closed Principle</strong> in object-oriented programming. Entities should be open for extension but closed for modification. It serves as a useful guide for software design.</p>
+<blockquote>
+<p>In object-oriented programming, the open/closed principle states &ldquo;software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification&rdquo;; that is, such an entity can allow its behavior to be extended without modifying its source code.</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Open/closed_principle">Open/closed Principle - Wikipedia</a></li>
+</ul>
+</blockquote>
+<p>The philosophy of the open-closed approach is also useful outside of OO development. Last year I joined a new development team that uses <a href="https://jenkins-ci.org/">Jenkins</a>, an open source automation server, to run its continuous builds. It's a small team and each developer is expected to maintain their own builds. Previously, I'd never had to manage Jenkins or any other continuous build system, so it's been a learning process for me.</p>
+<p>Fortunately, I'd worked with devops guru <a href="http://carolynvanslyck.com/">Carolyn Van Slyck</a> with a previous employer. Following her example, I learned how to set up a robust build system where she essentially applied the open-closed principle to her build architecture.</p>
+<h4 id="why-is-this-important">Why Is This Important?</h4>
+<p>Before diving into the details, let's discuss the importance of this type of architecture. The motivation behind this approach was a project where all build steps were saved in the CI automation system. In this case it was <a href="https://www.atlassian.com/software/bamboo">Bamboo</a>.</p>
+<p>At first Bamboo was locked down so only a select few administrators had access. This was a new project so application developers were constantly requesting changes to the build steps. To move things along, developers were given full access to update the Bamboo jobs as needed. This led to chaos. They made daily tweaks with no way to track changes. Failing builds were difficult to diagnose and fix.</p>
+<h4 id="a-better-way">A Better Way</h4>
+<p>For the next project, Carolyn implemented a better solution. She introduced NANT scripts as extension points, and these scripts were committed to the source code repository along with the application code. Each script represented a well known point in the build that developers could tap into. You could have <em>prebuild.build</em> to handle NuGet or NPM dependencies, <em>test.build</em> to run tests, <em>deploy.build</em> to deploy to a hosting environment, etc.</p>
+<p>There was also a bin directory for utilities needed specifically for the build thus alleviating one off installation requests for Bamboo administrators. For example, <a href="http://ctt.codeplex.com/">ctt.exe</a>, a .NET configuration transformation tool, could be committed to <em>bin</em> and be made available for the build without having to install it on the build server.</p>
+<p>The success of this approach made an impression. I took these same ideas and implemented them in my current position. The benefits are twofold.</p>
+<p>One, developers no longer need access to the build system to update build steps. <strong>Administration of the build infrastructure is locked down to a few system admins who focus mostly on scalability and security and not on the details of a specific application.</strong> Build jobs all look the same because they're calling into the same set of scripts every time. In fact, creating a new job is as simple as cloning a template and pointing it to a code repository.</p>
+<p>Two, <strong>application developers can tweak a build simply by editing a script, testing the change locally, and committing it to the source control system</strong>. Changes to the script files are automatically tracked via its version control history. This is a huge help when tracking down issues.</p>
+<p>Currently, I've implemented this approach using Jenkins for the CI system and NANT to handle the steps, but it could apply to any tool. In fact, I'm currently working on a web app where <code>npm run</code> commands are invoked instead of NANT.</p>
+<h4 id="an-example">An Example</h4>
+<p>Below is a screen shot from one of my Jenkins jobs. It's a CI build for a web app and its supporting services. Jenkins handles the source code and compiles the .NET solution (because Jenkins does those two things very well), but otherwise, it invokes the NANT scripts saved in the source repository. These scripts replaced command line steps previously saved in Jenkins.</p>
+<p>In this example, <em>pre-build.build</em> runs first and restores dependencies via NuGet. After the source is compiled by MSBuild, <em>test.build</em> runs the tests. There are additional scripts for packaging and deployment not visible in the screen shot. They run after the tests complete successfully.</p>
+<p><img src="http://media.joebuschmann.com/jenkins.png" alt="Jenkins Job"></p>
+<p>Below is the pre-build NANT script.</p>
+<script src="https://gist.github.com/joebuschmann/52f96cb64e9218ecdd7c9b9c349d4335.js"></script>
+<p>As you can see, developers can modify the build steps without having access to Jenkins. In this case, the project has a Build directory at its root that contains the NANT build scripts. They act as extension points for the build job.</p>
+<p><img src="http://media.joebuschmann.com/build_dir.png" alt="Build Directory"></p>
+<p>This approach allows for a clear separation of concerns. System administrators handle security and performance on the Jenkins server/cluster, and application developers focus on the specifics of their application's build process.</p>
+<p><strong>Each job is open for extension but closed for modification.</strong></p>
+<p>A big thank you to Carolyn Van Slyck whose work inspired this post and who provided valuable feedback. You can find her on <a href="https://twitter.com/carolynvs">Twitter</a> and writing about technology on <a href="http://carolynvanslyck.com/">her blog</a>.</p>
+
+      
+    </div>
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+  
+    <script type="text/javascript">
+      var disqus_shortname = 'joebuschmann';
+      function disqus() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+  
+      disqus();
+  
+
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; Joe Buschmann 2020</p>
+    
+  </div>
+</section>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-64657873-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+</body>
+</html>
+

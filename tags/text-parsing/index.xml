@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>text-parsing on Joe Buschmann</title>
+    <link>https://joebuschmann.com/tags/text-parsing/</link>
+    <description>Recent content in text-parsing on Joe Buschmann</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Joe Buschmann 2020</copyright>
+    <lastBuildDate>Sun, 15 Jan 2012 21:02:30 +0000</lastBuildDate>
+    
+	<atom:link href="https://joebuschmann.com/tags/text-parsing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Text Parsing with F#</title>
+      <link>https://joebuschmann.com/posts/2012-01-15-getting-over-my-fear-of-parsing-text/</link>
+      <pubDate>Sun, 15 Jan 2012 21:02:30 +0000</pubDate>
+      
+      <guid>https://joebuschmann.com/posts/2012-01-15-getting-over-my-fear-of-parsing-text/</guid>
+      <description>IΓÇÖve always had a fear of parsing text.&amp;nbsp; Strange since itΓÇÖs a basic programmerΓÇÖs task.&amp;nbsp; IΓÇÖve always found it to be tedious and boring, and the resulting code is a jumbled mess of indexes and string parsing methods.&amp;nbsp; I avoid it every chance I get.
+And thereΓÇÖs regex.&amp;nbsp; The syntax is cryptic and difficult to remember.&amp;nbsp; ItΓÇÖs another thing I should know well, but, again, I avoid it.
+Recently I decided to come to grips with this weakness and parse a text file containing information about TCP sockets in a TIME_WAIT status.</description>
+    </item>
+    
+  </channel>
+</rss>
