@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>await on Joe Buschmann</title>
-    <link>https://joebuschmann.github.io/tags/await/</link>
+    <link>https://joebuschmann.com/tags/await/</link>
     <description>Recent content in await on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Mon, 15 Aug 2016 13:28:32 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.github.io/tags/await/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joebuschmann.com/tags/await/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>TaskCompletionSource - Bridging the Gap Between Old and New</title>
-      <link>https://joebuschmann.github.io/posts/2016-08-15-taskcompletionsource-bridging-the-gap-between-old-and-new/</link>
+      <link>https://joebuschmann.com/posts/2016-08-15-taskcompletionsource-bridging-the-gap-between-old-and-new/</link>
       <pubDate>Mon, 15 Aug 2016 13:28:32 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/posts/2016-08-15-taskcompletionsource-bridging-the-gap-between-old-and-new/</guid>
+      <guid>https://joebuschmann.com/posts/2016-08-15-taskcompletionsource-bridging-the-gap-between-old-and-new/</guid>
       <description>In the latest versions of the .NET Framework, asynchronous work is represented by the Task class. A task is similar to a future or promise in other languages. You can create one in many ways the most common being Task.Run(). The result of a task is exposed by the Task.Result property. If the work is complete, then the property immediately returns a value; otherwise, it blocks until the operation is finished.</description>
     </item>
     
     <item>
       <title>Async/Await and Recursion</title>
-      <link>https://joebuschmann.github.io/posts/2015-03-25-asyncawait-and-recursion/</link>
+      <link>https://joebuschmann.com/posts/2015-03-25-asyncawait-and-recursion/</link>
       <pubDate>Wed, 25 Mar 2015 18:52:22 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/posts/2015-03-25-asyncawait-and-recursion/</guid>
+      <guid>https://joebuschmann.com/posts/2015-03-25-asyncawait-and-recursion/</guid>
       <description>While using the new async/await keywords in C# 5.0 for the first time, I noticed an interesting aspect to how recursive methods behave when using await. For one method I was working on, Resharper notified me of a possible stack overflow exception with a &amp;ldquo;function is recursive on all paths&amp;rdquo; warning, but it didn&#39;t fail at runtime. Instead, it continued happily calling itself with no issues.
 What keeps it from failing is the use of the await keyword when calling DoWorkAsync().</description>
     </item>

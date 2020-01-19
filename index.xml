@@ -1,22 +1,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Joe Buschmann</title>
-    <link>https://joebuschmann.github.io/</link>
+    <link>https://joebuschmann.com/</link>
     <description>Recent content on Joe Buschmann</description>
     <generator>Hugo - gohugo.io</generator>
     <language>en</language>
     <contact>joseph.buschmann@gmail.com</contact>
     <copyright>&copy; Joe Buschmann 2020</copyright>
     
-        <atom:link href="https://joebuschmann.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://joebuschmann.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Posts</title>
-      <link>https://joebuschmann.github.io/posts/</link>
+      <link>https://joebuschmann.com/posts/</link>
       <pubDate>Thu, 10 Jan 2019 14:29:33 +0000</pubDate>
       <author>Joe Buschmann</author>
-      <guid>https://joebuschmann.github.io/posts/</guid>
+      <guid>https://joebuschmann.com/posts/</guid>
       <description></description>
       
       <content></content>

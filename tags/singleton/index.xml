@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>singleton on Joe Buschmann</title>
-    <link>https://joebuschmann.github.io/tags/singleton/</link>
+    <link>https://joebuschmann.com/tags/singleton/</link>
     <description>Recent content in singleton on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Sat, 01 Dec 2012 23:20:49 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.github.io/tags/singleton/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joebuschmann.com/tags/singleton/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Singleton Access from a Container</title>
-      <link>https://joebuschmann.github.io/posts/2012-12-01-singleton-access-from-a-container/</link>
+      <link>https://joebuschmann.com/posts/2012-12-01-singleton-access-from-a-container/</link>
       <pubDate>Sat, 01 Dec 2012 23:20:49 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/posts/2012-12-01-singleton-access-from-a-container/</guid>
+      <guid>https://joebuschmann.com/posts/2012-12-01-singleton-access-from-a-container/</guid>
       <description>I learned a cool programming technique this week from a co-worker Kelly Brownsberger to enable container access to a singleton.┬á Say you have an interface IApplicationSettings exposed as a static singleton property, but you want to inject it into other classes via a container.┬á The trick is to create another class that implements IApplicationSettings and grabs a reference to the singleton in the constructor.┬á Each implementation of an interface member simply delegates the call to the corresponding member of the singleton reference.</description>
     </item>
     

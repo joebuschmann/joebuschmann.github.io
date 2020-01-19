@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nancy on Joe Buschmann</title>
-    <link>https://joebuschmann.github.io/tags/nancy/</link>
+    <link>https://joebuschmann.com/tags/nancy/</link>
     <description>Recent content in nancy on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Fri, 14 Aug 2015 12:08:00 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.github.io/tags/nancy/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joebuschmann.com/tags/nancy/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>This Week in Programming Gotchas</title>
-      <link>https://joebuschmann.github.io/posts/2015-08-14-this-week-in-programming-gotchas/</link>
+      <link>https://joebuschmann.com/posts/2015-08-14-this-week-in-programming-gotchas/</link>
       <pubDate>Fri, 14 Aug 2015 12:08:00 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/posts/2015-08-14-this-week-in-programming-gotchas/</guid>
+      <guid>https://joebuschmann.com/posts/2015-08-14-this-week-in-programming-gotchas/</guid>
       <description>We all have those days where we spend hours trying to solve a seemingly simple problem only to smack ourselves in the head when we finally figure it out. Missing quotes, forgetting to flush a StreamWriter, etc. If only we could get back all the wasted time.
 Well, this week I wrestled with more gotchas than usual. Below are the ones that burned most of my time.
 Streams Don&#39;t forget to flush a StreamWriter when you&#39;re done.</description>

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>parallel on Joe Buschmann</title>
-    <link>https://joebuschmann.github.io/tags/parallel/</link>
+    <link>https://joebuschmann.com/tags/parallel/</link>
     <description>Recent content in parallel on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Wed, 09 Dec 2015 22:09:29 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.github.io/tags/parallel/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joebuschmann.com/tags/parallel/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A Short and Easy Introduction to .NET&#39;s Task Class</title>
-      <link>https://joebuschmann.github.io/posts/2015-12-09-a-short-and-easy-introduction-to-dotnet-task-class/</link>
+      <link>https://joebuschmann.com/posts/2015-12-09-a-short-and-easy-introduction-to-dotnet-task-class/</link>
       <pubDate>Wed, 09 Dec 2015 22:09:29 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/posts/2015-12-09-a-short-and-easy-introduction-to-dotnet-task-class/</guid>
+      <guid>https://joebuschmann.com/posts/2015-12-09-a-short-and-easy-introduction-to-dotnet-task-class/</guid>
       <description>Task.Run You can use Task.Run to schedule a delegate to run on the thread pool. The method returns a new task, and if the work is complete, the result will be available via Task.Result. If not, Task.Result will block until it is complete.
 Task.ContinueWith You&#39;ll want to avoid accessing the Task.Result property because it will block until the result is ready. In the previous example, the UI will hang for about 2000 milliseconds before updating the label with the result.</description>
     </item>

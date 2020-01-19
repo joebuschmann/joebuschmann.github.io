@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mocks on Joe Buschmann</title>
-    <link>https://joebuschmann.github.io/tags/mocks/</link>
+    <link>https://joebuschmann.com/tags/mocks/</link>
     <description>Recent content in mocks on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Thu, 13 Oct 2011 19:59:54 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.github.io/tags/mocks/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joebuschmann.com/tags/mocks/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Creating Mocks with F# Object Expressions</title>
-      <link>https://joebuschmann.github.io/posts/2011-10-13-creating-mocks-with-f-object-expressions/</link>
+      <link>https://joebuschmann.com/posts/2011-10-13-creating-mocks-with-f-object-expressions/</link>
       <pubDate>Thu, 13 Oct 2011 19:59:54 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/posts/2011-10-13-creating-mocks-with-f-object-expressions/</guid>
+      <guid>https://joebuschmann.com/posts/2011-10-13-creating-mocks-with-f-object-expressions/</guid>
       <description>When I read about F# object expressions, the first thought that popped into my head was to use them to create mocks for unit tests.&amp;nbsp; For those of you who are not familiar with object expressions, they are similar to anonymous classes in Java.&amp;nbsp; They are the object equivalent of lambda functions, and they allow you to create objects that implement an interface or base class without having to declare a new class.</description>
     </item>
     

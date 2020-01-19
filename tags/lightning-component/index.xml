@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>lightning-component on Joe Buschmann</title>
-    <link>https://joebuschmann.github.io/tags/lightning-component/</link>
+    <link>https://joebuschmann.com/tags/lightning-component/</link>
     <description>Recent content in lightning-component on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Mon, 16 Jan 2017 10:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.github.io/tags/lightning-component/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joebuschmann.com/tags/lightning-component/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Salesforce Lightning - Navigation Events in a Visualforce Page</title>
-      <link>https://joebuschmann.github.io/posts/2017-01-16-salesforce-lightning-navigation-events-in-a-visualforce-page/</link>
+      <link>https://joebuschmann.com/posts/2017-01-16-salesforce-lightning-navigation-events-in-a-visualforce-page/</link>
       <pubDate>Mon, 16 Jan 2017 10:00:00 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/posts/2017-01-16-salesforce-lightning-navigation-events-in-a-visualforce-page/</guid>
+      <guid>https://joebuschmann.com/posts/2017-01-16-salesforce-lightning-navigation-events-in-a-visualforce-page/</guid>
       <description>In my previous post, I covered how to use a Lightning component in a Visualforce (VF) page and mentioned an issue with navigation events. These events no longer work. The problem is VF pages are loaded into an iframe element in the Lightning Experience. Navigation events like force:navigateToObjectHome are handled by the one.app container in the parent frame. Events raised in the VF page stop at the iframe boundary and don&#39;t bubble up into the parent frame.</description>
     </item>
     
     <item>
       <title>Salesforce Lightning - Hosting a Component in Visualforce</title>
-      <link>https://joebuschmann.github.io/posts/2017-01-16-salesforce-lightning-hosting-a-component-in-visualforce/</link>
+      <link>https://joebuschmann.com/posts/2017-01-16-salesforce-lightning-hosting-a-component-in-visualforce/</link>
       <pubDate>Mon, 16 Jan 2017 08:40:00 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/posts/2017-01-16-salesforce-lightning-hosting-a-component-in-visualforce/</guid>
+      <guid>https://joebuschmann.com/posts/2017-01-16-salesforce-lightning-hosting-a-component-in-visualforce/</guid>
       <description>You may be familiar with overriding the editing experience for a Salesforce object with a custom Visualforce (VF) page. When users choose the new or edit actions for an object record, they get a customized view rather than the standard Salesforce view. I wanted to convert a custom edit view written in Visualforce over to Lightning. What I thought would take a day ended up consuming the better part of a week.</description>
     </item>
     
     <item>
       <title>Salesforce Lightning - Fixing the Built-in Components</title>
-      <link>https://joebuschmann.github.io/posts/2016-11-28-salesforce-lightning-fixing-the-built-in-components/</link>
+      <link>https://joebuschmann.com/posts/2016-11-28-salesforce-lightning-fixing-the-built-in-components/</link>
       <pubDate>Mon, 28 Nov 2016 14:21:45 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/posts/2016-11-28-salesforce-lightning-fixing-the-built-in-components/</guid>
+      <guid>https://joebuschmann.com/posts/2016-11-28-salesforce-lightning-fixing-the-built-in-components/</guid>
       <description>If you&#39;ve developed with the Salesforce Lightning Framework, you&#39;re probably familiar with the Lightning components available in the UI namespace. They include ui:button and ui:inputText among others. These out-of-the-box components are intended to get you up and running quickly, but the reality is they&#39;re pretty buggy. It can take some tweaking to get them to look right.
 Issues with ui:inputDateTime A prime example of this is ui:inputDateTime. If you use it in conjunction with the SLDS classes slds-input and slds-form-element__label, the component&#39;s layout gets out of whack.</description>
     </item>
     
     <item>
       <title>Salesforce Lightning - The Bad Parts</title>
-      <link>https://joebuschmann.github.io/posts/2016-11-18-salesforce-lightning-the-bad-parts/</link>
+      <link>https://joebuschmann.com/posts/2016-11-18-salesforce-lightning-the-bad-parts/</link>
       <pubDate>Fri, 18 Nov 2016 14:25:00 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/posts/2016-11-18-salesforce-lightning-the-bad-parts/</guid>
+      <guid>https://joebuschmann.com/posts/2016-11-18-salesforce-lightning-the-bad-parts/</guid>
       <description>I try to avoid writing rants, but after a rough day, I needed to get this out. For the last two months, I&#39;ve been working with the Salesforce Lightning Framework. It is the most frustrating JavaScript framework I&#39;ve ever used. Unlike my experiences with Angular, React, and Knockout, I feel like Lightning is constantly fighting me. Technically it is built on the open source Aura framework, so this is an Aura critique as well.</description>
     </item>
     
     <item>
       <title>Callbacks As Lightning Component Attributes</title>
-      <link>https://joebuschmann.github.io/posts/2016-10-25-callbacks-as-lightning-component-attributes/</link>
+      <link>https://joebuschmann.com/posts/2016-10-25-callbacks-as-lightning-component-attributes/</link>
       <pubDate>Tue, 25 Oct 2016 14:15:44 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/posts/2016-10-25-callbacks-as-lightning-component-attributes/</guid>
+      <guid>https://joebuschmann.com/posts/2016-10-25-callbacks-as-lightning-component-attributes/</guid>
       <description>Last week I posed a question on salesforce.stackexchange.com asking how to pass a function as an attribute in a Lightning Component. As a newbie to the Lightning Component framework (and the Salesforce platform), I found it odd callbacks were not included as one of the supported attribute types. The dearth of responses to my question surprised me. Eventually I found the answer when researching Component Events.
 Lightning Events Before I elaborate, I have to say the Lightning framework&#39;s approach to callbacks or events seems excessive.</description>
     </item>

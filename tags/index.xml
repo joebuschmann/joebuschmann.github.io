@@ -2,454 +2,454 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Joe Buschmann</title>
-    <link>https://joebuschmann.github.io/tags/</link>
+    <link>https://joebuschmann.com/tags/</link>
     <description>Recent content in Tags on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Thu, 10 Jan 2019 14:29:33 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://joebuschmann.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>sql</title>
-      <link>https://joebuschmann.github.io/tags/sql/</link>
+      <link>https://joebuschmann.com/tags/sql/</link>
       <pubDate>Thu, 10 Jan 2019 14:29:33 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/sql/</guid>
+      <guid>https://joebuschmann.com/tags/sql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sql-server</title>
-      <link>https://joebuschmann.github.io/tags/sql-server/</link>
+      <link>https://joebuschmann.com/tags/sql-server/</link>
       <pubDate>Thu, 10 Jan 2019 14:29:33 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/sql-server/</guid>
+      <guid>https://joebuschmann.com/tags/sql-server/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tsql</title>
-      <link>https://joebuschmann.github.io/tags/tsql/</link>
+      <link>https://joebuschmann.com/tags/tsql/</link>
       <pubDate>Thu, 10 Jan 2019 14:29:33 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/tsql/</guid>
+      <guid>https://joebuschmann.com/tags/tsql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>c</title>
-      <link>https://joebuschmann.github.io/tags/c/</link>
+      <link>https://joebuschmann.com/tags/c/</link>
       <pubDate>Fri, 31 Aug 2018 01:07:38 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/c/</guid>
+      <guid>https://joebuschmann.com/tags/c/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gherkin</title>
-      <link>https://joebuschmann.github.io/tags/gherkin/</link>
+      <link>https://joebuschmann.com/tags/gherkin/</link>
       <pubDate>Fri, 31 Aug 2018 01:07:38 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/gherkin/</guid>
+      <guid>https://joebuschmann.com/tags/gherkin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>net</title>
-      <link>https://joebuschmann.github.io/tags/net/</link>
+      <link>https://joebuschmann.com/tags/net/</link>
       <pubDate>Fri, 31 Aug 2018 01:07:38 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/net/</guid>
+      <guid>https://joebuschmann.com/tags/net/</guid>
       <description></description>
     </item>
     
     <item>
       <title>specflow</title>
-      <link>https://joebuschmann.github.io/tags/specflow/</link>
+      <link>https://joebuschmann.com/tags/specflow/</link>
       <pubDate>Fri, 31 Aug 2018 01:07:38 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/specflow/</guid>
+      <guid>https://joebuschmann.com/tags/specflow/</guid>
       <description></description>
     </item>
     
     <item>
       <title>fun</title>
-      <link>https://joebuschmann.github.io/tags/fun/</link>
+      <link>https://joebuschmann.com/tags/fun/</link>
       <pubDate>Fri, 24 Aug 2018 22:53:11 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/fun/</guid>
+      <guid>https://joebuschmann.com/tags/fun/</guid>
       <description></description>
     </item>
     
     <item>
       <title>off-topic</title>
-      <link>https://joebuschmann.github.io/tags/off-topic/</link>
+      <link>https://joebuschmann.com/tags/off-topic/</link>
       <pubDate>Fri, 24 Aug 2018 22:53:11 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/off-topic/</guid>
+      <guid>https://joebuschmann.com/tags/off-topic/</guid>
       <description></description>
     </item>
     
     <item>
       <title>transportation</title>
-      <link>https://joebuschmann.github.io/tags/transportation/</link>
+      <link>https://joebuschmann.com/tags/transportation/</link>
       <pubDate>Fri, 24 Aug 2018 22:53:11 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/transportation/</guid>
+      <guid>https://joebuschmann.com/tags/transportation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>self-improvement</title>
-      <link>https://joebuschmann.github.io/tags/self-improvement/</link>
+      <link>https://joebuschmann.com/tags/self-improvement/</link>
       <pubDate>Tue, 30 May 2017 20:30:44 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/self-improvement/</guid>
+      <guid>https://joebuschmann.com/tags/self-improvement/</guid>
       <description></description>
     </item>
     
     <item>
       <title>selenium</title>
-      <link>https://joebuschmann.github.io/tags/selenium/</link>
+      <link>https://joebuschmann.com/tags/selenium/</link>
       <pubDate>Tue, 30 May 2017 19:54:01 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/selenium/</guid>
+      <guid>https://joebuschmann.com/tags/selenium/</guid>
       <description></description>
     </item>
     
     <item>
       <title>donald-trump</title>
-      <link>https://joebuschmann.github.io/tags/donald-trump/</link>
+      <link>https://joebuschmann.com/tags/donald-trump/</link>
       <pubDate>Fri, 10 Feb 2017 14:33:58 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/donald-trump/</guid>
+      <guid>https://joebuschmann.com/tags/donald-trump/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sociopath</title>
-      <link>https://joebuschmann.github.io/tags/sociopath/</link>
+      <link>https://joebuschmann.com/tags/sociopath/</link>
       <pubDate>Fri, 10 Feb 2017 14:33:58 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/sociopath/</guid>
+      <guid>https://joebuschmann.com/tags/sociopath/</guid>
       <description></description>
     </item>
     
     <item>
       <title>lightning</title>
-      <link>https://joebuschmann.github.io/tags/lightning/</link>
+      <link>https://joebuschmann.com/tags/lightning/</link>
       <pubDate>Mon, 16 Jan 2017 10:00:00 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/lightning/</guid>
+      <guid>https://joebuschmann.com/tags/lightning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>lightning-component</title>
-      <link>https://joebuschmann.github.io/tags/lightning-component/</link>
+      <link>https://joebuschmann.com/tags/lightning-component/</link>
       <pubDate>Mon, 16 Jan 2017 10:00:00 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/lightning-component/</guid>
+      <guid>https://joebuschmann.com/tags/lightning-component/</guid>
       <description></description>
     </item>
     
     <item>
       <title>salesforce</title>
-      <link>https://joebuschmann.github.io/tags/salesforce/</link>
+      <link>https://joebuschmann.com/tags/salesforce/</link>
       <pubDate>Mon, 16 Jan 2017 10:00:00 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/salesforce/</guid>
+      <guid>https://joebuschmann.com/tags/salesforce/</guid>
       <description></description>
     </item>
     
     <item>
       <title>exercise</title>
-      <link>https://joebuschmann.github.io/tags/exercise/</link>
+      <link>https://joebuschmann.com/tags/exercise/</link>
       <pubDate>Fri, 09 Sep 2016 14:48:07 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/exercise/</guid>
+      <guid>https://joebuschmann.com/tags/exercise/</guid>
       <description></description>
     </item>
     
     <item>
       <title>physical-fitness</title>
-      <link>https://joebuschmann.github.io/tags/physical-fitness/</link>
+      <link>https://joebuschmann.com/tags/physical-fitness/</link>
       <pubDate>Fri, 09 Sep 2016 14:48:07 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/physical-fitness/</guid>
+      <guid>https://joebuschmann.com/tags/physical-fitness/</guid>
       <description></description>
     </item>
     
     <item>
       <title>workout</title>
-      <link>https://joebuschmann.github.io/tags/workout/</link>
+      <link>https://joebuschmann.com/tags/workout/</link>
       <pubDate>Fri, 09 Sep 2016 14:48:07 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/workout/</guid>
+      <guid>https://joebuschmann.com/tags/workout/</guid>
       <description></description>
     </item>
     
     <item>
       <title>async</title>
-      <link>https://joebuschmann.github.io/tags/async/</link>
+      <link>https://joebuschmann.com/tags/async/</link>
       <pubDate>Mon, 15 Aug 2016 13:28:32 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/async/</guid>
+      <guid>https://joebuschmann.com/tags/async/</guid>
       <description></description>
     </item>
     
     <item>
       <title>await</title>
-      <link>https://joebuschmann.github.io/tags/await/</link>
+      <link>https://joebuschmann.com/tags/await/</link>
       <pubDate>Mon, 15 Aug 2016 13:28:32 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/await/</guid>
+      <guid>https://joebuschmann.com/tags/await/</guid>
       <description></description>
     </item>
     
     <item>
       <title>task</title>
-      <link>https://joebuschmann.github.io/tags/task/</link>
+      <link>https://joebuschmann.com/tags/task/</link>
       <pubDate>Mon, 15 Aug 2016 13:28:32 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/task/</guid>
+      <guid>https://joebuschmann.com/tags/task/</guid>
       <description></description>
     </item>
     
     <item>
       <title>javascript</title>
-      <link>https://joebuschmann.github.io/tags/javascript/</link>
+      <link>https://joebuschmann.com/tags/javascript/</link>
       <pubDate>Sun, 31 Jul 2016 19:30:54 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/javascript/</guid>
+      <guid>https://joebuschmann.com/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jsx</title>
-      <link>https://joebuschmann.github.io/tags/jsx/</link>
+      <link>https://joebuschmann.com/tags/jsx/</link>
       <pubDate>Sun, 31 Jul 2016 19:30:54 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/jsx/</guid>
+      <guid>https://joebuschmann.com/tags/jsx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>react</title>
-      <link>https://joebuschmann.github.io/tags/react/</link>
+      <link>https://joebuschmann.com/tags/react/</link>
       <pubDate>Sun, 31 Jul 2016 19:30:54 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/react/</guid>
+      <guid>https://joebuschmann.com/tags/react/</guid>
       <description></description>
     </item>
     
     <item>
       <title>chrome</title>
-      <link>https://joebuschmann.github.io/tags/chrome/</link>
+      <link>https://joebuschmann.com/tags/chrome/</link>
       <pubDate>Fri, 08 Jul 2016 01:04:00 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/chrome/</guid>
+      <guid>https://joebuschmann.com/tags/chrome/</guid>
       <description></description>
     </item>
     
     <item>
       <title>firefox</title>
-      <link>https://joebuschmann.github.io/tags/firefox/</link>
+      <link>https://joebuschmann.com/tags/firefox/</link>
       <pubDate>Fri, 08 Jul 2016 01:04:00 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/firefox/</guid>
+      <guid>https://joebuschmann.com/tags/firefox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>osx</title>
-      <link>https://joebuschmann.github.io/tags/osx/</link>
+      <link>https://joebuschmann.com/tags/osx/</link>
       <pubDate>Fri, 08 Jul 2016 01:04:00 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/osx/</guid>
+      <guid>https://joebuschmann.com/tags/osx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>parallel</title>
-      <link>https://joebuschmann.github.io/tags/parallel/</link>
+      <link>https://joebuschmann.com/tags/parallel/</link>
       <pubDate>Wed, 09 Dec 2015 22:09:29 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/parallel/</guid>
+      <guid>https://joebuschmann.com/tags/parallel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>iis</title>
-      <link>https://joebuschmann.github.io/tags/iis/</link>
+      <link>https://joebuschmann.com/tags/iis/</link>
       <pubDate>Sat, 14 Nov 2015 23:33:47 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/iis/</guid>
+      <guid>https://joebuschmann.com/tags/iis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>knockout-js</title>
-      <link>https://joebuschmann.github.io/tags/knockout-js/</link>
+      <link>https://joebuschmann.com/tags/knockout-js/</link>
       <pubDate>Fri, 14 Aug 2015 12:08:00 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/knockout-js/</guid>
+      <guid>https://joebuschmann.com/tags/knockout-js/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nancy</title>
-      <link>https://joebuschmann.github.io/tags/nancy/</link>
+      <link>https://joebuschmann.com/tags/nancy/</link>
       <pubDate>Fri, 14 Aug 2015 12:08:00 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/nancy/</guid>
+      <guid>https://joebuschmann.com/tags/nancy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>best-practices-2</title>
-      <link>https://joebuschmann.github.io/tags/best-practices-2/</link>
+      <link>https://joebuschmann.com/tags/best-practices-2/</link>
       <pubDate>Thu, 06 Aug 2015 15:22:10 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/best-practices-2/</guid>
+      <guid>https://joebuschmann.com/tags/best-practices-2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>code-this-not-that</title>
-      <link>https://joebuschmann.github.io/tags/code-this-not-that/</link>
+      <link>https://joebuschmann.com/tags/code-this-not-that/</link>
       <pubDate>Mon, 29 Dec 2014 20:06:20 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/code-this-not-that/</guid>
+      <guid>https://joebuschmann.com/tags/code-this-not-that/</guid>
       <description></description>
     </item>
     
     <item>
       <title>automation</title>
-      <link>https://joebuschmann.github.io/tags/automation/</link>
+      <link>https://joebuschmann.com/tags/automation/</link>
       <pubDate>Sun, 21 Dec 2014 15:18:03 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/automation/</guid>
+      <guid>https://joebuschmann.com/tags/automation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ghost-post</title>
-      <link>https://joebuschmann.github.io/tags/ghost-post/</link>
+      <link>https://joebuschmann.com/tags/ghost-post/</link>
       <pubDate>Fri, 26 Sep 2014 16:26:51 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/ghost-post/</guid>
+      <guid>https://joebuschmann.com/tags/ghost-post/</guid>
       <description></description>
     </item>
     
     <item>
       <title>appcmd</title>
-      <link>https://joebuschmann.github.io/tags/appcmd/</link>
+      <link>https://joebuschmann.com/tags/appcmd/</link>
       <pubDate>Mon, 02 Jun 2014 14:04:48 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/appcmd/</guid>
+      <guid>https://joebuschmann.com/tags/appcmd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>fit-js</title>
-      <link>https://joebuschmann.github.io/tags/fit-js/</link>
+      <link>https://joebuschmann.com/tags/fit-js/</link>
       <pubDate>Tue, 22 Apr 2014 01:10:56 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/fit-js/</guid>
+      <guid>https://joebuschmann.com/tags/fit-js/</guid>
       <description></description>
     </item>
     
     <item>
       <title>singleton</title>
-      <link>https://joebuschmann.github.io/tags/singleton/</link>
+      <link>https://joebuschmann.com/tags/singleton/</link>
       <pubDate>Sat, 01 Dec 2012 23:20:49 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/singleton/</guid>
+      <guid>https://joebuschmann.com/tags/singleton/</guid>
       <description></description>
     </item>
     
     <item>
       <title>winforms</title>
-      <link>https://joebuschmann.github.io/tags/winforms/</link>
+      <link>https://joebuschmann.com/tags/winforms/</link>
       <pubDate>Mon, 12 Mar 2012 19:58:25 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/winforms/</guid>
+      <guid>https://joebuschmann.com/tags/winforms/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wpf</title>
-      <link>https://joebuschmann.github.io/tags/wpf/</link>
+      <link>https://joebuschmann.com/tags/wpf/</link>
       <pubDate>Mon, 12 Mar 2012 19:58:25 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/wpf/</guid>
+      <guid>https://joebuschmann.com/tags/wpf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>f</title>
-      <link>https://joebuschmann.github.io/tags/f/</link>
+      <link>https://joebuschmann.com/tags/f/</link>
       <pubDate>Tue, 14 Feb 2012 21:06:32 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/f/</guid>
+      <guid>https://joebuschmann.com/tags/f/</guid>
       <description></description>
     </item>
     
     <item>
       <title>patterns</title>
-      <link>https://joebuschmann.github.io/tags/patterns/</link>
+      <link>https://joebuschmann.com/tags/patterns/</link>
       <pubDate>Mon, 30 Jan 2012 20:38:44 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/patterns/</guid>
+      <guid>https://joebuschmann.com/tags/patterns/</guid>
       <description></description>
     </item>
     
     <item>
       <title>unit-testing</title>
-      <link>https://joebuschmann.github.io/tags/unit-testing/</link>
+      <link>https://joebuschmann.com/tags/unit-testing/</link>
       <pubDate>Mon, 30 Jan 2012 20:38:44 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/unit-testing/</guid>
+      <guid>https://joebuschmann.com/tags/unit-testing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>text-parsing</title>
-      <link>https://joebuschmann.github.io/tags/text-parsing/</link>
+      <link>https://joebuschmann.com/tags/text-parsing/</link>
       <pubDate>Sun, 15 Jan 2012 21:02:30 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/text-parsing/</guid>
+      <guid>https://joebuschmann.com/tags/text-parsing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mocks</title>
-      <link>https://joebuschmann.github.io/tags/mocks/</link>
+      <link>https://joebuschmann.com/tags/mocks/</link>
       <pubDate>Thu, 13 Oct 2011 19:59:54 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/mocks/</guid>
+      <guid>https://joebuschmann.com/tags/mocks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>object-expressions</title>
-      <link>https://joebuschmann.github.io/tags/object-expressions/</link>
+      <link>https://joebuschmann.com/tags/object-expressions/</link>
       <pubDate>Thu, 13 Oct 2011 19:59:54 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/object-expressions/</guid>
+      <guid>https://joebuschmann.com/tags/object-expressions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>xaml</title>
-      <link>https://joebuschmann.github.io/tags/xaml/</link>
+      <link>https://joebuschmann.com/tags/xaml/</link>
       <pubDate>Thu, 06 Oct 2011 19:45:09 +0000</pubDate>
       
-      <guid>https://joebuschmann.github.io/tags/xaml/</guid>
+      <guid>https://joebuschmann.com/tags/xaml/</guid>
       <description></description>
     </item>
     
