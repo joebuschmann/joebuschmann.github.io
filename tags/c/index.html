@@ -839,7 +839,7 @@ A good example can be found in the Specflow source code. The TechTalk.SpecFlow.A
       <h2 class="subtitle is-6 date">December 1, 2012</h2>
       <h1 class="title"><a href="/posts/2012-12-01-singleton-access-from-a-container/">Singleton Access from a Container</a></h1>
       <div class="content">
-        I learned a cool programming technique this week from a co-worker Kelly Brownsberger to enable container access to a singleton.┬á Say you have an interface IApplicationSettings exposed as a static singleton property, but you want to inject it into other classes via a container.┬á The trick is to create another class that implements IApplicationSettings and grabs a reference to the singleton in the constructor.┬á Each implementation of an interface member simply delegates the call to the corresponding member of the singleton reference.
+        I learned a cool programming technique this week from a co-worker Kelly Brownsberger to enable container access to a singleton. Say you have an interface IApplicationSettings exposed as a static singleton property, but you want to inject it into other classes via a container. The trick is to create another class that implements IApplicationSettings and grabs a reference to the singleton in the constructor. Each implementation of an interface member simply delegates the call to the corresponding member of the singleton reference.
         
         <a class="button is-link" href="/posts/2012-12-01-singleton-access-from-a-container/" style="height:28px">
           Read more
@@ -931,8 +931,8 @@ Below is an example of this scenario.&nbsp; It is a Windows form with a single c
       <h2 class="subtitle is-6 date">January 30, 2012</h2>
       <h1 class="title"><a href="/posts/2012-01-30-the-best-design-patterns/">The Best Design Patterns</a></h1>
       <div class="content">
-        The first time I read the Gang of Four Design Patterns book, I was impressed, no blown away, by the brilliance of what I was reading.┬á The Visitor pattern utilizing double-dispatch.┬á Brilliant.┬á Chain of Responsibility.┬á Why didn't I think of that?┬á Adapter.┬á Simple and powerful.
-Of course I was itching to start implementing these patterns.┬á In practice though they seemed to be applicable only in rare situations.┬á Adapter, Builder, Factory, Strategy, were the most useful.
+        The first time I read the Gang of Four Design Patterns book, I was impressed, no blown away, by the brilliance of what I was reading. The Visitor pattern utilizing double-dispatch. Brilliant. Chain of Responsibility. Why didn't I think of that? Adapter. Simple and powerful.
+Of course I was itching to start implementing these patterns. In practice though they seemed to be applicable only in rare situations. Adapter, Builder, Factory, Strategy, were the most useful.
         
         <a class="button is-link" href="/posts/2012-01-30-the-best-design-patterns/" style="height:28px">
           Read more
@@ -960,7 +960,7 @@ Of course I was itching to start implementing these patterns.┬á In practice t
       <h2 class="subtitle is-6 date">October 6, 2011</h2>
       <h1 class="title"><a href="/posts/2011-10-06-creating-a-crawl-control-in-wpf/">Creating a Crawl Control in WPF</a></h1>
       <div class="content">
-        A few weeks ago I was watching CNN when an interesting blurb scrolled by on the crawl at the bottom of the screen.&nbsp; Normally, the crawl is not something I notice, but I thought to myself, ΓÇ£I wonder if I can implement one in WPF.ΓÇ¥&nbsp; I had never done any animations before in WPF, and this seemed like a good way to start.
+        A few weeks ago I was watching CNN when an interesting blurb scrolled by on the crawl at the bottom of the screen.&nbsp; Normally, the crawl is not something I notice, but I thought to myself, "I wonder if I can implement one in WPF."&nbsp; I had never done any animations before in WPF, and this seemed like a good way to start.
 So I gave it a shot.
 My initial instinct was to bring up Google and see if anyone else had done it.
         
@@ -988,7 +988,7 @@ My initial instinct was to bring up Google and see if anyone else had done it.
       <h2 class="subtitle is-6 date">August 15, 2011</h2>
       <h1 class="title"><a href="/posts/2011-08-15-the-dangers-of-mutable-data/">The Dangers of Mutable Data</a></h1>
       <div class="content">
-        I recently came across a bug in some C# code that would never have been a problem if the data structures being used were immutable.┬á The data consisted of a .NET dictionary with an integer key and a list as a value.┬á The details below have been changed to protect the guilty.
+        I recently came across a bug in some C# code that would never have been a problem if the data structures being used were immutable. The data consisted of a .NET dictionary with an integer key and a list as a value. The details below have been changed to protect the guilty.
 The offending method takes customer and product objects as parameters and retrieves a list of available pricing for the customer from a dictionary using the product ID as the key.
         
         <a class="button is-link" href="/posts/2011-08-15-the-dangers-of-mutable-data/" style="height:28px">
@@ -1017,7 +1017,7 @@ The offending method takes customer and product objects as parameters and retrie
       <h2 class="subtitle is-6 date">July 28, 2011</h2>
       <h1 class="title"><a href="/posts/2011-07-28-best-practices-for-creating-and-consuming-modal-dialogs-in-winforms/">Best Practices for Creating and Consuming Modal Dialogs in WinForms</a></h1>
       <div class="content">
-        This is an article I wrote a few years ago after seeing some bad coding practices around modal dialogs in WinForms.┬á Bad habits like explicitly closing the dialog form and using custom OK/Cancel flags irked me, so I came up with some best practices.┬á I hope you find them useful.
+        This is an article I wrote a few years ago after seeing some bad coding practices around modal dialogs in WinForms. Bad habits like explicitly closing the dialog form and using custom OK/Cancel flags irked me, so I came up with some best practices. I hope you find them useful.
 Tip 1: Set the AcceptButton and CancelButton properties
 Windows Forms have two properties, AcceptButton and CancelButton, for determining what should be done when the user presses the Enter or Escape keys.
         

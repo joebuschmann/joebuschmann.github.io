@@ -109,7 +109,7 @@
     <h1 class="title">Best Practices for Creating and Consuming Modal Dialogs in WinForms</h1>
     
     <div class="content">
-      <p>This is an article I wrote a few years ago after seeing some bad coding practices around modal dialogs in WinForms.┬á Bad habits like explicitly closing the dialog form and using custom OK/Cancel flags irked me, so I came up with some best practices.┬á I hope you find them useful.</p>
+      <p>This is an article I wrote a few years ago after seeing some bad coding practices around modal dialogs in WinForms. Bad habits like explicitly closing the dialog form and using custom OK/Cancel flags irked me, so I came up with some best practices. I hope you find them useful.</p>
 <p><strong>Tip 1: Set the AcceptButton and CancelButton properties</strong></p>
 <p>Windows Forms have two properties, <em>AcceptButton</em> and <em>CancelButton</em>, for determining what should be done when the user presses the Enter or Escape keys. You can set the <em>AcceptButton</em> property value to the name of an existing button on the form, normally an OK or Yes button, to fire that button's click event when the user presses the Enter key. Similarly, you can set the <em>CancelButton</em> property to an Cancel or No button to fire that button's click event when the user presses the Escape key.</p>
 <p><img src="/images/formproperties.png" alt="AcceptButton and CancelButton properties"></p>

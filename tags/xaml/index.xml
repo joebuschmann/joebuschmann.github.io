@@ -18,7 +18,7 @@
       <pubDate>Thu, 06 Oct 2011 19:45:09 +0000</pubDate>
       
       <guid>/posts/2011-10-06-creating-a-crawl-control-in-wpf/</guid>
-      <description>A few weeks ago I was watching CNN when an interesting blurb scrolled by on the crawl at the bottom of the screen.&amp;nbsp; Normally, the crawl is not something I notice, but I thought to myself, ΓÇ£I wonder if I can implement one in WPF.ΓÇ¥&amp;nbsp; I had never done any animations before in WPF, and this seemed like a good way to start.
+      <description>A few weeks ago I was watching CNN when an interesting blurb scrolled by on the crawl at the bottom of the screen.&amp;nbsp; Normally, the crawl is not something I notice, but I thought to myself, &#34;I wonder if I can implement one in WPF.&#34;&amp;nbsp; I had never done any animations before in WPF, and this seemed like a good way to start.
 So I gave it a shot.
 My initial instinct was to bring up Google and see if anyone else had done it.</description>
     </item>

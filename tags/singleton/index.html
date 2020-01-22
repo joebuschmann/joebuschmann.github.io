@@ -108,7 +108,7 @@
       <h2 class="subtitle is-6 date">December 1, 2012</h2>
       <h1 class="title"><a href="/posts/2012-12-01-singleton-access-from-a-container/">Singleton Access from a Container</a></h1>
       <div class="content">
-        I learned a cool programming technique this week from a co-worker Kelly Brownsberger to enable container access to a singleton.┬á Say you have an interface IApplicationSettings exposed as a static singleton property, but you want to inject it into other classes via a container.┬á The trick is to create another class that implements IApplicationSettings and grabs a reference to the singleton in the constructor.┬á Each implementation of an interface member simply delegates the call to the corresponding member of the singleton reference.
+        I learned a cool programming technique this week from a co-worker Kelly Brownsberger to enable container access to a singleton. Say you have an interface IApplicationSettings exposed as a static singleton property, but you want to inject it into other classes via a container. The trick is to create another class that implements IApplicationSettings and grabs a reference to the singleton in the constructor. Each implementation of an interface member simply delegates the call to the corresponding member of the singleton reference.
         
         <a class="button is-link" href="/posts/2012-12-01-singleton-access-from-a-container/" style="height:28px">
           Read more

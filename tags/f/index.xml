@@ -28,8 +28,8 @@ Below is an example of this scenario.&amp;nbsp; It is a Windows form with a sing
       <pubDate>Sun, 15 Jan 2012 21:02:30 +0000</pubDate>
       
       <guid>/posts/2012-01-15-getting-over-my-fear-of-parsing-text/</guid>
-      <description>IΓÇÖve always had a fear of parsing text.&amp;nbsp; Strange since itΓÇÖs a basic programmerΓÇÖs task.&amp;nbsp; IΓÇÖve always found it to be tedious and boring, and the resulting code is a jumbled mess of indexes and string parsing methods.&amp;nbsp; I avoid it every chance I get.
-And thereΓÇÖs regex.&amp;nbsp; The syntax is cryptic and difficult to remember.&amp;nbsp; ItΓÇÖs another thing I should know well, but, again, I avoid it.
+      <description>I&#39;ve always had a fear of parsing text.&amp;nbsp; Strange since it&#39;s a basic programmer&#39;s task.&amp;nbsp; I&#39;ve always found it to be tedious and boring, and the resulting code is a jumbled mess of indexes and string parsing methods.&amp;nbsp; I avoid it every chance I get.
+And there&#39;s regex.&amp;nbsp; The syntax is cryptic and difficult to remember.&amp;nbsp; It&#39;s another thing I should know well, but, again, I avoid it.
 Recently I decided to come to grips with this weakness and parse a text file containing information about TCP sockets in a TIME_WAIT status.</description>
     </item>
     
@@ -48,8 +48,8 @@ Recently I decided to come to grips with this weakness and parse a text file con
       <pubDate>Mon, 18 Jul 2011 19:35:42 +0000</pubDate>
       
       <guid>/posts/2011-07-18-f-functions-tuple-syntax/</guid>
-      <description>I&#39;m relatively new to F# and functional programming and recently worked through an issue that had me perplexed.┬á The issue was with creating functions with the ΓÇ£tuple syntaxΓÇ¥ versus the normal syntax of separating arguments by spaces.
-Consider the simple functions below that adds numeric arguments together.┬á They are constructed in two ways.┬á The first is by using a tuple to group the two arguments together.┬á It looks very similar to the syntax from other languages such as C#.</description>
+      <description>I&#39;m relatively new to F# and functional programming and recently worked through an issue that had me perplexed. The issue was with creating functions with the &amp;ldquo;tuple syntax&amp;rdquo; versus the normal syntax of separating arguments by spaces.
+Consider the simple functions below that adds numeric arguments together. They are constructed in two ways. The first is by using a tuple to group the two arguments together. It looks very similar to the syntax from other languages such as C#.</description>
     </item>
     
     <item>

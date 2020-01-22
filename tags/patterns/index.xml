@@ -18,8 +18,8 @@
       <pubDate>Mon, 30 Jan 2012 20:38:44 +0000</pubDate>
       
       <guid>/posts/2012-01-30-the-best-design-patterns/</guid>
-      <description>The first time I read the Gang of Four Design Patterns book, I was impressed, no blown away, by the brilliance of what I was reading.┬á The Visitor pattern utilizing double-dispatch.┬á Brilliant.┬á Chain of Responsibility.┬á Why didn&#39;t I think of that?┬á Adapter.┬á Simple and powerful.
-Of course I was itching to start implementing these patterns.┬á In practice though they seemed to be applicable only in rare situations.┬á Adapter, Builder, Factory, Strategy, were the most useful.</description>
+      <description>The first time I read the Gang of Four Design Patterns book, I was impressed, no blown away, by the brilliance of what I was reading. The Visitor pattern utilizing double-dispatch. Brilliant. Chain of Responsibility. Why didn&#39;t I think of that? Adapter. Simple and powerful.
+Of course I was itching to start implementing these patterns. In practice though they seemed to be applicable only in rare situations. Adapter, Builder, Factory, Strategy, were the most useful.</description>
     </item>
     
   </channel>

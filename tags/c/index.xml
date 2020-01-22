@@ -270,7 +270,7 @@ A good example can be found in the Specflow source code. The TechTalk.SpecFlow.A
       <pubDate>Sat, 01 Dec 2012 23:20:49 +0000</pubDate>
       
       <guid>/posts/2012-12-01-singleton-access-from-a-container/</guid>
-      <description>I learned a cool programming technique this week from a co-worker Kelly Brownsberger to enable container access to a singleton.┬á Say you have an interface IApplicationSettings exposed as a static singleton property, but you want to inject it into other classes via a container.┬á The trick is to create another class that implements IApplicationSettings and grabs a reference to the singleton in the constructor.┬á Each implementation of an interface member simply delegates the call to the corresponding member of the singleton reference.</description>
+      <description>I learned a cool programming technique this week from a co-worker Kelly Brownsberger to enable container access to a singleton. Say you have an interface IApplicationSettings exposed as a static singleton property, but you want to inject it into other classes via a container. The trick is to create another class that implements IApplicationSettings and grabs a reference to the singleton in the constructor. Each implementation of an interface member simply delegates the call to the corresponding member of the singleton reference.</description>
     </item>
     
     <item>
@@ -299,8 +299,8 @@ Below is an example of this scenario.&amp;nbsp; It is a Windows form with a sing
       <pubDate>Mon, 30 Jan 2012 20:38:44 +0000</pubDate>
       
       <guid>/posts/2012-01-30-the-best-design-patterns/</guid>
-      <description>The first time I read the Gang of Four Design Patterns book, I was impressed, no blown away, by the brilliance of what I was reading.┬á The Visitor pattern utilizing double-dispatch.┬á Brilliant.┬á Chain of Responsibility.┬á Why didn&#39;t I think of that?┬á Adapter.┬á Simple and powerful.
-Of course I was itching to start implementing these patterns.┬á In practice though they seemed to be applicable only in rare situations.┬á Adapter, Builder, Factory, Strategy, were the most useful.</description>
+      <description>The first time I read the Gang of Four Design Patterns book, I was impressed, no blown away, by the brilliance of what I was reading. The Visitor pattern utilizing double-dispatch. Brilliant. Chain of Responsibility. Why didn&#39;t I think of that? Adapter. Simple and powerful.
+Of course I was itching to start implementing these patterns. In practice though they seemed to be applicable only in rare situations. Adapter, Builder, Factory, Strategy, were the most useful.</description>
     </item>
     
     <item>
@@ -309,7 +309,7 @@ Of course I was itching to start implementing these patterns.┬á In practice t
       <pubDate>Thu, 06 Oct 2011 19:45:09 +0000</pubDate>
       
       <guid>/posts/2011-10-06-creating-a-crawl-control-in-wpf/</guid>
-      <description>A few weeks ago I was watching CNN when an interesting blurb scrolled by on the crawl at the bottom of the screen.&amp;nbsp; Normally, the crawl is not something I notice, but I thought to myself, ΓÇ£I wonder if I can implement one in WPF.ΓÇ¥&amp;nbsp; I had never done any animations before in WPF, and this seemed like a good way to start.
+      <description>A few weeks ago I was watching CNN when an interesting blurb scrolled by on the crawl at the bottom of the screen.&amp;nbsp; Normally, the crawl is not something I notice, but I thought to myself, &#34;I wonder if I can implement one in WPF.&#34;&amp;nbsp; I had never done any animations before in WPF, and this seemed like a good way to start.
 So I gave it a shot.
 My initial instinct was to bring up Google and see if anyone else had done it.</description>
     </item>
@@ -320,7 +320,7 @@ My initial instinct was to bring up Google and see if anyone else had done it.</
       <pubDate>Mon, 15 Aug 2011 20:06:17 +0000</pubDate>
       
       <guid>/posts/2011-08-15-the-dangers-of-mutable-data/</guid>
-      <description>I recently came across a bug in some C# code that would never have been a problem if the data structures being used were immutable.┬á The data consisted of a .NET dictionary with an integer key and a list as a value.┬á The details below have been changed to protect the guilty.
+      <description>I recently came across a bug in some C# code that would never have been a problem if the data structures being used were immutable. The data consisted of a .NET dictionary with an integer key and a list as a value. The details below have been changed to protect the guilty.
 The offending method takes customer and product objects as parameters and retrieves a list of available pricing for the customer from a dictionary using the product ID as the key.</description>
     </item>
     
@@ -330,7 +330,7 @@ The offending method takes customer and product objects as parameters and retrie
       <pubDate>Thu, 28 Jul 2011 19:37:55 +0000</pubDate>
       
       <guid>/posts/2011-07-28-best-practices-for-creating-and-consuming-modal-dialogs-in-winforms/</guid>
-      <description>This is an article I wrote a few years ago after seeing some bad coding practices around modal dialogs in WinForms.┬á Bad habits like explicitly closing the dialog form and using custom OK/Cancel flags irked me, so I came up with some best practices.┬á I hope you find them useful.
+      <description>This is an article I wrote a few years ago after seeing some bad coding practices around modal dialogs in WinForms. Bad habits like explicitly closing the dialog form and using custom OK/Cancel flags irked me, so I came up with some best practices. I hope you find them useful.
 Tip 1: Set the AcceptButton and CancelButton properties
 Windows Forms have two properties, AcceptButton and CancelButton, for determining what should be done when the user presses the Enter or Escape keys.</description>
     </item>

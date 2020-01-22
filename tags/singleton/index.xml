@@ -18,7 +18,7 @@
       <pubDate>Sat, 01 Dec 2012 23:20:49 +0000</pubDate>
       
       <guid>/posts/2012-12-01-singleton-access-from-a-container/</guid>
-      <description>I learned a cool programming technique this week from a co-worker Kelly Brownsberger to enable container access to a singleton.┬á Say you have an interface IApplicationSettings exposed as a static singleton property, but you want to inject it into other classes via a container.┬á The trick is to create another class that implements IApplicationSettings and grabs a reference to the singleton in the constructor.┬á Each implementation of an interface member simply delegates the call to the corresponding member of the singleton reference.</description>
+      <description>I learned a cool programming technique this week from a co-worker Kelly Brownsberger to enable container access to a singleton. Say you have an interface IApplicationSettings exposed as a static singleton property, but you want to inject it into other classes via a container. The trick is to create another class that implements IApplicationSettings and grabs a reference to the singleton in the constructor. Each implementation of an interface member simply delegates the call to the corresponding member of the singleton reference.</description>
     </item>
     
   </channel>

@@ -169,7 +169,7 @@ Singular or Plural Support singular or plural wording.
       <pubDate>Tue, 22 Oct 2013 07:45:06 +0000</pubDate>
       
       <guid>/posts/2013-10-22-specflow-nested-tables-a-bad-idea/</guid>
-      <description>IΓÇÖve been using SpecFlow to write behavior specifications for just under a year, and one question that comes up is whether or not nested tables are supported for creating complex or hierarchal types. Other folks have discussed this at Stack Overflow and Google Groups. Nested tables arenΓÇÖt currently supported, and thatΓÇÖs probably a good thing.
+      <description>I&#39;ve been using SpecFlow to write behavior specifications for just under a year, and one question that comes up is whether or not nested tables are supported for creating complex or hierarchal types. Other folks have discussed this at Stack Overflow and Google Groups. Nested tables aren&#39;t currently supported, and that&#39;s probably a good thing.
 The intent of the Cucumber syntax is to express business requirements in the language of the business.</description>
     </item>
     
