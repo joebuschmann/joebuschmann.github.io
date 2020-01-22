@@ -8,14 +8,14 @@
 
 
 
-<link href="https://joebuschmann.com/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
+<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
 
-<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://joebuschmann.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="https://joebuschmann.com/posts/2013-02-17-some-specflow-tips/">
+<link rel="canonical" href="/posts/2013-02-17-some-specflow-tips/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -24,7 +24,7 @@
   <div class="container">
     <nav id="nav-main" class="nav">
       <div id="nav-name" class="nav-left">
-        <a id="nav-anchor" class="nav-item" href="https://joebuschmann.com">
+        <a id="nav-anchor" class="nav-item" href="">
           <h1 id="nav-heading" class="title is-4">Joe Buschmann</h1>
         </a>
       </div>
@@ -109,7 +109,7 @@
     <div class="content">
       <p>UPDATE (11/18/2016):</p>
 <blockquote>
-<p>I've written a number of posts since this one was published that cover advanced SpecFlow topics like <a href="http://joebuschmann.com/refactoring-to-composable-specflow-steps/">composable steps</a>, <a href="http://joebuschmann.com/specflow-tags-done-right/">tags done right</a>, <a href="http://joebuschmann.com/strategies-for-managing-state-in-specflow/">managing state</a>, <a href="http://joebuschmann.com/useful-regex-for-specflow-bindings/">useful regex</a>, etc. For a list of all my SpecFlow writing, you can click on the SpecFlow tag or go here: <a href="http://joebuschmann.com/tag/specflow">http://joebuschmann.com/tag/specflow</a>. SpecFlow is a fantastic tool that's changed the way I develop software, and I hope it does the same for you. Happy testing!</p>
+<p>I've written a number of posts since this one was published that cover advanced SpecFlow topics like <a href="/posts/2015-09-22-refactoring-to-composable-specflow-steps">composable steps</a>, <a href="/posts/2015-10-26-specflow-tags-done-right">tags done right</a>, <a href="/posts/2014-09-30-strategies-for-managing-state-in-specflow">managing state</a>, <a href="/posts/2014-10-18-useful-regex-for-specflow-bindings">useful regex</a>, etc. For a list of all my SpecFlow writing, you can click on the <a href="/tags/specflow">SpecFlow tag</a>. SpecFlow is a fantastic tool that's changed the way I develop software, and I hope it does the same for you. Happy testing!</p>
 </blockquote>
 <hr />
 <p>Late last year a co-worker <a href="https://twitter.com/jaybrummels" target="_blank">Jay Brummels</a> introduced our development group to <a href="http://www.specflow.org/" target="_blank">SpecFlow</a> a .NET tool that enables behavior specifications from a domain expert or product owner to be bound to runnable test code. It has been a huge success, and we're quickly building up a suite of system tests and unit tests fronted by SpecFlow.</p>
@@ -117,7 +117,7 @@
 <h3>Use Extension Methods to Manipulate ScenarioContext.Current</h3>
 <p>UPDATE (10/21/2017):</p>
 <blockquote>
-<p>Using ScenarioContext to store state is no longer recommended. Instead use dependency injection to share state between steps and bindings. For more information, see my post on <a href="http://joebuschmann.com/strategies-for-managing-state-in-specflow/">strategies for managing state</a>.</p>
+<p>Using ScenarioContext to store state is no longer recommended. Instead use dependency injection to share state between steps and bindings. For more information, see my post on <a href="/posts/2014-09-30-strategies-for-managing-state-in-specflow">strategies for managing state</a>.</p>
 </blockquote>
 <p><em>ScenarioContext.Current</em> is a singleton that provides contextual information about the test and executing scenario block as well as a dictionary data structure for storing test data between scenario blocks. Below is an example of retrieving an object, manipulating it, and stashing it back in ScenarioContext dictionary.</p>
 <script src="https://gist.github.com/joebuschmann/5984a69af58ddd81bc429eaad558480f.js"></script>

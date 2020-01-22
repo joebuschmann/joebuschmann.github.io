@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tsql on Joe Buschmann</title>
-    <link>https://joebuschmann.com/tags/tsql/</link>
+    <link>/tags/tsql/</link>
     <description>Recent content in tsql on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Thu, 10 Jan 2019 14:29:33 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.com/tags/tsql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/tsql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A Poor Man&#39;s Queue</title>
-      <link>https://joebuschmann.com/posts/2019-01-10-a-poor-mans-queue/</link>
+      <link>/posts/2019-01-10-a-poor-mans-queue/</link>
       <pubDate>Thu, 10 Jan 2019 14:29:33 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2019-01-10-a-poor-mans-queue/</guid>
+      <guid>/posts/2019-01-10-a-poor-mans-queue/</guid>
       <description>Any sufficiently large enterprise software application is going to need a queue at some point. A queue is a good way to introduce an asynchronous process and decouple two parts of a system. For example, a user could upload a large file to a web application for processing, and instead of making the user wait for the work to complete, the application could queue up the work and return immediately. Later, when the results are ready, the user could be notified.</description>
     </item>
     

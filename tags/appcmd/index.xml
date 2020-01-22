@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>appcmd on Joe Buschmann</title>
-    <link>https://joebuschmann.com/tags/appcmd/</link>
+    <link>/tags/appcmd/</link>
     <description>Recent content in appcmd on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Mon, 02 Jun 2014 14:04:48 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.com/tags/appcmd/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/appcmd/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Automating IIS Configuration Using AppCmd.exe</title>
-      <link>https://joebuschmann.com/posts/2014-06-02-automating-iis-configuration-using-appcmd-exe/</link>
+      <link>/posts/2014-06-02-automating-iis-configuration-using-appcmd-exe/</link>
       <pubDate>Mon, 02 Jun 2014 14:04:48 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2014-06-02-automating-iis-configuration-using-appcmd-exe/</guid>
+      <guid>/posts/2014-06-02-automating-iis-configuration-using-appcmd-exe/</guid>
       <description>A couple weeks ago I wrote a script to completely automate the set up of IIS for some system tests at work. The tests require three IIS applications along with unique application pools, and the applications need to be segregated under a virtual directory to isolate them from other automated tests. This was done for a local set up for application developers.
 This simple script took what could have been an error prone manual process and made it quick and mostly fool proof.</description>
     </item>

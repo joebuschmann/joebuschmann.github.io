@@ -2,70 +2,70 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>fun on Joe Buschmann</title>
-    <link>https://joebuschmann.com/tags/fun/</link>
+    <link>/tags/fun/</link>
     <description>Recent content in fun on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Fri, 24 Aug 2018 22:53:11 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.com/tags/fun/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/fun/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The Joy of Public Transit</title>
-      <link>https://joebuschmann.com/posts/2018-08-24-you-dont-drive-to-work-huh/</link>
+      <link>/posts/2018-08-24-you-dont-drive-to-work-huh/</link>
       <pubDate>Fri, 24 Aug 2018 22:53:11 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2018-08-24-you-dont-drive-to-work-huh/</guid>
+      <guid>/posts/2018-08-24-you-dont-drive-to-work-huh/</guid>
       <description>First of all, I should clarify that the title of this post is not meant to be sarcastic. I really do enjoy public transit. It has been over 17 years since I needed to commute to work by automobile. In fact, I haven&#39;t driven to work once during that time. My daily commute consists of about two miles of walking plus a 45 minute train ride one way. I consider myself to be very lucky to have the choice not to drive.</description>
     </item>
     
     <item>
       <title>How to Win Friends and Influence People (In a Nutshell)</title>
-      <link>https://joebuschmann.com/posts/2017-05-30-how-to-win-friends-and-influence-people-in-a-nutshell/</link>
+      <link>/posts/2017-05-30-how-to-win-friends-and-influence-people-in-a-nutshell/</link>
       <pubDate>Tue, 30 May 2017 20:30:44 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2017-05-30-how-to-win-friends-and-influence-people-in-a-nutshell/</guid>
+      <guid>/posts/2017-05-30-how-to-win-friends-and-influence-people-in-a-nutshell/</guid>
       <description>I recently finished the famous book How to Win Friends and Influence People by Dale Carnegie. It was first published in 1937 and continues to be a best seller today. The following is a cheat sheet which summarizes the points Carnegie makes in the book.
 PART ONE: Fundamental Techniques of Handling People  Don&#39;t criticize, condemn, or complain. Give honest and sincere appreciation. Arouse in the other person an eager want.</description>
     </item>
     
     <item>
       <title>Workplace Trends: What&#39;s In and What&#39;s Out</title>
-      <link>https://joebuschmann.com/posts/2017-05-03-workplace-trends-whats-in-and-whats-out/</link>
+      <link>/posts/2017-05-03-workplace-trends-whats-in-and-whats-out/</link>
       <pubDate>Wed, 03 May 2017 13:17:21 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2017-05-03-workplace-trends-whats-in-and-whats-out/</guid>
+      <guid>/posts/2017-05-03-workplace-trends-whats-in-and-whats-out/</guid>
       <description>&amp;ldquo;To every thing there is a season&amp;rdquo; begins Ecclesiastes 3, and if the phase&#39;s writer were alive today, he might have had the modern workplace in mind (not really but it makes a good intro). On April 21, I celebrated my 40th birthday, and I&#39;ve been reflecting on the fads and trends I&#39;ve seen during my career. What were they? Why did they become popular? Why did they fade away? And, ultimately, what took their place?</description>
     </item>
     
     <item>
       <title>Forget 100% - A Realistic Guide to Physical Fitness</title>
-      <link>https://joebuschmann.com/posts/2016-09-09-forget-100-a-realistic-guide-to-physical-fitness/</link>
+      <link>/posts/2016-09-09-forget-100-a-realistic-guide-to-physical-fitness/</link>
       <pubDate>Fri, 09 Sep 2016 14:48:07 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2016-09-09-forget-100-a-realistic-guide-to-physical-fitness/</guid>
+      <guid>/posts/2016-09-09-forget-100-a-realistic-guide-to-physical-fitness/</guid>
       <description>Two years ago in July I made a decision that changed my life. After a ten year hiatus, I decided to start working out again. I was in good shape in my twenties, but I was never able to carry out an exercise routine for more than a few months. I would be enthusiastic about it at first and then burn out. Eventually I stopped working out altogether.
 When I hit my late thirties, I was heavier than I wanted to be and felt sluggish most days.</description>
     </item>
     
     <item>
       <title>Microsoft to Integrate Git into Windows</title>
-      <link>https://joebuschmann.com/posts/2014-04-01-microsoft-to-integrate-git-into-windows/</link>
+      <link>/posts/2014-04-01-microsoft-to-integrate-git-into-windows/</link>
       <pubDate>Tue, 01 Apr 2014 12:32:32 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2014-04-01-microsoft-to-integrate-git-into-windows/</guid>
+      <guid>/posts/2014-04-01-microsoft-to-integrate-git-into-windows/</guid>
       <description>It seems like every day I read about a new use for Git outside of source control. It&#39;s used by artists and authors to track changes to their work. It&#39;s used by researchers to branch experiments.
 Well, today I came across the latest and most surprising Git integration. Just out of Redmond, Microsoft has announced that Git will be integrated into the next version of Windows via extensions to NTFS and the Windows kernel.</description>
     </item>
     
     <item>
       <title>A Tribute to Two Ladies in My Life</title>
-      <link>https://joebuschmann.com/posts/2013-12-30-a-tribute-to-two-ladies-in-my-life/</link>
+      <link>/posts/2013-12-30-a-tribute-to-two-ladies-in-my-life/</link>
       <pubDate>Mon, 30 Dec 2013 03:53:46 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2013-12-30-a-tribute-to-two-ladies-in-my-life/</guid>
+      <guid>/posts/2013-12-30-a-tribute-to-two-ladies-in-my-life/</guid>
       <description>I&#39;d like to take a break from my usual tech writing to bring you a very special holiday post. There are two ladies in my life that make each day better than the last, and I want to thank them for making 2013 a great year. My wife, Mary, has been with me for almost 10 years, and we&#39;re still best friends. My daughter, Emilia, just turned four. She is a little lady who turns every day into an adventure.</description>
     </item>
     

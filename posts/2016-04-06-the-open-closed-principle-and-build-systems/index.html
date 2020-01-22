@@ -8,14 +8,14 @@
 
 
 
-<link href="https://joebuschmann.com/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
+<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
 
-<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://joebuschmann.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="https://joebuschmann.com/posts/2016-04-06-the-open-closed-principle-and-build-systems/">
+<link rel="canonical" href="/posts/2016-04-06-the-open-closed-principle-and-build-systems/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -24,7 +24,7 @@
   <div class="container">
     <nav id="nav-main" class="nav">
       <div id="nav-name" class="nav-left">
-        <a id="nav-anchor" class="nav-item" href="https://joebuschmann.com">
+        <a id="nav-anchor" class="nav-item" href="">
           <h1 id="nav-heading" class="title is-4">Joe Buschmann</h1>
         </a>
       </div>
@@ -119,11 +119,11 @@
 <h4 id="an-example">An Example</h4>
 <p>Below is a screen shot from one of my Jenkins jobs. It's a CI build for a web app and its supporting services. Jenkins handles the source code and compiles the .NET solution (because Jenkins does those two things very well), but otherwise, it invokes the NANT scripts saved in the source repository. These scripts replaced command line steps previously saved in Jenkins.</p>
 <p>In this example, <em>pre-build.build</em> runs first and restores dependencies via NuGet. After the source is compiled by MSBuild, <em>test.build</em> runs the tests. There are additional scripts for packaging and deployment not visible in the screen shot. They run after the tests complete successfully.</p>
-<p><img src="http://media.joebuschmann.com/jenkins.png" alt="Jenkins Job"></p>
+<p><img src="/images/jenkins.png" alt="Jenkins Job"></p>
 <p>Below is the pre-build NANT script.</p>
 <script src="https://gist.github.com/joebuschmann/52f96cb64e9218ecdd7c9b9c349d4335.js"></script>
 <p>As you can see, developers can modify the build steps without having access to Jenkins. In this case, the project has a Build directory at its root that contains the NANT build scripts. They act as extension points for the build job.</p>
-<p><img src="http://media.joebuschmann.com/build_dir.png" alt="Build Directory"></p>
+<p><img src="/images/build_dir.png" alt="Build Directory"></p>
 <p>This approach allows for a clear separation of concerns. System administrators handle security and performance on the Jenkins server/cluster, and application developers focus on the specifics of their application's build process.</p>
 <p><strong>Each job is open for extension but closed for modification.</strong></p>
 <p>A big thank you to Carolyn Van Slyck whose work inspired this post and who provided valuable feedback. You can find her on <a href="https://twitter.com/carolynvs">Twitter</a> and writing about technology on <a href="http://carolynvanslyck.com/">her blog</a>.</p>

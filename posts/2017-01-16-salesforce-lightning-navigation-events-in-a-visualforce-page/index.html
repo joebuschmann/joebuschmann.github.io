@@ -8,14 +8,14 @@
 
 
 
-<link href="https://joebuschmann.com/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
+<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
 
-<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://joebuschmann.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="https://joebuschmann.com/posts/2017-01-16-salesforce-lightning-navigation-events-in-a-visualforce-page/">
+<link rel="canonical" href="/posts/2017-01-16-salesforce-lightning-navigation-events-in-a-visualforce-page/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -24,7 +24,7 @@
   <div class="container">
     <nav id="nav-main" class="nav">
       <div id="nav-name" class="nav-left">
-        <a id="nav-anchor" class="nav-item" href="https://joebuschmann.com">
+        <a id="nav-anchor" class="nav-item" href="">
           <h1 id="nav-heading" class="title is-4">Joe Buschmann</h1>
         </a>
       </div>
@@ -109,7 +109,7 @@
     <h1 class="title">Salesforce Lightning - Navigation Events in a Visualforce Page</h1>
     
     <div class="content">
-      <p>In my <a href="http://joebuschmann.com/salesforce-lightning-hosting-a-component-in-visualforce">previous post</a>, I covered how to use a Lightning component in a Visualforce (VF) page and mentioned an issue with navigation events. These events no longer work. The problem is VF pages are loaded into an iframe element in the Lightning Experience. Navigation events like <em>force:navigateToObjectHome</em> are handled by the one.app container in the parent frame. Events raised in the VF page stop at the iframe boundary and don't bubble up into the parent frame.</p>
+      <p>In my <a href="/posts/2017-01-16-salesforce-lightning-hosting-a-component-in-visualforce">previous post</a>, I covered how to use a Lightning component in a Visualforce (VF) page and mentioned an issue with navigation events. These events no longer work. The problem is VF pages are loaded into an iframe element in the Lightning Experience. Navigation events like <em>force:navigateToObjectHome</em> are handled by the one.app container in the parent frame. Events raised in the VF page stop at the iframe boundary and don't bubble up into the parent frame.</p>
 <p>In this post, I discuss how to get navigation events working in a Lightning Out host like a VF page. My approach avoids the need to detect the host environment inside of a component. Instead, components continue to raise events as usual and are still decoupled from the environment. Events are handled explicitly in the Lightning Out host where the environment detection logic is isolated.</p>
 <h4 id="raising-navigation-events">Raising Navigation Events</h4>
 <p>The first step is to get the navigation events firing properly. The Lightning code below will throw an error when run in a VF page.</p>

@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>f on Joe Buschmann</title>
-    <link>https://joebuschmann.com/tags/f/</link>
+    <link>/tags/f/</link>
     <description>Recent content in f on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Tue, 14 Feb 2012 21:06:32 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.com/tags/f/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/f/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Executing Actions Before and After Code Blocks with IDisposable</title>
-      <link>https://joebuschmann.com/posts/2012-02-14-executing-actions-before-and-after-code-blocks-with-idisposable/</link>
+      <link>/posts/2012-02-14-executing-actions-before-and-after-code-blocks-with-idisposable/</link>
       <pubDate>Tue, 14 Feb 2012 21:06:32 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2012-02-14-executing-actions-before-and-after-code-blocks-with-idisposable/</guid>
+      <guid>/posts/2012-02-14-executing-actions-before-and-after-code-blocks-with-idisposable/</guid>
       <description>I ran into a scenario this week where a boolean field was being flipped temporarily to modify behavior elsewhere while a block of code was executing.&amp;nbsp; I have seen this pattern mainly in WinForms applications where data are being loaded into controls, but their events need to be suppressed during the load.&amp;nbsp; Afterward, the events should fire normally.
 Below is an example of this scenario.&amp;nbsp; It is a Windows form with a single combobox.</description>
     </item>
     
     <item>
       <title>Text Parsing with F#</title>
-      <link>https://joebuschmann.com/posts/2012-01-15-getting-over-my-fear-of-parsing-text/</link>
+      <link>/posts/2012-01-15-getting-over-my-fear-of-parsing-text/</link>
       <pubDate>Sun, 15 Jan 2012 21:02:30 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2012-01-15-getting-over-my-fear-of-parsing-text/</guid>
+      <guid>/posts/2012-01-15-getting-over-my-fear-of-parsing-text/</guid>
       <description>IΓÇÖve always had a fear of parsing text.&amp;nbsp; Strange since itΓÇÖs a basic programmerΓÇÖs task.&amp;nbsp; IΓÇÖve always found it to be tedious and boring, and the resulting code is a jumbled mess of indexes and string parsing methods.&amp;nbsp; I avoid it every chance I get.
 And thereΓÇÖs regex.&amp;nbsp; The syntax is cryptic and difficult to remember.&amp;nbsp; ItΓÇÖs another thing I should know well, but, again, I avoid it.
 Recently I decided to come to grips with this weakness and parse a text file containing information about TCP sockets in a TIME_WAIT status.</description>
@@ -35,29 +35,29 @@ Recently I decided to come to grips with this weakness and parse a text file con
     
     <item>
       <title>Creating Mocks with F# Object Expressions</title>
-      <link>https://joebuschmann.com/posts/2011-10-13-creating-mocks-with-f-object-expressions/</link>
+      <link>/posts/2011-10-13-creating-mocks-with-f-object-expressions/</link>
       <pubDate>Thu, 13 Oct 2011 19:59:54 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2011-10-13-creating-mocks-with-f-object-expressions/</guid>
+      <guid>/posts/2011-10-13-creating-mocks-with-f-object-expressions/</guid>
       <description>When I read about F# object expressions, the first thought that popped into my head was to use them to create mocks for unit tests.&amp;nbsp; For those of you who are not familiar with object expressions, they are similar to anonymous classes in Java.&amp;nbsp; They are the object equivalent of lambda functions, and they allow you to create objects that implement an interface or base class without having to declare a new class.</description>
     </item>
     
     <item>
       <title>F# Functions: Tuple Syntax</title>
-      <link>https://joebuschmann.com/posts/2011-07-18-f-functions-tuple-syntax/</link>
+      <link>/posts/2011-07-18-f-functions-tuple-syntax/</link>
       <pubDate>Mon, 18 Jul 2011 19:35:42 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2011-07-18-f-functions-tuple-syntax/</guid>
+      <guid>/posts/2011-07-18-f-functions-tuple-syntax/</guid>
       <description>I&#39;m relatively new to F# and functional programming and recently worked through an issue that had me perplexed.┬á The issue was with creating functions with the ΓÇ£tuple syntaxΓÇ¥ versus the normal syntax of separating arguments by spaces.
 Consider the simple functions below that adds numeric arguments together.┬á They are constructed in two ways.┬á The first is by using a tuple to group the two arguments together.┬á It looks very similar to the syntax from other languages such as C#.</description>
     </item>
     
     <item>
       <title>My First Blog Post</title>
-      <link>https://joebuschmann.com/posts/2011-07-16-my-first-blog-post/</link>
+      <link>/posts/2011-07-16-my-first-blog-post/</link>
       <pubDate>Sat, 16 Jul 2011 14:08:34 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2011-07-16-my-first-blog-post/</guid>
+      <guid>/posts/2011-07-16-my-first-blog-post/</guid>
       <description>I&#39;ve always told myself that I needed to start blogging and get my thoughts out there. Well, after years of putting it off, I finally got started. I decided to write about what I love (besides my family of course): writing software using .NET. I&#39;ll start out focusing on C# and F# language features. I&#39;m proficient in C# but just starting out with F#. Functional programming is very different from what I&#39;m used to; however, I&#39;m liking it more and more.</description>
     </item>
     

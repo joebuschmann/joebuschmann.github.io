@@ -8,14 +8,14 @@
 
 
 
-<link href="https://joebuschmann.com/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
+<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
 
-<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://joebuschmann.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="https://joebuschmann.com/posts/2018-08-24-running-specflow-scenarios-in-parallel/">
+<link rel="canonical" href="/posts/2018-08-24-running-specflow-scenarios-in-parallel/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -24,7 +24,7 @@
   <div class="container">
     <nav id="nav-main" class="nav">
       <div id="nav-name" class="nav-left">
-        <a id="nav-anchor" class="nav-item" href="https://joebuschmann.com">
+        <a id="nav-anchor" class="nav-item" href="">
           <h1 id="nav-heading" class="title is-4">Joe Buschmann</h1>
         </a>
       </div>
@@ -113,7 +113,7 @@
 <h3 id="memory-isolation">Memory Isolation</h3>
 <p>To enable parallel execution, you must use a test runner that supports it. Available runners include NUnit 3.0, xUnit 2.0, and the SpecFlow+ Runner (specrun). Specrun is a commercial product, but it has advanced features like memory isolation via an app domain or process. NUnit and xUnit don't support memory isolation, so they requre your tests to be thread safe. Also, you won't be able to use the static context properties <code>ScenarioContext.Current</code>, <code>FeatureContext.Current</code>, and <code>ScenarioStepContext.Current</code>. The following code throws a <code>SpecFlowException</code> when run in parallel.</p>
 <script src="https://gist.github.com/joebuschmann/f47fab40bb754d7d2eae1765fc9b118c.js"></script>
-<p>You can work around this limitation by using dependency injection. In fact, you should use DI anyway for a cleaner scalable code base. See my post on <a href="https://joebuschmann.com/reusable-bindings-in-specflow/">Reusable Bindings in SpecFlow</a> for more details on leveraging SpecFlow's IoC container.</p>
+<p>You can work around this limitation by using dependency injection. In fact, you should use DI anyway for a cleaner scalable code base. See my post on <a href="/posts/2018-08-13-reusable-bindings-in-specflow">Reusable Bindings in SpecFlow</a> for more details on leveraging SpecFlow's IoC container.</p>
 <script src="https://gist.github.com/joebuschmann/269873f3149ab7895a06cfa3c0b6849a.js"></script>
 <h3 id="nunit-3-support">NUnit 3 Support</h3>
 <p>NUnit 3 requires the assembly-level attribute <code>Parallelizable</code> to configure <a href="https://github.com/nunit/docs/wiki/Parallelizable-Attribute">parallel test execution</a>.</p>

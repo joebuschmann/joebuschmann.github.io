@@ -8,14 +8,14 @@
 
 
 
-<link href="https://joebuschmann.com/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
+<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
 
-<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://joebuschmann.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="https://joebuschmann.com/posts/2016-11-28-salesforce-lightning-fixing-the-built-in-components/">
+<link rel="canonical" href="/posts/2016-11-28-salesforce-lightning-fixing-the-built-in-components/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -24,7 +24,7 @@
   <div class="container">
     <nav id="nav-main" class="nav">
       <div id="nav-name" class="nav-left">
-        <a id="nav-anchor" class="nav-item" href="https://joebuschmann.com">
+        <a id="nav-anchor" class="nav-item" href="">
           <h1 id="nav-heading" class="title is-4">Joe Buschmann</h1>
         </a>
       </div>
@@ -120,9 +120,9 @@
                       displayDatePicker=&quot;true&quot; /&gt;
 &lt;/div&gt;
 </code></pre><p>The slds-input class forces a width of 100% on the input textboxes which pushes the calendar icons to the next line.</p>
-<p><img src="http://media.joebuschmann.com/ui-datetime-no-fix-1.png" alt="ui:inputDateTime"></p>
+<p><img src="/images/ui-datetime-no-fix-1.png" alt="ui:inputDateTime"></p>
 <p>Even worse, when you click the icon for the time selection, the list doesn't appear under the textbox like it should. Instead it is positioned to the far left.</p>
-<p><img src="http://media.joebuschmann.com/ui-datetime-no-fix-2.png" alt="ui:inputDateTime"></p>
+<p><img src="/images/ui-datetime-no-fix-2.png" alt="ui:inputDateTime"></p>
 <p>The fixes turn out to be straightforward, but there are many annoyances with these components. You'll find yourself tweaking them to get the look just right.</p>
 <h4 id="component-inheritance">Component Inheritance</h4>
 <p>An approach I've been using is to wrap the built-in components using component inheritance. To fix the calendar icons, I extended ui:inputDateTime and included custom CSS to position the icons and the time list. I also included the SLDS classes as defaults. This is a nice way to encapsulate tweaks for the built-in components and make them much easier to use.</p>
@@ -174,7 +174,7 @@
                            value=&quot;{!v.StartDateTime__c}&quot; /&gt;
 &lt;/div&gt;
 </code></pre><p>Ahhh. Much better!</p>
-<p><img src="http://media.joebuschmann.com/ui-datetime-fix.png" alt="ui:inputDateTime"></p>
+<p><img src="/images/ui-datetime-fix.png" alt="ui:inputDateTime"></p>
 <h4 id="the-lightning-namespace">The Lightning Namespace</h4>
 <p>In the Winter &lsquo;17 release, Salesforce introduced a new namespace called <strong>lightning</strong>. It includes a number of components designed to integrate better with the look and feel of the Lightning experience. I don't know for sure, but my sense is they will eventually supersede the components in the UI namespace. Hopefully, they will provide a better out-of-the-box experience.</p>
 

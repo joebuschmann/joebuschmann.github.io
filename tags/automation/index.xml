@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>automation on Joe Buschmann</title>
-    <link>https://joebuschmann.com/tags/automation/</link>
+    <link>/tags/automation/</link>
     <description>Recent content in automation on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Sun, 21 Dec 2014 15:18:03 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.com/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/automation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Lessons from 2014</title>
-      <link>https://joebuschmann.com/posts/2014-12-21-lessons-from-2014/</link>
+      <link>/posts/2014-12-21-lessons-from-2014/</link>
       <pubDate>Sun, 21 Dec 2014 15:18:03 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2014-12-21-lessons-from-2014/</guid>
+      <guid>/posts/2014-12-21-lessons-from-2014/</guid>
       <description>2014 has been a fantastic year for me professionally. I spent the majority of the year working on a green field project with a great group of co-workers. I was the Scrummaster for a talented team and wrote a lot of Angular.js and Javascript. Ultimately the project was cancelled, and its members were merged into another group. While disappointing, it led me to a new opportunity as a Product Owner and lead architect for a team tasked with creating a test framework built on Specflow.</description>
     </item>
     

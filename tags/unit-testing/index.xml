@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>unit-testing on Joe Buschmann</title>
-    <link>https://joebuschmann.com/tags/unit-testing/</link>
+    <link>/tags/unit-testing/</link>
     <description>Recent content in unit-testing on Joe Buschmann</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
     <lastBuildDate>Mon, 30 Jan 2012 20:38:44 +0000</lastBuildDate>
     
-	<atom:link href="https://joebuschmann.com/tags/unit-testing/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/unit-testing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The Best Design Patterns</title>
-      <link>https://joebuschmann.com/posts/2012-01-30-the-best-design-patterns/</link>
+      <link>/posts/2012-01-30-the-best-design-patterns/</link>
       <pubDate>Mon, 30 Jan 2012 20:38:44 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2012-01-30-the-best-design-patterns/</guid>
+      <guid>/posts/2012-01-30-the-best-design-patterns/</guid>
       <description>The first time I read the Gang of Four Design Patterns book, I was impressed, no blown away, by the brilliance of what I was reading.┬á The Visitor pattern utilizing double-dispatch.┬á Brilliant.┬á Chain of Responsibility.┬á Why didn&#39;t I think of that?┬á Adapter.┬á Simple and powerful.
 Of course I was itching to start implementing these patterns.┬á In practice though they seemed to be applicable only in rare situations.┬á Adapter, Builder, Factory, Strategy, were the most useful.</description>
     </item>
     
     <item>
       <title>Creating Mocks with F# Object Expressions</title>
-      <link>https://joebuschmann.com/posts/2011-10-13-creating-mocks-with-f-object-expressions/</link>
+      <link>/posts/2011-10-13-creating-mocks-with-f-object-expressions/</link>
       <pubDate>Thu, 13 Oct 2011 19:59:54 +0000</pubDate>
       
-      <guid>https://joebuschmann.com/posts/2011-10-13-creating-mocks-with-f-object-expressions/</guid>
+      <guid>/posts/2011-10-13-creating-mocks-with-f-object-expressions/</guid>
       <description>When I read about F# object expressions, the first thought that popped into my head was to use them to create mocks for unit tests.&amp;nbsp; For those of you who are not familiar with object expressions, they are similar to anonymous classes in Java.&amp;nbsp; They are the object equivalent of lambda functions, and they allow you to create objects that implement an interface or base class without having to declare a new class.</description>
     </item>
     

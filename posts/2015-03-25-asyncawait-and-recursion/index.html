@@ -8,14 +8,14 @@
 
 
 
-<link href="https://joebuschmann.com/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
+<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
 
-<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='https://joebuschmann.com/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="https://joebuschmann.com/posts/2015-03-25-asyncawait-and-recursion/">
+<link rel="canonical" href="/posts/2015-03-25-asyncawait-and-recursion/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -24,7 +24,7 @@
   <div class="container">
     <nav id="nav-main" class="nav">
       <div id="nav-name" class="nav-left">
-        <a id="nav-anchor" class="nav-item" href="https://joebuschmann.com">
+        <a id="nav-anchor" class="nav-item" href="">
           <h1 id="nav-heading" class="title is-4">Joe Buschmann</h1>
         </a>
       </div>
@@ -113,9 +113,9 @@
 <script src="https://gist.github.com/joebuschmann/1c45eda3f0855d0ad682.js"></script>
 <p>What keeps it from failing is the use of the <code>await</code> keyword when calling <code>DoWorkAsync()</code>. Awaiting a method call has the effect of splitting the calling method in two. The first part executes and returns immediately when the awaitable method is invoked. The second part runs when control returns to the calling thread. In the example above, the deepest the call stack gets is two levels.</p>
 <p>First recursive call:</p>
-<p><img src="http://media.joebuschmann.com/async_await_stack_trace1.png" alt="Stack Trace After Recursive Call"></p>
+<p><img src="/images/async_await_stack_trace1.png" alt="Stack Trace After Recursive Call"></p>
 <p>After awaiting:</p>
-<p><img src="http://media.joebuschmann.com/async_await_stack_trace2.png" alt="Stack Trace After Awaiting"></p>
+<p><img src="/images/async_await_stack_trace2.png" alt="Stack Trace After Awaiting"></p>
 <p>In this case, Resharper was correct to report that the method was recursive in all paths, but the use of the await keyword prevents a stack overflow exception.</p>
 
       
