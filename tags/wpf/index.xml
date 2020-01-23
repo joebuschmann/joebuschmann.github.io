@@ -14,20 +14,20 @@
     
     <item>
       <title>Ditch the Grids and Use DockPanels</title>
-      <link>/posts/2012-03-12-why-arent-dock-panels-used-more/</link>
+      <link>/posts/2012/03/ditch-the-grids-and-use-dockpanels/</link>
       <pubDate>Mon, 12 Mar 2012 19:58:25 +0000</pubDate>
       
-      <guid>/posts/2012-03-12-why-arent-dock-panels-used-more/</guid>
+      <guid>/posts/2012/03/ditch-the-grids-and-use-dockpanels/</guid>
       <description>I have worked extensively with WinForms and WPF/Silverlight and noticed that docking/dock panels are not used that often.&amp;#160; At least this is the case where I work.&amp;#160; I find this surprising given their power and ease of use.
 Using XAML, why would a programmer choose a complex Grid/StackPanel setup over a DockPanel?&amp;#160; Or on the WinForms side, set the anchor properties for control rather than simplify things with the dock property?</description>
     </item>
     
     <item>
       <title>Creating a Crawl Control in WPF</title>
-      <link>/posts/2011-10-06-creating-a-crawl-control-in-wpf/</link>
+      <link>/posts/2011/10/creating-a-crawl-control-in-wpf/</link>
       <pubDate>Thu, 06 Oct 2011 19:45:09 +0000</pubDate>
       
-      <guid>/posts/2011-10-06-creating-a-crawl-control-in-wpf/</guid>
+      <guid>/posts/2011/10/creating-a-crawl-control-in-wpf/</guid>
       <description>A few weeks ago I was watching CNN when an interesting blurb scrolled by on the crawl at the bottom of the screen.&amp;nbsp; Normally, the crawl is not something I notice, but I thought to myself, &#34;I wonder if I can implement one in WPF.&#34;&amp;nbsp; I had never done any animations before in WPF, and this seemed like a good way to start.
 So I gave it a shot.
 My initial instinct was to bring up Google and see if anyone else had done it.</description>

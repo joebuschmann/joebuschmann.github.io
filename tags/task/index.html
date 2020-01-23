@@ -75,6 +75,15 @@
     
   </svg></i>
             </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg></i>
+            </span>
           </a></nav>
       </div>
     </nav>
@@ -112,11 +121,11 @@
         
       </div>
       <h2 class="subtitle is-6 date">August 15, 2016</h2>
-      <h1 class="title"><a href="/posts/2016-08-15-taskcompletionsource-bridging-the-gap-between-old-and-new/">TaskCompletionSource - Bridging the Gap Between Old and New</a></h1>
+      <h1 class="title"><a href="/posts/2016/08/taskcompletionsource-bridging-the-gap-between-old-and-new/">TaskCompletionSource - Bridging the Gap Between Old and New</a></h1>
       <div class="content">
         In the latest versions of the .NET Framework, asynchronous work is represented by the Task class. A task is similar to a future or promise in other languages. You can create one in many ways the most common being Task.Run(). The result of a task is exposed by the Task.Result property. If the work is complete, then the property immediately returns a value; otherwise, it blocks until the operation is finished.
         
-        <a class="button is-link" href="/posts/2016-08-15-taskcompletionsource-bridging-the-gap-between-old-and-new/" style="height:28px">
+        <a class="button is-link" href="/posts/2016/08/taskcompletionsource-bridging-the-gap-between-old-and-new/" style="height:28px">
           Read more
         </a>
         
@@ -144,12 +153,12 @@
         
       </div>
       <h2 class="subtitle is-6 date">December 9, 2015</h2>
-      <h1 class="title"><a href="/posts/2015-12-09-a-short-and-easy-introduction-to-dotnet-task-class/">A Short and Easy Introduction to .NET&#39;s Task Class</a></h1>
+      <h1 class="title"><a href="/posts/2015/12/a-short-and-easy-introduction-to-.nets-task-class/">A Short and Easy Introduction to .NET&#39;s Task Class</a></h1>
       <div class="content">
         Task.Run You can use Task.Run to schedule a delegate to run on the thread pool. The method returns a new task, and if the work is complete, the result will be available via Task.Result. If not, Task.Result will block until it is complete.
 Task.ContinueWith You'll want to avoid accessing the Task.Result property because it will block until the result is ready. In the previous example, the UI will hang for about 2000 milliseconds before updating the label with the result.
         
-        <a class="button is-link" href="/posts/2015-12-09-a-short-and-easy-introduction-to-dotnet-task-class/" style="height:28px">
+        <a class="button is-link" href="/posts/2015/12/a-short-and-easy-introduction-to-.nets-task-class/" style="height:28px">
           Read more
         </a>
         

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Creating Mocks with F# Object Expressions | Joe Buschmann</title>
+
+
+
+<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="/posts/2011/10/creating-mocks-with-f#-object-expressions/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="/">
+          <h1 id="nav-heading" class="title is-4">Joe Buschmann</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="github" href='https://github.com/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="facebook" href='https://facebook.com/joe.buschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="twitter" href='https://twitter.com/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="email" href='mailto:joseph.buschmann@gmail.com'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/f">#f</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/mocks">#mocks</a>
+  
+  | <a class="subtitle is-6" href="/tags/object-expressions">#object-expressions</a>
+  
+  | <a class="subtitle is-6" href="/tags/unit-testing">#unit-testing</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">October 13, 2011</h2>
+    <h1 class="title">Creating Mocks with F# Object Expressions</h1>
+    
+    <div class="content">
+      <p>When I read about F# object expressions, the first thought that popped into my head was to use them to create mocks for unit tests.&nbsp; For those of you who are not familiar with object expressions, they are similar to anonymous classes in Java.&nbsp; They are the object equivalent of lambda functions, and they allow you to create objects that implement an interface or base class without having to declare a new class.&nbsp; This is something that does not exist in C#, my primary language, where I have had to use a mock framework or define my own mock classes when writing unit tests.&nbsp; There are downsides to both solutions.&nbsp; Mock frameworks tend to be heavy-handed and are not built into the language.&nbsp; Creating custom mock classes tends to lead to a large number custom classes declared outside of the unit test methods.</p> <p>So that is why object expressions caught my eye.&nbsp; As an exercise, I decided to use them to create mocks for some common unit testing scenarios.&nbsp; First, I created a C# project with some fake business logic classes.&nbsp; Next, I added an F# project to the solution for the unit tests.&nbsp; The business logic code is listed below.&nbsp; It contains a couple of interfaces representing a service provider and state container and a class, Order, that contains the "logic" to be unit tested.</p><pre class="csharpcode"><span class="rem">// A simple class representing a product</span>
+<span class="rem">// in an order.</span>
+<span class="kwrd">public</span> <span class="kwrd">class</span> Product
+{
+    <span class="kwrd">public</span> Product(<span class="kwrd">string</span> productName)
+    {
+        ProductName = productName;
+    }
+<pre><code>&lt;span class=&quot;kwrd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kwrd&quot;&gt;string&lt;/span&gt; ProductName { get; &lt;span class=&quot;kwrd&quot;&gt;private&lt;/span&gt; set; }
+</code></pre>
+<p>}</p>
+<p><span class="rem">// A service request class.</span>
+<span class="kwrd">public</span> <span class="kwrd">class</span> RetrieveAvailableProductsRequest
+{
+}</p>
+<p><span class="rem">// A service response class with a list of products.</span>
+<span class="kwrd">public</span> <span class="kwrd">class</span> RetrieveAvailableProductsResponse
+{
+<span class="kwrd">public</span> RetrieveAvailableProductsResponse(
+IEnumerable&lt;Product&gt; products)
+{
+Products = products;
+}</p>
+<pre><code>&lt;span class=&quot;kwrd&quot;&gt;public&lt;/span&gt; IEnumerable&amp;lt;Product&amp;gt; Products
+{
+    get;
+    &lt;span class=&quot;kwrd&quot;&gt;private&lt;/span&gt; set;
+}
+</code></pre>
+<p>}</p>
+<p><span class="rem">// An interface for a service provider.</span>
+<span class="kwrd">public</span> <span class="kwrd">interface</span> ICatalogService
+{
+RetrieveAvailableProductsResponse
+RetrieveAvailableProducts(
+RetrieveAvailableProductsRequest request);
+}</p>
+<p><span class="rem">// An interface for a state container.</span>
+<span class="kwrd">public</span> <span class="kwrd">interface</span> IOrderState
+{
+IEnumerable&lt;Product&gt; Products { get; set; }
+}</p>
+<p><span class="rem">// A class containing simple &ldquo;business logic&rdquo;.</span>
+<span class="kwrd">public</span> <span class="kwrd">class</span> Order
+{
+<span class="kwrd">public</span> IEnumerable&lt;Product&gt; GetAvailableProducts(
+ICatalogService catalogService)
+{
+var request = <span class="kwrd">new</span> RetrieveAvailableProductsRequest();
+var response =
+catalogService.RetrieveAvailableProducts(request);</p>
+<pre><code>    &lt;span class=&quot;kwrd&quot;&gt;return&lt;/span&gt; response.Products;
+}
+
+&lt;span class=&quot;kwrd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kwrd&quot;&gt;void&lt;/span&gt; AddProductsToOrder(
+    IEnumerable&amp;lt;Product&amp;gt; products,
+    IOrderState orderState)
+{
+    &lt;span class=&quot;kwrd&quot;&gt;foreach&lt;/span&gt; (var product &lt;span class=&quot;kwrd&quot;&gt;in&lt;/span&gt; products)
+        AddProductToState(product, orderState);
+}
+
+&lt;span class=&quot;kwrd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kwrd&quot;&gt;virtual&lt;/span&gt; &lt;span class=&quot;kwrd&quot;&gt;void&lt;/span&gt; AddProductToState(
+    Product product,
+    IOrderState orderState)
+{
+    var products = &lt;span class=&quot;kwrd&quot;&gt;new&lt;/span&gt; List&amp;lt;Product&amp;gt;(orderState.Products);
+    products.Add(product);
+
+    orderState.Products = products;
+}
+</code></pre>
+<p>}</pre></p>
+<p>There are two common mocking scenarios I come across when writing unit tests.&nbsp; The first is to use a mock object in place of one that invokes a service, database operations, file system IO, or some other long-running process.&nbsp; Both the mock and runtime objects implement an interface which is referenced by the business logic code instead of the runtime implementation.&nbsp; Unit tests can substitute or "inject" their own implementation to avoid the expensive or unavailable runtime logic.&nbsp; This is a common pattern called dependency injection.</p>
+<p>The <em>Order.AddProductsToOrder()</em> method takes an interface, <em>ICatalogService</em>, that represents a web service exposing a product catalog.&nbsp; In unit tests, the runtime implementation is replaced by a mock object that returns dummy values.&nbsp; Creating this mock object in C# requires either a mock framework or a class definition.&nbsp; Objects expressions in F# can simplify things by creating an object on the fly with very little overhead.&nbsp; Below is a simple example.</p><pre class="code"><span style="color: blue">let </span>mockProducts = seq { <span style="color: blue">yield new </span>Product(<span style="color: maroon">"Product 1"</span>)
+                         <span style="color: blue">yield new </span>Product(<span style="color: maroon">"Product 2"</span>)
+                         <span style="color: blue">yield new </span>Product(<span style="color: maroon">"Product 3"</span>)
+                         <span style="color: blue">yield new </span>Product(<span style="color: maroon">"Product 4"</span>) }
+<p>[&lt;Fact&gt;]
+<span style="color: blue">let </span>TestGetAvailableProducts() =
+<span style="color: blue">let </span>mockCatalogService = { <span style="color: blue">new </span>ICatalogService <span style="color: blue">with
+member </span>x.RetrieveAvailableProducts(request) =
+<span style="color: blue">new </span>RetrieveAvailableProductsResponse(mockProducts) }
+<span style="color: blue">let </span>order = <span style="color: blue">new </span>Order()
+<span style="color: blue">let </span>products = order.GetAvailableProducts(mockCatalogService)
+Assert.Equal(4, Seq.length(products))
+Assert.Same(mockProducts, products)</pre></p>
+<p>The example starts by creating a sequence of dummy products.&nbsp; The mock service, <em>mockCatalogService</em>, is created on the first three lines of the unit test method using an object expression which specifies that the new object implements the <em>ICatalogService</em> interface.&nbsp; The implementation of <em>ICatalogService.RetrieveAvailableProducts()</em> returns the dummy products.&nbsp; Next, the <em>Order.GetAvailableProducts()</em> method is invoked with the mock service, and finally, the last two lines verify that the products returned by the service are the same as those returned by <em>GetAvailableProducts()</em>.</p>
+<p>Below is another example where a mock is passed into Order.AddProductsToOrder() and updated.&nbsp; The function, <em>getMockOrderState()</em>, uses an object expression to create a mock implementing <em>IOrderState</em> and stores a list of products in a reference cell.</p><pre class="code"><span style="color: blue">let </span>mockProducts = seq { <span style="color: blue">yield new </span>Product(<span style="color: maroon">"Product 1"</span>)
+                         <span style="color: blue">yield new </span>Product(<span style="color: maroon">"Product 2"</span>)
+                         <span style="color: blue">yield new </span>Product(<span style="color: maroon">"Product 3"</span>)
+                         <span style="color: blue">yield new </span>Product(<span style="color: maroon">"Product 4"</span>) }
+<p><span style="color: blue">let </span>getMockOrderState() =
+<span style="color: blue">let </span>productsInState = ref Seq.empty
+{ <span style="color: blue">new </span>IOrderState <span style="color: blue">with
+member </span>x.Products <span style="color: blue">with </span>get() = !productsInState
+<span style="color: blue">and </span>set(value) = productsInState := value }</p>
+<p>[&lt;Fact&gt;]
+<span style="color: blue">let </span>TestAddProductsToOrderUsingMockOrderState() =
+<span style="color: blue">let </span>order = <span style="color: blue">new </span>Order()
+<span style="color: blue">let </span>mockOrderState = getMockOrderState()
+order.AddProductsToOrder(mockProducts, mockOrderState)
+Assert.Equal(4, mockOrderState.Products |&gt; Seq.length)
+mockOrderState.Products |&gt;
+Seq.iteri (<span style="color: blue">fun </span>i p <span style="color: blue">-&gt;
+let </span>i = i + 1
+Assert.Equal(<span style="color: maroon">&quot;Product &quot; </span>+ i.ToString(), p.ProductName))</pre></p>
+<p>Sometimes it is difficult to use dependency injection because the code may not be structured correctly, and it may be too complex for easy refactoring.&nbsp; In these cases, I will often move the problematic code into its own virtual method.&nbsp; The method can be overridden in a derived class that is used in the unit tests.&nbsp; This is the second common scenario I encounter.</p><pre class="code"><span style="color: blue">let </span>mockProducts = seq { <span style="color: blue">yield new </span>Product(<span style="color: maroon">"Product 1"</span>)
+                         <span style="color: blue">yield new </span>Product(<span style="color: maroon">"Product 2"</span>)
+                         <span style="color: blue">yield new </span>Product(<span style="color: maroon">"Product 3"</span>)
+                         <span style="color: blue">yield new </span>Product(<span style="color: maroon">"Product 4"</span>) }
+<p><span style="color: blue">let </span>getMockOrderState() =
+<span style="color: blue">let </span>productsInState = ref Seq.empty
+{ <span style="color: blue">new </span>IOrderState <span style="color: blue">with
+member </span>x.Products <span style="color: blue">with </span>get() = !productsInState
+<span style="color: blue">and </span>set(value) = productsInState := value }</p>
+<p>[&lt;Fact&gt;]
+<span style="color: blue">let </span>TestAddProductsToOrder() =
+<span style="color: blue">let </span>products = ref []
+<span style="color: blue">let </span>mockOrder =
+{ <span style="color: blue">new </span>Order() <span style="color: blue">with
+member </span>x.AddProductToState(product, state) =
+products := product :: !products }
+<span style="color: blue">let </span>mockOrderState = getMockOrderState()
+mockOrder.AddProductsToOrder(mockProducts, mockOrderState)
+Assert.Equal(0, mockOrderState.Products |&gt; Seq.length)
+Assert.Equal(4, !products |&gt; List.length)</pre></p>
+<p>In the example above, the <em>mockOrder</em> object overrides the <em>Order.AddProductToState()</em> method and provides a simple implementation that stores the products in a reference cell.&nbsp; This method is trivial; however, it demonstrates the idea.&nbsp; The asserts prove that the local <em>products</em> reference cell was updated and not the order state.</p>
+<p>I love how object expressions make creating mocks much easier.&nbsp; This is a feature I hope makes its way into C#.&nbsp; If you want the complete source code for the examples above, you can find it <a href="https://github.com/joebuschmann/FSharpUnitTest" target="_blank">on GitHub</a>.&nbsp; You will need to install xUnit to run the unit tests.</p>
+      
+    </div>
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+  
+    <script type="text/javascript">
+      var disqus_shortname = 'joebuschmann';
+      function disqus() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+  
+      disqus();
+  
+
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; Joe Buschmann 2020</p>
+    
+  </div>
+</section>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-64657873-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+</body>
+</html>
+

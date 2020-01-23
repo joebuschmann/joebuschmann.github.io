@@ -75,6 +75,15 @@
     
   </svg></i>
             </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg></i>
+            </span>
           </a></nav>
       </div>
     </nav>
@@ -106,12 +115,12 @@
         
       </div>
       <h2 class="subtitle is-6 date">August 18, 2015</h2>
-      <h1 class="title"><a href="/posts/2015-08-18-tidying-up-code-with-using-alias-directives/">Tidying Up Code with C#&#39;s Using Alias Directives</a></h1>
+      <h1 class="title"><a href="/posts/2015/08/tidying-up-code-with-c#s-using-alias-directives/">Tidying Up Code with C#&#39;s Using Alias Directives</a></h1>
       <div class="content">
         The C# language's using alias directives or namespace and type aliases provide a way to disambiguate between namespaces or types with the same name. For example, both the System.Net and Nancy libraries have a type named HttpStatusCode. If you happen to import both namespaces in a file, then the types need to be fully qualified or else the compiler will fail with the error:
  'HttpStatusCode&rsquo; is an ambiguous reference between &lsquo;Nancy.
         
-        <a class="button is-link" href="/posts/2015-08-18-tidying-up-code-with-using-alias-directives/" style="height:28px">
+        <a class="button is-link" href="/posts/2015/08/tidying-up-code-with-c#s-using-alias-directives/" style="height:28px">
           Read more
         </a>
         
@@ -137,13 +146,13 @@
         
       </div>
       <h2 class="subtitle is-6 date">August 14, 2015</h2>
-      <h1 class="title"><a href="/posts/2015-08-14-this-week-in-programming-gotchas/">This Week in Programming Gotchas</a></h1>
+      <h1 class="title"><a href="/posts/2015/08/this-week-in-programming-gotchas/">This Week in Programming Gotchas</a></h1>
       <div class="content">
         We all have those days where we spend hours trying to solve a seemingly simple problem only to smack ourselves in the head when we finally figure it out. Missing quotes, forgetting to flush a StreamWriter, etc. If only we could get back all the wasted time.
 Well, this week I wrestled with more gotchas than usual. Below are the ones that burned most of my time.
 Streams Don't forget to flush a StreamWriter when you're done.
         
-        <a class="button is-link" href="/posts/2015-08-14-this-week-in-programming-gotchas/" style="height:28px">
+        <a class="button is-link" href="/posts/2015/08/this-week-in-programming-gotchas/" style="height:28px">
           Read more
         </a>
         
@@ -167,11 +176,11 @@ Streams Don't forget to flush a StreamWriter when you're done.
         
       </div>
       <h2 class="subtitle is-6 date">August 6, 2015</h2>
-      <h1 class="title"><a href="/posts/2015-08-06-string-dot-empty-versus-string-literal/">String.Empty Versus &#34;&#34;</a></h1>
+      <h1 class="title"><a href="/posts/2015/08/string.empty-versus/">String.Empty Versus &#34;&#34;</a></h1>
       <div class="content">
         If you've been in the .NET world for any length of time, you'll eventually come across someone who claims String.Empty performs better than &quot;&quot;. I was always skeptical of this claim because this scenario seemed like something the compiler could optimize. And because the .NET runtime manages string literals in an intern pool, my guess was they would both point to the same value. That's what I suspected anyway but didn't have any proof.
         
-        <a class="button is-link" href="/posts/2015-08-06-string-dot-empty-versus-string-literal/" style="height:28px">
+        <a class="button is-link" href="/posts/2015/08/string.empty-versus/" style="height:28px">
           Read more
         </a>
         
@@ -195,12 +204,12 @@ Streams Don't forget to flush a StreamWriter when you're done.
         
       </div>
       <h2 class="subtitle is-6 date">March 25, 2015</h2>
-      <h1 class="title"><a href="/posts/2015-03-25-asyncawait-and-recursion/">Async/Await and Recursion</a></h1>
+      <h1 class="title"><a href="/posts/2015/03/async/await-and-recursion/">Async/Await and Recursion</a></h1>
       <div class="content">
         While using the new async/await keywords in C# 5.0 for the first time, I noticed an interesting aspect to how recursive methods behave when using await. For one method I was working on, Resharper notified me of a possible stack overflow exception with a &ldquo;function is recursive on all paths&rdquo; warning, but it didn't fail at runtime. Instead, it continued happily calling itself with no issues.
 What keeps it from failing is the use of the await keyword when calling DoWorkAsync().
         
-        <a class="button is-link" href="/posts/2015-03-25-asyncawait-and-recursion/" style="height:28px">
+        <a class="button is-link" href="/posts/2015/03/async/await-and-recursion/" style="height:28px">
           Read more
         </a>
         
@@ -218,11 +227,11 @@ Streams Don't forget to flush a StreamWriter when you're done.
         
       </div>
       <h2 class="subtitle is-6 date">February 17, 2015</h2>
-      <h1 class="title"><a href="/posts/2015-02-17-a-shared-development-database-is-bad-very-bad/">A Shared Development Database is Bad...Very Bad</a></h1>
+      <h1 class="title"><a href="/posts/2015/02/a-shared-development-database-is-bad...very-bad/">A Shared Development Database is Bad...Very Bad</a></h1>
       <div class="content">
         The software development group at my office has a shared database that developers connect to for their daily work. In the last few months, the number of developers has doubled, and the practice of using the shared database has not scaled well. It has caused frustration as members of one team make schema changes before another team can consume them. The resulting breakages has led to lost productivity. To make matters worse, the same database serves as a reference for the daily migration process.
         
-        <a class="button is-link" href="/posts/2015-02-17-a-shared-development-database-is-bad-very-bad/" style="height:28px">
+        <a class="button is-link" href="/posts/2015/02/a-shared-development-database-is-bad...very-bad/" style="height:28px">
           Read more
         </a>
         
@@ -248,11 +257,11 @@ Streams Don't forget to flush a StreamWriter when you're done.
         
       </div>
       <h2 class="subtitle is-6 date">December 29, 2014</h2>
-      <h1 class="title"><a href="/posts/2014-12-29-code-this-not-that-specflow-edition/">Code This, Not That - SpecFlow Edition</a></h1>
+      <h1 class="title"><a href="/posts/2014/12/code-this-not-that-specflow-edition/">Code This, Not That - SpecFlow Edition</a></h1>
       <div class="content">
         In 2007 a different kind of diet book was published that took a concise approach to making the right food choices. Readers of the book were presented with good and bad selections at popular restaurants and told why the good options were better than the others. Eat This, Not That! made changing your diet simple and realistic. No gimmicks like the Atkins diet or the current trend of cleansing. Just real options available in many restaurants.
         
-        <a class="button is-link" href="/posts/2014-12-29-code-this-not-that-specflow-edition/" style="height:28px">
+        <a class="button is-link" href="/posts/2014/12/code-this-not-that-specflow-edition/" style="height:28px">
           Read more
         </a>
         

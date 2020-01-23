@@ -14,28 +14,28 @@
     
     <item>
       <title>A Poor Man&#39;s Queue</title>
-      <link>/posts/2019-01-10-a-poor-mans-queue/</link>
+      <link>/posts/2019/01/a-poor-mans-queue/</link>
       <pubDate>Thu, 10 Jan 2019 14:29:33 +0000</pubDate>
       
-      <guid>/posts/2019-01-10-a-poor-mans-queue/</guid>
+      <guid>/posts/2019/01/a-poor-mans-queue/</guid>
       <description>Any sufficiently large enterprise software application is going to need a queue at some point. A queue is a good way to introduce an asynchronous process and decouple two parts of a system. For example, a user could upload a large file to a web application for processing, and instead of making the user wait for the work to complete, the application could queue up the work and return immediately. Later, when the results are ready, the user could be notified.</description>
     </item>
     
     <item>
       <title>Row-Level Security in SQL Server</title>
-      <link>/posts/2017-03-01-row-level-security-in-sql-server/</link>
+      <link>/posts/2017/03/row-level-security-in-sql-server/</link>
       <pubDate>Wed, 01 Mar 2017 14:18:28 +0000</pubDate>
       
-      <guid>/posts/2017-03-01-row-level-security-in-sql-server/</guid>
+      <guid>/posts/2017/03/row-level-security-in-sql-server/</guid>
       <description>Up until version 2016, Microsoft&#39;s SQL Server didn&#39;t support row-level security (RLS) - a feature that&#39;s been around in Oracle and IBM&#39;s offerings for a while. If you ran SQL Server and needed RLS, you had to build your own scheme which is exactly what I had to do for a recent project. I needed RLS for a new data warehouse I was building using SQL Server 2014. The requirements called for storing sensitive financial and sales data from multiple users in the same tables.</description>
     </item>
     
     <item>
       <title>Generate SQL Delete Statements That Respect FK Relationships</title>
-      <link>/posts/2014-12-03-generate-sql-delete-statements-that-respect-fk-relationships/</link>
+      <link>/posts/2014/12/generate-sql-delete-statements-that-respect-fk-relationships/</link>
       <pubDate>Wed, 03 Dec 2014 21:00:00 +0000</pubDate>
       
-      <guid>/posts/2014-12-03-generate-sql-delete-statements-that-respect-fk-relationships/</guid>
+      <guid>/posts/2014/12/generate-sql-delete-statements-that-respect-fk-relationships/</guid>
       <description>Have you ever needed to delete a record from a database table only to be thwarted by one or more foreign key violations? Then when you try to delete records from the child tables you find a deep hierarchal relationship bound together by yet more foreign keys?
 I recently ran into this issue with a SQL Server database. I needed to trim data from several large tables that had deep and wide relationship hierarchies enforced by foreign keys.</description>
     </item>

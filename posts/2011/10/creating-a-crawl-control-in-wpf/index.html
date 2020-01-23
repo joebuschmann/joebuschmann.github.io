@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Creating a Crawl Control in WPF | Joe Buschmann</title>
+
+
+
+<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="/posts/2011/10/creating-a-crawl-control-in-wpf/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="/">
+          <h1 id="nav-heading" class="title is-4">Joe Buschmann</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="github" href='https://github.com/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="facebook" href='https://facebook.com/joe.buschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="twitter" href='https://twitter.com/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="email" href='mailto:joseph.buschmann@gmail.com'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/c">#c</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/wpf">#wpf</a>
+  
+  | <a class="subtitle is-6" href="/tags/xaml">#xaml</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">October 6, 2011</h2>
+    <h1 class="title">Creating a Crawl Control in WPF</h1>
+    
+    <div class="content">
+      <p>A few weeks ago I was watching CNN when an interesting blurb scrolled by on the crawl at the bottom of the screen.&nbsp; Normally, the crawl is not something I notice, but I thought to myself, "I wonder if I can implement one in WPF."&nbsp; I had never done any animations before in WPF, and this seemed like a good way to start.</p> <p>So I gave it a shot.</p> <p>My initial instinct was to bring up Google and see if anyone else had done it.&nbsp; I stopped myself because this was a good learning opportunity.&nbsp; A chance to put my nascent XAML skills to the test.&nbsp; Afterward I could research the topic and see what I did or did not do right.</p> <p>My first challenge was to come up with a good visual layout that would enable the basic scrolling animation.&nbsp; I needed a panel of some type and a control to hold the scrolling text.&nbsp; The text would come from a bindable list so naturally an ItemsControl was the best choice.&nbsp; It would form the banner that would scroll across the screen.</p> <p>The panel was a little tougher.&nbsp; In WinForms, I would update the Left property to increasingly negative values to scroll it to the left; however, WPF framework elements do not have a Left property.&nbsp; WPF's control layout resembles HTML more than WinForms.&nbsp; Enter the Canvas control.&nbsp; It enables child elements to be positioned using coordinates, and I could animate the Canvas.Left attached property to scroll the banner.</p> <p>The complete control template is listed below.</p><pre class="code"><span style="color: blue">&lt;</span><span style="color: #a31515">ControlTemplate </span><span style="color: red">TargetType</span><span style="color: blue">="{</span><span style="color: #a31515">x</span><span style="color: blue">:</span><span style="color: #a31515">Type </span><span style="color: red">Controls</span><span style="color: blue">:</span><span style="color: red">CrawlList</span><span style="color: blue">}"&gt;
+    &lt;</span><span style="color: #a31515">Border </span><span style="color: red">Background</span><span style="color: blue">="{</span><span style="color: #a31515">TemplateBinding </span><span style="color: red">Background</span><span style="color: blue">}"
+            </span><span style="color: red">BorderBrush</span><span style="color: blue">="{</span><span style="color: #a31515">TemplateBinding </span><span style="color: red">BorderBrush</span><span style="color: blue">}"
+            </span><span style="color: red">BorderThickness</span><span style="color: blue">="{</span><span style="color: #a31515">TemplateBinding </span><span style="color: red">BorderThickness</span><span style="color: blue">}"&gt;
+<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: green&quot;&gt;&amp;lt;!-- Use a Canvas as the parent panel to take advantage of absolute
+         positioning which makes the animation easier. --&amp;gt;
+    &lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;Canvas &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;x&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;:&lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;Name&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;=&quot;crawlCanvas&quot; &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;VerticalAlignment&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;=&quot;Stretch&quot;
+            &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;HorizontalAlignment&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;=&quot;Stretch&quot;&amp;gt;
+
+        &lt;/span&gt;&lt;span style=&quot;color: green&quot;&gt;&amp;lt;!-- An ItemsControl forms the scrolling banner. --&amp;gt;
+        &lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;ItemsControl &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;x&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;:&lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;Name&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;=&quot;crawlItems&quot;
+                      &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;ItemsSource&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;=&quot;{&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;TemplateBinding &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;ItemsSource&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;}&quot;
+                      &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;Canvas.Top&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;=&quot;0&quot;
+                      &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;Canvas.Left&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;=&quot;{&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;TemplateBinding &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;Left&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;}&quot;
+                      &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;Canvas.Bottom&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;=&quot;{&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;Binding &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;Width&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;,
+                                      &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;ElementName&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;=crawlCanvas}&quot;
+                      &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;Canvas.Right&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;=&quot;{&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;Binding &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;Height&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;,
+                                     &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;ElementName&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;=crawlCanvas}&quot;&amp;gt;
+
+            &lt;/span&gt;&lt;span style=&quot;color: green&quot;&gt;&amp;lt;!-- The default item template is a simple text block.
+                 It can be updated to a different template using
+                 CrawlList.ItemTemplate.--&amp;gt;
+            &lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;ItemsControl.ItemTemplate&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;gt;
+                &amp;lt;&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;DataTemplate&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;gt;
+                    &amp;lt;&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;TextBlock &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;Text&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;=&quot;{&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;Binding&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;}&quot; /&amp;gt;
+                &amp;lt;/&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;DataTemplate&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;gt;
+            &amp;lt;/&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;ItemsControl.ItemTemplate&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;gt;
+
+            &lt;/span&gt;&lt;span style=&quot;color: green&quot;&gt;&amp;lt;!-- By default the ItemsPanel property contans a StackPanel
+                 with a vertical orientation.  Replace it with a StackPanel
+                 with a horizontal orientation. --&amp;gt;
+            &lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;ItemsControl.ItemsPanel&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;gt;
+                &amp;lt;&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;ItemsPanelTemplate&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;gt;
+                    &amp;lt;&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;StackPanel &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;x&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;:&lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;Name&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;=&quot;crawlItemsPanel&quot;
+                                &lt;/span&gt;&lt;span style=&quot;color: red&quot;&gt;Orientation&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;=&quot;Horizontal&quot; /&amp;gt;
+                &amp;lt;/&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;ItemsPanelTemplate&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;gt;
+            &amp;lt;/&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;ItemsControl.ItemsPanel&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;gt;
+        &amp;lt;/&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;ItemsControl&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;gt;
+    &amp;lt;/&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;Canvas&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;gt;
+
+&amp;lt;/&lt;/span&gt;&lt;span style=&quot;color: #a31515&quot;&gt;Border&lt;/span&gt;&lt;span style=&quot;color: blue&quot;&gt;&amp;gt;
+</code></pre>
+<p>&lt;/</span><span style="color: #a31515">ControlTemplate</span><span style="color: blue">&gt;</span></pre></p>
+<p>In the control's template, the <em>Canvas.Left</em> attached property is bound to the CrawlControl's <em>Left</em> dependency property.&nbsp; This was my workaround because I could not find a way to animate <em>Canvas.Left</em> directly.&nbsp; It seems like a hack.&nbsp; Perhaps there is a better way?</p>
+<p>After hooking up the <em>Left</em> property, all I had to do was animate it with an instance of the <em>DoubleAnimation</em> class.&nbsp; There is also a <em>CrawlAnimation</em> dependency property for custom animations.</p><pre class="code"><span style="color: blue">private void </span>StartCrawlAnimation()
+{
+    <span style="color: blue">if </span>((_banner != <span style="color: blue">null</span>) &amp;&amp; (_banner.ActualWidth &gt; 0))
+    {
+        <span style="color: #2b91af">DoubleAnimationBase </span>doubleAnimation =
+            CrawlAnimation ?? BuildDefaultAnimation();
+        BeginAnimation(LeftProperty, doubleAnimation);
+    }
+}
+<p><span style="color: blue">private void </span>EndCrawlAnimation()
+{
+BeginAnimation(LeftProperty, <span style="color: blue">null</span>);
+}</p>
+<p><span style="color: blue">private </span><span style="color: #2b91af">DoubleAnimationBase </span>BuildDefaultAnimation()
+{
+<span style="color: blue">double </span>bannerWidth = _banner.ActualWidth;
+<span style="color: blue">double </span>fromValue = _crawlCanvas.ActualWidth;
+<span style="color: blue">double </span>toValue = -1 * bannerWidth;
+<span style="color: blue">double </span>speed = CrawlSpeed;</p>
+<pre><code>&lt;span style=&quot;color: #2b91af&quot;&gt;Duration &lt;/span&gt;duration = &lt;span style=&quot;color: blue&quot;&gt;new &lt;/span&gt;&lt;span style=&quot;color: #2b91af&quot;&gt;Duration&lt;/span&gt;(
+    &lt;span style=&quot;color: #2b91af&quot;&gt;TimeSpan&lt;/span&gt;.FromSeconds(bannerWidth / speed));
+
+&lt;span style=&quot;color: blue&quot;&gt;return new &lt;/span&gt;&lt;span style=&quot;color: #2b91af&quot;&gt;DoubleAnimation&lt;/span&gt;(fromValue, toValue, duration)
+    { RepeatBehavior = &lt;span style=&quot;color: #2b91af&quot;&gt;RepeatBehavior&lt;/span&gt;.Forever };
+</code></pre>
+<p>}</pre></p>
+<p>So there it is.&nbsp; My first animation.&nbsp; I was surprised at how easy WPF makes animations.</p>
+<p>You can download the <a href="https://github.com/joebuschmann/Buschmann.Windows" target="_blank">complete source code</a>.&nbsp; The code behind is in CrawlList.cs, and the template is in CrawlListStyle.xaml.&nbsp; To see it in action, run the solution, and from the main window, click the "Crawl List" button to bring up a simple testing view.</p>
+      
+    </div>
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+  
+    <script type="text/javascript">
+      var disqus_shortname = 'joebuschmann';
+      function disqus() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+  
+      disqus();
+  
+
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; Joe Buschmann 2020</p>
+    
+  </div>
+</section>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-64657873-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+</body>
+</html>
+

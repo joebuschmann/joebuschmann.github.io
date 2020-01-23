@@ -14,78 +14,78 @@
     
     <item>
       <title>A Poor Man&#39;s Queue</title>
-      <link>/posts/2019-01-10-a-poor-mans-queue/</link>
+      <link>/posts/2019/01/a-poor-mans-queue/</link>
       <pubDate>Thu, 10 Jan 2019 14:29:33 +0000</pubDate>
       
-      <guid>/posts/2019-01-10-a-poor-mans-queue/</guid>
+      <guid>/posts/2019/01/a-poor-mans-queue/</guid>
       <description>Any sufficiently large enterprise software application is going to need a queue at some point. A queue is a good way to introduce an asynchronous process and decouple two parts of a system. For example, a user could upload a large file to a web application for processing, and instead of making the user wait for the work to complete, the application could queue up the work and return immediately. Later, when the results are ready, the user could be notified.</description>
     </item>
     
     <item>
       <title>Scaling SpecFlow With Proper Architecture</title>
-      <link>/posts/2018-08-31-scaling-specflow-with-proper-architecture/</link>
+      <link>/posts/2018/08/scaling-specflow-with-proper-architecture/</link>
       <pubDate>Fri, 31 Aug 2018 01:07:38 +0000</pubDate>
       
-      <guid>/posts/2018-08-31-scaling-specflow-with-proper-architecture/</guid>
+      <guid>/posts/2018/08/scaling-specflow-with-proper-architecture/</guid>
       <description>In July of 2018, I gave a talk at KCDC titled SpecFlow: Moving Beyond the Basics. Afterward, I changed the title to Scaling SpecFlow to more accurately reflect the topic. You can find the updated slide deck at https://joebuschmann.github.io/scaling-specflow/.
 Over the next few weeks, I created a series of posts, one for each section of the talk, for those of you who perfer blog posts to slide decks. This page aggregates these pages in one place and takes you through each one in order.</description>
     </item>
     
     <item>
       <title>SpecFlow Step Definition Report</title>
-      <link>/posts/2018-08-31-specflow-step-definition-report/</link>
+      <link>/posts/2018/08/specflow-step-definition-report/</link>
       <pubDate>Fri, 31 Aug 2018 00:42:31 +0000</pubDate>
       
-      <guid>/posts/2018-08-31-specflow-step-definition-report/</guid>
+      <guid>/posts/2018/08/specflow-step-definition-report/</guid>
       <description>The SpecFlow runtime comes with a little known command line utility aptly named specflow.exe. You can find it in the tools directory in the SpecFlow NuGet package (ex: [project]\packages\SpecFlow.2.3.2\tools). This humble tool can be used to regenerate SpecFlow unit test classes, create test execution reports for NUnit and MSTest, and generate a step definition report. The most useful of these is the step definition report.
 As the number of features grows, scenarios and bindings are going to get lost in the day-to-day scrum of software development.</description>
     </item>
     
     <item>
       <title>The Joy of Public Transit</title>
-      <link>/posts/2018-08-24-you-dont-drive-to-work-huh/</link>
+      <link>/posts/2018/08/the-joy-of-public-transit/</link>
       <pubDate>Fri, 24 Aug 2018 22:53:11 +0000</pubDate>
       
-      <guid>/posts/2018-08-24-you-dont-drive-to-work-huh/</guid>
+      <guid>/posts/2018/08/the-joy-of-public-transit/</guid>
       <description>First of all, I should clarify that the title of this post is not meant to be sarcastic. I really do enjoy public transit. It has been over 17 years since I needed to commute to work by automobile. In fact, I haven&#39;t driven to work once during that time. My daily commute consists of about two miles of walking plus a 45 minute train ride one way. I consider myself to be very lucky to have the choice not to drive.</description>
     </item>
     
     <item>
       <title>Running SpecFlow Scenarios in Parallel</title>
-      <link>/posts/2018-08-24-running-specflow-scenarios-in-parallel/</link>
+      <link>/posts/2018/08/running-specflow-scenarios-in-parallel/</link>
       <pubDate>Fri, 24 Aug 2018 22:48:34 +0000</pubDate>
       
-      <guid>/posts/2018-08-24-running-specflow-scenarios-in-parallel/</guid>
+      <guid>/posts/2018/08/running-specflow-scenarios-in-parallel/</guid>
       <description>As of SpecFlow version 2.0, you can run scenarios in parallel. This means faster execution times and faster feedback in your continuous integration process.
 Memory Isolation To enable parallel execution, you must use a test runner that supports it. Available runners include NUnit 3.0, xUnit 2.0, and the SpecFlow+ Runner (specrun). Specrun is a commercial product, but it has advanced features like memory isolation via an app domain or process. NUnit and xUnit don&#39;t support memory isolation, so they requre your tests to be thread safe.</description>
     </item>
     
     <item>
       <title>Reusable Bindings in SpecFlow</title>
-      <link>/posts/2018-08-13-reusable-bindings-in-specflow/</link>
+      <link>/posts/2018/08/reusable-bindings-in-specflow/</link>
       <pubDate>Mon, 13 Aug 2018 13:44:33 +0000</pubDate>
       
-      <guid>/posts/2018-08-13-reusable-bindings-in-specflow/</guid>
+      <guid>/posts/2018/08/reusable-bindings-in-specflow/</guid>
       <description>As your application grows, your SpecFlow test suite needs to grow with it. Reusable bindings are essentional to prevent your code from becoming a bloated mess. Fortunately, the SpecFlow runtime has reusability in mind with a built-in inversion of control (IoC) framework and step argument transformations. With these features you can create reusable bindings that make test creation more productive.
 Problems with Inheritance Before digging into IoC, I&#39;ll take a moment to cover why you shouldn&#39;t use inheritance in your bindings.</description>
     </item>
     
     <item>
       <title>Working Effectively with SpecFlow Tables</title>
-      <link>/posts/2018-08-10-working-effectively-with-specflow-tables/</link>
+      <link>/posts/2018/08/working-effectively-with-specflow-tables/</link>
       <pubDate>Fri, 10 Aug 2018 21:41:47 +0000</pubDate>
       
-      <guid>/posts/2018-08-10-working-effectively-with-specflow-tables/</guid>
+      <guid>/posts/2018/08/working-effectively-with-specflow-tables/</guid>
       <description>The Gherkin DSL defines data tables as a way of passing a list of values to a step definition. Gherkin tables use the pipe character | to delimit column names and values. They&#39;re easy to read and understand by both business and technical people.
 While they work great in Gherkin, tables don&#39;t translate well to strongly typed .NET languages. They are converted to an instance of the Table type in SpecFlow bindings.</description>
     </item>
     
     <item>
       <title>Gherkin Tips</title>
-      <link>/posts/2018-08-10-gherkin-tips/</link>
+      <link>/posts/2018/08/gherkin-tips/</link>
       <pubDate>Fri, 10 Aug 2018 13:22:54 +0000</pubDate>
       
-      <guid>/posts/2018-08-10-gherkin-tips/</guid>
+      <guid>/posts/2018/08/gherkin-tips/</guid>
       <description>[Gherkin] is a Business Readable, Domain Specific Language that lets you describe software&#39;s behaviour without detailing how that behaviour is implemented. - Gherkin Wiki
  These Gherkin best practices were originally included in an early draft of a talk I gave on SpecFlow. Ultimately, I took them out because they didn&#39;t fit well with the topic, so I put them into a blog post.
 Table values should be atomic Bindings that take a table argument will almost always convert the table to a C# object for easy manipulation.</description>
@@ -93,10 +93,10 @@ Table values should be atomic Bindings that take a table argument will almost al
     
     <item>
       <title>SpecFlow Basics</title>
-      <link>/posts/2018-08-08-specflow-basics/</link>
+      <link>/posts/2018/08/specflow-basics/</link>
       <pubDate>Wed, 08 Aug 2018 13:41:40 +0000</pubDate>
       
-      <guid>/posts/2018-08-08-specflow-basics/</guid>
+      <guid>/posts/2018/08/specflow-basics/</guid>
       <description>SpecFlow is hands down my favorite testing tool. I&#39;ve been blogging about it since 2013 covering mostly advanced topics. In this post, I&#39;ll go back to the beginning and briefly cover the basics to give you an idea of what it can do.
 What is SpecFlow? SpecFlow is a tool that allows you to:
  Define, manage, and automate human-readable acceptance tests in .NET. Enable BDD with easy to understand tests.</description>
@@ -104,10 +104,10 @@ What is SpecFlow? SpecFlow is a tool that allows you to:
     
     <item>
       <title>The C# Language - Overflow Checking for Integral Operations</title>
-      <link>/posts/2017-12-14-the-csharp-language-overflow-checking-for-integral-operations/</link>
+      <link>/posts/2017/12/the-c#-language-overflow-checking-for-integral-operations/</link>
       <pubDate>Thu, 14 Dec 2017 23:06:59 +0000</pubDate>
       
-      <guid>/posts/2017-12-14-the-csharp-language-overflow-checking-for-integral-operations/</guid>
+      <guid>/posts/2017/12/the-c#-language-overflow-checking-for-integral-operations/</guid>
       <description>The C# language has been around for over 15 years. It started off as a Java ripoff and evolved into its own language. Some parts of the language I use daily: enumerators, generics, async/await. Other parts lurk in the shadows until the rare moment when I need to put them to use.
 One such part is overflow checking for integral operations.
 Compiler Option By default, integral operations are not checked for overflows either by the C# compiler or at runtime.</description>
@@ -115,243 +115,243 @@ Compiler Option By default, integral operations are not checked for overflows ei
     
     <item>
       <title>SpecFlow NUnit3 Generator Plugin</title>
-      <link>/posts/2017-10-22-specflow-nunit3-generator-plugin/</link>
+      <link>/posts/2017/10/specflow-nunit3-generator-plugin/</link>
       <pubDate>Sun, 22 Oct 2017 02:44:18 +0000</pubDate>
       
-      <guid>/posts/2017-10-22-specflow-nunit3-generator-plugin/</guid>
+      <guid>/posts/2017/10/specflow-nunit3-generator-plugin/</guid>
       <description>I recently created a SpecFlow plugin to solve a peculiar problem with NUnit test code generation. The issue is SpecFlow will generate test code that doesn&#39;t compile when the .NET project containing the SpecFlow scenarios has a default namespace with the word NUnit. For example, if your project has the namespace IntegrationTests.NUnit, then you&#39;ll receive the following error when trying to build.
  The type or namespace name &amp;lsquo;Framework&amp;rsquo; does not exist in the namespace &amp;lsquo;IntegrationTests.</description>
     </item>
     
     <item>
       <title>How to Win Friends and Influence People (In a Nutshell)</title>
-      <link>/posts/2017-05-30-how-to-win-friends-and-influence-people-in-a-nutshell/</link>
+      <link>/posts/2017/05/how-to-win-friends-and-influence-people-in-a-nutshell/</link>
       <pubDate>Tue, 30 May 2017 20:30:44 +0000</pubDate>
       
-      <guid>/posts/2017-05-30-how-to-win-friends-and-influence-people-in-a-nutshell/</guid>
+      <guid>/posts/2017/05/how-to-win-friends-and-influence-people-in-a-nutshell/</guid>
       <description>I recently finished the famous book How to Win Friends and Influence People by Dale Carnegie. It was first published in 1937 and continues to be a best seller today. The following is a cheat sheet which summarizes the points Carnegie makes in the book.
 PART ONE: Fundamental Techniques of Handling People  Don&#39;t criticize, condemn, or complain. Give honest and sincere appreciation. Arouse in the other person an eager want.</description>
     </item>
     
     <item>
       <title>Getting Started with Selenium, SpecFlow, and .NET</title>
-      <link>/posts/2017-05-30-getting-started-with-selenium-specflow-and-dot-net/</link>
+      <link>/posts/2017/05/getting-started-with-selenium-specflow-and-.net/</link>
       <pubDate>Tue, 30 May 2017 19:54:01 +0000</pubDate>
       
-      <guid>/posts/2017-05-30-getting-started-with-selenium-specflow-and-dot-net/</guid>
+      <guid>/posts/2017/05/getting-started-with-selenium-specflow-and-.net/</guid>
       <description>Selenium is a library used to automate web browsers. It uses a common web driver interface, and each web browser, Chrome, Firefox, IE, has a corresponding implementation that takes advantage of the browser&#39;s native API.
 I don&#39;t have much experience with browser automation. In fact, I try to avoid it as much as possible in favor of testing at the unit and service level. Tests running through the browser tend to be brittle due to the non-deterministic nature of web pages.</description>
     </item>
     
     <item>
       <title>Workplace Trends: What&#39;s In and What&#39;s Out</title>
-      <link>/posts/2017-05-03-workplace-trends-whats-in-and-whats-out/</link>
+      <link>/posts/2017/05/workplace-trends-whats-in-and-whats-out/</link>
       <pubDate>Wed, 03 May 2017 13:17:21 +0000</pubDate>
       
-      <guid>/posts/2017-05-03-workplace-trends-whats-in-and-whats-out/</guid>
+      <guid>/posts/2017/05/workplace-trends-whats-in-and-whats-out/</guid>
       <description>&amp;ldquo;To every thing there is a season&amp;rdquo; begins Ecclesiastes 3, and if the phase&#39;s writer were alive today, he might have had the modern workplace in mind (not really but it makes a good intro). On April 21, I celebrated my 40th birthday, and I&#39;ve been reflecting on the fads and trends I&#39;ve seen during my career. What were they? Why did they become popular? Why did they fade away? And, ultimately, what took their place?</description>
     </item>
     
     <item>
       <title>Row-Level Security in SQL Server</title>
-      <link>/posts/2017-03-01-row-level-security-in-sql-server/</link>
+      <link>/posts/2017/03/row-level-security-in-sql-server/</link>
       <pubDate>Wed, 01 Mar 2017 14:18:28 +0000</pubDate>
       
-      <guid>/posts/2017-03-01-row-level-security-in-sql-server/</guid>
+      <guid>/posts/2017/03/row-level-security-in-sql-server/</guid>
       <description>Up until version 2016, Microsoft&#39;s SQL Server didn&#39;t support row-level security (RLS) - a feature that&#39;s been around in Oracle and IBM&#39;s offerings for a while. If you ran SQL Server and needed RLS, you had to build your own scheme which is exactly what I had to do for a recent project. I needed RLS for a new data warehouse I was building using SQL Server 2014. The requirements called for storing sensitive financial and sales data from multiple users in the same tables.</description>
     </item>
     
     <item>
       <title>A Normal Everyday Sociopath</title>
-      <link>/posts/2017-02-10-a-normal-everyday-sociopath/</link>
+      <link>/posts/2017/02/a-normal-everyday-sociopath/</link>
       <pubDate>Fri, 10 Feb 2017 14:33:58 +0000</pubDate>
       
-      <guid>/posts/2017-02-10-a-normal-everyday-sociopath/</guid>
+      <guid>/posts/2017/02/a-normal-everyday-sociopath/</guid>
       <description>During the run-up to the 2016 election, one word was often used to describe Donald Trump: sociopath. Just Google donald trump sociopath, and you&#39;ll find the results full of articles asking if he really is a sociopath. His former ghostwriter Tony Schwartz thinks so.
 Amid all the sociopath talk, I realized I didn&#39;t know what the word meant. To me it just described a horrible person. I decided to fix that and read up on sociopathy and its close cousin psychopathy.</description>
     </item>
     
     <item>
       <title>Salesforce Lightning - Navigation Events in a Visualforce Page</title>
-      <link>/posts/2017-01-16-salesforce-lightning-navigation-events-in-a-visualforce-page/</link>
+      <link>/posts/2017/01/salesforce-lightning-navigation-events-in-a-visualforce-page/</link>
       <pubDate>Mon, 16 Jan 2017 10:00:00 +0000</pubDate>
       
-      <guid>/posts/2017-01-16-salesforce-lightning-navigation-events-in-a-visualforce-page/</guid>
+      <guid>/posts/2017/01/salesforce-lightning-navigation-events-in-a-visualforce-page/</guid>
       <description>In my previous post, I covered how to use a Lightning component in a Visualforce (VF) page and mentioned an issue with navigation events. These events no longer work. The problem is VF pages are loaded into an iframe element in the Lightning Experience. Navigation events like force:navigateToObjectHome are handled by the one.app container in the parent frame. Events raised in the VF page stop at the iframe boundary and don&#39;t bubble up into the parent frame.</description>
     </item>
     
     <item>
       <title>Salesforce Lightning - Hosting a Component in Visualforce</title>
-      <link>/posts/2017-01-16-salesforce-lightning-hosting-a-component-in-visualforce/</link>
+      <link>/posts/2017/01/salesforce-lightning-hosting-a-component-in-visualforce/</link>
       <pubDate>Mon, 16 Jan 2017 08:40:00 +0000</pubDate>
       
-      <guid>/posts/2017-01-16-salesforce-lightning-hosting-a-component-in-visualforce/</guid>
+      <guid>/posts/2017/01/salesforce-lightning-hosting-a-component-in-visualforce/</guid>
       <description>You may be familiar with overriding the editing experience for a Salesforce object with a custom Visualforce (VF) page. When users choose the new or edit actions for an object record, they get a customized view rather than the standard Salesforce view. I wanted to convert a custom edit view written in Visualforce over to Lightning. What I thought would take a day ended up consuming the better part of a week.</description>
     </item>
     
     <item>
       <title>Salesforce Lightning - Fixing the Built-in Components</title>
-      <link>/posts/2016-11-28-salesforce-lightning-fixing-the-built-in-components/</link>
+      <link>/posts/2016/11/salesforce-lightning-fixing-the-built-in-components/</link>
       <pubDate>Mon, 28 Nov 2016 14:21:45 +0000</pubDate>
       
-      <guid>/posts/2016-11-28-salesforce-lightning-fixing-the-built-in-components/</guid>
+      <guid>/posts/2016/11/salesforce-lightning-fixing-the-built-in-components/</guid>
       <description>If you&#39;ve developed with the Salesforce Lightning Framework, you&#39;re probably familiar with the Lightning components available in the UI namespace. They include ui:button and ui:inputText among others. These out-of-the-box components are intended to get you up and running quickly, but the reality is they&#39;re pretty buggy. It can take some tweaking to get them to look right.
 Issues with ui:inputDateTime A prime example of this is ui:inputDateTime. If you use it in conjunction with the SLDS classes slds-input and slds-form-element__label, the component&#39;s layout gets out of whack.</description>
     </item>
     
     <item>
       <title>Salesforce Lightning - The Bad Parts</title>
-      <link>/posts/2016-11-18-salesforce-lightning-the-bad-parts/</link>
+      <link>/posts/2016/11/salesforce-lightning-the-bad-parts/</link>
       <pubDate>Fri, 18 Nov 2016 14:25:00 +0000</pubDate>
       
-      <guid>/posts/2016-11-18-salesforce-lightning-the-bad-parts/</guid>
+      <guid>/posts/2016/11/salesforce-lightning-the-bad-parts/</guid>
       <description>I try to avoid writing rants, but after a rough day, I needed to get this out. For the last two months, I&#39;ve been working with the Salesforce Lightning Framework. It is the most frustrating JavaScript framework I&#39;ve ever used. Unlike my experiences with Angular, React, and Knockout, I feel like Lightning is constantly fighting me. Technically it is built on the open source Aura framework, so this is an Aura critique as well.</description>
     </item>
     
     <item>
       <title>Callbacks As Lightning Component Attributes</title>
-      <link>/posts/2016-10-25-callbacks-as-lightning-component-attributes/</link>
+      <link>/posts/2016/10/callbacks-as-lightning-component-attributes/</link>
       <pubDate>Tue, 25 Oct 2016 14:15:44 +0000</pubDate>
       
-      <guid>/posts/2016-10-25-callbacks-as-lightning-component-attributes/</guid>
+      <guid>/posts/2016/10/callbacks-as-lightning-component-attributes/</guid>
       <description>Last week I posed a question on salesforce.stackexchange.com asking how to pass a function as an attribute in a Lightning Component. As a newbie to the Lightning Component framework (and the Salesforce platform), I found it odd callbacks were not included as one of the supported attribute types. The dearth of responses to my question surprised me. Eventually I found the answer when researching Component Events.
 Lightning Events Before I elaborate, I have to say the Lightning framework&#39;s approach to callbacks or events seems excessive.</description>
     </item>
     
     <item>
       <title>Forget 100% - A Realistic Guide to Physical Fitness</title>
-      <link>/posts/2016-09-09-forget-100-a-realistic-guide-to-physical-fitness/</link>
+      <link>/posts/2016/09/forget-100-a-realistic-guide-to-physical-fitness/</link>
       <pubDate>Fri, 09 Sep 2016 14:48:07 +0000</pubDate>
       
-      <guid>/posts/2016-09-09-forget-100-a-realistic-guide-to-physical-fitness/</guid>
+      <guid>/posts/2016/09/forget-100-a-realistic-guide-to-physical-fitness/</guid>
       <description>Two years ago in July I made a decision that changed my life. After a ten year hiatus, I decided to start working out again. I was in good shape in my twenties, but I was never able to carry out an exercise routine for more than a few months. I would be enthusiastic about it at first and then burn out. Eventually I stopped working out altogether.
 When I hit my late thirties, I was heavier than I wanted to be and felt sluggish most days.</description>
     </item>
     
     <item>
       <title>TaskCompletionSource - Bridging the Gap Between Old and New</title>
-      <link>/posts/2016-08-15-taskcompletionsource-bridging-the-gap-between-old-and-new/</link>
+      <link>/posts/2016/08/taskcompletionsource-bridging-the-gap-between-old-and-new/</link>
       <pubDate>Mon, 15 Aug 2016 13:28:32 +0000</pubDate>
       
-      <guid>/posts/2016-08-15-taskcompletionsource-bridging-the-gap-between-old-and-new/</guid>
+      <guid>/posts/2016/08/taskcompletionsource-bridging-the-gap-between-old-and-new/</guid>
       <description>In the latest versions of the .NET Framework, asynchronous work is represented by the Task class. A task is similar to a future or promise in other languages. You can create one in many ways the most common being Task.Run(). The result of a task is exposed by the Task.Result property. If the work is complete, then the property immediately returns a value; otherwise, it blocks until the operation is finished.</description>
     </item>
     
     <item>
       <title>In Defense of JSX</title>
-      <link>/posts/2016-07-31-in-defense-of-jsx/</link>
+      <link>/posts/2016/07/in-defense-of-jsx/</link>
       <pubDate>Sun, 31 Jul 2016 19:30:54 +0000</pubDate>
       
-      <guid>/posts/2016-07-31-in-defense-of-jsx/</guid>
+      <guid>/posts/2016/07/in-defense-of-jsx/</guid>
       <description>JSX is the much maligned JavaScript syntax extension that tells React how to build the UI. It gets translated into JavaScript which then builds out the virtual DOM. Later the virtual DOM is translated into the real DOM, and you&#39;ve got a UI.
 For some reason many people don&#39;t like JSX. Their criticism usually goes along the lines of: JSX is ugly and you shouldn&#39;t mix the view and controller. You should have separation of concerns (aka MVC) for better reuse.</description>
     </item>
     
     <item>
       <title>Top 6 Industry Shifts During My IT Career</title>
-      <link>/posts/2016-07-08-top-6-industry-shifts-during-my-it-career/</link>
+      <link>/posts/2016/07/top-6-industry-shifts-during-my-it-career/</link>
       <pubDate>Fri, 08 Jul 2016 01:04:00 +0000</pubDate>
       
-      <guid>/posts/2016-07-08-top-6-industry-shifts-during-my-it-career/</guid>
+      <guid>/posts/2016/07/top-6-industry-shifts-during-my-it-career/</guid>
       <description>In the fall of 1999, I dropped my plans to attend grad school to embark on a career in IT. The industry has changed considerably since then mostly for the better. In fact I&#39;ve never been more excited to be a software developer.
 As part of a personal retrospective on my career, below are my thoughts on the top six shifts in IT. By a &amp;ldquo;shift&amp;rdquo; I mean a change that has profoundly affected the way developers go about their daily work.</description>
     </item>
     
     <item>
       <title>How to Convert a React Mixin to a Component</title>
-      <link>/posts/2016-06-22-how-to-convert-a-react-mixin-to-a-component/</link>
+      <link>/posts/2016/06/how-to-convert-a-react-mixin-to-a-component/</link>
       <pubDate>Wed, 22 Jun 2016 13:39:42 +0000</pubDate>
       
-      <guid>/posts/2016-06-22-how-to-convert-a-react-mixin-to-a-component/</guid>
+      <guid>/posts/2016/06/how-to-convert-a-react-mixin-to-a-component/</guid>
       <description>In a previous post I covered an example of a React mixin which I called ClickAway that detected clicks anywhere outside of a component. I also mentioned mixins are not React&#39;s preferred method of reuse. Composition with components is the way to go, and mixins are on the way out.
 With this in mind, I decided to convert the ClickAway mixin into a component. I was skeptical about how clean the new implementation would be, but it turned out well.</description>
     </item>
     
     <item>
       <title>React By Example: Mixins</title>
-      <link>/posts/2016-06-16-react-by-example-mixins/</link>
+      <link>/posts/2016/06/react-by-example-mixins/</link>
       <pubDate>Thu, 16 Jun 2016 02:44:00 +0000</pubDate>
       
-      <guid>/posts/2016-06-16-react-by-example-mixins/</guid>
+      <guid>/posts/2016/06/react-by-example-mixins/</guid>
       <description>Components are React&#39;s preferred reuse mechanism, but it&#39;s not the only one. Sometimes different components share the same functions. It may be awkward to wrap these cross-cutting concerns in a higher order component, or the common code may need access to a component&#39;s state. In these scenarios, React mixins are useful.
 Before I continue, I should note mixins seem to be on the way out. The React team is focused on making components more powerful versus continuing to build on the mixin concept.</description>
     </item>
     
     <item>
       <title>React by Example: Stateless Functional Components</title>
-      <link>/posts/2016-05-24-react-by-example-stateless-functional-components/</link>
+      <link>/posts/2016/05/react-by-example-stateless-functional-components/</link>
       <pubDate>Tue, 24 May 2016 02:21:10 +0000</pubDate>
       
-      <guid>/posts/2016-05-24-react-by-example-stateless-functional-components/</guid>
+      <guid>/posts/2016/05/react-by-example-stateless-functional-components/</guid>
       <description>In v0.14 the React team introduced stateless functional components. They are implemented by functions that take a props argument and return JSX. They&#39;re simpler and offer performance benefits. The drawbacks are the lack of state and the inability to interact directly with the DOM.
 Icon Component In a typical app, most React components will be presentational only and should be stateless functional components. A good example is an Icon component I created to encapsulate Font Awesome icons.</description>
     </item>
     
     <item>
       <title>React: First Impressions</title>
-      <link>/posts/2016-05-16-react-first-impressions/</link>
+      <link>/posts/2016/05/react-first-impressions/</link>
       <pubDate>Mon, 16 May 2016 13:30:13 +0000</pubDate>
       
-      <guid>/posts/2016-05-16-react-first-impressions/</guid>
+      <guid>/posts/2016/05/react-first-impressions/</guid>
       <description>I&#39;m a React newbie who just completed my first React web app, a rewrite of an internal tool at work. Previously the UI was written in ASP.NET plus lots of JQuery on the client side. It worked well but was starting to show its age.
 Actually this wasn&#39;t my first attempt at React. I started porting a web app written in Knockout to React last October. It was a side project and a good place to start.</description>
     </item>
     
     <item>
       <title>The Open-Closed Principle and Build Systems</title>
-      <link>/posts/2016-04-06-the-open-closed-principle-and-build-systems/</link>
+      <link>/posts/2016/04/the-open-closed-principle-and-build-systems/</link>
       <pubDate>Wed, 06 Apr 2016 13:20:20 +0000</pubDate>
       
-      <guid>/posts/2016-04-06-the-open-closed-principle-and-build-systems/</guid>
+      <guid>/posts/2016/04/the-open-closed-principle-and-build-systems/</guid>
       <description>Most developers are familiar with the Open-closed Principle in object-oriented programming. Entities should be open for extension but closed for modification. It serves as a useful guide for software design.
  In object-oriented programming, the open/closed principle states &amp;ldquo;software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification&amp;rdquo;; that is, such an entity can allow its behavior to be extended without modifying its source code.</description>
     </item>
     
     <item>
       <title>Convert Truthy/Falsy to True/False with !!</title>
-      <link>/posts/2016-02-09-convert-truthy-falsy-to-true-false-with/</link>
+      <link>/posts/2016/02/convert-truthy/falsy-to-true/false-with/</link>
       <pubDate>Tue, 09 Feb 2016 13:31:37 +0000</pubDate>
       
-      <guid>/posts/2016-02-09-convert-truthy-falsy-to-true-false-with/</guid>
+      <guid>/posts/2016/02/convert-truthy/falsy-to-true/false-with/</guid>
       <description>I&#39;ve been primarily coding in Javascript for a couple months now, and the language&#39;s quirks have become familiar, almost normal, to me. IIFEs, truthy/falsy, ===, and other weird language features make sense now. When I came across !! in a Javascript library, I thought I&#39;d missed some obscure syntax. Searching online provided no clues as to what it did. I read through the list of Javascript expressions and operators and only found the familiar !</description>
     </item>
     
     <item>
       <title>A Short and Easy Introduction to .NET&#39;s Task Class</title>
-      <link>/posts/2015-12-09-a-short-and-easy-introduction-to-dotnet-task-class/</link>
+      <link>/posts/2015/12/a-short-and-easy-introduction-to-.nets-task-class/</link>
       <pubDate>Wed, 09 Dec 2015 22:09:29 +0000</pubDate>
       
-      <guid>/posts/2015-12-09-a-short-and-easy-introduction-to-dotnet-task-class/</guid>
+      <guid>/posts/2015/12/a-short-and-easy-introduction-to-.nets-task-class/</guid>
       <description>Task.Run You can use Task.Run to schedule a delegate to run on the thread pool. The method returns a new task, and if the work is complete, the result will be available via Task.Result. If not, Task.Result will block until it is complete.
 Task.ContinueWith You&#39;ll want to avoid accessing the Task.Result property because it will block until the result is ready. In the previous example, the UI will hang for about 2000 milliseconds before updating the label with the result.</description>
     </item>
     
     <item>
       <title>Two Tips for Debugging Apps in IIS</title>
-      <link>/posts/2015-11-14-two-tips-for-debugging-apps-in-iis/</link>
+      <link>/posts/2015/11/two-tips-for-debugging-apps-in-iis/</link>
       <pubDate>Sat, 14 Nov 2015 23:33:47 +0000</pubDate>
       
-      <guid>/posts/2015-11-14-two-tips-for-debugging-apps-in-iis/</guid>
+      <guid>/posts/2015/11/two-tips-for-debugging-apps-in-iis/</guid>
       <description>If you develop web sites or services hosted in IIS, here are two tips to make debugging on your development machine easier.
 Disable Health Monitoring IIS application pools have health monitoring built in to ensure processes are responding to requests in a timely manner. If a process stops responding after a period of time, IIS will kill it. This is really inconvenient when you&#39;re debugging web apps in your dev environment, and IIS ends your session.</description>
     </item>
     
     <item>
       <title>SpecFlow Tags Done Right</title>
-      <link>/posts/2015-10-26-specflow-tags-done-right/</link>
+      <link>/posts/2015/10/specflow-tags-done-right/</link>
       <pubDate>Mon, 26 Oct 2015 13:30:51 +0000</pubDate>
       
-      <guid>/posts/2015-10-26-specflow-tags-done-right/</guid>
+      <guid>/posts/2015/10/specflow-tags-done-right/</guid>
       <description>In a previous post, I covered scoped bindings in SpecFlow and ended with an example of how not to use tags. In this post, I&#39;ll cover the &amp;ldquo;right way&amp;rdquo; and demonstrate how to avoid coupling features to step definitions. But first, a quick primer on tags.
 What Are Tags? Tags are used in Gherkin to mark features or scenarios. They begin with the @ character in Gherkin, but in step definitions the @ is removed.</description>
     </item>
     
     <item>
       <title>An Introduction to Scoped Bindings in SpecFlow</title>
-      <link>/posts/2015-10-22-an-introduction-to-scoped-bindings-in-specflow/</link>
+      <link>/posts/2015/10/an-introduction-to-scoped-bindings-in-specflow/</link>
       <pubDate>Thu, 22 Oct 2015 12:28:04 +0000</pubDate>
       
-      <guid>/posts/2015-10-22-an-introduction-to-scoped-bindings-in-specflow/</guid>
+      <guid>/posts/2015/10/an-introduction-to-scoped-bindings-in-specflow/</guid>
       <description>One nice aspect of SpecFlow is the ability to scope bindings by feature title, scenario title, or tag. Normally bindings are global to the project, but a binding&#39;s scope can be restricted using the Scope attribute. I like to think of it as similar to the private and public class modifiers in C#.
 Consider the Gherkin below.
 It is a single feature with one scenario and two tags. One tag is at the feature level and the other at the scenario level.</description>
@@ -359,29 +359,29 @@ Consider the Gherkin below.
     
     <item>
       <title>Refactoring to Composable SpecFlow Steps</title>
-      <link>/posts/2015-09-22-refactoring-to-composable-specflow-steps/</link>
+      <link>/posts/2015/09/refactoring-to-composable-specflow-steps/</link>
       <pubDate>Tue, 22 Sep 2015 12:15:32 +0000</pubDate>
       
-      <guid>/posts/2015-09-22-refactoring-to-composable-specflow-steps/</guid>
+      <guid>/posts/2015/09/refactoring-to-composable-specflow-steps/</guid>
       <description>I&#39;ve seen some pretty bad SpecFlow code. Code that seems to violate every good practice out there. Poor reuse. Copy and paste everywhere. Test code is the hotel room of the software world. People are sloppier and more careless than they otherwise would be. I&#39;m not sure why that is. Perhaps because tests are not seen as &amp;ldquo;real code&amp;rdquo;. But as a testing code base grows from dozens to hundreds to even a thousand or more test cases, having well-factored composable SpecFlow steps becomes critical.</description>
     </item>
     
     <item>
       <title>Tidying Up Code with C#&#39;s Using Alias Directives</title>
-      <link>/posts/2015-08-18-tidying-up-code-with-using-alias-directives/</link>
+      <link>/posts/2015/08/tidying-up-code-with-c#s-using-alias-directives/</link>
       <pubDate>Tue, 18 Aug 2015 21:52:34 +0000</pubDate>
       
-      <guid>/posts/2015-08-18-tidying-up-code-with-using-alias-directives/</guid>
+      <guid>/posts/2015/08/tidying-up-code-with-c#s-using-alias-directives/</guid>
       <description>The C# language&#39;s using alias directives or namespace and type aliases provide a way to disambiguate between namespaces or types with the same name. For example, both the System.Net and Nancy libraries have a type named HttpStatusCode. If you happen to import both namespaces in a file, then the types need to be fully qualified or else the compiler will fail with the error:
  &#39;HttpStatusCode&amp;rsquo; is an ambiguous reference between &amp;lsquo;Nancy.</description>
     </item>
     
     <item>
       <title>This Week in Programming Gotchas</title>
-      <link>/posts/2015-08-14-this-week-in-programming-gotchas/</link>
+      <link>/posts/2015/08/this-week-in-programming-gotchas/</link>
       <pubDate>Fri, 14 Aug 2015 12:08:00 +0000</pubDate>
       
-      <guid>/posts/2015-08-14-this-week-in-programming-gotchas/</guid>
+      <guid>/posts/2015/08/this-week-in-programming-gotchas/</guid>
       <description>We all have those days where we spend hours trying to solve a seemingly simple problem only to smack ourselves in the head when we finally figure it out. Missing quotes, forgetting to flush a StreamWriter, etc. If only we could get back all the wasted time.
 Well, this week I wrestled with more gotchas than usual. Below are the ones that burned most of my time.
 Streams Don&#39;t forget to flush a StreamWriter when you&#39;re done.</description>
@@ -389,66 +389,66 @@ Streams Don&#39;t forget to flush a StreamWriter when you&#39;re done.</descript
     
     <item>
       <title>String.Empty Versus &#34;&#34;</title>
-      <link>/posts/2015-08-06-string-dot-empty-versus-string-literal/</link>
+      <link>/posts/2015/08/string.empty-versus/</link>
       <pubDate>Thu, 06 Aug 2015 15:22:10 +0000</pubDate>
       
-      <guid>/posts/2015-08-06-string-dot-empty-versus-string-literal/</guid>
+      <guid>/posts/2015/08/string.empty-versus/</guid>
       <description>If you&#39;ve been in the .NET world for any length of time, you&#39;ll eventually come across someone who claims String.Empty performs better than &amp;quot;&amp;quot;. I was always skeptical of this claim because this scenario seemed like something the compiler could optimize. And because the .NET runtime manages string literals in an intern pool, my guess was they would both point to the same value. That&#39;s what I suspected anyway but didn&#39;t have any proof.</description>
     </item>
     
     <item>
       <title>Async/Await and Recursion</title>
-      <link>/posts/2015-03-25-asyncawait-and-recursion/</link>
+      <link>/posts/2015/03/async/await-and-recursion/</link>
       <pubDate>Wed, 25 Mar 2015 18:52:22 +0000</pubDate>
       
-      <guid>/posts/2015-03-25-asyncawait-and-recursion/</guid>
+      <guid>/posts/2015/03/async/await-and-recursion/</guid>
       <description>While using the new async/await keywords in C# 5.0 for the first time, I noticed an interesting aspect to how recursive methods behave when using await. For one method I was working on, Resharper notified me of a possible stack overflow exception with a &amp;ldquo;function is recursive on all paths&amp;rdquo; warning, but it didn&#39;t fail at runtime. Instead, it continued happily calling itself with no issues.
 What keeps it from failing is the use of the await keyword when calling DoWorkAsync().</description>
     </item>
     
     <item>
       <title>A Shared Development Database is Bad...Very Bad</title>
-      <link>/posts/2015-02-17-a-shared-development-database-is-bad-very-bad/</link>
+      <link>/posts/2015/02/a-shared-development-database-is-bad...very-bad/</link>
       <pubDate>Tue, 17 Feb 2015 23:52:12 +0000</pubDate>
       
-      <guid>/posts/2015-02-17-a-shared-development-database-is-bad-very-bad/</guid>
+      <guid>/posts/2015/02/a-shared-development-database-is-bad...very-bad/</guid>
       <description>The software development group at my office has a shared database that developers connect to for their daily work. In the last few months, the number of developers has doubled, and the practice of using the shared database has not scaled well. It has caused frustration as members of one team make schema changes before another team can consume them. The resulting breakages has led to lost productivity. To make matters worse, the same database serves as a reference for the daily migration process.</description>
     </item>
     
     <item>
       <title>Code This, Not That - SpecFlow Edition</title>
-      <link>/posts/2014-12-29-code-this-not-that-specflow-edition/</link>
+      <link>/posts/2014/12/code-this-not-that-specflow-edition/</link>
       <pubDate>Mon, 29 Dec 2014 20:06:20 +0000</pubDate>
       
-      <guid>/posts/2014-12-29-code-this-not-that-specflow-edition/</guid>
+      <guid>/posts/2014/12/code-this-not-that-specflow-edition/</guid>
       <description>In 2007 a different kind of diet book was published that took a concise approach to making the right food choices. Readers of the book were presented with good and bad selections at popular restaurants and told why the good options were better than the others. Eat This, Not That! made changing your diet simple and realistic. No gimmicks like the Atkins diet or the current trend of cleansing. Just real options available in many restaurants.</description>
     </item>
     
     <item>
       <title>Lessons from 2014</title>
-      <link>/posts/2014-12-21-lessons-from-2014/</link>
+      <link>/posts/2014/12/lessons-from-2014/</link>
       <pubDate>Sun, 21 Dec 2014 15:18:03 +0000</pubDate>
       
-      <guid>/posts/2014-12-21-lessons-from-2014/</guid>
+      <guid>/posts/2014/12/lessons-from-2014/</guid>
       <description>2014 has been a fantastic year for me professionally. I spent the majority of the year working on a green field project with a great group of co-workers. I was the Scrummaster for a talented team and wrote a lot of Angular.js and Javascript. Ultimately the project was cancelled, and its members were merged into another group. While disappointing, it led me to a new opportunity as a Product Owner and lead architect for a team tasked with creating a test framework built on Specflow.</description>
     </item>
     
     <item>
       <title>Generate SQL Delete Statements That Respect FK Relationships</title>
-      <link>/posts/2014-12-03-generate-sql-delete-statements-that-respect-fk-relationships/</link>
+      <link>/posts/2014/12/generate-sql-delete-statements-that-respect-fk-relationships/</link>
       <pubDate>Wed, 03 Dec 2014 21:00:00 +0000</pubDate>
       
-      <guid>/posts/2014-12-03-generate-sql-delete-statements-that-respect-fk-relationships/</guid>
+      <guid>/posts/2014/12/generate-sql-delete-statements-that-respect-fk-relationships/</guid>
       <description>Have you ever needed to delete a record from a database table only to be thwarted by one or more foreign key violations? Then when you try to delete records from the child tables you find a deep hierarchal relationship bound together by yet more foreign keys?
 I recently ran into this issue with a SQL Server database. I needed to trim data from several large tables that had deep and wide relationship hierarchies enforced by foreign keys.</description>
     </item>
     
     <item>
       <title>Useful Regex for SpecFlow Bindings</title>
-      <link>/posts/2014-10-18-useful-regex-for-specflow-bindings/</link>
+      <link>/posts/2014/10/useful-regex-for-specflow-bindings/</link>
       <pubDate>Sat, 18 Oct 2014 10:20:35 +0000</pubDate>
       
-      <guid>/posts/2014-10-18-useful-regex-for-specflow-bindings/</guid>
+      <guid>/posts/2014/10/useful-regex-for-specflow-bindings/</guid>
       <description>Below is a list of useful regular expressions (regex) for annotating SpecFlow bindings. I&#39;m treating this post as a reference and will be updating it with new items from time to time.
 Singular or Plural Support singular or plural wording.
 Filter for Enum Values If your binding takes an enumeration for an argument, you can limit the inputs from the Gherkin to just the valid values. In the snippets below, the possible values for the SortOrder argument are limited by the regex (ascending|descending) thus avoiding any runtime exeptions due to a bad value.</description>
@@ -456,10 +456,10 @@ Singular or Plural Support singular or plural wording.
     
     <item>
       <title>Overusing Generics in .NET</title>
-      <link>/posts/2014-10-10-overusing-generics-in-dot-net/</link>
+      <link>/posts/2014/10/overusing-generics-in-.net/</link>
       <pubDate>Fri, 10 Oct 2014 12:31:09 +0000</pubDate>
       
-      <guid>/posts/2014-10-10-overusing-generics-in-dot-net/</guid>
+      <guid>/posts/2014/10/overusing-generics-in-.net/</guid>
       <description>Generic types were a great addition to C# 2.0, but they are occasionally overused. There are times where calling object.GetType() or passing the type as an argument are sufficient.
 A good example can be found in the Specflow source code. The TechTalk.SpecFlow.Assist.InstanceComparisonExtensionMethods class contains a useful extension method CompareToInstance&amp;lt;T&amp;gt;() which takes a table of expected property values and compares them against an object.
 The generic type is completely unnecessary in this case.</description>
@@ -467,87 +467,87 @@ A good example can be found in the Specflow source code. The TechTalk.SpecFlow.A
     
     <item>
       <title>Strategies for Managing State in SpecFlow</title>
-      <link>/posts/2014-09-30-strategies-for-managing-state-in-specflow/</link>
+      <link>/posts/2014/09/strategies-for-managing-state-in-specflow/</link>
       <pubDate>Tue, 30 Sep 2014 18:40:52 +0000</pubDate>
       
-      <guid>/posts/2014-09-30-strategies-for-managing-state-in-specflow/</guid>
+      <guid>/posts/2014/09/strategies-for-managing-state-in-specflow/</guid>
       <description>SpecFlow is an extension for Visual Studio that binds software specifications written in the Gherkin language to executable code written in C#, VB, or some other .NET language. One of the challenges of implementing a SpecFlow scenario is how to manage test state in between steps. At first glance, state management seems like an easy problem to solve, but as your test suite grows, maintaining the implementation is as difficult as any large software project.</description>
     </item>
     
     <item>
       <title>Customizing a Ghost Theme</title>
-      <link>/posts/2014-09-26-customizing-a-ghost-theme/</link>
+      <link>/posts/2014/09/customizing-a-ghost-theme/</link>
       <pubDate>Fri, 26 Sep 2014 16:26:51 +0000</pubDate>
       
-      <guid>/posts/2014-09-26-customizing-a-ghost-theme/</guid>
+      <guid>/posts/2014/09/customizing-a-ghost-theme/</guid>
       <description>Customizing a Ghost blog theme can be as easy as taking the default Casper theme and tweaking it to your taste. I finally got around to creating my own theme to correct some niggling annoyances with Casper. I could have downloaded a prebuilt theme from the Ghost marketplace, but my changes were minor so I opted to create my own. I started by checking out the themes documentation.
 To test out my new theme, I installed the Ghost platform.</description>
     </item>
     
     <item>
       <title>Automating IIS Configuration Using AppCmd.exe</title>
-      <link>/posts/2014-06-02-automating-iis-configuration-using-appcmd-exe/</link>
+      <link>/posts/2014/06/automating-iis-configuration-using-appcmd.exe/</link>
       <pubDate>Mon, 02 Jun 2014 14:04:48 +0000</pubDate>
       
-      <guid>/posts/2014-06-02-automating-iis-configuration-using-appcmd-exe/</guid>
+      <guid>/posts/2014/06/automating-iis-configuration-using-appcmd.exe/</guid>
       <description>A couple weeks ago I wrote a script to completely automate the set up of IIS for some system tests at work. The tests require three IIS applications along with unique application pools, and the applications need to be segregated under a virtual directory to isolate them from other automated tests. This was done for a local set up for application developers.
 This simple script took what could have been an error prone manual process and made it quick and mostly fool proof.</description>
     </item>
     
     <item>
       <title>Fit.js Documentation</title>
-      <link>/posts/2014-04-22-fit-js-documentation/</link>
+      <link>/posts/2014/04/fit.js-documentation/</link>
       <pubDate>Tue, 22 Apr 2014 01:10:56 +0000</pubDate>
       
-      <guid>/posts/2014-04-22-fit-js-documentation/</guid>
+      <guid>/posts/2014/04/fit.js-documentation/</guid>
       <description>While I don&#39;t use the Fit.js javascript library in my day-to-day work, I was struck by its simple and effective documentation. Check out the README and demo page. In just minutes, you can read the doc and know exactly what the library is and what it can do for you. Even the tagline is cool.
 fit( theThing, /* into */ theOtherThing ); This documentation style (not sure what to call it) inspired me to add a Quick Start section to my own Javascript libary SProxy with a similar feel.</description>
     </item>
     
     <item>
       <title>Microsoft to Integrate Git into Windows</title>
-      <link>/posts/2014-04-01-microsoft-to-integrate-git-into-windows/</link>
+      <link>/posts/2014/04/microsoft-to-integrate-git-into-windows/</link>
       <pubDate>Tue, 01 Apr 2014 12:32:32 +0000</pubDate>
       
-      <guid>/posts/2014-04-01-microsoft-to-integrate-git-into-windows/</guid>
+      <guid>/posts/2014/04/microsoft-to-integrate-git-into-windows/</guid>
       <description>It seems like every day I read about a new use for Git outside of source control. It&#39;s used by artists and authors to track changes to their work. It&#39;s used by researchers to branch experiments.
 Well, today I came across the latest and most surprising Git integration. Just out of Redmond, Microsoft has announced that Git will be integrated into the next version of Windows via extensions to NTFS and the Windows kernel.</description>
     </item>
     
     <item>
       <title>A Tribute to Two Ladies in My Life</title>
-      <link>/posts/2013-12-30-a-tribute-to-two-ladies-in-my-life/</link>
+      <link>/posts/2013/12/a-tribute-to-two-ladies-in-my-life/</link>
       <pubDate>Mon, 30 Dec 2013 03:53:46 +0000</pubDate>
       
-      <guid>/posts/2013-12-30-a-tribute-to-two-ladies-in-my-life/</guid>
+      <guid>/posts/2013/12/a-tribute-to-two-ladies-in-my-life/</guid>
       <description>I&#39;d like to take a break from my usual tech writing to bring you a very special holiday post. There are two ladies in my life that make each day better than the last, and I want to thank them for making 2013 a great year. My wife, Mary, has been with me for almost 10 years, and we&#39;re still best friends. My daughter, Emilia, just turned four. She is a little lady who turns every day into an adventure.</description>
     </item>
     
     <item>
       <title>Switching to Ghost</title>
-      <link>/posts/2013-12-29-switchimg-to-ghost/</link>
+      <link>/posts/2013/12/switching-to-ghost/</link>
       <pubDate>Sun, 29 Dec 2013 22:01:55 +0000</pubDate>
       
-      <guid>/posts/2013-12-29-switchimg-to-ghost/</guid>
+      <guid>/posts/2013/12/switching-to-ghost/</guid>
       <description>I had been blogging with Wordpress for over two years, and while Wordpress has some great features like the statistics and comments engine, the core writing experience was never completely smooth for me. The online editor has a tendency to get spacing wrong and reformat blocks of text on a whim. Editing with Windows Live Writer is a improvement, but doing simple things like adding snippets of code or XML was always more difficult than necessary.</description>
     </item>
     
     <item>
       <title>SpecFlow Nested Tables: A Bad Idea</title>
-      <link>/posts/2013-10-22-specflow-nested-tables-a-bad-idea/</link>
+      <link>/posts/2013/10/specflow-nested-tables-a-bad-idea/</link>
       <pubDate>Tue, 22 Oct 2013 07:45:06 +0000</pubDate>
       
-      <guid>/posts/2013-10-22-specflow-nested-tables-a-bad-idea/</guid>
+      <guid>/posts/2013/10/specflow-nested-tables-a-bad-idea/</guid>
       <description>I&#39;ve been using SpecFlow to write behavior specifications for just under a year, and one question that comes up is whether or not nested tables are supported for creating complex or hierarchal types. Other folks have discussed this at Stack Overflow and Google Groups. Nested tables aren&#39;t currently supported, and that&#39;s probably a good thing.
 The intent of the Cucumber syntax is to express business requirements in the language of the business.</description>
     </item>
     
     <item>
       <title>More SpecFlow Tips</title>
-      <link>/posts/2013-07-20-more-specflow-tips/</link>
+      <link>/posts/2013/07/more-specflow-tips/</link>
       <pubDate>Sat, 20 Jul 2013 11:21:08 +0000</pubDate>
       
-      <guid>/posts/2013-07-20-more-specflow-tips/</guid>
+      <guid>/posts/2013/07/more-specflow-tips/</guid>
       <description>UPDATE (11/18/2016):
  I&#39;ve written a number of posts since this one was published that cover advanced SpecFlow topics like composable steps, tags done right, managing state, useful regex, etc. For a list of all my SpecFlow writing, you can click on the SpecFlow tag. SpecFlow is a fantastic tool that&#39;s changed the way I develop software, and I hope it does the same for you. Happy testing!
  My last post covered three tips or best practices for SpecFlow that covered manipulating the current ScenarioContext with extension methods, binding multiple Given/When/Then attributes, and using hooks.</description>
@@ -555,10 +555,10 @@ The intent of the Cucumber syntax is to express business requirements in the lan
     
     <item>
       <title>Some SpecFlow Tips</title>
-      <link>/posts/2013-02-17-some-specflow-tips/</link>
+      <link>/posts/2013/02/some-specflow-tips/</link>
       <pubDate>Sun, 17 Feb 2013 11:49:51 +0000</pubDate>
       
-      <guid>/posts/2013-02-17-some-specflow-tips/</guid>
+      <guid>/posts/2013/02/some-specflow-tips/</guid>
       <description>UPDATE (11/18/2016):
  I&#39;ve written a number of posts since this one was published that cover advanced SpecFlow topics like composable steps, tags done right, managing state, useful regex, etc. For a list of all my SpecFlow writing, you can click on the SpecFlow tag. SpecFlow is a fantastic tool that&#39;s changed the way I develop software, and I hope it does the same for you. Happy testing!
  Late last year a co-worker Jay Brummels introduced our development group to SpecFlow a .</description>
@@ -566,58 +566,58 @@ The intent of the Cucumber syntax is to express business requirements in the lan
     
     <item>
       <title>Lessons from the Past Year</title>
-      <link>/posts/2012-12-31-lessons-from-the-past-year/</link>
+      <link>/posts/2012/12/lessons-from-the-past-year/</link>
       <pubDate>Mon, 31 Dec 2012 14:54:43 +0000</pubDate>
       
-      <guid>/posts/2012-12-31-lessons-from-the-past-year/</guid>
+      <guid>/posts/2012/12/lessons-from-the-past-year/</guid>
       <description>As 2012 comes to a close, it&#39;s time to look back on some of the things I&#39;ve learned. During the past year, my focus has been on enterprise service development, and thanks to a talented software architect and co-worker Kelly Brownsberger, I feel much more confident with my development skills. Together we focused on re-architecting and refactoring large portions of an ordering service. Now, looking back, three lessons in particular have stuck with me and changed the way I develop software.</description>
     </item>
     
     <item>
       <title>Singleton Access from a Container</title>
-      <link>/posts/2012-12-01-singleton-access-from-a-container/</link>
+      <link>/posts/2012/12/singleton-access-from-a-container/</link>
       <pubDate>Sat, 01 Dec 2012 23:20:49 +0000</pubDate>
       
-      <guid>/posts/2012-12-01-singleton-access-from-a-container/</guid>
+      <guid>/posts/2012/12/singleton-access-from-a-container/</guid>
       <description>I learned a cool programming technique this week from a co-worker Kelly Brownsberger to enable container access to a singleton. Say you have an interface IApplicationSettings exposed as a static singleton property, but you want to inject it into other classes via a container. The trick is to create another class that implements IApplicationSettings and grabs a reference to the singleton in the constructor. Each implementation of an interface member simply delegates the call to the corresponding member of the singleton reference.</description>
     </item>
     
     <item>
       <title>Ditch the Grids and Use DockPanels</title>
-      <link>/posts/2012-03-12-why-arent-dock-panels-used-more/</link>
+      <link>/posts/2012/03/ditch-the-grids-and-use-dockpanels/</link>
       <pubDate>Mon, 12 Mar 2012 19:58:25 +0000</pubDate>
       
-      <guid>/posts/2012-03-12-why-arent-dock-panels-used-more/</guid>
+      <guid>/posts/2012/03/ditch-the-grids-and-use-dockpanels/</guid>
       <description>I have worked extensively with WinForms and WPF/Silverlight and noticed that docking/dock panels are not used that often.&amp;#160; At least this is the case where I work.&amp;#160; I find this surprising given their power and ease of use.
 Using XAML, why would a programmer choose a complex Grid/StackPanel setup over a DockPanel?&amp;#160; Or on the WinForms side, set the anchor properties for control rather than simplify things with the dock property?</description>
     </item>
     
     <item>
       <title>Executing Actions Before and After Code Blocks with IDisposable</title>
-      <link>/posts/2012-02-14-executing-actions-before-and-after-code-blocks-with-idisposable/</link>
+      <link>/posts/2012/02/executing-actions-before-and-after-code-blocks-with-idisposable/</link>
       <pubDate>Tue, 14 Feb 2012 21:06:32 +0000</pubDate>
       
-      <guid>/posts/2012-02-14-executing-actions-before-and-after-code-blocks-with-idisposable/</guid>
+      <guid>/posts/2012/02/executing-actions-before-and-after-code-blocks-with-idisposable/</guid>
       <description>I ran into a scenario this week where a boolean field was being flipped temporarily to modify behavior elsewhere while a block of code was executing.&amp;nbsp; I have seen this pattern mainly in WinForms applications where data are being loaded into controls, but their events need to be suppressed during the load.&amp;nbsp; Afterward, the events should fire normally.
 Below is an example of this scenario.&amp;nbsp; It is a Windows form with a single combobox.</description>
     </item>
     
     <item>
       <title>The Best Design Patterns</title>
-      <link>/posts/2012-01-30-the-best-design-patterns/</link>
+      <link>/posts/2012/01/the-best-design-patterns/</link>
       <pubDate>Mon, 30 Jan 2012 20:38:44 +0000</pubDate>
       
-      <guid>/posts/2012-01-30-the-best-design-patterns/</guid>
+      <guid>/posts/2012/01/the-best-design-patterns/</guid>
       <description>The first time I read the Gang of Four Design Patterns book, I was impressed, no blown away, by the brilliance of what I was reading. The Visitor pattern utilizing double-dispatch. Brilliant. Chain of Responsibility. Why didn&#39;t I think of that? Adapter. Simple and powerful.
 Of course I was itching to start implementing these patterns. In practice though they seemed to be applicable only in rare situations. Adapter, Builder, Factory, Strategy, were the most useful.</description>
     </item>
     
     <item>
       <title>Text Parsing with F#</title>
-      <link>/posts/2012-01-15-getting-over-my-fear-of-parsing-text/</link>
+      <link>/posts/2012/01/text-parsing-with-f/</link>
       <pubDate>Sun, 15 Jan 2012 21:02:30 +0000</pubDate>
       
-      <guid>/posts/2012-01-15-getting-over-my-fear-of-parsing-text/</guid>
+      <guid>/posts/2012/01/text-parsing-with-f/</guid>
       <description>I&#39;ve always had a fear of parsing text.&amp;nbsp; Strange since it&#39;s a basic programmer&#39;s task.&amp;nbsp; I&#39;ve always found it to be tedious and boring, and the resulting code is a jumbled mess of indexes and string parsing methods.&amp;nbsp; I avoid it every chance I get.
 And there&#39;s regex.&amp;nbsp; The syntax is cryptic and difficult to remember.&amp;nbsp; It&#39;s another thing I should know well, but, again, I avoid it.
 Recently I decided to come to grips with this weakness and parse a text file containing information about TCP sockets in a TIME_WAIT status.</description>
@@ -625,19 +625,19 @@ Recently I decided to come to grips with this weakness and parse a text file con
     
     <item>
       <title>Creating Mocks with F# Object Expressions</title>
-      <link>/posts/2011-10-13-creating-mocks-with-f-object-expressions/</link>
+      <link>/posts/2011/10/creating-mocks-with-f#-object-expressions/</link>
       <pubDate>Thu, 13 Oct 2011 19:59:54 +0000</pubDate>
       
-      <guid>/posts/2011-10-13-creating-mocks-with-f-object-expressions/</guid>
+      <guid>/posts/2011/10/creating-mocks-with-f#-object-expressions/</guid>
       <description>When I read about F# object expressions, the first thought that popped into my head was to use them to create mocks for unit tests.&amp;nbsp; For those of you who are not familiar with object expressions, they are similar to anonymous classes in Java.&amp;nbsp; They are the object equivalent of lambda functions, and they allow you to create objects that implement an interface or base class without having to declare a new class.</description>
     </item>
     
     <item>
       <title>Creating a Crawl Control in WPF</title>
-      <link>/posts/2011-10-06-creating-a-crawl-control-in-wpf/</link>
+      <link>/posts/2011/10/creating-a-crawl-control-in-wpf/</link>
       <pubDate>Thu, 06 Oct 2011 19:45:09 +0000</pubDate>
       
-      <guid>/posts/2011-10-06-creating-a-crawl-control-in-wpf/</guid>
+      <guid>/posts/2011/10/creating-a-crawl-control-in-wpf/</guid>
       <description>A few weeks ago I was watching CNN when an interesting blurb scrolled by on the crawl at the bottom of the screen.&amp;nbsp; Normally, the crawl is not something I notice, but I thought to myself, &#34;I wonder if I can implement one in WPF.&#34;&amp;nbsp; I had never done any animations before in WPF, and this seemed like a good way to start.
 So I gave it a shot.
 My initial instinct was to bring up Google and see if anyone else had done it.</description>
@@ -645,20 +645,20 @@ My initial instinct was to bring up Google and see if anyone else had done it.</
     
     <item>
       <title>The Dangers of Mutable Data</title>
-      <link>/posts/2011-08-15-the-dangers-of-mutable-data/</link>
+      <link>/posts/2011/08/the-dangers-of-mutable-data/</link>
       <pubDate>Mon, 15 Aug 2011 20:06:17 +0000</pubDate>
       
-      <guid>/posts/2011-08-15-the-dangers-of-mutable-data/</guid>
+      <guid>/posts/2011/08/the-dangers-of-mutable-data/</guid>
       <description>I recently came across a bug in some C# code that would never have been a problem if the data structures being used were immutable. The data consisted of a .NET dictionary with an integer key and a list as a value. The details below have been changed to protect the guilty.
 The offending method takes customer and product objects as parameters and retrieves a list of available pricing for the customer from a dictionary using the product ID as the key.</description>
     </item>
     
     <item>
       <title>Best Practices for Creating and Consuming Modal Dialogs in WinForms</title>
-      <link>/posts/2011-07-28-best-practices-for-creating-and-consuming-modal-dialogs-in-winforms/</link>
+      <link>/posts/2011/07/best-practices-for-creating-and-consuming-modal-dialogs-in-winforms/</link>
       <pubDate>Thu, 28 Jul 2011 19:37:55 +0000</pubDate>
       
-      <guid>/posts/2011-07-28-best-practices-for-creating-and-consuming-modal-dialogs-in-winforms/</guid>
+      <guid>/posts/2011/07/best-practices-for-creating-and-consuming-modal-dialogs-in-winforms/</guid>
       <description>This is an article I wrote a few years ago after seeing some bad coding practices around modal dialogs in WinForms. Bad habits like explicitly closing the dialog form and using custom OK/Cancel flags irked me, so I came up with some best practices. I hope you find them useful.
 Tip 1: Set the AcceptButton and CancelButton properties
 Windows Forms have two properties, AcceptButton and CancelButton, for determining what should be done when the user presses the Enter or Escape keys.</description>
@@ -666,20 +666,20 @@ Windows Forms have two properties, AcceptButton and CancelButton, for determinin
     
     <item>
       <title>F# Functions: Tuple Syntax</title>
-      <link>/posts/2011-07-18-f-functions-tuple-syntax/</link>
+      <link>/posts/2011/07/f#-functions-tuple-syntax/</link>
       <pubDate>Mon, 18 Jul 2011 19:35:42 +0000</pubDate>
       
-      <guid>/posts/2011-07-18-f-functions-tuple-syntax/</guid>
+      <guid>/posts/2011/07/f#-functions-tuple-syntax/</guid>
       <description>I&#39;m relatively new to F# and functional programming and recently worked through an issue that had me perplexed. The issue was with creating functions with the &amp;ldquo;tuple syntax&amp;rdquo; versus the normal syntax of separating arguments by spaces.
 Consider the simple functions below that adds numeric arguments together. They are constructed in two ways. The first is by using a tuple to group the two arguments together. It looks very similar to the syntax from other languages such as C#.</description>
     </item>
     
     <item>
       <title>My First Blog Post</title>
-      <link>/posts/2011-07-16-my-first-blog-post/</link>
+      <link>/posts/2011/07/my-first-blog-post/</link>
       <pubDate>Sat, 16 Jul 2011 14:08:34 +0000</pubDate>
       
-      <guid>/posts/2011-07-16-my-first-blog-post/</guid>
+      <guid>/posts/2011/07/my-first-blog-post/</guid>
       <description>I&#39;ve always told myself that I needed to start blogging and get my thoughts out there. Well, after years of putting it off, I finally got started. I decided to write about what I love (besides my family of course): writing software using .NET. I&#39;ll start out focusing on C# and F# language features. I&#39;m proficient in C# but just starting out with F#. Functional programming is very different from what I&#39;m used to; however, I&#39;m liking it more and more.</description>
     </item>
     
