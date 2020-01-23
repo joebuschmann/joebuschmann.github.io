@@ -14,10 +14,10 @@
     
     <item>
       <title>Creating Mocks with F# Object Expressions</title>
-      <link>/posts/2011/10/creating-mocks-with-f#-object-expressions/</link>
+      <link>/posts/2011/10/creating-mocks-with-f-sharp-object-expressions/</link>
       <pubDate>Thu, 13 Oct 2011 19:59:54 +0000</pubDate>
       
-      <guid>/posts/2011/10/creating-mocks-with-f#-object-expressions/</guid>
+      <guid>/posts/2011/10/creating-mocks-with-f-sharp-object-expressions/</guid>
       <description>When I read about F# object expressions, the first thought that popped into my head was to use them to create mocks for unit tests.&amp;nbsp; For those of you who are not familiar with object expressions, they are similar to anonymous classes in Java.&amp;nbsp; They are the object equivalent of lambda functions, and they allow you to create objects that implement an interface or base class without having to declare a new class.</description>
     </item>
     

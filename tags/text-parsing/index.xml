@@ -14,10 +14,10 @@
     
     <item>
       <title>Text Parsing with F#</title>
-      <link>/posts/2012/01/text-parsing-with-f/</link>
+      <link>/posts/2012/01/text-parsing-with-f-sharp/</link>
       <pubDate>Sun, 15 Jan 2012 21:02:30 +0000</pubDate>
       
-      <guid>/posts/2012/01/text-parsing-with-f/</guid>
+      <guid>/posts/2012/01/text-parsing-with-f-sharp/</guid>
       <description>I&#39;ve always had a fear of parsing text.&amp;nbsp; Strange since it&#39;s a basic programmer&#39;s task.&amp;nbsp; I&#39;ve always found it to be tedious and boring, and the resulting code is a jumbled mess of indexes and string parsing methods.&amp;nbsp; I avoid it every chance I get.
 And there&#39;s regex.&amp;nbsp; The syntax is cryptic and difficult to remember.&amp;nbsp; It&#39;s another thing I should know well, but, again, I avoid it.
 Recently I decided to come to grips with this weakness and parse a text file containing information about TCP sockets in a TIME_WAIT status.</description>
