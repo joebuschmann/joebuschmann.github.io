@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>8 Steps to a Better Console Application | Joe Buschmann</title>
+
+
+
+<link href="/index.xml" rel="alternate" type="application/rss+xml" title="Joe Buschmann" />
+
+<link rel="stylesheet" href="/css/style.css"/><link rel='stylesheet' href='/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="/posts/2020/02/8-steps-to-a-better-console-application/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="/">
+          <h1 id="nav-heading" class="title is-4">Joe Buschmann</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="linkedin" href='https://linkedin.com/in/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="github" href='https://github.com/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="facebook" href='https://facebook.com/joe.buschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="twitter" href='https://twitter.com/joebuschmann'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="email" href='mailto:joseph.buschmann@gmail.com'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/dotnet">#dotnet</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/c-sharp">#c-sharp</a>
+  
+  | <a class="subtitle is-6" href="/tags/cli">#cli</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">February 11, 2020</h2>
+    <h1 class="title">8 Steps to a Better Console Application</h1>
+    
+    <div class="content">
+      <p>The console application is the workhorse of the software world. It isn't flashy like its graphical cousins the desktop and web app. It isn't sought after like the mobile app. Graphical user interfaces compose images, sophisticated widgets, and animations, but the humble command-line interface (CLI) has none of that. It runs in shells with strange names like Bourne-Again Shell (Bash), Korn Shell, and CMD.EXE. Its tools are simple lines of text printed to a terminal or redirected to a file.</p>
+<p>Some of these console apps are ephemeral - created to solve a problem and discarded afterward. Others work hard behind the scenes to support essential services like maintenance and CI/CD. Despite its apparent simplicity, writing a good CLI is more difficult than you would expect. Many developers get the basics wrong and limit the effectiveness of their software as a result. In the 1970s, Doug McIlroy first expressed the Unix Philosophy for building console apps. It was later summarized by Peter H. Salus in <em>A Quarter-Century of Unix (1994)</em>.</p>
+<blockquote>
+<p>The Unix Philosophy</p>
+<ul>
+<li>Write programs that do one thing and do it well.</li>
+<li>Write programs to work together.</li>
+<li>Write programs to handle text streams, because that is a universal interface.</li>
+</ul>
+</blockquote>
+<p>Inspired by this philosophy and my own experience, I've compiled 8 design recommendations for a good CLI.</p>
+<h1 id="provide-help-in-the-terminal">Provide Help in the Terminal</h1>
+<p><img src="/images/help-button-2.jpg#c" alt="Help"></p>
+<p>A good README or online documentation is fine, but help in the terminal is divine. It's more accessible and allows users to stay in the terminal. You should support several different ways to diplay help.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ grep
+$ grep -h
+$ grep --help
+</code></pre></td></tr></table>
+</div>
+</div><p>If the user makes a mistake, your app should respond with a helpful message indicating how to proceed.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ grep
+Usage: grep <span style="color:#f92672">[</span>OPTION<span style="color:#f92672">]</span>... PATTERN <span style="color:#f92672">[</span>FILE<span style="color:#f92672">]</span>...
+Try <span style="color:#e6db74">&#39;grep --help&#39;</span> <span style="color:#66d9ef">for</span> more information.
+</code></pre></td></tr></table>
+</div>
+</div><p>There are excellent libraries that make providing help much easier. The one I'm most familiar with is <a href="https://github.com/commandlineparser/commandline">Command Line Parser</a> for .NET. It enforces a consistent syntax and provides help and version information automatically. And speaking of version, you should provide that as well.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ grep --version
+grep <span style="color:#f92672">(</span>GNU grep<span style="color:#f92672">)</span> 3.1
+Copyright <span style="color:#f92672">(</span>C<span style="color:#f92672">)</span> <span style="color:#ae81ff">2017</span> Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version <span style="color:#ae81ff">3</span> or later &lt;http://gnu.org/licenses/gpl.html&gt;.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Mike Haertel and others, see &lt;http://git.sv.gnu.org/cgit/grep.git/tree/AUTHORS&gt;.
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="use-a-consistent-cli-syntax">Use a Consistent CLI Syntax</h1>
+<p>Consistency is important for your app's command-line interface. Decide up front what kind of syntax the app will need. Will it require subcommands? How will the option flags be structured? Will it accept short names as well as long names?</p>
+<p>Platforms like Kubernetes and AWS provide command-line tools for interacting with their services. The syntax is straightforward and consistent.</p>
+<pre><code># Kubernetes
+kubectl [command] [TYPE] [NAME] [flags]
+
+# AWS
+aws [options] &lt;command&gt; &lt;subcommand&gt; [parameters]
+</code></pre><p>I mentioned using Command Line Parser for providing help automatically. You can also use it to enforce a consistent CLI in .NET apps. It supports subcommands or verbs, short and long names, named and value options, and option groups. The library provides these features via an expressive syntax using attributes. You create one or more option classes to hold the parsed command-line arguments. Their properties are decorated with attributes that tell the runtime how to parse the arguments.</p>
+<p>Say we create a (completely redundant) utility for file operations whose features include creating and deleting files. With Command Line Parser, we can enforce the CLI contract using attributes.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Options</span>
+{
+<span style="color:#a6e22e">    [Option(&#39;f&#39;, &#34;file&#34;, HelpText = &#34;The path to the file.&#34;)]</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> FilePath { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+<span style="color:#a6e22e">    
+</span><span style="color:#a6e22e">    [Option(&#39;d&#39;, &#34;delete&#34;, SetName = &#34;Delete Operation&#34;, HelpText = &#34;Delete the file.&#34;)]</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> Delete { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+<span style="color:#a6e22e">    
+</span><span style="color:#a6e22e">    [Option(&#39;c&#39;, &#34;create&#34;, SetName = &#34;Create Operation&#34;, HelpText = &#34;Create the file.&#34;)]</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> Create { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>Each option has short and long names defined along with help text describing what it does. Help is automatically generated by the library.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./ConsoleApp.exe --help
+ConsoleApp 1.0.0
+Copyright <span style="color:#f92672">(</span>C<span style="color:#f92672">)</span> <span style="color:#ae81ff">2020</span> ConsoleApp
+
+  -f, --file      The path to the file.
+
+  -d, --delete    Delete the file.
+
+  -c, --create    Create the file.
+
+  --help          Display this help screen.
+
+  --version       Display version information.
+</code></pre></td></tr></table>
+</div>
+</div><p>The <code>delete</code> and <code>create</code> operations can be made mutually exclusive with the <code>SetName</code> property.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./ConsoleApp.exe -f gb.txt -d -c
+ConsoleApp 1.0.0
+Copyright <span style="color:#f92672">(</span>C<span style="color:#f92672">)</span> <span style="color:#ae81ff">2020</span> ConsoleApp
+
+ERROR<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>:
+Option: <span style="color:#e6db74">&#39;d, delete&#39;</span> is not compatible with: <span style="color:#e6db74">&#39;c, create&#39;</span>.
+Option: <span style="color:#e6db74">&#39;c, create&#39;</span> is not compatible with: <span style="color:#e6db74">&#39;d, delete&#39;</span>.
+
+  -f, --file      The path to the file.
+
+  -d, --delete    Delete the file.
+
+  -c, --create    Create the file.
+
+  --help          Display this help screen.
+
+  --version       Display version information.
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="use-subcommands-for-complex-apps">Use Subcommands for Complex Apps</h1>
+<p>As your command-line tool grows more complex, you may want to use subcommands for segmenting the different functions. Be careful that the subcommands are closely related in purpose to avoid violating item one of the Unix philosophy: <em>Write programs that do one thing and do it well</em>.</p>
+<p>Command Line Parser supports subcommands using the <code>Verb</code> attribute. We can rework the <code>Options</code> class for our file utility to use subcommands for the <code>create</code> and <code>delete</code> operations.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[Verb(&#34;create&#34;, HelpText = &#34;Create the file.&#34;)]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CreateOptions</span>
+{
+<span style="color:#a6e22e">    [Option(&#39;f&#39;, &#34;file&#34;, Required = true, HelpText = &#34;The path to the file.&#34;)]</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> FilePath { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+}
+<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">[Verb(&#34;delete&#34;, HelpText = &#34;Delete the file.&#34;)]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DeleteOptions</span>
+{
+<span style="color:#a6e22e">    [Option(&#39;f&#39;, &#34;file&#34;, Required = true, HelpText = &#34;The path to the file.&#34;)]</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> FilePath { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>The subcommand is the first argument.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./ConsoleApp.exe create -f gb.txt
+File created at gb.txt.
+
+$ ./ConsoleApp.exe delete -f gb.txt
+File deleted at gb.txt.
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="code-for-pipes">Code for Pipes</h1>
+<blockquote>
+<p>[Ken Thompson] put pipes into Unix - all in one night. And the next morning we had this orgy of one-liners.</p>
+<p>Doug McIlroy from <em>The Unix Oral History Project</em></p>
+</blockquote>
+<p>Console apps have at their disposal three data streams. They are <a href="http://www.linfo.org/standard_input.html">standard input</a> (stdin) for input data, <a href="http://www.linfo.org/standard_output.html">standard output</a> (stdout) for output data, and <a href="http://www.linfo.org/standard_error.html">standard error</a> (stderr) for error messages. All three streams read or write to the terminal by default, but they can be redirected to read from files or other programs&rsquo; output (stdin) or write to files or other program's input (stdout and stderr). The syntax to do this in Bash or Windows Command shell is a vertical bar or pipe <code>|</code>. You can use pipes to create data processing pipelines that pass data from app to app. There's also additional syntax for reading from a file <code>&lt;</code> and writing to a file <code>&gt;</code>.</p>
+<p><img src="/images/shell-pipelines.png#c" alt="Shell Pipelines"></p>
+<p>Let's say you want to search for all Powerpoint files in a directory and page through the results.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ls -l | grep .ppt | less
+</code></pre></td></tr></table>
+</div>
+</div><p>Or find a keyword in a file and output the results to another file.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ find <span style="color:#e6db74">&#34;keyword&#34;</span> &lt; inputfilename &gt; outputfilename
+</code></pre></td></tr></table>
+</div>
+</div><p>Pipes are essential for supporting the Unix philosophy of small focused programs that do one thing well. These programs become more useful if they can be composed into pipelines to do complex operations. Your console app should support this concept by reading from stdin and writing to stdout.</p>
+<h1 id="dont-cross-the-streams">Don't Cross the Streams</h1>
+<p><img src="/images/dont-cross-the-streams.png#c" alt="Don't Cross the Streams"></p>
+<p>There are two output streams: <strong>stdout</strong> and <strong>stderr</strong>, and both serve different purposes. Stdout is for data only. Anything else, errors, warnings, and progress messages, should go to stderr. Don't mix the two. Ever. If you do, you'll break the pipeline by making it difficult for the next app in the chain to process the output data.</p>
+<p>In .NET, you write a line of text to stdout using <code>Console.WriteLine</code> which is a wrapper around <code>Console.Out.WriteLine</code>. For stderr, use <code>Console.Error.WriteLine</code>.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> System;
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+{
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
+    {
+        Console.WriteLine(<span style="color:#e6db74">&#34;Peter Venkman&#34;</span>);
+        Console.Error.WriteLine(<span style="color:#e6db74">&#34;Printed 1 of 4.&#34;</span>);
+        Console.WriteLine(<span style="color:#e6db74">&#34;Raymond Stantz&#34;</span>);
+        Console.Error.WriteLine(<span style="color:#e6db74">&#34;Printed 2 of 4.&#34;</span>);
+        Console.WriteLine(<span style="color:#e6db74">&#34;Egon Spengler&#34;</span>);
+        Console.Error.WriteLine(<span style="color:#e6db74">&#34;Printed 3 of 4.&#34;</span>);
+        Console.WriteLine(<span style="color:#e6db74">&#34;Winston Zeddemore&#34;</span>);
+        Console.Error.WriteLine(<span style="color:#e6db74">&#34;Printed 4 of 4.&#34;</span>);
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>Stderr text will still go to the console by default even if stdout is redirected. Most shells allow mixing the two using special syntax.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./ConsoleApp.exe | grep Peter  <span style="color:#75715e"># Pipe stdout into grep. Stderr prints to console.</span>
+Printed <span style="color:#ae81ff">1</span> of 4.
+Printed <span style="color:#ae81ff">2</span> of 4.
+Printed <span style="color:#ae81ff">3</span> of 4.
+Printed <span style="color:#ae81ff">4</span> of 4.
+Peter Venkman
+
+$ ./ConsoleApp.exe 2&gt;&amp;<span style="color:#ae81ff">1</span> | grep Peter  <span style="color:#75715e"># Redirect stderr into stdout then pipe into grep.</span>
+Peter Venkman
+</code></pre></td></tr></table>
+</div>
+</div><p>A common need is to redirect stderr into a file.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./ConsoleApp.exe 2&gt;log.txt | grep Peter  <span style="color:#75715e">#Send stderr to log file.</span>
+Peter Venkman
+
+$ cat log.txt
+Printed <span style="color:#ae81ff">1</span> of 4.
+Printed <span style="color:#ae81ff">2</span> of 4.
+Printed <span style="color:#ae81ff">3</span> of 4.
+Printed <span style="color:#ae81ff">4</span> of 4.
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="read-and-write-files-with-options-and-streams">Read and Write Files with Options and Streams</h1>
+<blockquote>
+<p>They all had file arguments; grep had a file argument, and cat had a file argument, and Thompson saw that that wasn't going to fit with this scheme of things and he went in and changed all those programs in the same night.</p>
+<p>Doug McIlroy from <em>The Unix Oral History Project</em></p>
+</blockquote>
+<p>After Ken Thompson added pipes to Unix, he realized the utilities written for the new operating system had file arguments but didn't take standard input or use standard output. They couldn't be chained to create pipelines. He changed those apps to use stdin and stdout in addition to file arguments. You should do the same for your apps that work with files.</p>
+<p>Let's look at <code>grep</code> as an example. It takes both a file argument and reads from stdin.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat <span style="color:#e6db74">&lt;&lt; EOF &gt; gb.txt
+</span><span style="color:#e6db74">&gt; Peter Venkman
+</span><span style="color:#e6db74">&gt; Raymond Stantz
+</span><span style="color:#e6db74">&gt; Egon Spengler
+</span><span style="color:#e6db74">&gt; Winston Zeddemore
+</span><span style="color:#e6db74">&gt; EOF</span>
+
+$ grep Peter gb.txt  <span style="color:#75715e"># Read from a file.</span>
+Peter Venkman
+
+$ cat gb.txt | grep Peter  <span style="color:#75715e"># Read from stdin.</span>
+Peter Venkman
+
+$ cat gb.txt | grep Peter &gt; Peter.txt  <span style="color:#75715e"># Output results to a file.</span>
+
+$ cat Peter.txt
+Peter Venkman
+</code></pre></td></tr></table>
+</div>
+</div><p>You can do the same for your apps. In .NET, you can check to see if stdin is redirected and respond accordingly.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> System;
+<span style="color:#66d9ef">using</span> System.IO;
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+{
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
+    {
+        Stream fileContents;
+
+        <span style="color:#66d9ef">if</span> (Console.IsInputRedirected)
+        {
+            fileContents = Console.OpenStandardInput(); 
+        }
+        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (args.Length &gt; <span style="color:#ae81ff">0</span> &amp;&amp; File.Exists(args[<span style="color:#ae81ff">0</span>]))
+        {
+            fileContents = File.OpenRead(args[<span style="color:#ae81ff">0</span>]);
+        }
+        <span style="color:#66d9ef">else</span>
+        {
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> ArgumentException(<span style="color:#e6db74">&#34;No file provided.&#34;</span>);
+        }
+        
+        Stream outputStream = Console.OpenStandardOutput();
+        fileContents.CopyTo(outputStream);
+        outputStream.Flush();
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>This app can either read from stdin or use an argument.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./ConsoleApp.exe &lt; gb.txt  <span style="color:#75715e"># Read from stdin</span>
+Peter Venkman
+Raymond Stantz
+Egon Spengler
+Winston Zeddemore
+
+$ ./ConsoleApp.exe gb.txt  <span style="color:#75715e"># Read file argument</span>
+Peter Venkman
+Raymond Stantz
+Egon Spengler
+Winston Zeddemore
+</code></pre></td></tr></table>
+</div>
+</div><p>You can update the app to add an output file argument.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> System;
+<span style="color:#66d9ef">using</span> System.IO;
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+{
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
+    {
+        <span style="color:#75715e">// Get the input stream
+</span><span style="color:#75715e"></span>        Stream fileContents;
+
+        <span style="color:#66d9ef">if</span> (Console.IsInputRedirected)
+        {
+            fileContents = Console.OpenStandardInput(); 
+        }
+        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (args.Length &gt; <span style="color:#ae81ff">0</span> &amp;&amp; File.Exists(args[<span style="color:#ae81ff">0</span>]))
+        {
+            fileContents = File.OpenRead(args[<span style="color:#ae81ff">0</span>]);
+        }
+        <span style="color:#66d9ef">else</span>
+        {
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> ArgumentException(<span style="color:#e6db74">&#34;No file provided.&#34;</span>);
+        }
+        
+        <span style="color:#75715e">// Get the output stream
+</span><span style="color:#75715e"></span>        Stream outputStream;
+
+        <span style="color:#66d9ef">if</span> (Console.IsOutputRedirected)
+        {
+            outputStream = Console.OpenStandardOutput();
+        }
+        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (args.Length &gt; <span style="color:#ae81ff">1</span>)
+        {
+            outputStream = File.OpenWrite(args[<span style="color:#ae81ff">1</span>]);
+        }
+        <span style="color:#66d9ef">else</span>
+        {
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> ArgumentException(<span style="color:#e6db74">&#34;No output file provided.&#34;</span>);
+        }
+        
+        <span style="color:#75715e">// Copy from input to output
+</span><span style="color:#75715e"></span>        fileContents.CopyTo(outputStream);
+        outputStream.Flush();
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./ConsoleApp.exe gb.txt gb2.txt  <span style="color:#75715e"># Use both file arguments</span>
+
+$ cat gb2.txt
+Peter Venkman
+Raymond Stantz
+Egon Spengler
+Winston Zeddemore
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="dont-reinvent-the-wheel">Don't Reinvent the Wheel</h1>
+<p>When your console app supports stdin/stdout/stderr, then its users can leverage the existing ecosystem of command-line tools. You don't need to provide paging. Users can pipe into <code>less</code>. Need to filter? Use <code>grep</code>. Need file IO? Use the redirection operators: <code>&gt;</code>, <code>&lt;</code>, <code>&gt;&gt;</code>.</p>
+<p>The following utilities are available for Unix-like environments running Bash and recent versions Command shell for Windows. They are great for building pipelines that process text.</p>
+<table>
+<thead>
+<tr>
+<th>Utility</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>COMMAND &gt; out.txt</code></td>
+<td>Redirect stdout to a file. The file is truncated if it exists.</td>
+</tr>
+<tr>
+<td><code>COMMAND &gt;&gt; out.txt</code></td>
+<td>Redirect stdout to a file. Append to the file if it exists.</td>
+</tr>
+<tr>
+<td><code>COMMAND &lt; in.txt</code></td>
+<td>Redirect a file's contents to stdin.</td>
+</tr>
+<tr>
+<td><code>less</code>/<code>more</code></td>
+<td>View the contents of a file or stream one page at a time.</td>
+</tr>
+<tr>
+<td><code>grep</code></td>
+<td>Search a file or stream for text matching a regular expression and print the results.</td>
+</tr>
+<tr>
+<td><code>ls</code></td>
+<td>List the contents of a directory.</td>
+</tr>
+<tr>
+<td><code>cat</code></td>
+<td>Reads files or stdin and writes to stdout.</td>
+</tr>
+<tr>
+<td><code>sed</code></td>
+<td>Perform text substitution like find and replace on a text stream.</td>
+</tr>
+<tr>
+<td><code>tr</code></td>
+<td>Translate, squeeze, and/or delete characters from standard input, writing to standard output.</td>
+</tr>
+<tr>
+<td><code>sort</code></td>
+<td>Sorts the text in a stream.</td>
+</tr>
+<tr>
+<td><code>uniq</code></td>
+<td>Outputs the unique words in a text stream.</td>
+</tr>
+</tbody>
+</table>
+<p>As an example, the script below reads the source of this blog post and extracts the unique words. All this work is done with existing commands tied together in a pipeline.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed <span style="color:#e6db74">&#39;s/\s/\n/g&#39;</span> &lt; 2020-01-26-8-steps-to-a-better-console-application.markdown | tr <span style="color:#e6db74">&#39;[:upper:]&#39;</span> <span style="color:#e6db74">&#39;[:lower:]&#39;</span> | grep <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">^\w*</span>$<span style="color:#e6db74">&#34;</span> | grep <span style="color:#f92672">[</span>^0-9*<span style="color:#f92672">]</span> | sort | uniq &gt; unique-words.txt
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="have-a-structured-data-option">Have a Structured Data Option</h1>
+<p>All output text should be human-readable by default, preferably simple lists of text delimited by line breaks, however you should consider adding a structured data option to your apps. Output as JSON or XML is useful for many scripts. The data can be parsed and acted upon in an automated way.</p>
+<p>Let's update our Ghostbusters app to include the option to output the characters in JSON format.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+{
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
+    {
+        <span style="color:#66d9ef">if</span> (args.Any(arg =&gt; arg.ToLower() == <span style="color:#e6db74">&#34;--json&#34;</span>))
+        {
+            List&lt;Actor&gt; actors = <span style="color:#66d9ef">new</span> List&lt;Actor&gt;
+            {
+                <span style="color:#66d9ef">new</span> Actor(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;Peter Venkman&#34;</span>, <span style="color:#e6db74">&#34;Bill Murray&#34;</span>),
+                <span style="color:#66d9ef">new</span> Actor(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;Raymond Stantz&#34;</span>, <span style="color:#e6db74">&#34;Dan Aykroyd&#34;</span>),
+                <span style="color:#66d9ef">new</span> Actor(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;Egon Spengler&#34;</span>, <span style="color:#e6db74">&#34;Harold Ramis&#34;</span>),
+                <span style="color:#66d9ef">new</span> Actor(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;Winston Zeddemore&#34;</span>, <span style="color:#e6db74">&#34;Ernie Hudson&#34;</span>)
+            };
+
+            <span style="color:#66d9ef">string</span> output = JsonConvert.SerializeObject(actors, Formatting.Indented);
+            
+            Console.Write(output);
+        }
+        <span style="color:#66d9ef">else</span>
+        {
+            Console.WriteLine(<span style="color:#e6db74">&#34;Peter Venkman&#34;</span>);
+            Console.Error.WriteLine(<span style="color:#e6db74">&#34;Printed 1 of 4.&#34;</span>);
+            Console.WriteLine(<span style="color:#e6db74">&#34;Raymond Stantz&#34;</span>);
+            Console.Error.WriteLine(<span style="color:#e6db74">&#34;Printed 2 of 4.&#34;</span>);
+            Console.WriteLine(<span style="color:#e6db74">&#34;Egon Spengler&#34;</span>);
+            Console.Error.WriteLine(<span style="color:#e6db74">&#34;Printed 3 of 4.&#34;</span>);
+            Console.WriteLine(<span style="color:#e6db74">&#34;Winston Zeddemore&#34;</span>);
+            Console.Error.WriteLine(<span style="color:#e6db74">&#34;Printed 4 of 4.&#34;</span>);
+        }
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>Invoking it with the <code>--json</code> option gives us an array of objects with an ID, screen name, and actor.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./ConsoleApp.exe --json
+<span style="color:#f92672">[</span>
+  <span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;ID&#34;</span>: 1,
+    <span style="color:#e6db74">&#34;ScreenName&#34;</span>: <span style="color:#e6db74">&#34;Peter Venkman&#34;</span>,
+    <span style="color:#e6db74">&#34;Name&#34;</span>: <span style="color:#e6db74">&#34;Bill Murray&#34;</span>
+  <span style="color:#f92672">}</span>,
+  <span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;ID&#34;</span>: 1,
+    <span style="color:#e6db74">&#34;ScreenName&#34;</span>: <span style="color:#e6db74">&#34;Raymond Stantz&#34;</span>,
+    <span style="color:#e6db74">&#34;Name&#34;</span>: <span style="color:#e6db74">&#34;Dan Aykroyd&#34;</span>
+  <span style="color:#f92672">}</span>,
+  <span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;ID&#34;</span>: 1,
+    <span style="color:#e6db74">&#34;ScreenName&#34;</span>: <span style="color:#e6db74">&#34;Egon Spengler&#34;</span>,
+    <span style="color:#e6db74">&#34;Name&#34;</span>: <span style="color:#e6db74">&#34;Harold Ramis&#34;</span>
+  <span style="color:#f92672">}</span>,
+  <span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;ID&#34;</span>: 1,
+    <span style="color:#e6db74">&#34;ScreenName&#34;</span>: <span style="color:#e6db74">&#34;Winston Zeddemore&#34;</span>,
+    <span style="color:#e6db74">&#34;Name&#34;</span>: <span style="color:#e6db74">&#34;Ernie Hudson&#34;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Next we consume the output with <a href="https://stedolan.github.io/jq/">jq - a command-line JSON processor</a>. We can filter the contents to just the actor's names.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./ConsoleApp.exe --json | jq <span style="color:#e6db74">&#39;.[] | {actor: .Name}&#39;</span>
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;actor&#34;</span>: <span style="color:#e6db74">&#34;Bill Murray&#34;</span>
+<span style="color:#f92672">}</span>
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;actor&#34;</span>: <span style="color:#e6db74">&#34;Dan Aykroyd&#34;</span>
+<span style="color:#f92672">}</span>
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;actor&#34;</span>: <span style="color:#e6db74">&#34;Harold Ramis&#34;</span>
+<span style="color:#f92672">}</span>
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;actor&#34;</span>: <span style="color:#e6db74">&#34;Ernie Hudson&#34;</span>
+<span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="summary">Summary</h1>
+<ol>
+<li>Provide Help in the Terminal</li>
+<li>Use a Consistent CLI Syntax</li>
+<li>Use Subcommands for Complex Apps</li>
+<li>Code for Pipes</li>
+<li>Don't Cross the Streams</li>
+<li>Read and Write Files with Options and Streams</li>
+<li>Don't Reinvent the Wheel</li>
+<li>Have a Structured Data Option</li>
+</ol>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46">12 Factor CLI Apps</a></li>
+<li><a href="https://www.zdnet.com/article/good-news-for-developers-the-cli-is-back">Good news for developers: The CLI is back</a></li>
+<li><a href="http://www.princeton.edu/~hos/Mahoney/expotape.htm">The Unix Oral History Project</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Unix_philosophy">Unix philosophy</a></li>
+<li><a href="https://daveaglick.com/posts/capturing-standard-input-in-csharp">Capturing Standard Input in C#</a></li>
+<li><a href="https://github.com/commandlineparser/commandline">Command Line Parser</a></li>
+<li><a href="https://stedolan.github.io/jq/">jq - A Command-Line Processor</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_Ghostbusters_characters">List of Ghostbusters Characters</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+  
+    <script type="text/javascript">
+      var disqus_shortname = 'joebuschmann';
+      function disqus() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+  
+      disqus();
+  
+
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; Joe Buschmann 2020</p>
+    
+  </div>
+</section>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-64657873-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+</body>
+</html>
+

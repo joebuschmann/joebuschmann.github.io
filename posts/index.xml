@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
-    <lastBuildDate>Thu, 10 Jan 2019 14:29:33 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>8 Steps to a Better Console Application</title>
+      <link>/posts/2020/02/8-steps-to-a-better-console-application/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2020/02/8-steps-to-a-better-console-application/</guid>
+      <description>The console application is the workhorse of the software world. It isn&#39;t flashy like its graphical cousins the desktop and web app. It isn&#39;t sought after like the mobile app. Graphical user interfaces compose images, sophisticated widgets, and animations, but the humble command-line interface (CLI) has none of that. It runs in shells with strange names like Bourne-Again Shell (Bash), Korn Shell, and CMD.EXE. Its tools are simple lines of text printed to a terminal or redirected to a file.</description>
+    </item>
     
     <item>
       <title>A Poor Man&#39;s Queue</title>
