@@ -118,8 +118,8 @@
     <h1 class="title">8 Steps to a Better Console Application</h1>
     
     <div class="content">
-      <p>The console application is the workhorse of the software world. It isn't flashy like its graphical cousins the desktop and web app. It isn't sought after like the mobile app. Graphical user interfaces compose images, sophisticated widgets, and animations, but the humble command-line interface (CLI) has none of that. It runs in shells with strange names like Bourne-Again Shell (Bash), Korn Shell, and CMD.EXE. Its tools are simple lines of text printed to a terminal or redirected to a file.</p>
-<p>Some of these console apps are ephemeral - created to solve a problem and discarded afterward. Others work hard behind the scenes to support essential services like maintenance and CI/CD. Despite its apparent simplicity, writing a good CLI is more difficult than you would expect. Many developers get the basics wrong and limit the effectiveness of their software as a result. In the 1970s, Doug McIlroy first expressed the Unix Philosophy for building console apps. It was later summarized by Peter H. Salus in <em>A Quarter-Century of Unix (1994)</em>.</p>
+      <p>The console application is the workhorse of the software world. It isn't flashy like its graphical cousins the mobile and web apps. Graphical user interfaces compose images, sophisticated widgets, and animations, but the humble command-line interface (CLI) has none of that. Its tools are simple lines of text printed to a terminal.</p>
+<p>Despite its simplicity, you can still make usability mistakes when building a console app. Avoid them by following a handful of guidelines - a few of which are highlighted in the <strong>The Unix Philosophy</strong>. Inspired by this philosophy and my own experience, I've compiled 8 design recommendations for a good CLI.</p>
 <blockquote>
 <p>The Unix Philosophy</p>
 <ul>
@@ -128,7 +128,6 @@
 <li>Write programs to handle text streams, because that is a universal interface.</li>
 </ul>
 </blockquote>
-<p>Inspired by this philosophy and my own experience, I've compiled 8 design recommendations for a good CLI.</p>
 <h1 id="provide-help-in-the-terminal">Provide Help in the Terminal</h1>
 <p><img src="/images/help-button-2.jpg#c" alt="Help"></p>
 <p>A good README or online documentation is fine, but help in the terminal is divine. It's more accessible and allows users to stay in the terminal. You should support several different ways to diplay help.</p>
