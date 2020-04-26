@@ -121,13 +121,46 @@
       <p>As of SpecFlow version 2.0, you can run scenarios in parallel. This means faster execution times and faster feedback in your continuous integration process.</p>
 <h3 id="memory-isolation">Memory Isolation</h3>
 <p>To enable parallel execution, you must use a test runner that supports it. Available runners include NUnit 3.0, xUnit 2.0, and the SpecFlow+ Runner (specrun). Specrun is a commercial product, but it has advanced features like memory isolation via an app domain or process. NUnit and xUnit don't support memory isolation, so they requre your tests to be thread safe. Also, you won't be able to use the static context properties <code>ScenarioContext.Current</code>, <code>FeatureContext.Current</code>, and <code>ScenarioStepContext.Current</code>. The following code throws a <code>SpecFlowException</code> when run in parallel.</p>
-<script src="https://gist.github.com/joebuschmann/f47fab40bb754d7d2eae1765fc9b118c.js"></script>
-<p>You can work around this limitation by using dependency injection. In fact, you should use DI anyway for a cleaner scalable code base. See my post on <a href="/posts/2018/08/reusable-bindings-in-specflow">Reusable Bindings in SpecFlow</a> for more details on leveraging SpecFlow's IoC container.</p>
-<script src="https://gist.github.com/joebuschmann/269873f3149ab7895a06cfa3c0b6849a.js"></script>
-<h3 id="nunit-3-support">NUnit 3 Support</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ScenarioContext _scenarioContext = ScenarioContext.Current;
+</code></pre></td></tr></table>
+</div>
+</div><p>You can work around this limitation by using dependency injection. In fact, you should use DI anyway for a cleaner scalable code base. See my post on <a href="/posts/2018/08/reusable-bindings-in-specflow">Reusable Bindings in SpecFlow</a> for more details on leveraging SpecFlow's IoC container.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ScenarioContext _scenarioContext;
+
+<span style="color:#66d9ef">public</span> AddressSteps(ScenarioContext scenarioContext)
+{
+    _scenarioContext = scenarioContext;
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="nunit-3-support">NUnit 3 Support</h3>
 <p>NUnit 3 requires the assembly-level attribute <code>Parallelizable</code> to configure <a href="https://github.com/nunit/docs/wiki/Parallelizable-Attribute">parallel test execution</a>.</p>
-<script src="https://gist.github.com/joebuschmann/84da986f8e10f72cd08419b8076c5612.js"></script>
-<h3 id="hooks">Hooks</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> NUnit.Framework;
+<span style="color:#a6e22e">[assembly: Parallelizable(ParallelScope.Fixtures)]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="hooks">Hooks</h3>
 <p>Hooks or event bindings behave the same except for one crucial difference: <code>BeforeFeature</code> and <code>AfterFeature</code> hooks will execute multiple times if scenarios from the same feature run in parallel. They should be thread-safe and safe to execute repeatedly. From the documentation:</p>
 <blockquote>
 <p>Each thread manages its own enter/exit feature execution workflow. The <code>[BeforeFeature]</code> and <code>[AfterFeature]</code> hooks may be executed multiple times in different threads if the different threads run scenarios from the same feature file. The execution of these hooks do not block one another, but the Before/After feature hooks are called in pairs within a single thread (the <code>[BeforeFeature]</code> hook of the next scenario is only executed after the <code>[AfterFeature]</code> hook of the previous one). Each thread has a separate (and isolated) FeatureContext.

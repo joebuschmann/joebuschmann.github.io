@@ -123,7 +123,7 @@
       <p>As your application grows, your SpecFlow test suite needs to grow with it. Reusable bindings are essentional to prevent your code from becoming a bloated mess. Fortunately, the SpecFlow runtime has reusability in mind with a built-in inversion of control (IoC) framework and step argument transformations. With these features you can create reusable bindings that make test creation more productive.</p>
 <h3 id="problems-with-inheritance">Problems with Inheritance</h3>
 <p>Before digging into IoC, I'll take a moment to cover why you shouldn't use inheritance in your bindings. I don't have any issues with inheritance in general, but with SpecFlow it can cause problems. The biggest issue is bindings in a base class can cause exceptions to be thrown at runtime. Check out the UML diagram below.</p>
-<p><img src="https://joebuschmann.github.io/scaling-specflow/images/inheritance-whiteboard.png" /></p>
+<p><img src="/images/inheritance-whiteboard.png" /></p>
 <p>It shows a relationship between a base class <code>Service&lt;TReq, TResp&gt;</code> and two subclasses <code>ProductCatalogService</code> and <code>OrderService</code>. The base class contains common state shared among the subclasses as well as common methods for invoking a service endpoint during a test. It handles creating the proxy, serializing the request, and deserializing the response. It also has steps defined and shared among its subclasses.</p>
 <p>At runtime, scenarios using these bindings will throw an exception. SpecFlow sees the step bindings in the base class as duplicate steps and doesn't know which one to invoke.</p>
 <pre><code>TechTalk.SpecFlow.BindingException : Ambiguous step definitions found
@@ -134,8 +134,41 @@ for step 'Given Invoke Service'
 <h3 id="reuse-with-the-ioc-container">Reuse with the IoC Container</h3>
 <p>There's a better way to share state and code. SpecFlow ships with a <a href="https://github.com/gasparnagy/BoDi">lightweight IOC container</a> that you can leverage to inject dependencies into bindings. Coding for dependency injection naturally leads to small classes with high cohesion and avoids the problems of inheritance.</p>
 <p>Using the container is straightforward. Add a dependency to a binding's constructor, and the runtime will provide it. SpecFlow will automatically pick up public classes with a parameterless constructor or a constructor whose dependencies the runtime can resolve. Below is an example.</p>
-<script src="https://gist.github.com/joebuschmann/35dcf3145b53ef6ba6dcd44c7aeefdc5.js"></script>
-<p>The <code>Search</code> binding has two dependencies: an instance of <code>IWebDriver</code> and <code>ISearchProvider</code>. It takes them as constructor parameters and saves them to a field variable.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[Binding]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Search</span>
+{
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IWebDriver _webDriver;
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ISearchProvider _searchProvider;
+
+    <span style="color:#66d9ef">public</span> Search(IWebDriver webDriver, ISearchProvider searchProvider)
+    {
+        _webDriver = webDriver;
+        _searchProvider = searchProvider;
+    }
+
+    <span style="color:#75715e">// Snip
+</span><span style="color:#75715e"></span>}
+</code></pre></td></tr></table>
+</div>
+</div><p>The <code>Search</code> binding has two dependencies: an instance of <code>IWebDriver</code> and <code>ISearchProvider</code>. It takes them as constructor parameters and saves them to a field variable.</p>
 <p>What can you get from the container?</p>
 <ul>
 <li>Classes decorated with the Binding attribute</li>
@@ -146,44 +179,424 @@ for step 'Given Invoke Service'
 </ul>
 <p>Here are three examples of dependency injection (or DI) in SpecFlow.</p>
 <h4 id="example-1-retrieve-the-specflow-context-objects">Example 1: Retrieve the SpecFlow context objects</h4>
-<script src="https://gist.github.com/joebuschmann/eeb70a7c0029b47e48edcba6f64b6aad.js"></script>
-<p>You can retrieve metadata provided by the SpecFlow runtime which describes the current scenario. This metadata is contained in the <code>ScenarioContext</code> object provided by the framework.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ScenarioContext _scenarioContext;
+
+<span style="color:#66d9ef">public</span> AddressSteps(ScenarioContext scenarioContext)
+{
+    _scenarioContext = scenarioContext;
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>You can retrieve metadata provided by the SpecFlow runtime which describes the current scenario. This metadata is contained in the <code>ScenarioContext</code> object provided by the framework.</p>
 <h4 id="example-2-you-can-use-di-to-load-the-appropriate-selenium-web-driver">Example 2: You can use DI to load the appropriate Selenium web driver</h4>
-<script src="https://gist.github.com/joebuschmann/f25fed3767299a4bd439605a9138e413.js"></script>
-<p>This example uses a BeforeScenario hook to load the appropriate Selenium web driver for web UI tests. The binding takes an instance of <code>IObjectContainer</code> in the constructor. The <code>BuildWebDriver</code> method creates an instance of <code>IWebDriver</code> using configuration or some other mechanism. Then the instance is registered with the container using <code>_objectContainer</code> and made available to bindings.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[Binding]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BootstrapSelenium</span> : IDisposable
+{
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IObjectContainer _objectContainer;
+    <span style="color:#66d9ef">private</span> IWebDriver _webDriver = <span style="color:#66d9ef">null</span>;
+
+    <span style="color:#66d9ef">public</span> BootstrapSelenium(IObjectContainer objectContainer)
+    {
+        _objectContainer = objectContainer;
+    }
+<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">    [BeforeScenario]</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> LoadDriver()
+    {
+        _webDriver = BuildWebDriver();
+        _objectContainer.RegisterInstanceAs(_webDriver, <span style="color:#66d9ef">typeof</span> (IWebDriver));
+    }
+
+    <span style="color:#75715e">// Dispose will be called after scenario execution is complete
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Dispose()
+    {
+        _webDriver?.Quit();
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>This example uses a BeforeScenario hook to load the appropriate Selenium web driver for web UI tests. The binding takes an instance of <code>IObjectContainer</code> in the constructor. The <code>BuildWebDriver</code> method creates an instance of <code>IWebDriver</code> using configuration or some other mechanism. Then the instance is registered with the container using <code>_objectContainer</code> and made available to bindings.</p>
 <p>Note the binding also implements <code>IDisposable</code>. SpecFlow will invoke the <code>Dispose</code> method of any binding after the scenario is complete. In this case, it is the equivalent of applying the <code>[AfterScenario]</code> attribute.</p>
 <h4 id="example-3-you-can-use-tags-to-conditionally-load-dependencies">Example 3: You can use tags to conditionally load dependencies</h4>
-<script src="https://gist.github.com/joebuschmann/b0ccc18f6472f8a10877512074140c4d.js"></script>
-<p>Tags are a Gherkin feature that are useful for annotating a scenario or feature and can drive conditional binding or custom behavior. Tags begin with the &ldquo;@&rdquo; character.</p>
+<pre><code class="language-gherkin" data-lang="gherkin">@json
+Scenario: Invoke service with JSON payload
+  Given a fully populated request object
+  When I invoke the service
+  Then a valid response should be returned
+</code></pre><p>Tags are a Gherkin feature that are useful for annotating a scenario or feature and can drive conditional binding or custom behavior. Tags begin with the &ldquo;@&rdquo; character.</p>
 <p>The preceding Gherkin uses the tag <code>@json</code> to indicate the scenario should be executed using JSON serialization. This scenario validates a service endpoint and needs to use the JSON data exchange format for the request and response data. The endpoint also accepts XML or FormUrlEncoded content.</p>
-<script src="https://gist.github.com/joebuschmann/42e77fbac8e5989bacc0ded951116ee9.js"></script>
-<p>The binding implements three <code>BeforeScenario</code> hooks for registering the correct serializer. The options are XML, JSON, and FormUrlEncoded. Only one serializer will be added to the container depending on which tag is used.</p>
-<script src="https://gist.github.com/joebuschmann/fd812cde243fccaba85d573aaaad3e8e.js"></script>
-<p>Other bindings request the correct serializer by adding it to the constructor.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[BeforeScenario(&#34;xml&#34;)]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ConfigureXml()
+{
+    _objectContainer
+        .RegisterTypeAs&lt;XmlBodySerializer, IBodySerializer&gt;();
+}
+<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">[BeforeScenario(&#34;json&#34;)]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ConfigureJson()
+{
+    _objectContainer
+        .RegisterTypeAs&lt;JsonBodySerializer, IBodySerializer&gt;();
+}
+<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">[BeforeScenario(&#34;formurlencoded&#34;)]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ConfigureFormUrlEncoded()
+{
+    _objectContainer
+        .RegisterTypeAs&lt;FormUrlEncodingBodySerializer, IBodySerializer&gt;();
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>The binding implements three <code>BeforeScenario</code> hooks for registering the correct serializer. The options are XML, JSON, and FormUrlEncoded. Only one serializer will be added to the container depending on which tag is used.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[Binding]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">sealed</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AddressServiceSteps</span>
+{
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IBodySerializer _bodySerializer;
+
+    <span style="color:#66d9ef">public</span> ContentTypeSteps(IBodySerializer bodySerializer)
+    {
+        _bodySerializer = bodySerializer;
+    }
+
+    <span style="color:#75715e">// Snip
+</span><span style="color:#75715e"></span>}
+</code></pre></td></tr></table>
+</div>
+</div><p>Other bindings request the correct serializer by adding it to the constructor.</p>
 <h3 id="what-about-the-steps-class">What about the Steps class?</h3>
-<p>It's pretty clear I prefer code reuse via DI over inheritance; however, there is an abstract class <code>TechTalk.SpecFlow.Steps</code> in the runtime library you can use as the base class for your bindings. You can check out <a href="https://github.com/techtalk/SpecFlow/blob/master/TechTalk.SpecFlow/Steps.cs">the source</a> on GitHub. A partial definition is below.</p>
-<script src="https://gist.github.com/joebuschmann/0472f10c0943d990c3b561b337bf3848.js"></script>
-<p>It's strange that a framework built around DI would provide a base class like <code>Steps</code>. It seems to exist for two reasons: 1) to provide access to the scenario, feature, and test metadata and 2) to expose the ability to invoke other Gherkin steps from a binding.</p>
-<p>As we have seen, the test metadata like <code>SenarioContext</code> can be obtained via DI without the fuss of a base class. This leaves the only other reason you would use <code>Steps</code> which is to invoke other steps from a binding. This is actually quite useful. Composite steps can be created to wrap multiple steps into one. Below are two Gherkin steps for building a customer and address</p>
-<script src="https://gist.github.com/joebuschmann/228dfb72ee99cdc6c24b3d390dfae545.js"></script>
-<p>You may want to combine these into a single composite step. <code>GivenANewCustomerAndAddress</code> does just that using <code>Steps.Given</code>.</p>
-<script src="https://gist.github.com/joebuschmann/3cb5f87fa7e4d60bc469da967bc6f800.js"></script>
-<p>Using <code>Steps</code> to invoke other binings is not as straightforward as it would seem. In this case, the two tables are created in code using strings for the column names and values. Even worse, the bindings are invoked using string values to identify the target step. The code is messy and fragile. It would be better if this method could be rewritten in a strongly-typed manner.</p>
+<p>It's clear I prefer code reuse via DI over inheritance; however, there is an abstract class <code>TechTalk.SpecFlow.Steps</code> in the runtime library you can use as the base class for your bindings. You can check out <a href="https://github.com/techtalk/SpecFlow/blob/master/TechTalk.SpecFlow/Steps.cs">the source</a> on GitHub. A partial definition is below.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Steps</span>
+{
+    <span style="color:#75715e">// Built-in context
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> ScenarioContext ScenarioContext { <span style="color:#66d9ef">get</span>; }
+    <span style="color:#66d9ef">public</span> FeatureContext FeatureContext { <span style="color:#66d9ef">get</span>; }
+    <span style="color:#66d9ef">public</span> TestThreadContext TestThreadContext { <span style="color:#66d9ef">get</span>; }
+    <span style="color:#66d9ef">public</span> ScenarioStepContext StepContext { <span style="color:#66d9ef">get</span>; }
+
+    <span style="color:#75715e">// Call other binding steps
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Given(<span style="color:#66d9ef">string</span> step);
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Given(<span style="color:#66d9ef">string</span> step, Table tableArg);
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Given(<span style="color:#66d9ef">string</span> step, <span style="color:#66d9ef">string</span> multilineTextArg);
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Given(<span style="color:#66d9ef">string</span> step, <span style="color:#66d9ef">string</span> multilineTextArg, Table tableArg);
+
+    <span style="color:#75715e">// Snip
+</span><span style="color:#75715e"></span>}
+</code></pre></td></tr></table>
+</div>
+</div><p>It's strange that a framework built around DI would provide a base class like <code>Steps</code>. It seems to exist for two reasons: 1) to provide access to the scenario, feature, and test metadata and 2) to expose the ability to invoke other Gherkin steps from a binding.</p>
+<p>As we have seen, the test metadata like <code>ScenarioContext</code> can be obtained via DI without the fuss of a base class. This leaves the only other reason you would use <code>Steps</code> which is to invoke other steps from a binding. This is actually quite useful. Composite steps can be created to wrap multiple steps into one. Below are two Gherkin steps for building a customer and address</p>
+<pre><code class="language-gherkin" data-lang="gherkin">Given the customer
+  | Salutation | First Name | Last Name |
+  | Miss       | Liz        | Lemon     |
+And the address
+  | Line 1                | City     | State | Zipcode |
+  | 30 Rockefeller Plaza  | New York | NY    | 10112   |
+</code></pre><p>You may want to combine these into a single composite step. <code>GivenANewCustomerAndAddress</code> does just that using <code>Steps.Given</code>.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[Given(&#34;a new customer and address&#34;)]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> GivenANewCustomerAndAddress()
+{
+    Table customer = <span style="color:#66d9ef">new</span> Table(<span style="color:#e6db74">&#34;FirstName&#34;</span>, <span style="color:#e6db74">&#34;LastName&#34;</span>, <span style="color:#e6db74">&#34;Salutation&#34;</span>);
+    customer.AddRow(<span style="color:#e6db74">&#34;Miss&#34;</span> <span style="color:#e6db74">&#34;Liz&#34;</span>, <span style="color:#e6db74">&#34;Lemon&#34;</span>);
+
+    Table address = <span style="color:#66d9ef">new</span> Table(<span style="color:#e6db74">&#34;Line 1&#34;</span>, <span style="color:#e6db74">&#34;City&#34;</span>, <span style="color:#e6db74">&#34;State&#34;</span>, <span style="color:#e6db74">&#34;Zipcode&#34;</span>);
+    address.AddRow(<span style="color:#e6db74">&#34;30 Rockefeller Plaza&#34;</span>, <span style="color:#e6db74">&#34;New York&#34;</span>, <span style="color:#e6db74">&#34;NY&#34;</span>, <span style="color:#e6db74">&#34;10112&#34;</span>);
+
+    Given(<span style="color:#e6db74">&#34;the customer&#34;</span>, customer);
+    Given(<span style="color:#e6db74">&#34;the address&#34;</span>, address);
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>Using <code>Steps</code> to invoke other bindings is not as straightforward as it would seem. In this case, the two tables are created in code using strings for the column names and values. Even worse, the bindings are invoked using string values to identify the target step. The code is messy and fragile. It would be better if this method could be rewritten in a strongly-typed manner.</p>
 <p>Fortunately, there is a another way.</p>
 <h3 id="reusable-bindings-with-stepargumenttransformation">Reusable Bindings with StepArgumentTransformation</h3>
 <p>Another solution is to invoke the binding steps directly rather than through the <code>Steps</code> methods, but this still leaves the issue of table arguments. Building a table in code is not pleasant. You can work around this by pulling out table arguments and transforming them into strongly typed .NET objects using the <code>StepArgumentTranformation</code> attribute. With this approach, steps can be bound to Gherkin tables and called from composite bindings.</p>
 <p>The binding step for creating a customer can be paired with a step argument transformation to move the table argument out and replace it with a strongly typed <code>Customer</code> instance.</p>
-<script src="https://gist.github.com/joebuschmann/b540d80a0607e2164ba7321887f48820.js"></script>
-<p>The same can be done for the address steps.</p>
-<script src="https://gist.github.com/joebuschmann/0a63d6c690b39418ea9a5c60cfe8b127.js"></script>
-<p>With the step argument transformations in place, the composite binding cleans up nicely with the compiler support of strongly typed objects. The customer and address bindings can be invoked safely from code, and they will still bind to the corresponding Gherkin steps.</p>
-<script src="https://gist.github.com/joebuschmann/39649b8c20ae6a797fcbd44e8b867d08.js"></script>
-<h4 id="another-example">Another Example</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[StepArgumentTransformation(&#34;the customer&#34;)]</span>
+<span style="color:#66d9ef">public</span> Customer CreateCustomer(Table table)
+{
+    <span style="color:#66d9ef">return</span> table.CreateInstance&lt;Customer&gt;();
+}
+<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">[Given(@&#34;the customer&#34;)]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> GivenTheCustomer(Customer customer)
+{
+    _customer = customer;
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>The same can be done for the address step.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[StepArgumentTransformation(&#34;the address&#34;)]</span>
+<span style="color:#66d9ef">public</span> Address CreateAddress(Table table)
+{
+    <span style="color:#66d9ef">return</span> table.CreateInstance&lt;Address&gt;();
+}
+<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">[Given(@&#34;the address&#34;)]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> GivenTheAddress(Address address)
+{
+    _address = address;
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>With the step argument transformations in place, the composite binding cleans up nicely with strongly typed objects. The customer and address bindings can be invoked safely from code, and they will still bind to the corresponding Gherkin steps.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[Given(&#34;a new customer and address&#34;)]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> GivenANewCustomerAndAddress()
+{
+    Customer customer = <span style="color:#66d9ef">new</span> Customer
+    {
+        Salutation = <span style="color:#e6db74">&#34;Miss&#34;</span>,
+        FirstName = <span style="color:#e6db74">&#34;Liz&#34;</span>,
+        LastName = <span style="color:#e6db74">&#34;Lemon&#34;</span>
+    };
+
+    Address address = <span style="color:#66d9ef">new</span> Address
+    {
+        Line1 = <span style="color:#e6db74">&#34;30 Rockefeller Plaza&#34;</span>,
+        City = <span style="color:#e6db74">&#34;New York&#34;</span>,
+        State = <span style="color:#e6db74">&#34;NY&#34;</span>,
+        Zipcode = <span style="color:#e6db74">&#34;10112&#34;</span>
+    };
+
+    _otherBindings.GivenTheCustomer(customer);
+    _otherBindings.GivenTheAddress(address);
+}
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="another-example">Another Example</h4>
 <p>Step argument tranformations are also useful with other argument types. In the Gherkin, <code>When I remove the 5th product</code>, you may want to pass the number 5 as an integer value representing the ordinal position of the product. You could write a binding that captures the value &ldquo;5th&rdquo; and parses the argument.</p>
-<script src="https://gist.github.com/joebuschmann/0afa3f7ec949d2daffcc15a9719633cd.js"></script>
-<p>Parsing arguments in a binding step is an anti-pattern, but you could fix this with a regular expression in the <code>When</code> attribute to pull out the numeric value. An even better approach is to create a step argument transformation to extract the index argument. It can even decrement the value by one for immediate consumption by zero-based arrays and lists. Now you have a reusable way of extracting ordinal positions from Gherkin steps.</p>
-<script src="https://gist.github.com/joebuschmann/abf036e9fcf4c3e73c3e5ca09c8d6b27.js"></script>
-<hr />
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[When(@&#34;I remove the (.*) product&#34;)]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> RemoveProduct(<span style="color:#66d9ef">string</span> position)
+{
+    <span style="color:#75715e">// Position comes in as 1st, 2nd, 3rd, etc.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> index = ParsePosition(position);
+
+    <span style="color:#75715e">// Snip
+</span><span style="color:#75715e"></span>}
+</code></pre></td></tr></table>
+</div>
+</div><p>Parsing arguments in a binding step is an anti-pattern, but you could fix this with a regular expression in the <code>When</code> attribute to pull out the numeric value. An even better approach is to create a step argument transformation to extract the index argument. It can even decrement the value by one for immediate consumption by zero-based arrays and lists. Now you have a reusable way of extracting ordinal positions from Gherkin steps.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[StepArgumentTransformation(@&#34;(\d+)(?:st|nd|rd|th)&#34;)]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> GetIndex(<span style="color:#66d9ef">int</span> index)
+{
+    <span style="color:#66d9ef">return</span> index - <span style="color:#ae81ff">1</span>;
+}
+<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">[When(@&#34;I remove the (.*) product&#34;)]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> RemoveProduct(<span style="color:#66d9ef">int</span> index)
+{
+    _products.RemoveAt(index);
+}
+<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">[When(@&#34;I update the (.*) product to (.*)&#34;)]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> UpdateProduct(<span style="color:#66d9ef">int</span> index, <span style="color:#66d9ef">string</span> productName)
+{
+    _products[index] = productName;
+}
+</code></pre></td></tr></table>
+</div>
+</div><hr />
 <p>The SpecFlow runtime provides tools for building reusable bindings including dependency injection via an IoC framework and step argument transformations. You should create small cohesive classes shared via DI and transform table arguments into concrete .NET objects. You should also avoid inheritance, the <code>Steps</code> class, and parsing arguments in your step definitions. With these techniques, your SpecFlow code will scale along with your application.</p>
 
       

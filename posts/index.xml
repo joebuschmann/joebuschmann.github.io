@@ -18,8 +18,7 @@
       <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/posts/2020/02/8-steps-to-a-better-console-application/</guid>
-      <description>The console application is the workhorse of the software world. It isn&#39;t flashy like its graphical cousins the mobile and web apps. Graphical user interfaces compose images, sophisticated widgets, and animations, but the humble command-line interface (CLI) has none of that. Its tools are simple lines of text printed to a terminal.
-Despite its simplicity, you can still make usability mistakes when building a console app. Avoid them by following a handful of guidelines - a few of which are highlighted in the The Unix Philosophy.</description>
+      <description>The console application is the workhorse of the software world. It isn&#39;t flashy like its graphical cousins the desktop and web app. It isn&#39;t sought after like the mobile app. Graphical user interfaces compose images, sophisticated widgets, and animations, but the humble command-line interface (CLI) has none of that. It runs in shells with strange names like Bourne-Again Shell (Bash), Korn Shell, and CMD.EXE. Its tools are simple lines of text printed to a terminal or redirected to a file.</description>
     </item>
     
     <item>
@@ -32,12 +31,12 @@ Despite its simplicity, you can still make usability mistakes when building a co
     </item>
     
     <item>
-      <title>Scaling SpecFlow With Proper Architecture</title>
-      <link>/posts/2018/08/scaling-specflow-with-proper-architecture/</link>
+      <title>Scaling SpecFlow</title>
+      <link>/posts/2018/08/scaling-specflow/</link>
       <pubDate>Fri, 31 Aug 2018 01:07:38 +0000</pubDate>
       
-      <guid>/posts/2018/08/scaling-specflow-with-proper-architecture/</guid>
-      <description>In July of 2018, I gave a talk at KCDC titled SpecFlow: Moving Beyond the Basics. Afterward, I changed the title to Scaling SpecFlow to more accurately reflect the topic. You can find the updated slide deck at https://joebuschmann.github.io/scaling-specflow/.
+      <guid>/posts/2018/08/scaling-specflow/</guid>
+      <description>In July of 2018, I gave a talk at KCDC titled SpecFlow: Moving Beyond the Basics. Afterward, I changed the title to Scaling SpecFlow to more accurately reflect the topic. You can find the updated slide deck at https://joebuschmann.github.io/scaling-specflow.
 Over the next few weeks, I created a series of posts, one for each section of the talk, for those of you who perfer blog posts to slide decks. This page aggregates these pages in one place and takes you through each one in order.</description>
     </item>
     
@@ -47,7 +46,7 @@ Over the next few weeks, I created a series of posts, one for each section of th
       <pubDate>Fri, 31 Aug 2018 00:42:31 +0000</pubDate>
       
       <guid>/posts/2018/08/specflow-step-definition-report/</guid>
-      <description>The SpecFlow runtime comes with a little known command line utility aptly named specflow.exe. You can find it in the tools directory in the SpecFlow NuGet package (ex: [project]\packages\SpecFlow.2.3.2\tools). This humble tool can be used to regenerate SpecFlow unit test classes, create test execution reports for NUnit and MSTest, and generate a step definition report. The most useful of these is the step definition report.
+      <description>The SpecFlow runtime comes with a little known command line utility aptly named specflow.exe. You can find it in the tools directory in the SpecFlow NuGet package (ex: [project]/packages/SpecFlow.2.3.2/tools). This humble tool can be used to regenerate SpecFlow unit test classes, create test execution reports for NUnit and MSTest, and generate a step definition report. The most useful of these is the step definition report.
 As the number of features grows, scenarios and bindings are going to get lost in the day-to-day scrum of software development.</description>
     </item>
     

@@ -13,12 +13,12 @@
     
     
     <item>
-      <title>Scaling SpecFlow With Proper Architecture</title>
-      <link>/posts/2018/08/scaling-specflow-with-proper-architecture/</link>
+      <title>Scaling SpecFlow</title>
+      <link>/posts/2018/08/scaling-specflow/</link>
       <pubDate>Fri, 31 Aug 2018 01:07:38 +0000</pubDate>
       
-      <guid>/posts/2018/08/scaling-specflow-with-proper-architecture/</guid>
-      <description>In July of 2018, I gave a talk at KCDC titled SpecFlow: Moving Beyond the Basics. Afterward, I changed the title to Scaling SpecFlow to more accurately reflect the topic. You can find the updated slide deck at https://joebuschmann.github.io/scaling-specflow/.
+      <guid>/posts/2018/08/scaling-specflow/</guid>
+      <description>In July of 2018, I gave a talk at KCDC titled SpecFlow: Moving Beyond the Basics. Afterward, I changed the title to Scaling SpecFlow to more accurately reflect the topic. You can find the updated slide deck at https://joebuschmann.github.io/scaling-specflow.
 Over the next few weeks, I created a series of posts, one for each section of the talk, for those of you who perfer blog posts to slide decks. This page aggregates these pages in one place and takes you through each one in order.</description>
     </item>
     
@@ -28,7 +28,7 @@ Over the next few weeks, I created a series of posts, one for each section of th
       <pubDate>Fri, 31 Aug 2018 00:42:31 +0000</pubDate>
       
       <guid>/posts/2018/08/specflow-step-definition-report/</guid>
-      <description>The SpecFlow runtime comes with a little known command line utility aptly named specflow.exe. You can find it in the tools directory in the SpecFlow NuGet package (ex: [project]\packages\SpecFlow.2.3.2\tools). This humble tool can be used to regenerate SpecFlow unit test classes, create test execution reports for NUnit and MSTest, and generate a step definition report. The most useful of these is the step definition report.
+      <description>The SpecFlow runtime comes with a little known command line utility aptly named specflow.exe. You can find it in the tools directory in the SpecFlow NuGet package (ex: [project]/packages/SpecFlow.2.3.2/tools). This humble tool can be used to regenerate SpecFlow unit test classes, create test execution reports for NUnit and MSTest, and generate a step definition report. The most useful of these is the step definition report.
 As the number of features grows, scenarios and bindings are going to get lost in the day-to-day scrum of software development.</description>
     </item>
     

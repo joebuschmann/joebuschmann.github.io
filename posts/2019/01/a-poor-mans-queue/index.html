@@ -118,7 +118,8 @@
     <h1 class="title">A Poor Man&#39;s Queue</h1>
     
     <div class="content">
-      <p>Any sufficiently large enterprise software application is going to need a queue at some point. A queue is a good way to introduce an asynchronous process and decouple two parts of a system. For example, a user could upload a large file to a web application for processing, and instead of making the user wait for the work to complete, the application could queue up the work and return immediately. Later, when the results are ready, the user could be notified.</p>
+      <p><img src="/images/duck-queue.jpg#c" alt="Duck Queue"></p>
+<p>Any sufficiently large enterprise software application is going to need a queue at some point. A queue is a good way to introduce an asynchronous process and decouple two parts of a system. For example, a user could upload a large file to a web application for processing, and instead of making the user wait for the work to complete, the application could queue up the work and return immediately. Later, when the results are ready, the user could be notified.</p>
 <p>The best way to do this is to introduce a message broker like <a href="https://www.rabbitmq.com/">RabbitMQ</a>. With RabbitMQ, not only do you get simple queues with a single subscriber, but you can set up exchanges with multiple subscribers. But taking the leap with an enterprise message broker may be a step too far. Sometimes all you need is a simple queue without the overhead of introducing new middleware.</p>
 <p>You can do this with a SQL Server table acting as a queue. It's not sexy, but it gets the job done.</p>
 <h2 id="a-table-as-a-queue">A Table as a Queue</h2>

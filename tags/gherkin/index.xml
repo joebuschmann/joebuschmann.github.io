@@ -13,12 +13,12 @@
     
     
     <item>
-      <title>Scaling SpecFlow With Proper Architecture</title>
-      <link>/posts/2018/08/scaling-specflow-with-proper-architecture/</link>
+      <title>Scaling SpecFlow</title>
+      <link>/posts/2018/08/scaling-specflow/</link>
       <pubDate>Fri, 31 Aug 2018 01:07:38 +0000</pubDate>
       
-      <guid>/posts/2018/08/scaling-specflow-with-proper-architecture/</guid>
-      <description>In July of 2018, I gave a talk at KCDC titled SpecFlow: Moving Beyond the Basics. Afterward, I changed the title to Scaling SpecFlow to more accurately reflect the topic. You can find the updated slide deck at https://joebuschmann.github.io/scaling-specflow/.
+      <guid>/posts/2018/08/scaling-specflow/</guid>
+      <description>In July of 2018, I gave a talk at KCDC titled SpecFlow: Moving Beyond the Basics. Afterward, I changed the title to Scaling SpecFlow to more accurately reflect the topic. You can find the updated slide deck at https://joebuschmann.github.io/scaling-specflow.
 Over the next few weeks, I created a series of posts, one for each section of the talk, for those of you who perfer blog posts to slide decks. This page aggregates these pages in one place and takes you through each one in order.</description>
     </item>
     
