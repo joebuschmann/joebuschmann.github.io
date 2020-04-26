@@ -122,35 +122,219 @@
     <h1 class="title">A Short and Easy Introduction to .NET&#39;s Task Class</h1>
     
     <div class="content">
-      <h6 id="taskrun">Task.Run</h6>
+      <p><img src="/images/train-yard.png#c" alt="Train Yard"></p>
+<h1 id="taskrun">Task.Run</h1>
 <p>You can use <code>Task.Run</code> to schedule a delegate to run on the thread pool. The method returns a new task, and if the work is complete, the result will be available via <code>Task.Result</code>. If not, <code>Task.Result</code> will block until it is complete.</p>
-<script src="https://gist.github.com/joebuschmann/19eedb7e0ba5d4479980.js"></script>
-<h6 id="taskcontinuewith">Task.ContinueWith</h6>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> button_Click(<span style="color:#66d9ef">object</span> sender, EventArgs e)
+{
+    Task&lt;DateTime&gt; task = Task.Run(() =&gt; GetDateTime());
+    lblDateTime.Text = task.Result.ToString();
+}
+
+<span style="color:#66d9ef">private</span> DateTime GetDateTime()
+{
+    <span style="color:#75715e">// Simulate a blocking task.
+</span><span style="color:#75715e"></span>    Thread.Sleep(<span style="color:#ae81ff">2</span><span style="color:#ae81ff">0</span><span style="color:#ae81ff">0</span><span style="color:#ae81ff">0</span>);
+    <span style="color:#66d9ef">return</span> DateTime.Now;
+}
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="taskcontinuewith">Task.ContinueWith</h1>
 <p>You'll want to avoid accessing the <code>Task.Result</code> property because it will block until the result is ready. In the previous example, the UI will hang for about 2000 milliseconds before updating the label with the result. You can fix this with <code>Task.ContinueWith</code>.</p>
-<script src="https://gist.github.com/joebuschmann/be4f90c6ed40a3c35b84.js"></script>
-<p>In this case <code>Task.Result</code> will not block because <code>ContinueWith</code> runs after the first task is complete; however, this code will throw an exception.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> button_Click(<span style="color:#66d9ef">object</span> sender, EventArgs e)
+{
+    Task&lt;DateTime&gt; task = Task.Run(() =&gt; GetDateTime());
+    task.ContinueWith(t =&gt; lblDateTime.Text = t.Result.ToString());
+}
+
+<span style="color:#66d9ef">private</span> DateTime GetDateTime()
+{
+    <span style="color:#75715e">// Simulate a blocking task.
+</span><span style="color:#75715e"></span>    Thread.Sleep(<span style="color:#ae81ff">2</span><span style="color:#ae81ff">0</span><span style="color:#ae81ff">0</span><span style="color:#ae81ff">0</span>);
+    <span style="color:#66d9ef">return</span> DateTime.Now;
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>In this case <code>Task.Result</code> will not block because <code>ContinueWith</code> runs after the first task is complete; however, this code will throw an exception.</p>
 <blockquote>
 <p>An exception of type &lsquo;System.InvalidOperationException&rsquo; occurred in System.Windows.Forms.dll but was not handled in user code</p>
 <p>Additional information: Cross-thread operation not valid: Control &lsquo;lblDateTime&rsquo; accessed from a thread other than the thread it was created on.</p>
 </blockquote>
 <p>You can only update the UI from the thread that created the form. Remember <code>Control.Invoke</code> in WinForms? Fortunately, you can fix it by creating an instance of <code>TaskScheduler</code> from the UI thread's <code>SynchronizationContext</code> and using it when invoking <code>ContinueWith</code>.</p>
-<script src="https://gist.github.com/joebuschmann/dfaacb3458326dbce229.js"></script>
-<h6 id="awaiting-taskrun">Awaiting Task.Run</h6>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> button_Click(<span style="color:#66d9ef">object</span> sender, EventArgs e)
+{
+    TaskScheduler uiThreadContext = TaskScheduler.FromCurrentSynchronizationContext();
+    Task.Run(() =&gt; GetDateTime())
+        .ContinueWith(dt =&gt; lblDateTime.Text = dt.Result.ToString(), uiThreadContext);
+}
+        
+<span style="color:#66d9ef">private</span> DateTime GetDateTime()
+{
+    <span style="color:#75715e">// Simulate a blocking task.
+</span><span style="color:#75715e"></span>    Thread.Sleep(<span style="color:#ae81ff">2</span><span style="color:#ae81ff">0</span><span style="color:#ae81ff">0</span><span style="color:#ae81ff">0</span>);
+    <span style="color:#66d9ef">return</span> DateTime.Now;
+}
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="awaiting-taskrun">Awaiting Task.Run</h1>
 <p>If you're using C# 6.0, you can take advantage of async/await and await the task returned by <code>Task.Run</code>. The compiler will ensure the continuation runs on the originating thread, in this case the UI thread, so you don't have to create a <code>TaskScheduler</code>.</p>
-<script src="https://gist.github.com/joebuschmann/25ddcdb32fc187ebd389.js"></script>
-<h6 id="taskdelay">Task.Delay</h6>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">void</span> button_Click(<span style="color:#66d9ef">object</span> sender, EventArgs e)
+{
+    DateTime timeToDisplay = <span style="color:#66d9ef">await</span> Task.Run(() =&gt; GetDateTime());
+    lblDateTime.Text = timeToDisplay.ToString();
+}
+
+<span style="color:#66d9ef">private</span> DateTime GetDateTime()
+{
+    <span style="color:#75715e">// Simulate a blocking task.
+</span><span style="color:#75715e"></span>    Thread.Sleep(<span style="color:#ae81ff">2</span><span style="color:#ae81ff">0</span><span style="color:#ae81ff">0</span><span style="color:#ae81ff">0</span>);
+    <span style="color:#66d9ef">return</span> DateTime.Now;
+}
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="taskdelay">Task.Delay</h1>
 <p><code>Task.Delay</code> returns a task that will complete after a period of time. It can be awaited just like any other task.</p>
-<script src="https://gist.github.com/joebuschmann/265f093156822962f4d6.js"></script>
-<h6 id="taskcompletionsource">TaskCompletionSource</h6>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">void</span> button_Click(<span style="color:#66d9ef">object</span> sender, EventArgs e)
+{
+    <span style="color:#66d9ef">await</span> Task.Delay(<span style="color:#ae81ff">2</span><span style="color:#ae81ff">0</span><span style="color:#ae81ff">0</span><span style="color:#ae81ff">0</span>);
+    lblDateTime.Text = DateTime.Now.ToString();
+}
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="taskcompletionsource">TaskCompletionSource</h1>
 <p><code>TaskCompletionSource</code> serves as a wrapper around a task whose lifetime must be managed explicitly. No delegate is provided. It's useful for bridging the gap between older asynchronous patterns and newer code based on tasks.</p>
 <p>For example, let's say <code>Task.Delay</code> didn't exist, and we wanted a more efficient alternative to <code>Thread.Sleep</code>. We can use <code>System.Threading.Timer</code>, but it would be nice to wrap it in a task. <code>TaskCompletionSource</code> can help us do just that.</p>
-<script src="https://gist.github.com/joebuschmann/909e3d157b705002e022.js"></script>
-<p>A real world example can be found in the codebase for <a href="http://nancyfx.org">Nancy FX</a>, a lightweight web framework for .NET. Nancy can be hosted in a number of ways including in ASP.NET where <a href="https://github.com/NancyFx/Nancy/blob/master/src/Nancy.Hosting.Aspnet/NancyHttpRequestHandler.cs">an implementation of IHttpAsyncHandler</a> invokes the task-based Nancy engine. <code>IHttpAsyncHandler</code> uses an older construct to implement asynchronous operations, and <a href="https://github.com/NancyFx/Nancy/blob/master/src/Nancy.Hosting.Aspnet/NancyHandler.cs">Nancy uses TaskCompletionSource</a> to bridge the gap.</p>
-<h6 id="taskfromresult">Task.FromResult</h6>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">void</span> button_Click(<span style="color:#66d9ef">object</span> sender, EventArgs e)
+{
+    DateTime timeToDisplay = <span style="color:#66d9ef">await</span> Sleep(<span style="color:#ae81ff">2</span><span style="color:#ae81ff">0</span><span style="color:#ae81ff">0</span><span style="color:#ae81ff">0</span>);
+    lblDateTime.Text = timeToDisplay.ToString();
+}
+
+<span style="color:#66d9ef">private</span> Task&lt;DateTime&gt; Sleep(<span style="color:#66d9ef">int</span> milliseconds)
+{
+    TaskCompletionSource&lt;DateTime&gt; tcs = <span style="color:#66d9ef">new</span> TaskCompletionSource&lt;DateTime&gt;();
+    <span style="color:#66d9ef">new</span> Timer(o =&gt; tcs.SetResult(DateTime.Now), <span style="color:#66d9ef">null</span>, milliseconds, Timeout.Infinite);
+    <span style="color:#66d9ef">return</span> tcs.Task;
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>A real world example can be found in the codebase for <a href="http://nancyfx.org">Nancy FX</a>, a lightweight web framework for .NET. Nancy can be hosted in a number of ways including in ASP.NET where <a href="https://github.com/NancyFx/Nancy/blob/master/src/Nancy.Hosting.Aspnet/NancyHttpRequestHandler.cs">an implementation of IHttpAsyncHandler</a> invokes the task-based Nancy engine. <code>IHttpAsyncHandler</code> uses an older construct to implement asynchronous operations, and <a href="https://github.com/NancyFx/Nancy/blob/master/src/Nancy.Hosting.Aspnet/NancyHandler.cs">Nancy uses TaskCompletionSource</a> to bridge the gap.</p>
+<h1 id="taskfromresult">Task.FromResult</h1>
 <p><code>Task.FromResult</code> returns a completed task prepopulated with a result. No code is run on a background thread. In fact, no work is done besides creating the new task and immediately setting the result.</p>
 <p>This method provides a way for asynchronous interfaces to have synchronous implementations. I've found it useful for creating mock classes for tests. The mock doesn't do any blocking work but still needs to return a task as a result. <code>Task.FromResult</code> is perfect for this scenario.</p>
-<script src="https://gist.github.com/joebuschmann/b1000e857675d3f764f9.js"></script>
-<h6 id="taskrun-and-aspnet">Task.Run and ASP.NET</h6>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ServiceMock</span> : IServiceProxy
+{
+    <span style="color:#66d9ef">public</span> Task&lt;ServiceResponse&gt; SendAsync(ServiceRequest request)
+    {
+        <span style="color:#66d9ef">var</span> fakeResponse = <span style="color:#66d9ef">new</span> ServiceResponse(<span style="color:#ae81ff">2</span><span style="color:#ae81ff">0</span><span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;application/text&#34;</span>, <span style="color:#e6db74">&#34;Hello World!&#34;</span>);
+        <span style="color:#66d9ef">return</span> Task.FromResult(fakeResponse);
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="taskrun-and-aspnet">Task.Run and ASP.NET</h1>
 <p>Using <code>Task.Run</code> for CPU-bound work makes sense in a desktop application. The long-running task executes on a background thread which keeps the UI thread free to respond to user input. The UI is more interactive leading to a better user experience.</p>
 <p>But does it make sense in ASP.NET? In short, no. <code>Task.Run</code> will consume another thread from the ASP.NET process's thread pool resulting in two threads to service the same request.</p>
 <p>There are inefficiencies even if you use async/await. The calling thread is recycled, but another one is needed to handle the task. That kind of churn in the thread pool is a poor use of resources.</p>

@@ -129,7 +129,7 @@ As part of a personal retrospective on my career, below are my thoughts on the t
       
       <guid>/posts/2015/12/a-short-and-easy-introduction-to-.nets-task-class/</guid>
       <description>Task.Run You can use Task.Run to schedule a delegate to run on the thread pool. The method returns a new task, and if the work is complete, the result will be available via Task.Result. If not, Task.Result will block until it is complete.
-Task.ContinueWith You&#39;ll want to avoid accessing the Task.Result property because it will block until the result is ready. In the previous example, the UI will hang for about 2000 milliseconds before updating the label with the result.</description>
+1 2 3 4 5 6 7 8 9 10 11 12  private void button_Click(object sender, EventArgs e){Task&amp;lt;DateTime&amp;gt; task = Task.Run(() =&amp;gt; GetDateTime());lblDateTime.Text = task.</description>
     </item>
     
     <item>
