@@ -21,5 +21,14 @@
       <description>Any sufficiently large enterprise software application is going to need a queue at some point. A queue is a good way to introduce an asynchronous process and decouple two parts of a system. For example, a user could upload a large file to a web application for processing, and instead of making the user wait for the work to complete, the application could queue up the work and return immediately. Later, when the results are ready, the user could be notified.</description>
     </item>
     
+    <item>
+      <title>Row-Level Security in SQL Server</title>
+      <link>/posts/2017/03/row-level-security-in-sql-server/</link>
+      <pubDate>Wed, 01 Mar 2017 14:18:28 +0000</pubDate>
+      
+      <guid>/posts/2017/03/row-level-security-in-sql-server/</guid>
+      <description>Up until version 2016, Microsoft&#39;s SQL Server didn&#39;t support row-level security (RLS) - a feature that&#39;s been around in Oracle and IBM&#39;s offerings for a while. If you ran SQL Server and needed RLS, you had to build your own scheme which is exactly what I had to do for a recent project. I needed RLS for a new data warehouse I was building using SQL Server 2014. The requirements called for storing sensitive financial and sales data from multiple users in the same tables.</description>
+    </item>
+    
   </channel>
 </rss>

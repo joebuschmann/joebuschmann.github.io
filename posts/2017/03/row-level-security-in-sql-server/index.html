@@ -102,10 +102,12 @@
     <div class="subtitle tags is-6 is-pulled-right">
       
       
-<a class="subtitle is-6" href="/tags/sql">#sql</a>
+<a class="subtitle is-6" href="/tags/tsql">#tsql</a>
 
 
 
+  
+  | <a class="subtitle is-6" href="/tags/sql">#sql</a>
   
   | <a class="subtitle is-6" href="/tags/sql-server">#sql-server</a>
   
@@ -116,70 +118,160 @@
     <h1 class="title">Row-Level Security in SQL Server</h1>
     
     <div class="content">
-      <p>Up until version 2016, Microsoft's SQL Server didn't support row-level security (RLS) - a feature that's been around in Oracle and IBM's offerings for a while. If you ran SQL Server and needed RLS, you had to build your own scheme which is exactly what I had to do for a recent project. I needed RLS for a new data warehouse I was building using SQL Server 2014. The requirements called for storing sensitive financial and sales data from multiple users in the same tables. I needed a scheme where a user could connect and extract just their data without seeing information for any others. Without native RLS, it is doable but takes some work.</p>
+      <p><img src="/images/mailboxes.jpg#c" alt="Mailboxes"></p>
+<p>Up until version 2016, Microsoft's SQL Server didn't support row-level security (RLS) - a feature that's been around in Oracle and IBM's offerings for a while. If you ran SQL Server and needed RLS, you had to build your own scheme which is exactly what I had to do for a recent project. I needed RLS for a new data warehouse I was building using SQL Server 2014. The requirements called for storing sensitive financial and sales data from multiple users in the same tables. I needed a scheme where a user could connect and extract just their data without seeing information for any others. Without native RLS, it is doable but takes some work.</p>
 <p>In this post, I'll cover the approach I settled on and then discuss my plan for migrating to native RLS in SQL Server 2016.</p>
-<h4 id="table-structure">Table Structure</h4>
+<h1 id="table-structure">Table Structure</h1>
 <p>My first step was to add a column to each table named <strong>UserId</strong> to identify the owner of the row. Its value could be used to filter out rows belonging to other users. For example, the <strong>baseAccount</strong> table below represents a typical setup.</p>
-<pre><code>CREATE TABLE [dbo].[baseAccount](  
-    [UserId] [dbo].[UserId] NOT NULL,
-    [Id] [varchar](18) NOT NULL,
-    [Name] [nvarchar](100) NOT NULL,
-    [CreatedDate] [datetime] NOT NULL CONSTRAINT [DF_baseAccount_CreatedDate]  DEFAULT (getdate()),
- CONSTRAINT [PK_Account] PRIMARY KEY CLUSTERED
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> [dbo].[baseAccount](  
+    [UserId] [dbo].[UserId] <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+    [Id] [varchar](<span style="color:#ae81ff">18</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+    [Name] [nvarchar](<span style="color:#ae81ff">100</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+    [CreatedDate] [datetime] <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">CONSTRAINT</span> [DF_baseAccount_CreatedDate]  <span style="color:#66d9ef">DEFAULT</span> (getdate()),
+ <span style="color:#66d9ef">CONSTRAINT</span> [PK_Account] <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> CLUSTERED
 (
-    [UserId] ASC,
-    [Id] ASC
+    [UserId] <span style="color:#66d9ef">ASC</span>,
+    [Id] <span style="color:#66d9ef">ASC</span>
 ))
-</code></pre><p>I left out most of the columns, but this gives you a general idea of how each table was structured. I added the prefix <strong>base</strong> to distinguish each table from its corresponding view. I also created a simple user-defined data type for the UserId column to enforce consistency.</p>
-<pre><code>CREATE TYPE [dbo].[UserId] FROM [nvarchar](10) NOT NULL
-GO
-</code></pre><h4 id="views">Views</h4>
+</code></pre></td></tr></table>
+</div>
+</div><p>I left out most of the columns, but this gives you a general idea of how each table was structured. I added the prefix <strong>base</strong> to distinguish each table from its corresponding view. I also created a simple user-defined data type for the UserId column to enforce consistency.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TYPE</span> [dbo].[UserId] <span style="color:#66d9ef">FROM</span> [nvarchar](<span style="color:#ae81ff">10</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="views">Views</h1>
 <p>With the tables in place, the next task was to create a view for each table. This is were the UserId column comes into play. It is used to filter data by the current user and ensure the user can see only their data. The where condition makes an exception for database owners who have access to all data.</p>
-<pre><code>CREATE VIEW [dbo].[Account]
-AS
-SELECT * FROM dbo.baseAccount
-WHERE USER_NAME() = 'dbo' OR dbo.baseAccount.UserId = USER_NAME()
-</code></pre><h4 id="restricting-access">Restricting Access</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">VIEW</span> [dbo].[Account]
+<span style="color:#66d9ef">AS</span>
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> dbo.baseAccount
+<span style="color:#66d9ef">WHERE</span> USER_NAME() <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">dbo</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">OR</span> dbo.baseAccount.UserId <span style="color:#f92672">=</span> USER_NAME()
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="restricting-access">Restricting Access</h1>
 <p>Next I restricted database access by creating a common role for all of the users in the data warehouse. This new role was granted SELECT rights to the views but not their corresponding tables. This forced all data access to go through the views where the RLS filtering took place.</p>
-<pre><code>CREATE ROLE [useraccess];
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">ROLE</span> [useraccess];
 
--- Allow access to the view but not the table
-GRANT SELECT ON [Account] TO [useraccess];
-</code></pre><p>With the new role in place, it was time to create the logins and users. Each user had a dedicated SQL Server login. For example, if John Smith had the Windows login <strong>somedomain\jsmith</strong>, then his login was mapped to a user in the database named <strong>jsmith</strong>.</p>
-<pre><code>-- Create a new login
-CREATE LOGIN [somedomain\jsmith] FROM WINDOWS;
+<span style="color:#75715e">-- Allow access to the view but not the table
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">ON</span> [Account] <span style="color:#66d9ef">TO</span> [useraccess];
+</code></pre></td></tr></table>
+</div>
+</div><p>With the new role in place, it was time to create the logins and users. Each user had a dedicated SQL Server login. For example, if John Smith had the Windows login <strong>somedomain\jsmith</strong>, then his login was mapped to a user in the database named <strong>jsmith</strong>.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#75715e">-- Create a new login
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> LOGIN [somedomain<span style="color:#960050;background-color:#1e0010">\</span>jsmith] <span style="color:#66d9ef">FROM</span> WINDOWS;
 
--- Map a user to the login
-CREATE USER [jsmith] FOR LOGIN [somedomain\jsmith] WITH DEFAULT_SCHEMA=[dbo];
+<span style="color:#75715e">-- Map a user to the login
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> [jsmith] <span style="color:#66d9ef">FOR</span> LOGIN [somedomain<span style="color:#960050;background-color:#1e0010">\</span>jsmith] <span style="color:#66d9ef">WITH</span> DEFAULT_SCHEMA<span style="color:#f92672">=</span>[dbo];
 
--- Add him to useraccess role to access the views
-ALTER ROLE [useraccess] ADD MEMBER [jsmith];
-</code></pre><p>At this point I had a simple row-level security scheme. When John Smith queries the database with his Windows account, he will only see data for his user. All other rows will be filtered out by the views.</p>
-<h4 id="native-rls-in-sql-server-2016">Native RLS in SQL Server 2016</h4>
+<span style="color:#75715e">-- Add him to useraccess role to access the views
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">ROLE</span> [useraccess] <span style="color:#66d9ef">ADD</span> MEMBER [jsmith];
+</code></pre></td></tr></table>
+</div>
+</div><p>At this point I had a simple row-level security scheme. When John Smith queries the database with his Windows account, he will only see data for his user. All other rows will be filtered out by the views.</p>
+<h1 id="native-rls-in-sql-server-2016">Native RLS in SQL Server 2016</h1>
 <p>This was a lot of work for something that should be native to any mainstream DBMS. SQL Server 2016 fixes this problem with the introduction of security policies for row-level security. Fortunately, the RLS setup I've described so far can be changed fairly easily to use security policies. The logins, users, and roles remain the same, but the views are replaced with a security policy per table. Each security policy uses a function to determine row-level access.</p>
-<h6 id="views-and-tables">Views and Tables</h6>
+<h2 id="views-and-tables">Views and Tables</h2>
 <p>The views are no longer needed and can be dropped. The <strong>base</strong> prefix is removed from each table name, and SELECT permission is granted for the <strong>useraccess</strong> role.</p>
-<pre><code>DROP VIEW dbo.[Account];
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">VIEW</span> dbo.[Account];
 
-EXEC sp_rename 'dbo.baseAccount', 'Account';
+<span style="color:#66d9ef">EXEC</span> sp_rename <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">dbo.baseAccount</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Account</span><span style="color:#e6db74">&#39;</span>;
 
-GRANT SELECT ON [Account] TO [useraccess];
-</code></pre><h6 id="filter-predicate">Filter Predicate</h6>
+<span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">ON</span> [Account] <span style="color:#66d9ef">TO</span> [useraccess];
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="filter-predicate">Filter Predicate</h2>
 <p>SQL Server 2016 uses a function to determine access to a row. In this case, the function checks the value for the UserId column against the current user name. Oddly, instead of returning a boolean value, it needs to return a table with a single row with a value of 1 for a match and nothing otherwise.</p>
-<pre><code>CREATE FUNCTION dbo.UserAccess
-( @userId AS [nvarchar](10) )
-RETURNS TABLE
-WITH SCHEMABINDING
-AS
-RETURN SELECT 1 AS AccessRight
-    WHERE USER_NAME() = 'dbo' OR USER_NAME() = @userId
-</code></pre><h6 id="security-policy">Security Policy</h6>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">FUNCTION</span> dbo.UserAccess
+( <span style="color:#f92672">@</span>userId <span style="color:#66d9ef">AS</span> [nvarchar](<span style="color:#ae81ff">10</span>) )
+<span style="color:#66d9ef">RETURNS</span> <span style="color:#66d9ef">TABLE</span>
+<span style="color:#66d9ef">WITH</span> SCHEMABINDING
+<span style="color:#66d9ef">AS</span>
+<span style="color:#66d9ef">RETURN</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">AS</span> AccessRight
+    <span style="color:#66d9ef">WHERE</span> USER_NAME() <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">dbo</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">OR</span> USER_NAME() <span style="color:#f92672">=</span> <span style="color:#f92672">@</span>userId
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="security-policy">Security Policy</h2>
 <p>Finally, a security policy is applied per table to implement RLS.</p>
-<pre><code>CREATE SECURITY POLICY AccountSecurityPolicy
-ADD FILTER PREDICATE dbo.UserAccess(UserId) ON dbo.Account
-WITH (STATE = ON)
-</code></pre><hr />
-<p>So that's a example of RLS implemented with and without security policies. I have yet to use SQL Server 2016 in production, but I'm looking forward to the simplicity that native RLS will bring.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">SECURITY</span> POLICY AccountSecurityPolicy
+<span style="color:#66d9ef">ADD</span> FILTER PREDICATE dbo.UserAccess(UserId) <span style="color:#66d9ef">ON</span> dbo.Account
+<span style="color:#66d9ef">WITH</span> (<span style="color:#66d9ef">STATE</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">ON</span>)
+</code></pre></td></tr></table>
+</div>
+</div><hr />
+<p>Those are examples of RLS implemented with and without security policies. I have yet to use SQL Server 2016 in production, but I'm looking forward to the simplicity that native RLS will bring.</p>
 
       
     </div>

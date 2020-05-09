@@ -74,10 +74,10 @@ What is SpecFlow? SpecFlow is a tool that allows you to:
     
     <item>
       <title>The C# Language - Overflow Checking for Integral Operations</title>
-      <link>/posts/2017/12/the-c#-language-overflow-checking-for-integral-operations/</link>
+      <link>/posts/2017/12/the-csharp-language-overflow-checking-for-integral-operations/</link>
       <pubDate>Thu, 14 Dec 2017 23:06:59 +0000</pubDate>
       
-      <guid>/posts/2017/12/the-c#-language-overflow-checking-for-integral-operations/</guid>
+      <guid>/posts/2017/12/the-csharp-language-overflow-checking-for-integral-operations/</guid>
       <description>The C# language has been around for over 15 years. It started off as a Java ripoff and evolved into its own language. Some parts of the language I use daily: enumerators, generics, async/await. Other parts lurk in the shadows until the rare moment when I need to put them to use.
 One such part is overflow checking for integral operations.
 Compiler Option By default, integral operations are not checked for overflows either by the C# compiler or at runtime.</description>
