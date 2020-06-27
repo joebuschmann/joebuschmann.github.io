@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.62.2" />
+	<meta name="generator" content="Hugo 0.72.0" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
@@ -118,6 +118,34 @@
         
       </div>
       <h2 class="subtitle is-6 date">January 16, 2017</h2>
+      <h1 class="title"><a href="/posts/2017/01/salesforce-lightning-navigation-events-in-a-visualforce-page/">Salesforce Lightning - Navigation Events in a Visualforce Page</a></h1>
+      <div class="content">
+        In my previous post, I covered how to use a Lightning component in a Visualforce (VF) page and mentioned an issue with navigation events. These events no longer work. The problem is VF pages are loaded into an iframe element in the Lightning Experience. Navigation events like force:navigateToObjectHome are handled by the one.app container in the parent frame. Events raised in the VF page stop at the iframe boundary and don&rsquo;t bubble up into the parent frame.
+        
+        <a class="button is-link" href="/posts/2017/01/salesforce-lightning-navigation-events-in-a-visualforce-page/" style="height:28px">
+          Read more
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <div class="subtitle tags is-6 is-pulled-right">
+        
+        
+<a class="subtitle is-6" href="/tags/salesforce">#salesforce</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/lightning-component">#lightning-component</a>
+  
+  | <a class="subtitle is-6" href="/tags/lightning">#lightning</a>
+  
+
+        
+      </div>
+      <h2 class="subtitle is-6 date">January 16, 2017</h2>
       <h1 class="title"><a href="/posts/2017/01/salesforce-lightning-hosting-a-component-in-visualforce/">Salesforce Lightning - Hosting a Component in Visualforce</a></h1>
       <div class="content">
         You may be familiar with overriding the editing experience for a Salesforce object with a custom Visualforce (VF) page. When users choose the new or edit actions for an object record, they get a customized view rather than the standard Salesforce view. I wanted to convert a custom edit view written in Visualforce over to Lightning. What I thought would take a day ended up consuming the better part of a week.
@@ -148,8 +176,8 @@
       <h2 class="subtitle is-6 date">November 28, 2016</h2>
       <h1 class="title"><a href="/posts/2016/11/salesforce-lightning-fixing-the-built-in-components/">Salesforce Lightning - Fixing the Built-in Components</a></h1>
       <div class="content">
-        If you've developed with the Salesforce Lightning Framework, you're probably familiar with the Lightning components available in the UI namespace. They include ui:button and ui:inputText among others. These out-of-the-box components are intended to get you up and running quickly, but the reality is they're pretty buggy. It can take some tweaking to get them to look right.
-Issues with ui:inputDateTime A prime example of this is ui:inputDateTime. If you use it in conjunction with the SLDS classes slds-input and slds-form-element__label, the component's layout gets out of whack.
+        If you&rsquo;ve developed with the Salesforce Lightning Framework, you&rsquo;re probably familiar with the Lightning components available in the UI namespace. They include ui:button and ui:inputText among others. These out-of-the-box components are intended to get you up and running quickly, but the reality is they&rsquo;re pretty buggy. It can take some tweaking to get them to look right.
+Issues with ui:inputDateTime A prime example of this is ui:inputDateTime. If you use it in conjunction with the SLDS classes slds-input and slds-form-element__label, the component&rsquo;s layout gets out of whack.
         
         <a class="button is-link" href="/posts/2016/11/salesforce-lightning-fixing-the-built-in-components/" style="height:28px">
           Read more
@@ -177,7 +205,7 @@ Issues with ui:inputDateTime A prime example of this is ui:inputDateTime. If you
       <h2 class="subtitle is-6 date">November 18, 2016</h2>
       <h1 class="title"><a href="/posts/2016/11/salesforce-lightning-the-bad-parts/">Salesforce Lightning - The Bad Parts</a></h1>
       <div class="content">
-        I try to avoid writing rants, but after a rough day, I needed to get this out. For the last two months, I've been working with the Salesforce Lightning Framework. It is the most frustrating JavaScript framework I've ever used. Unlike my experiences with Angular, React, and Knockout, I feel like Lightning is constantly fighting me. Technically it is built on the open source Aura framework, so this is an Aura critique as well.
+        I try to avoid writing rants, but after a rough day, I needed to get this out. For the last two months, I&rsquo;ve been working with the Salesforce Lightning Framework. It is the most frustrating JavaScript framework I&rsquo;ve ever used. Unlike my experiences with Angular, React, and Knockout, I feel like Lightning is constantly fighting me. Technically it is built on the open source Aura framework, so this is an Aura critique as well.
         
         <a class="button is-link" href="/posts/2016/11/salesforce-lightning-the-bad-parts/" style="height:28px">
           Read more
@@ -206,7 +234,7 @@ Issues with ui:inputDateTime A prime example of this is ui:inputDateTime. If you
       <h1 class="title"><a href="/posts/2016/10/callbacks-as-lightning-component-attributes/">Callbacks As Lightning Component Attributes</a></h1>
       <div class="content">
         Last week I posed a question on salesforce.stackexchange.com asking how to pass a function as an attribute in a Lightning Component. As a newbie to the Lightning Component framework (and the Salesforce platform), I found it odd callbacks were not included as one of the supported attribute types. The dearth of responses to my question surprised me. Eventually I found the answer when researching Component Events.
-Lightning Events Before I elaborate, I have to say the Lightning framework's approach to callbacks or events seems excessive.
+Lightning Events Before I elaborate, I have to say the Lightning framework&rsquo;s approach to callbacks or events seems excessive.
         
         <a class="button is-link" href="/posts/2016/10/callbacks-as-lightning-component-attributes/" style="height:28px">
           Read more
@@ -244,38 +272,6 @@ Lightning Events Before I elaborate, I have to say the Lightning framework's app
 When I hit my late thirties, I was heavier than I wanted to be and felt sluggish most days.
         
         <a class="button is-link" href="/posts/2016/09/forget-100-a-realistic-guide-to-physical-fitness/" style="height:28px">
-          Read more
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-        
-<a class="subtitle is-6" href="/tags/task">#task</a>
-
-
-
-  
-  | <a class="subtitle is-6" href="/tags/c-sharp">#c-sharp</a>
-  
-  | <a class="subtitle is-6" href="/tags/dotnet">#dotnet</a>
-  
-  | <a class="subtitle is-6" href="/tags/await">#await</a>
-  
-  | <a class="subtitle is-6" href="/tags/async">#async</a>
-  
-
-        
-      </div>
-      <h2 class="subtitle is-6 date">August 15, 2016</h2>
-      <h1 class="title"><a href="/posts/2016/08/taskcompletionsource-bridging-the-gap-between-old-and-new/">TaskCompletionSource - Bridging the Gap Between Old and New</a></h1>
-      <div class="content">
-        In the latest versions of the .NET Framework, asynchronous work is represented by the Task class. A task is similar to a future or promise in other languages. You can create one in many ways the most common being Task.Run(). The result of a task is exposed by the Task.Result property. If the work is complete, then the property immediately returns a value; otherwise, it blocks until the operation is finished.
-        
-        <a class="button is-link" href="/posts/2016/08/taskcompletionsource-bridging-the-gap-between-old-and-new/" style="height:28px">
           Read more
         </a>
         

@@ -129,7 +129,7 @@
 <p><span style="color: #FF0000; font-weight: bold">Not that</span></p>
 <script src="https://gist.github.com/joebuschmann/b3ae7a70286fee811103.js"></script>
 <p><strong>Why?</strong></p>
-<p>The <code>TechTalk.SpecFlow.Assist</code> namespace has a number of helper methods that make working with tables simple. You can create objects and lists with <code>CreateInstance&lt;T&gt;()</code> and <code>CreateSet&lt;T&gt;()</code> and perform comparisons with <code>CompareToInstance&lt;T&gt;</code> and <code>CompareToSet&lt;T&gt;</code>. These methods make explicitly accessing a table's rows and fields unnecessary in most cases. Your code will clean up nicely with all the boilerplate code gone.</p>
+<p>The <code>TechTalk.SpecFlow.Assist</code> namespace has a number of helper methods that make working with tables simple. You can create objects and lists with <code>CreateInstance&lt;T&gt;()</code> and <code>CreateSet&lt;T&gt;()</code> and perform comparisons with <code>CompareToInstance&lt;T&gt;</code> and <code>CompareToSet&lt;T&gt;</code>. These methods make explicitly accessing a table&rsquo;s rows and fields unnecessary in most cases. Your code will clean up nicely with all the boilerplate code gone.</p>
 <hr>
 <p><strong>WHEN BUILDING COMPLEX TEST DATA&hellip;</strong></p>
 <p><span style="color: #00FF00; font-weight: bold">Code this</span></p>
@@ -149,7 +149,7 @@
 <script src="https://gist.github.com/joebuschmann/a1c29ef9a418259dc1a0.js"></script>
 <p><strong>Why?</strong></p>
 <p>The SpecFlow framework provides a way of saving state between binding invocations via a name/value collection in the <code>ScenarioContext.Current</code> singleton. Step bindings can add data to this collection for later steps to consume. While this approach is convenient, it can get messy for a large number of bindings. Just managing the keys can get out of hand.</p>
-<p>A better approach is to use SpecFlow's built in <a href="http://en.wikipedia.org/wiki/Dependency_injection">Dependency Injection</a> framework. SpecFlow's runtime engine will reuse the same binding instance throughout the lifetime of a scenario. You can take advantage of this by adding private member variables to share data between steps in the same class. For sharing data among different binding classes, you can define a <a href="http://en.wikipedia.org/wiki/Data_transfer_object">Data Transfer Object</a> and inject it into each binding via the constructor. The runtime will know to include it and will reuse the same instance.</p>
+<p>A better approach is to use SpecFlow&rsquo;s built in <a href="http://en.wikipedia.org/wiki/Dependency_injection">Dependency Injection</a> framework. SpecFlow&rsquo;s runtime engine will reuse the same binding instance throughout the lifetime of a scenario. You can take advantage of this by adding private member variables to share data between steps in the same class. For sharing data among different binding classes, you can define a <a href="http://en.wikipedia.org/wiki/Data_transfer_object">Data Transfer Object</a> and inject it into each binding via the constructor. The runtime will know to include it and will reuse the same instance.</p>
 <hr>
 <p><strong>WHEN PASSING BINDING PARAMETERS (PART 1)&hellip;</strong></p>
 <p><span style="color: #00FF00; font-weight: bold">Code this</span></p>
@@ -157,7 +157,7 @@
 <p><span style="color: #FF0000; font-weight: bold">Not that</span></p>
 <script src="https://gist.github.com/joebuschmann/d20feb832cb48ea3a6f5.js"></script>
 <p><strong>Why?</strong></p>
-<p>The SpecFlow engine treats a binding attribute's text as a regular expression. You can take full advantage of regex to transform the human-friendly Gherkin text into binding parameters. The Gherkin, <code>When I remove the product at index 5</code>, doesn't read well to a non-techie, but many developers will go with it because it's easy to extract the ordinal value of 5 into a parameter.</p>
+<p>The SpecFlow engine treats a binding attribute&rsquo;s text as a regular expression. You can take full advantage of regex to transform the human-friendly Gherkin text into binding parameters. The Gherkin, <code>When I remove the product at index 5</code>, doesn&rsquo;t read well to a non-techie, but many developers will go with it because it&rsquo;s easy to extract the ordinal value of 5 into a parameter.</p>
 <p>To fix this, you can rewrite the binding text into something more readable and still extract the numeric parameter. The regex literal <code>(\d+)(?:st|nd|rd|th)</code> converts <em>1st</em>, <em>2nd</em>, <em>3rd</em>, etc into its corresponding numeric value. The Gherkin can be rewritten to <code>When I remove the 5th product</code> which flows better.</p>
 <hr>
 <p><strong>WHEN PASSING BINDING PARAMETERS (PART 2)&hellip;</strong></p>
@@ -176,7 +176,7 @@
 <script src="https://gist.github.com/joebuschmann/f91fc8d18469967084b6.js"></script>
 <script src="https://gist.github.com/joebuschmann/0923456d6ccbd2c27edd.js"></script>
 <p><strong>Why?</strong></p>
-<p>I limit the use of numeric identifiers in Gherkin steps as much as possible. They aren't descriptive and are difficult to update with a different data set.</p>
+<p>I limit the use of numeric identifiers in Gherkin steps as much as possible. They aren&rsquo;t descriptive and are difficult to update with a different data set.</p>
 <p>A nice technique is to create a look-up table in the background section to map entity names to IDs. The subsequent steps can reference the entities by name, and in the step bindings, the names are used to look up the corresponding ID value. Later, if an ID value changes, only the look-up tables will need to be updated.</p>
 <hr>
 <p>For more information on SpecFlow best practices, check out <a href="/tags/specflow">my posts</a> as well as the excellent <a href="http://www.specflow.org/documentation/">SpecFlow documentation</a>.</p>

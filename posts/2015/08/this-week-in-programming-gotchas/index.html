@@ -123,16 +123,16 @@
       <p>We all have those days where we spend hours trying to solve a seemingly simple problem only to smack ourselves in the head when we finally figure it out. Missing quotes, forgetting to flush a <code>StreamWriter</code>, etc. If only we could get back all the wasted time.</p>
 <p>Well, this week I wrestled with more gotchas than usual. Below are the ones that burned most of my time.</p>
 <h6 id="streams">Streams</h6>
-<p>Don't forget to flush a <a href="https://msdn.microsoft.com/en-us/library/system.io.streamwriter%28v=vs.110%29.aspx">StreamWriter</a> when you're done. Otherwise, you'll be deep in the debugger trying to figure out why the target stream is empty.</p>
+<p>Don&rsquo;t forget to flush a <a href="https://msdn.microsoft.com/en-us/library/system.io.streamwriter%28v=vs.110%29.aspx">StreamWriter</a> when you&rsquo;re done. Otherwise, you&rsquo;ll be deep in the debugger trying to figure out why the target stream is empty.</p>
 <pre><code>// Don't forget to flush!
 // Good advice for kids and .NET developers.
 StreamWriter.Flush();
-</code></pre><p>Oh, and while we're on the subject of Streams, after writing to a stream, you'll need to reset the stream's position pointer to 0 before reading from it. Some third party methods are smart enough to do this for you; others are not (I'm looking at you <code>HttpClient</code>).</p>
+</code></pre><p>Oh, and while we&rsquo;re on the subject of Streams, after writing to a stream, you&rsquo;ll need to reset the stream&rsquo;s position pointer to 0 before reading from it. Some third party methods are smart enough to do this for you; others are not (I&rsquo;m looking at you <code>HttpClient</code>).</p>
 <pre><code>// After writing to a stream, you'll need to manually reset the position
 // before reading from it.
 Stream.Position = 0;
 </code></pre><h6 id="knockoutjs">Knockout.js</h6>
-<p><a href="http://knockoutjs.com/">Knockout.js</a> landed some good blows this week as I dug deeper into the library. In particular, it took hours and a number of searches to figure out how to bind <code>optionsText</code> and <code>optionsValue</code> in an HTML select element. Don't forget the single quotes or else Knockout will return a reference error.</p>
+<p><a href="http://knockoutjs.com/">Knockout.js</a> landed some good blows this week as I dug deeper into the library. In particular, it took hours and a number of searches to figure out how to bind <code>optionsText</code> and <code>optionsValue</code> in an HTML select element. Don&rsquo;t forget the single quotes or else Knockout will return a reference error.</p>
 <blockquote>
 <p>Unable to process binding &ldquo;options: function (){return availableContentTypes }&rdquo;
 Message: display is not defined</p>
@@ -142,7 +142,7 @@ Message: display is not defined</p>
                        optionsText: 'display',
                        optionsValue: 'value',
                        value: contentType&quot;&gt;&lt;/select&gt;&lt;/p&gt;
-</code></pre><p>Frankly, I don't know why single quotes are necessary in this case, and I didn't bother to look it up. If anyone knows, please leave a comment.</p>
+</code></pre><p>Frankly, I don&rsquo;t know why single quotes are necessary in this case, and I didn&rsquo;t bother to look it up. If anyone knows, please leave a comment.</p>
 <h6 id="nancy">Nancy</h6>
 <p>I stood up a website using <a href="http://nancyfx.org/">Nancy</a> earlier in the week and had some static content to serve up. The easiest way to do this is to add to the static content conventions in a custom bootstrapper class. But when adding a static file to the root directory, you need to include the forward slash in both the requested file and content file.</p>
 <pre><code>    public class CustomBootstrapper : DefaultNancyBootstrapper
@@ -157,7 +157,7 @@ Message: display is not defined</p>
             conventions.StaticContentsConventions.AddFile(&quot;/SendEmail.html&quot;, &quot;/SendEmail.html&quot;);
         }
     }
-</code></pre><h6 id="it-wasnt-all-bad">It wasn't all bad</h6>
+</code></pre><h6 id="it-wasnt-all-bad">It wasn&rsquo;t all bad</h6>
 <p>Despite the frustration, it really was a good week. Digging through these issues took me down some unexpected tangents. I learned a lot and was able to improve other areas of the codebase. Hopefully this post/rant prevents someone else from making the same mistakes.</p>
 
       

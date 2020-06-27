@@ -120,40 +120,87 @@
     <h1 class="title">Working Effectively with SpecFlow Tables</h1>
     
     <div class="content">
-      <p>The Gherkin DSL defines data tables as a way of passing a list of values to a step definition. Gherkin tables use the pipe character <code>|</code> to delimit column names and values. They're easy to read and understand by both business and technical people.</p>
-<p>While they work great in Gherkin, tables don't translate well to strongly typed .NET languages. They are converted to an instance of the <code>Table</code> type in SpecFlow bindings. This data type is prone to errors because it is weakly typed (columns and values are strings) and requires iterating columns and rows to get at the values. A robust reusable library of SpecFlow bindings has to include strategies for working with tables effectively. Fortunately, there are helper libraries and patterns available to minimize the pain of manipulating table data.</p>
+      <p>The Gherkin DSL defines data tables as a way of passing a list of values to a step definition. Gherkin tables use the pipe character <code>|</code> to delimit column names and values. They&rsquo;re easy to read and understand by both business and technical people.</p>
+<p>While they work great in Gherkin, tables don&rsquo;t translate well to strongly typed .NET languages. They are converted to an instance of the <code>Table</code> type in SpecFlow bindings. This data type is prone to errors because it is weakly typed (columns and values are strings) and requires iterating columns and rows to get at the values. A robust reusable library of SpecFlow bindings has to include strategies for working with tables effectively. Fortunately, there are helper libraries and patterns available to minimize the pain of manipulating table data.</p>
 <h3 id="vertical-versus-horizontal-tables">Vertical versus horizontal tables</h3>
 <p>Before digging in, a word about vertical and horizontal tables. Vertical tables have two columns. The first contains the field names, and the second contains the values. Vertical tables can only be mapped to a single .NET object, not lists or collections.</p>
-<pre><code class="language-gherkin" data-lang="gherkin"># A vertical table
-
-| Field   | Value                |
-| Line 1  | 30 Rockefeller Plaza |
-| City    | New York             |
-| State   | NY                   |
-| Zipcode | 10112                |
-</code></pre><p>Horizontal tables have three or more columns. They are more flexible because they can be mapped to a list of objects. The first row defines the field names and each subsequent row holds the values for an item in the list.</p>
-<pre><code class="language-gherkin" data-lang="gherkin"># A horizontal table
-
-| Line 1                | City     | State | Zipcode |
-| 30 Rockefeller Plaza  | New York | NY    | 10112   |
-| 311 South Wacker Dr   | Chicago  | IL    | 60606   |
-</code></pre><h3 id="table-values-should-be-atomic">Table values should be atomic</h3>
-<p>Table values should be as atomic as possible to simplify the .NET bindings comsuming them. If you find yourself parsing table values, that's a strong indication they're not atomic and can be broken down further.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#75715e"># A vertical table</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">| Field</span><span style="color:#66d9ef">   |</span><span style="color:#e6db74"> Value</span><span style="color:#66d9ef">                |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">| Line </span><span style="color:#e6db74">1</span><span style="color:#66d9ef">  |</span><span style="color:#e6db74"> 30 Rockefeller Plaza</span><span style="color:#66d9ef"> |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">| City</span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> New York</span><span style="color:#66d9ef">             |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">| State</span><span style="color:#66d9ef">   |</span><span style="color:#e6db74"> NY</span><span style="color:#66d9ef">                   |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">| Zipcode</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> 10112</span><span style="color:#66d9ef">                |
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Horizontal tables have three or more columns. They are more flexible because they can be mapped to a list of objects. The first row defines the field names and each subsequent row holds the values for an item in the list.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#75715e"># A horizontal table</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">| Line </span><span style="color:#e6db74">1</span><span style="color:#66d9ef">                |</span><span style="color:#e6db74"> City</span><span style="color:#66d9ef">     |</span><span style="color:#e6db74"> State</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Zipcode</span><span style="color:#66d9ef"> |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">| </span><span style="color:#e6db74">30</span><span style="color:#a6e22e"> Rockefeller Plaza</span><span style="color:#66d9ef">  |</span><span style="color:#e6db74"> New York</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> NY</span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> 10112</span><span style="color:#66d9ef">   |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">| </span><span style="color:#e6db74">311</span><span style="color:#a6e22e"> South Wacker Dr</span><span style="color:#66d9ef">   |</span><span style="color:#e6db74"> Chicago</span><span style="color:#66d9ef">  |</span><span style="color:#e6db74"> IL</span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> 60606</span><span style="color:#66d9ef">   |
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="table-values-should-be-atomic">Table values should be atomic</h3>
+<p>Table values should be as atomic as possible to simplify the .NET bindings comsuming them. If you find yourself parsing table values, that&rsquo;s a strong indication they&rsquo;re not atomic and can be broken down further.</p>
 <p>The following Gherkin is a good example of what not to do. The first value is a full name including salutation. Names are normally divided into salutation, first name, and last name in code for storage and manipulation. The underlying binding will have to parse this value which is error prone. Same for the address. The different parts of the address (line1, city, state, and zip code) are delimited by a semi-colon. What if the person who created the Gherkin forgets the correct delimiter? Again this approach is error prone.</p>
-<pre><code class="language-gherkin" data-lang="gherkin">Scenario: Build a customer
-  Given the customer
-    | Name           | Address                                   |
-    | Miss Liz Lemon | 30 Rockefeller Plaza; New York; NY; 10112 |
-</code></pre><p>A better approach is to break up the name and address into atomic parts in the Gherkin. Each component is clearly defined. The name has separate columns for the salutation, first name, and last name. Similarly, the address is broken up into line1, city, state, and zip code. As we'll see in the next section, the .NET bindings simplify further with table helpers.</p>
-<pre><code class="language-gherkin" data-lang="gherkin">Scenario: Build a customer
-  Given the customer
-    | Salutation | First Name | Last Name |
-    | Miss       | Liz        | Lemon     |
-  And the address
-    | Line 1                | City     | State | Zipcode |
-    | 30 Rockefeller Plaza  | New York | NY    | 10112   |
-</code></pre><h3 id="table-helpers-make-working-with-tables-easier">Table helpers make working with tables easier</h3>
-<p>Like I mentioned earlier, the Gherkin language includes tables for passing complex data or lists of data to a step definition. They're easy to use in the Gherkin editor but are painful to work with in code. They're not strongly typed, and if there's a problem, you won't know until runtime.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#66d9ef">Scenario:</span><span style="color:#a6e22e"> Build a customer
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  Given </span><span style="color:#a6e22e">the customer
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> Name</span><span style="color:#66d9ef">           |</span><span style="color:#e6db74"> Address</span><span style="color:#66d9ef">                                   |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> Miss Liz Lemon</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> 30 Rockefeller Plaza; New York; NY; 10112</span><span style="color:#66d9ef"> |
+</span></code></pre></td></tr></table>
+</div>
+</div><p>A better approach is to break up the name and address into atomic parts in the Gherkin. Each component is clearly defined. The name has separate columns for the salutation, first name, and last name. Similarly, the address is broken up into line1, city, state, and zip code. As we&rsquo;ll see in the next section, the .NET bindings simplify further with table helpers.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#66d9ef">Scenario:</span><span style="color:#a6e22e"> Build a customer
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  Given </span><span style="color:#a6e22e">the customer
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> Salutation</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> First Name</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Last Name</span><span style="color:#66d9ef"> |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> Miss</span><span style="color:#66d9ef">       |</span><span style="color:#e6db74"> Liz</span><span style="color:#66d9ef">        |</span><span style="color:#e6db74"> Lemon</span><span style="color:#66d9ef">     |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">  </span><span style="color:#66d9ef">And </span><span style="color:#a6e22e">the address
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> Line 1</span><span style="color:#66d9ef">                |</span><span style="color:#e6db74"> City</span><span style="color:#66d9ef">     |</span><span style="color:#e6db74"> State</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Zipcode</span><span style="color:#66d9ef"> |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> 30 Rockefeller Plaza</span><span style="color:#66d9ef">  |</span><span style="color:#e6db74"> New York</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> NY</span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> 10112</span><span style="color:#66d9ef">   |
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="table-helpers-make-working-with-tables-easier">Table helpers make working with tables easier</h3>
+<p>Like I mentioned earlier, the Gherkin language includes tables for passing complex data or lists of data to a step definition. They&rsquo;re easy to use in the Gherkin editor but are painful to work with in code. They&rsquo;re not strongly typed, and if there&rsquo;s a problem, you won&rsquo;t know until runtime.</p>
 <p>A common pattern is to convert tables into strongly typed .NET objects in step definitions. In fact there are a number of helper extension methods in the SpecFlow runtime library for converting tables into objects and comparing tabular data to object data. These helpers can go a long way to clean up bindings.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -253,7 +300,7 @@
 </ul>
 <p>Check out the <a href="http://specflow.org/documentation/SpecFlow-Assist-Helpers/">SpecFlow documentation</a> for more details.</p>
 <h3 id="customize-field-mappings">Customize field mappings</h3>
-<p>SpecFlow will ignore whitespace and casing when matching table column names to object property names. Sometimes that isn't enough. An address object may have a property named &ldquo;State&rdquo;, but for Canadian addresses, &ldquo;Province&rdquo; is the more appropriate term to use in the business domain. Same for &ldquo;Zip Code&rdquo; versus &ldquo;Postal Code&rdquo;.</p>
+<p>SpecFlow will ignore whitespace and casing when matching table column names to object property names. Sometimes that isn&rsquo;t enough. An address object may have a property named &ldquo;State&rdquo;, but for Canadian addresses, &ldquo;Province&rdquo; is the more appropriate term to use in the business domain. Same for &ldquo;Zip Code&rdquo; versus &ldquo;Postal Code&rdquo;.</p>
 <p>SpecFlow defines the <code>TableAliases</code> attribute for these situations. Using this attribute, you can provide alternate mappings between a table column name and an object property name. The runtime will include these mappings when you invoke the table helpers.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -291,17 +338,36 @@
 </div>
 </div><p>The example above provides the alias &ldquo;Province&rdquo; for &ldquo;State&rdquo; and &ldquo;Postal Code&rdquo; for &ldquo;Zip Code&rdquo; among others. Note that table aliases support regular expressions.</p>
 <p>Now you can properly specifiy a Canadian address.</p>
-<pre><code class="language-gherkin" data-lang="gherkin">Given the address
-  | Street          | Village | Province | Postal Code |
-  | 110 Prairie Way | Elkhorn | Manitoba | P5A 0A4     |
-</code></pre><h3 id="customize-value-mappings">Customize value mappings</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#66d9ef">Given </span><span style="color:#a6e22e">the address
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  |</span><span style="color:#e6db74"> Street</span><span style="color:#66d9ef">          |</span><span style="color:#e6db74"> Village</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Province</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Postal Code</span><span style="color:#66d9ef"> |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  |</span><span style="color:#e6db74"> 110 Prairie Way</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Elkhorn</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Manitoba</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> P5A 0A4</span><span style="color:#66d9ef">     |
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="customize-value-mappings">Customize value mappings</h3>
 <p>Like field mappings, SpecFlow allows developers to customize how table values are mapped to an object property. The runtime handles primitive type conversions including Enums and Guids by default; however you may want to convert table values to a custom data type. You can do this with a custom value retriever and value comparer.</p>
-<p>Let's say you want to update the address step with a new Location column. Location data consists of latitude and longitude values in parentheses and separated by a comma.</p>
-<pre><code class="language-gherkin" data-lang="gherkin">
-Given the address
-  | Street          | Village | Province | Postal Code | Location |
-  | 110 Prairie Way | Elkhorn | Manitoba | P5A 0A4     | (42, 88) |
-</code></pre><p>You want to map this value to a new property on the custom <code>Address</code> data type called Location. The property is of type <code>GeoLocation</code> which has properties for the latitude and longitude.</p>
+<p>Let&rsquo;s say you want to update the address step with a new Location column. Location data consists of latitude and longitude values in parentheses and separated by a comma.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">Given </span><span style="color:#a6e22e">the address
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  |</span><span style="color:#e6db74"> Street</span><span style="color:#66d9ef">          |</span><span style="color:#e6db74"> Village</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Province</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Postal Code</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Location</span><span style="color:#66d9ef"> |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  |</span><span style="color:#e6db74"> 110 Prairie Way</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Elkhorn</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Manitoba</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> P5A 0A4</span><span style="color:#66d9ef">     |</span><span style="color:#e6db74"> (42, 88)</span><span style="color:#66d9ef"> |
+</span></code></pre></td></tr></table>
+</div>
+</div><p>You want to map this value to a new property on the custom <code>Address</code> data type called Location. The property is of type <code>GeoLocation</code> which has properties for the latitude and longitude.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -340,7 +406,7 @@ Given the address
 }
 </code></pre></td></tr></table>
 </div>
-</div><p>Of course the SpecFlow runtime doesn't know about the GeoLocation type, but you can use custom implementations of <code>IValueRetriever</code> and <code>IValueComparer</code> to tell the runtime how to do the conversions. Value retrievers take a table value and convert it into an instance of a .NET type. Value comparers take a .NET type and compare it to a table value to determine equivalence. If the two values aren't equivalent, the runtime throws an exception, and the test fails.</p>
+</div><p>Of course the SpecFlow runtime doesn&rsquo;t know about the GeoLocation type, but you can use custom implementations of <code>IValueRetriever</code> and <code>IValueComparer</code> to tell the runtime how to do the conversions. Value retrievers take a table value and convert it into an instance of a .NET type. Value comparers take a .NET type and compare it to a table value to determine equivalence. If the two values aren&rsquo;t equivalent, the runtime throws an exception, and the test fails.</p>
 <h4 id="ivalueretriever">IValueRetriever</h4>
 <p><code>IValueRetriever</code> defines two methods. The first, <code>CanRetrieve</code>, returns a boolean value indicating if the value retriever can handle the specified property type. In this example, if the incoming property type is <code>GeoLocation</code>, then it returns true. The second method, <code>Retrieve</code>, performs the work of converting the string value from the table into an instance of the target type which, in this case, is <code>GeoLocation</code>.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">

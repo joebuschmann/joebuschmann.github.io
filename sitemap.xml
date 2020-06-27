@@ -3,37 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/tags/c-sharp/</loc>
+    <lastmod>2020-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/dotnet/</loc>
+    <lastmod>2020-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/2020/06/what-does-it-mean-to-pass-a-reference-type-variable-by-reference/</loc>
+    <lastmod>2020-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/posts/2020/02/8-steps-to-a-better-console-application/</loc>
     <lastmod>2020-02-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/c-sharp/</loc>
-    <lastmod>2020-02-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/cli/</loc>
-    <lastmod>2020-02-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/dotnet/</loc>
-    <lastmod>2020-02-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-02-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2020-02-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-02-11T00:00:00+00:00</lastmod>
   </url>
   

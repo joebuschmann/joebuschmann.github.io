@@ -112,6 +112,32 @@
   
   | <a class="subtitle is-6" href="/tags/c-sharp">#c-sharp</a>
   
+
+        
+      </div>
+      <h2 class="subtitle is-6 date">June 27, 2020</h2>
+      <h1 class="title"><a href="/posts/2020/06/what-does-it-mean-to-pass-a-reference-type-variable-by-reference/">What Does It Mean to Pass a Reference Type Variable by Reference?</a></h1>
+      <div class="content">
+        Value and Reference Types Before we get to the answer, let&rsquo;s review the two basic types in .NET: value types and reference types. Variables of value types directly contain their data according to the Microsoft docs. If you assign one value type variable to another, the .NET runtime will make a copy of its data. Operations on one variable will not affect another (with one exception as we&rsquo;ll see). Value types are defined as structures or enumerations, and examples include the .
+        
+        <a class="button is-link" href="/posts/2020/06/what-does-it-mean-to-pass-a-reference-type-variable-by-reference/" style="height:28px">
+          Read more
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <div class="subtitle tags is-6 is-pulled-right">
+        
+        
+<a class="subtitle is-6" href="/tags/dotnet">#dotnet</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/c-sharp">#c-sharp</a>
+  
   | <a class="subtitle is-6" href="/tags/cli">#cli</a>
   
 
@@ -120,7 +146,9 @@
       <h2 class="subtitle is-6 date">February 11, 2020</h2>
       <h1 class="title"><a href="/posts/2020/02/8-steps-to-a-better-console-application/">8 Steps to a Better Console Application</a></h1>
       <div class="content">
-        The console application is the workhorse of the software world. It isn't flashy like its graphical cousins the desktop and web app. It isn't sought after like the mobile app. Graphical user interfaces compose images, sophisticated widgets, and animations, but the humble command-line interface (CLI) has none of that. It runs in shells with strange names like Bourne-Again Shell (Bash), Korn Shell, and CMD.EXE. Its tools are simple lines of text printed to a terminal or redirected to a file.
+        Despite its apparent simplicity, writing a good console application is more difficult than you would expect. Many developers get the basics wrong and limit the effectiveness of their software as a result. In the 1970s, Doug McIlroy first expressed the Unix Philosophy for building apps with a good CLI. It was later summarized by Peter H. Salus in A Quarter-Century of Unix (1994).
+ The Unix Philosophy
+ Write programs that do one thing and do it well.
         
         <a class="button is-link" href="/posts/2020/02/8-steps-to-a-better-console-application/" style="height:28px">
           Read more
@@ -207,7 +235,7 @@ As the number of features grows, scenarios and bindings are going to get lost in
       <h1 class="title"><a href="/posts/2018/08/running-specflow-scenarios-in-parallel/">Running SpecFlow Scenarios in Parallel</a></h1>
       <div class="content">
         As of SpecFlow version 2.0, you can run scenarios in parallel. This means faster execution times and faster feedback in your continuous integration process.
-Memory Isolation To enable parallel execution, you must use a test runner that supports it. Available runners include NUnit 3.0, xUnit 2.0, and the SpecFlow+ Runner (specrun). Specrun is a commercial product, but it has advanced features like memory isolation via an app domain or process. NUnit and xUnit don't support memory isolation, so they requre your tests to be thread safe.
+Memory Isolation To enable parallel execution, you must use a test runner that supports it. Available runners include NUnit 3.0, xUnit 2.0, and the SpecFlow+ Runner (specrun). Specrun is a commercial product, but it has advanced features like memory isolation via an app domain or process. NUnit and xUnit don&rsquo;t support memory isolation, so they requre your tests to be thread safe.
         
         <a class="button is-link" href="/posts/2018/08/running-specflow-scenarios-in-parallel/" style="height:28px">
           Read more
@@ -238,40 +266,9 @@ Memory Isolation To enable parallel execution, you must use a test runner that s
       <h1 class="title"><a href="/posts/2018/08/reusable-bindings-in-specflow/">Reusable Bindings in SpecFlow</a></h1>
       <div class="content">
         As your application grows, your SpecFlow test suite needs to grow with it. Reusable bindings are essentional to prevent your code from becoming a bloated mess. Fortunately, the SpecFlow runtime has reusability in mind with a built-in inversion of control (IoC) framework and step argument transformations. With these features you can create reusable bindings that make test creation more productive.
-Problems with Inheritance Before digging into IoC, I'll take a moment to cover why you shouldn't use inheritance in your bindings.
+Problems with Inheritance Before digging into IoC, I&rsquo;ll take a moment to cover why you shouldn&rsquo;t use inheritance in your bindings.
         
         <a class="button is-link" href="/posts/2018/08/reusable-bindings-in-specflow/" style="height:28px">
-          Read more
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-        
-<a class="subtitle is-6" href="/tags/specflow">#specflow</a>
-
-
-
-  
-  | <a class="subtitle is-6" href="/tags/gherkin">#gherkin</a>
-  
-  | <a class="subtitle is-6" href="/tags/c-sharp">#c-sharp</a>
-  
-  | <a class="subtitle is-6" href="/tags/dotnet">#dotnet</a>
-  
-
-        
-      </div>
-      <h2 class="subtitle is-6 date">August 10, 2018</h2>
-      <h1 class="title"><a href="/posts/2018/08/working-effectively-with-specflow-tables/">Working Effectively with SpecFlow Tables</a></h1>
-      <div class="content">
-        The Gherkin DSL defines data tables as a way of passing a list of values to a step definition. Gherkin tables use the pipe character | to delimit column names and values. They're easy to read and understand by both business and technical people.
-While they work great in Gherkin, tables don't translate well to strongly typed .NET languages. They are converted to an instance of the Table type in SpecFlow bindings.
-        
-        <a class="button is-link" href="/posts/2018/08/working-effectively-with-specflow-tables/" style="height:28px">
           Read more
         </a>
         

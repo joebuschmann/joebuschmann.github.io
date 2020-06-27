@@ -117,73 +117,175 @@
     
     <div class="content">
       <blockquote>
-<p>[Gherkin] is a Business Readable, Domain Specific Language that lets you describe software's behaviour without detailing how that behaviour is implemented.
+<p>[Gherkin] is a Business Readable, Domain Specific Language that lets you describe software&rsquo;s behaviour without detailing how that behaviour is implemented.
 - Gherkin Wiki</p>
 </blockquote>
-<p>These Gherkin best practices were originally included in an early draft of a <a href="https://joebuschmann.github.io/scaling-specflow/">talk I gave on SpecFlow</a>. Ultimately, I took them out because they didn't fit well with the topic, so I put them into a blog post.</p>
+<p>These Gherkin best practices were originally included in an early draft of a <a href="https://joebuschmann.github.io/scaling-specflow/">talk I gave on SpecFlow</a>. Ultimately, I took them out because they didn&rsquo;t fit well with the topic, so I put them into a blog post.</p>
 <h3 id="table-values-should-be-atomic">Table values should be atomic</h3>
 <p>Bindings that take a table argument will almost always convert the table to a C# object for easy manipulation. With this in mind, Gherkin steps should make using tables in code straightforward, meaning values should be as atomic as possible. The sample below uses a single table to create a customer and an address. Each table field, Name and Address, crams in complex data that the binding has to parse. Parsing table values is an indication they should be broken up into smaller pieces.</p>
-<pre><code class="language-gherkin" data-lang="gherkin">Scenario: Build a customer
-  Given the customer
-    | Name           | Address                                   |
-    | Miss Liz Lemon | 30 Rockefeller Plaza; New York; NY; 10112 |
-</code></pre><p>A better approach is to create two steps: one for the customer and one for the address. Each discrete piece of data should have its own column in the table. The name is broken up into Salutation, First Name, and Last Name columns. The address step has columns for Line 1, City, State, and Zipcode.</p>
-<pre><code class="language-gherkin" data-lang="gherkin">Scenario: Build a customer
-  Given the customer
-    | Salutation | First Name | Last Name |
-    | Miss       | Liz        | Lemon     |
-  And the address
-    | Line 1                | City     | State | Zipcode |
-    | 30 Rockefeller Plaza  | New York | NY    | 10112   |
-</code></pre><h3 id="use-natural-language-instead-of-tech-speak">Use natural language instead of tech speak</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#66d9ef">Scenario:</span><span style="color:#a6e22e"> Build a customer
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  Given </span><span style="color:#a6e22e">the customer
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> Name</span><span style="color:#66d9ef">           |</span><span style="color:#e6db74"> Address</span><span style="color:#66d9ef">                                   |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> Miss Liz Lemon</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> 30 Rockefeller Plaza; New York; NY; 10112</span><span style="color:#66d9ef"> |
+</span></code></pre></td></tr></table>
+</div>
+</div><p>A better approach is to create two steps: one for the customer and one for the address. Each discrete piece of data should have its own column in the table. The name is broken up into Salutation, First Name, and Last Name columns. The address step has columns for Line 1, City, State, and Zipcode.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#66d9ef">Scenario:</span><span style="color:#a6e22e"> Build a customer
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  Given </span><span style="color:#a6e22e">the customer
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> Salutation</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> First Name</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Last Name</span><span style="color:#66d9ef"> |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> Miss</span><span style="color:#66d9ef">       |</span><span style="color:#e6db74"> Liz</span><span style="color:#66d9ef">        |</span><span style="color:#e6db74"> Lemon</span><span style="color:#66d9ef">     |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">  </span><span style="color:#66d9ef">And </span><span style="color:#a6e22e">the address
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> Line 1</span><span style="color:#66d9ef">                |</span><span style="color:#e6db74"> City</span><span style="color:#66d9ef">     |</span><span style="color:#e6db74"> State</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Zipcode</span><span style="color:#66d9ef"> |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> 30 Rockefeller Plaza</span><span style="color:#66d9ef">  |</span><span style="color:#e6db74"> New York</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> NY</span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> 10112</span><span style="color:#66d9ef">   |
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="use-natural-language-instead-of-tech-speak">Use natural language instead of tech speak</h3>
 <p>By design, Gherkin should use natural language accessible to business owners. Tech speak has a tendency to sneak in over time. This example contains text referring to an index of a list or array. It makes sense to engineers but may be confusing to the business.</p>
-<pre><code class="language-gherkin" data-lang="gherkin">When I remove the product at index 5
-</code></pre><p>You can take advantage of regular expressions to refactor this step to use the more natural language, &ldquo;the 5th product&rdquo;, and still extract the index value in the binding.</p>
-<pre><code class="language-gherkin" data-lang="gherkin">When I remove the 5th product
-</code></pre><h3 id="avoid-numeric-ids">Avoid numeric IDs</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#66d9ef">When </span><span style="color:#a6e22e">I remove the product at index </span><span style="color:#e6db74">5</span><span style="color:#a6e22e">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>You can take advantage of regular expressions to refactor this step to use the more natural language, &ldquo;the 5th product&rdquo;, and still extract the index value in the binding.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#66d9ef">When </span><span style="color:#a6e22e">I remove the </span><span style="color:#e6db74">5</span><span style="color:#a6e22e">th product
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="avoid-numeric-ids">Avoid numeric IDs</h3>
 <p>Many integration test suites will use a well known data set to drive the tests. These data may be in a file, database, or available via a web service. Over time test engineers will memorize the numeric identifiers for entities used in common scenarios and start to refer to the entity IDs rather than a descriptive name. Try to avoid using these IDs in Gherkin.</p>
-<pre><code class="language-gherkin" data-lang="gherkin">Scenario: Update price
-  Given the product with ID 46
-  When the price is updated to $199.00
-  Then the price should be saved
-</code></pre><p>Outside of engineering, no one knows what product 46 is. You can make this better by defining a map of descriptive names to IDs in a feature's background steps. The Gherkin uses the name while the steps map the incoming name to its ID. In this case, product 46 maps to the more descriptive identifier &ldquo;iPhone 6&rdquo;.</p>
-<pre><code class="language-gherkin" data-lang="gherkin">Background:
-  Given I have the following products
-    | Id | Name       |
-    | 45 | Galaxy S5  |
-    | 46 | iPhone 6   |
-    | 47 | Nokia Icon |
- 
-Scenario: Update price
-  Given the product &quot;iPhone 6&quot;
-  When the price is updated to $199.00
-  Then the price should be saved
-</code></pre><h3 id="put-rules-and-equations-in-the-feature-file-description">Put rules and equations in the feature file description</h3>
-<p>The feature header and description is a good place to define the rules and equations under test. If you're validating an insurance quoting engine, you can describe its rules at the top and avoid cluttering the scenarios with details of the algorithm.</p>
-<pre><code class="language-gherkin" data-lang="gherkin">Feature: Insurance Quote
-  Test the quoting engine.
-</code></pre><p>An obvious and lazy description helps no one. You might as well leave it out. A good description describes the algorithm you're testing. In this case, the insurance quote engine starts with a baseline price and adjusts it up or down based on the insured's individual risk and their neighbor's risk.</p>
-<pre><code class="language-gherkin" data-lang="gherkin">Feature: Insurance Quote
-  Quotes begin with a baseline price.
-  It is adjusted by the insured individual's risk score.
-  It is further adjusted by other scores from people
-    living near the insured.
-  quote = baseline *
-    (individual adjustment + weight * (co-located adjustment - 1))
-</code></pre><p>The following scenarios simply plug in the numbers and validate the final quote.</p>
-<pre><code class="language-gherkin" data-lang="gherkin">Scenario Outline: Calculate Quote
-  Given a baseline price of $&lt;baseline&gt;
-  And an individual adjustment of &lt;indvAdjustment&gt;
-  And a co-located adjustment of &lt;coLocAdjustment&gt; and weight of &lt;weight&gt;
-  When I calculate the final quote
-  Then the amount should be $&lt;amount&gt;
-
-Examples:
-  | baseline | indvAdjustment | coLocAdjustment | weight | amount |
-  | 50       | 0.90           | 0.95            | 0.50   | 43.75  |
-  | 50       | 1.15           | 1.30            | 0.50   | 65.00  |
-</code></pre><hr />
-<p>There are many more tips for writing effective Gherkin, but I've found these to be the most unique and useful. For more tips, check out the links below.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#66d9ef">Scenario:</span><span style="color:#a6e22e"> Update price
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  Given </span><span style="color:#a6e22e">the product with ID </span><span style="color:#e6db74">46</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">  </span><span style="color:#66d9ef">When </span><span style="color:#a6e22e">the price is updated to $</span><span style="color:#e6db74">199.00</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">  </span><span style="color:#66d9ef">Then </span><span style="color:#a6e22e">the price should be saved
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Outside of engineering, no one knows what product 46 is. You can make this better by defining a map of descriptive names to IDs in a feature&rsquo;s background steps. The Gherkin uses the name while the steps map the incoming name to its ID. In this case, product 46 maps to the more descriptive identifier &ldquo;iPhone 6&rdquo;.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#66d9ef">Background:</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  Given </span><span style="color:#a6e22e">I have the following products
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> Id</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Name</span><span style="color:#66d9ef">       |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> 45</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Galaxy S5</span><span style="color:#66d9ef">  |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> 46</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> iPhone 6</span><span style="color:#66d9ef">   |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">    |</span><span style="color:#e6db74"> 47</span><span style="color:#66d9ef"> |</span><span style="color:#e6db74"> Nokia Icon</span><span style="color:#66d9ef"> |
+</span><span style="color:#66d9ef"> </span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">Scenario:</span><span style="color:#a6e22e"> Update price
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  Given </span><span style="color:#a6e22e">the product &#34;</span><span style="color:#e6db74">iPhone 6</span><span style="color:#a6e22e">&#34;
+</span><span style="color:#a6e22e">  </span><span style="color:#66d9ef">When </span><span style="color:#a6e22e">the price is updated to $</span><span style="color:#e6db74">199.00</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">  </span><span style="color:#66d9ef">Then </span><span style="color:#a6e22e">the price should be saved
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="put-rules-and-equations-in-the-feature-file-description">Put rules and equations in the feature file description</h3>
+<p>The feature header and description is a good place to define the rules and equations under test. If you&rsquo;re validating an insurance quoting engine, you can describe its rules at the top and avoid cluttering the scenarios with details of the algorithm.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#66d9ef">Feature:</span><span style="color:#a6e22e"> Insurance Quote
+</span><span style="color:#a6e22e">  Test the quoting engine.
+</span></code></pre></td></tr></table>
+</div>
+</div><p>An obvious and lazy description helps no one. You might as well leave it out. A good description describes the algorithm you&rsquo;re testing. In this case, the insurance quote engine starts with a baseline price and adjusts it up or down based on the insured&rsquo;s individual risk and their neighbor&rsquo;s risk.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#66d9ef">Feature:</span><span style="color:#a6e22e"> Insurance Quote
+</span><span style="color:#a6e22e">  Quotes begin with a baseline price.
+</span><span style="color:#a6e22e">  It is adjusted by the insured individual&#39;s risk score.
+</span><span style="color:#a6e22e">  It is further adjusted by other scores from people
+</span><span style="color:#a6e22e">    living near the insured.
+</span><span style="color:#a6e22e">  quote = baseline *
+</span><span style="color:#a6e22e">    (individual adjustment + weight * (co-located adjustment - 1))
+</span></code></pre></td></tr></table>
+</div>
+</div><p>The following scenarios simply plug in the numbers and validate the final quote.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#66d9ef">Scenario Outline:</span><span style="color:#a6e22e"> Calculate Quote
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  Given </span><span style="color:#a6e22e">a baseline price of $</span>&lt;baseline&gt;<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">  </span><span style="color:#66d9ef">And </span><span style="color:#a6e22e">an individual adjustment of </span>&lt;indvAdjustment&gt;<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">  </span><span style="color:#66d9ef">And </span><span style="color:#a6e22e">a co-located adjustment of </span>&lt;coLocAdjustment&gt;<span style="color:#a6e22e"> and weight of </span>&lt;weight&gt;<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">  </span><span style="color:#66d9ef">When </span><span style="color:#a6e22e">I calculate the final quote
+</span><span style="color:#a6e22e">  </span><span style="color:#66d9ef">Then </span><span style="color:#a6e22e">the amount should be $</span>&lt;amount&gt;<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">Examples:
+</span><span style="color:#66d9ef">  |</span> baseline<span style="color:#66d9ef"> |</span> indvAdjustment<span style="color:#66d9ef"> |</span> coLocAdjustment<span style="color:#66d9ef"> |</span> weight<span style="color:#66d9ef"> |</span> amount<span style="color:#66d9ef"> |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  |</span><span style="color:#e6db74"> 50</span><span style="color:#66d9ef">       |</span><span style="color:#e6db74"> 0.90</span><span style="color:#66d9ef">           |</span><span style="color:#e6db74"> 0.95</span><span style="color:#66d9ef">            |</span><span style="color:#e6db74"> 0.50</span><span style="color:#66d9ef">   |</span><span style="color:#e6db74"> 43.75</span><span style="color:#66d9ef">  |</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  |</span><span style="color:#e6db74"> 50</span><span style="color:#66d9ef">       |</span><span style="color:#e6db74"> 1.15</span><span style="color:#66d9ef">           |</span><span style="color:#e6db74"> 1.30</span><span style="color:#66d9ef">            |</span><span style="color:#e6db74"> 0.50</span><span style="color:#66d9ef">   |</span><span style="color:#e6db74"> 65.00</span><span style="color:#66d9ef">  |
+</span></code></pre></td></tr></table>
+</div>
+</div><hr />
+<p>There are many more tips for writing effective Gherkin, but I&rsquo;ve found these to be the most unique and useful. For more tips, check out the links below.</p>
 <ul>
 <li><a href="https://www.engineyard.com/blog/15-expert-tips-for-using-cucumber">15 Expert Tips for Using Cucumber</a></li>
 <li><a href="https://www.foreach.be/blog/9-tips-improving-cucumber-test-readability">9 tips for improving Cucumber test readability</a></li>

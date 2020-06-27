@@ -27,7 +27,7 @@
       <pubDate>Wed, 25 Mar 2015 18:52:22 +0000</pubDate>
       
       <guid>/posts/2015/03/async/await-and-recursion/</guid>
-      <description>While using the new async/await keywords in C# 5.0 for the first time, I noticed an interesting aspect to how recursive methods behave when using await. For one method I was working on, Resharper notified me of a possible stack overflow exception with a &amp;ldquo;function is recursive on all paths&amp;rdquo; warning, but it didn&#39;t fail at runtime. Instead, it continued happily calling itself with no issues.
+      <description>While using the new async/await keywords in C# 5.0 for the first time, I noticed an interesting aspect to how recursive methods behave when using await. For one method I was working on, Resharper notified me of a possible stack overflow exception with a &amp;ldquo;function is recursive on all paths&amp;rdquo; warning, but it didn&amp;rsquo;t fail at runtime. Instead, it continued happily calling itself with no issues.
 What keeps it from failing is the use of the await keyword when calling DoWorkAsync().</description>
     </item>
     

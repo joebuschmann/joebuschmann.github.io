@@ -116,12 +116,12 @@
     <h1 class="title">SpecFlow NUnit3 Generator Plugin</h1>
     
     <div class="content">
-      <p>I recently created a SpecFlow plugin to solve a peculiar problem with NUnit test code generation. The issue is SpecFlow will generate test code that doesn't compile when the .NET project containing the SpecFlow scenarios has a default namespace with the word NUnit. For example, if your project has the namespace <code>IntegrationTests.NUnit</code>, then you'll receive the following error when trying to build.</p>
+      <p>I recently created a SpecFlow plugin to solve a peculiar problem with NUnit test code generation. The issue is SpecFlow will generate test code that doesn&rsquo;t compile when the .NET project containing the SpecFlow scenarios has a default namespace with the word NUnit. For example, if your project has the namespace <code>IntegrationTests.NUnit</code>, then you&rsquo;ll receive the following error when trying to build.</p>
 <blockquote>
 <p>The type or namespace name &lsquo;Framework&rsquo; does not exist in the namespace &lsquo;IntegrationTests.NUnit&rsquo; (are you missing an assembly reference?)</p>
 <p>Cannot resolve symbol &lsquo;Framework&rsquo;</p>
 </blockquote>
-<p>The conflict arises in the NUnit attributes in the test code. They are all qualified by the namespace <code>NUnit.Framework</code>, but because the project contains the default namespace <code>IntegrationTests.NUnit</code>, the compiler will expect the NUnit library types to be under <code>IntegrationTests.NUnit.Framework</code>. The work-around is either 1) to change the project's default namespace and update all of its types or 2) to qualify the NUnit attributes with C#&lsquo;s <code>global</code> keyword. I recommend approach one when possible, but approach two is more fun and makes for a good blog post.</p>
+<p>The conflict arises in the NUnit attributes in the test code. They are all qualified by the namespace <code>NUnit.Framework</code>, but because the project contains the default namespace <code>IntegrationTests.NUnit</code>, the compiler will expect the NUnit library types to be under <code>IntegrationTests.NUnit.Framework</code>. The work-around is either 1) to change the project&rsquo;s default namespace and update all of its types or 2) to qualify the NUnit attributes with C#&rsquo;s <code>global</code> keyword. I recommend approach one when possible, but approach two is more fun and makes for a good blog post.</p>
 <p>To implement approach two, I created a SpecFlow plugin to alter the behavior of the default NUnit3 code generator to qualify namespaces with <code>global</code>.</p>
 <p>For example:</p>
 <pre><code>[NUnit.Framework.TestFixtureAttribute()]
@@ -131,7 +131,7 @@
 <h3 id="the-plugin-implementation">The Plugin Implementation</h3>
 <p>There are three types of SpecFlow plugins (Runtime, Generator, and Runtime-Generator). For this scenario, I needed to create a Generator plugin which is made of two parts. The first is an implementation of <code>IGeneratorPlugin</code> which allows you to alter the behavior of SpecFlow by updating the dependencies in its container. The snippet below replaces the implementation of <code>IUnitTestGeneratorProvider</code> with a new one that adds the global keyword.</p>
 <script src="https://gist.github.com/joebuschmann/34573c6f0f2fea71421db5fb61c79c9c.js"></script>
-<p>The second part is the new implemenation of <code>IUnitTestGeneratorProvider</code>. It augments the behavior of the default NUnit3 code generator to prefix each attribute's fully qualified type declaration with <code>global::</code>.</p>
+<p>The second part is the new implemenation of <code>IUnitTestGeneratorProvider</code>. It augments the behavior of the default NUnit3 code generator to prefix each attribute&rsquo;s fully qualified type declaration with <code>global::</code>.</p>
 <script src="https://gist.github.com/joebuschmann/78b2861edce869ae1375896531b4a5c6.js"></script>
 <p>These two classes complete the plugin. You can compile them into an assembly and configure the SpecFlow Visual Studio extension to load it. For more details on creating and configuring plugins, check out the <a href="https://specflow.org/documentation/Plugins/">SpecFlow documentation</a>. Also, you can find <a href="https://github.com/joebuschmann/specflow-plugin-nunit3-with-global">the full source</a> on GitHub.</p>
 

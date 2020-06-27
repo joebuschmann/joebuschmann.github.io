@@ -120,7 +120,7 @@
     <h1 class="title">SpecFlow Basics</h1>
     
     <div class="content">
-      <p>SpecFlow is hands down my favorite testing tool. I've been blogging about it since 2013 covering mostly advanced topics. In this post, I'll go back to the beginning and briefly cover the basics to give you an idea of what it can do.</p>
+      <p>SpecFlow is hands down my favorite testing tool. I&rsquo;ve been blogging about it since 2013 covering mostly advanced topics. In this post, I&rsquo;ll go back to the beginning and briefly cover the basics to give you an idea of what it can do.</p>
 <h3 id="what-is-specflow">What is SpecFlow?</h3>
 <p>SpecFlow is a tool that allows you to:</p>
 <ol>
@@ -143,17 +143,32 @@
 <li>Provides table helper extension methods to make working with tables less painful.</li>
 </ol>
 <h3 id="specify-bind-run">Specify-Bind-Run</h3>
-<p>Once SpecFlow is installed, you're ready to <strong>specify</strong> your first feature.</p>
-<pre><code class="language-gherkin" data-lang="gherkin">Feature: GoogleSearch
-  In order to find information on the internet
-  As a user of the Google search engine
-  I want to perform a search
-
-Scenario: Perform a Google Search
-  Given a browser loaded with Google's web page
-  When I search for &quot;kittens&quot;
-  Then Google should return valid search results
-</code></pre><p>Next you <strong>bind</strong> the Gherkins steps to executable code. Note the <code>Binding</code> attribute is applied to all binding classes. The <code>Given</code>, <code>When</code>, <code>Then</code> attributes bind to the individual Gherkin steps.</p>
+<p>Once SpecFlow is installed, you&rsquo;re ready to <strong>specify</strong> your first feature.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gherkin" data-lang="gherkin"><span style="color:#66d9ef">Feature:</span><span style="color:#a6e22e"> GoogleSearch
+</span><span style="color:#a6e22e">  In order to find information on the internet
+</span><span style="color:#a6e22e">  As a user of the Google search engine
+</span><span style="color:#a6e22e">  I want to perform a search
+</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">Scenario:</span><span style="color:#a6e22e"> Perform a Google Search
+</span><span style="color:#a6e22e"></span><span style="color:#66d9ef">  Given </span><span style="color:#a6e22e">a browser loaded with Google&#39;s web page
+</span><span style="color:#a6e22e">  </span><span style="color:#66d9ef">When </span><span style="color:#a6e22e">I search for &#34;</span><span style="color:#e6db74">kittens</span><span style="color:#a6e22e">&#34;
+</span><span style="color:#a6e22e">  </span><span style="color:#66d9ef">Then </span><span style="color:#a6e22e">Google should return valid search results
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Next you <strong>bind</strong> the Gherkins steps to executable code. Note the <code>Binding</code> attribute is applied to all binding classes. The <code>Given</code>, <code>When</code>, <code>Then</code> attributes bind to the individual Gherkin steps.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -188,7 +203,7 @@ Scenario: Perform a Google Search
 </span><span style="color:#75715e"></span>}
 </code></pre></td></tr></table>
 </div>
-</div><p>Finally you <strong>run</strong> the tests with a test runner. In this case, it's NUnit.</p>
+</div><p>Finally you <strong>run</strong> the tests with a test runner. In this case, it&rsquo;s NUnit.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -198,7 +213,7 @@ Scenario: Perform a Google Search
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="further-reading">Further Reading</h3>
-<p>For more details on getting started with SpecFlow, check out the <a href="https://specflow.org/documentation/">excellent documentation</a>. I recommend reading it once when getting started and again after you've had some experience. Also, check out my <a href="/tags/specflow">blog posts on SpecFlow</a>.</p>
+<p>For more details on getting started with SpecFlow, check out the <a href="https://specflow.org/documentation/">excellent documentation</a>. I recommend reading it once when getting started and again after you&rsquo;ve had some experience. Also, check out my <a href="/tags/specflow">blog posts on SpecFlow</a>.</p>
 
       
     </div>

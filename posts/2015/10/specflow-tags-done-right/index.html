@@ -118,7 +118,7 @@
     <h1 class="title">SpecFlow Tags Done Right</h1>
     
     <div class="content">
-      <p>In a <a href="/posts/2015/10/an-introduction-to-scoped-bindings-in-specflow/">previous post</a>, I covered scoped bindings in SpecFlow and ended with an example of how <em>not</em> to use tags. In this post, I'll cover the &ldquo;right way&rdquo; and demonstrate how to avoid <a href="https://github.com/cucumber/cucumber/wiki/Feature-Coupled-Step-Definitions-%28Antipattern%29">coupling features to step definitions</a>. But first, a quick primer on tags.</p>
+      <p>In a <a href="/posts/2015/10/an-introduction-to-scoped-bindings-in-specflow/">previous post</a>, I covered scoped bindings in SpecFlow and ended with an example of how <em>not</em> to use tags. In this post, I&rsquo;ll cover the &ldquo;right way&rdquo; and demonstrate how to avoid <a href="https://github.com/cucumber/cucumber/wiki/Feature-Coupled-Step-Definitions-%28Antipattern%29">coupling features to step definitions</a>. But first, a quick primer on tags.</p>
 <h4 id="what-are-tags">What Are Tags?</h4>
 <p>Tags are used in Gherkin to mark features or scenarios. They begin with the <code>@</code> character in Gherkin, but in step definitions the <code>@</code> is removed.</p>
 <p>Tags are used for:</p>
@@ -129,8 +129,8 @@
 <li>Custom logic in step bindings. Your code can inspect the <code>ScenarioContext.Current.ScenarioInfo.Tags</code> or <code>FeatureContext.Current.FeatureInfo.Tags</code> properties to determine which tags have been applied.</li>
 </ol>
 <h4 id="the-wrong-way">The Wrong Way</h4>
-<p>I ended my previous post with an example demonstrating how tags could be used, and I also warned of the tight coupling between the Gherkin and the steps. There's a better way, but first take a moment to review the tests below. Each one invokes a service with the request body encoded differently. There's a test for XML, JSON, and form-urlencoding. The method bound to the <code>When</code> step is determined by the tag applied to the scenario.</p>
-<p>There are a couple of problems with this implementation. First, like I mentioned previously, these steps are coupled to the Gherkin, and it would be difficult to reuse them elsewhere. Second, the code for serializing the body is in the steps (excluded below for brevity's sake). Other steps will need to duplicate this code if they want to do any serialization.</p>
+<p>I ended my previous post with an example demonstrating how tags could be used, and I also warned of the tight coupling between the Gherkin and the steps. There&rsquo;s a better way, but first take a moment to review the tests below. Each one invokes a service with the request body encoded differently. There&rsquo;s a test for XML, JSON, and form-urlencoding. The method bound to the <code>When</code> step is determined by the tag applied to the scenario.</p>
+<p>There are a couple of problems with this implementation. First, like I mentioned previously, these steps are coupled to the Gherkin, and it would be difficult to reuse them elsewhere. Second, the code for serializing the body is in the steps (excluded below for brevity&rsquo;s sake). Other steps will need to duplicate this code if they want to do any serialization.</p>
 <script src="https://gist.github.com/joebuschmann/9e9ae7dab81f27cfee61.js"></script>
 <script src="https://gist.github.com/joebuschmann/fca3c06961a6dd0b7443.js"></script>
 <h4 id="the-right-way">The Right Way</h4>
@@ -141,8 +141,8 @@
 <p>The steps clean up nicely. The correct implementation of <code>IBodySerializer</code> is injected via the constructor, and the three methods to invoke the service collapse into one simple method. It uses the instance of <code>IBodySerializer</code> to serialize the body contents with the correct encoding and provide the value for the content type header.</p>
 <script src="https://gist.github.com/joebuschmann/c415d3597b1f0d529bc6.js"></script>
 <h4 id="wrapping-it-up">Wrapping It Up</h4>
-<p>That's a lot of code, but the idea is all step bindings work against the <code>IBodySerializer</code> interface. Its implementation is determined up front by a scenario tag in a hook and added to the container. Step methods don't care what's behind the interface and are decoupled from the implementation.</p>
-<p>Another thing to note is this implementation favors composition over inheritance. I've seen similar problems solved using a base class plus subclasses scoped by tag. While this approach simplifies the step methods, it doesn't solve the lack of re-usability and coupling.</p>
+<p>That&rsquo;s a lot of code, but the idea is all step bindings work against the <code>IBodySerializer</code> interface. Its implementation is determined up front by a scenario tag in a hook and added to the container. Step methods don&rsquo;t care what&rsquo;s behind the interface and are decoupled from the implementation.</p>
+<p>Another thing to note is this implementation favors composition over inheritance. I&rsquo;ve seen similar problems solved using a base class plus subclasses scoped by tag. While this approach simplifies the step methods, it doesn&rsquo;t solve the lack of re-usability and coupling.</p>
 
       
     </div>

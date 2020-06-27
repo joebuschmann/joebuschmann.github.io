@@ -116,9 +116,9 @@
     <h1 class="title">Tidying Up Code with C#&#39;s Using Alias Directives</h1>
     
     <div class="content">
-      <p>The C# language's <a href="https://msdn.microsoft.com/en-us/library/aa664765%28v=vs.71%29.aspx">using alias directives</a> or namespace and type aliases provide a way to disambiguate between namespaces or types with the same name. For example, both the <code>System.Net</code> and <code>Nancy</code> libraries have a type named <code>HttpStatusCode</code>. If you happen to import both namespaces in a file, then the types need to be fully qualified or else the compiler will fail with the error:</p>
+      <p>The C# language&rsquo;s <a href="https://msdn.microsoft.com/en-us/library/aa664765%28v=vs.71%29.aspx">using alias directives</a> or namespace and type aliases provide a way to disambiguate between namespaces or types with the same name. For example, both the <code>System.Net</code> and <code>Nancy</code> libraries have a type named <code>HttpStatusCode</code>. If you happen to import both namespaces in a file, then the types need to be fully qualified or else the compiler will fail with the error:</p>
 <blockquote>
-<p>'HttpStatusCode&rsquo; is an ambiguous reference between &lsquo;Nancy.HttpStatusCode&rsquo; and &lsquo;System.Net.HttpStatusCode&rsquo;</p>
+<p>&lsquo;HttpStatusCode&rsquo; is an ambiguous reference between &lsquo;Nancy.HttpStatusCode&rsquo; and &lsquo;System.Net.HttpStatusCode&rsquo;</p>
 </blockquote>
 <p>Aliases help to resolve this conflict without having to fully qualify the types. In the off chance you needed both of these in the same file, you could create two aliases to avoid fully qualified names.</p>
 <pre><code>using SysNetStatusCode = System.Net.HttpStatusCode;
@@ -135,7 +135,7 @@ using ConfigMap = System.Collections.Generic.Dictionary&lt;string, SomeApp.Servi
 Coordinates coordinates = new Coordinates(1, 2, 3);
 ConfigMap configMap = new ConfigMap() {{&quot;Tenant1&quot;, TenantConfiguration.Create()}};
 </code></pre><p>{% endraw %}
-As far as I'm aware, this only works within the scope of the current file. Even if I could use it globally, I'm not sure it would be a good idea. It would be too confusing for someone coming into the codebase for the first time (or me after a few months away). Used sparingly though, it can really clean things up.</p>
+As far as I&rsquo;m aware, this only works within the scope of the current file. Even if I could use it globally, I&rsquo;m not sure it would be a good idea. It would be too confusing for someone coming into the codebase for the first time (or me after a few months away). Used sparingly though, it can really clean things up.</p>
 
       
     </div>

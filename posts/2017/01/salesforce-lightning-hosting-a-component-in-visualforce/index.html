@@ -119,19 +119,19 @@
     
     <div class="content">
       <p>You may be familiar with overriding the editing experience for a Salesforce object with a custom Visualforce (VF) page. When users choose the new or edit actions for an object record, they get a customized view rather than the standard Salesforce view. I wanted to convert a custom edit view written in Visualforce over to Lightning. What I thought would take a day ended up consuming the better part of a week.</p>
-<p>The problem is Salesforce doesn't yet allow you to override with a Lightning view. If you configure an sObject in Object Manager, there's a section labelled <strong>Buttons, Links, and Actions</strong>. There you can choose to override the new and edit actions with a VF page, but there is no option to select a Lightning Page or Component.</p>
+<p>The problem is Salesforce doesn&rsquo;t yet allow you to override with a Lightning view. If you configure an sObject in Object Manager, there&rsquo;s a section labelled <strong>Buttons, Links, and Actions</strong>. There you can choose to override the new and edit actions with a VF page, but there is no option to select a Lightning Page or Component.</p>
 <h4 id="hosting-a-lightning-component-in-visualforce">Hosting a Lightning Component in Visualforce</h4>
 <p>The solution that worked for me was to host the Lightning component in a VF page which could used to override the default views. Visualforce uses a feature called <a href="https://developer.salesforce.com/blogs/developer-relations/2016/02/lightning-components-visualforce-lightning.html">Lightning Out</a> which acts as a bridge between a Lightning component and any web container. In this case, the container is the VF page.</p>
-<p>The Salesforce documentation contains an excellent guide for <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/components_visualforce.htm">using Lightning Components in Visualforce pages</a>. I recommend reading it if you haven't already. I won't go into the details except to summarize the steps below.</p>
+<p>The Salesforce documentation contains an excellent guide for <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/components_visualforce.htm">using Lightning Components in Visualforce pages</a>. I recommend reading it if you haven&rsquo;t already. I won&rsquo;t go into the details except to summarize the steps below.</p>
 <ol>
 <li>Include the Lightning JavaScript library in the Visualforce page by adding the <code>&lt;apex:includeLightning/&gt;</code> markup.</li>
 <li>Create a Lightning App with the component dependencies.</li>
 <li>Load the dependency app in the VF page.</li>
 <li>Create the component and load it into a <code>&lt;div&gt;</code> element.</li>
 </ol>
-<p>Here's what the Visualforce markup looks like for the generic sObject <em>customObject__c</em> and the component <em>customObjectEdit.cmp</em>. Note the invocation of <code>$Lightning.use()</code> to load the dependencies and <code>$Lightning.createComponent()</code> to initialize the component.</p>
+<p>Here&rsquo;s what the Visualforce markup looks like for the generic sObject <em>customObject__c</em> and the component <em>customObjectEdit.cmp</em>. Note the invocation of <code>$Lightning.use()</code> to load the dependencies and <code>$Lightning.createComponent()</code> to initialize the component.</p>
 <script src="https://gist.github.com/joebuschmann/96b80a18688cd0bd1c3a3a7b4797fbde.js"></script>
-<p>Below is the markup for the component's dependency app. It exists solely to declare top-level dependencies which are read and loaded by <code>$Lightning.use()</code>.  Only one dependency <code>c:customObjectEdit</code> is explicitly listed, and its child dependencies are inferred from its markup.</p>
+<p>Below is the markup for the component&rsquo;s dependency app. It exists solely to declare top-level dependencies which are read and loaded by <code>$Lightning.use()</code>.  Only one dependency <code>c:customObjectEdit</code> is explicitly listed, and its child dependencies are inferred from its markup.</p>
 <script src="https://gist.github.com/joebuschmann/b17710980c7a5bdd361b92e627a0f5f4.js"></script>
 <h4 id="passing-the-record-id">Passing the Record ID</h4>
 <p>In order for the page to display the correct record, the record ID needs to be passed to the Lightning component. <em>CustomObjectEdit.cmp</em> implements <code>force:hasRecordId</code> which specifies an attribute named <em>recordId</em> with a type of <em>Id</em>.</p>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>The C# Language - Overflow Checking for Integral Operations | Joe Buschmann</title>
+<title>What Does It Mean to Pass a Reference Type Variable by Reference? | Joe Buschmann</title>
 
 
 
@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="/posts/2017/12/the-csharp-language-overflow-checking-for-integral-operations/">
+<link rel="canonical" href="/posts/2020/06/what-does-it-mean-to-pass-a-reference-type-variable-by-reference/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -102,26 +102,25 @@
     <div class="subtitle tags is-6 is-pulled-right">
       
       
-<a class="subtitle is-6" href="/tags/c-sharp">#c-sharp</a>
+<a class="subtitle is-6" href="/tags/dotnet">#dotnet</a>
 
 
 
   
-  | <a class="subtitle is-6" href="/tags/dotnet">#dotnet</a>
+  | <a class="subtitle is-6" href="/tags/c-sharp">#c-sharp</a>
   
 
       
     </div>
-    <h2 class="subtitle is-6">December 14, 2017</h2>
-    <h1 class="title">The C# Language - Overflow Checking for Integral Operations</h1>
+    <h2 class="subtitle is-6">June 27, 2020</h2>
+    <h1 class="title">What Does It Mean to Pass a Reference Type Variable by Reference?</h1>
     
     <div class="content">
-      <p><img src="/images/waterfall.jpg#c" alt="Waterfall"></p>
-<p>The C# language has been around for over 15 years. It started off as a Java ripoff and evolved into its own language. Some parts of the language I use daily: enumerators, generics, async/await. Other parts lurk in the shadows until the rare moment when I need to put them to use.</p>
-<p>One such part is overflow checking for integral operations.</p>
-<h1 id="compiler-option">Compiler Option</h1>
-<p>By default, integral operations are not checked for overflows either by the C# compiler or at runtime. The reason is unchecked operations are faster than their checked counterparts. You can control this behavior with the <code>/checked[+|-]</code> compiler option or with the <em>Check for arithmetic overflow/underflow</em> property in a Visual Studio project&rsquo;s advanced build settings.</p>
-<p>With overflow checking off (default), adding 1 to an integer&rsquo;s max value will yield its min value.</p>
+      <h1 id="value-and-reference-types">Value and Reference Types</h1>
+<p>Before we get to the answer, let&rsquo;s review the two basic types in .NET: value types and reference types. Variables of value types directly contain their data according to the <a href="https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/language-features/data-types/value-types-and-reference-types">Microsoft docs</a>. If you assign one value type variable to another, the .NET runtime will make a copy of its data. Operations on one variable will not affect another (with one exception as we&rsquo;ll see). Value types are defined as structures or enumerations, and examples include the .NET numeric types, Boolean, Datetime, and Char.</p>
+<p>Reference type variables, on the other hand, contain a reference to data stored in memory. If you assign one reference type variable to another, the runtime does not make a copy of the data that it references. Instead, the runtime copies the address of the reference which is the location of the data on the managed heap. This means two reference type variables can refer to the same information stored in memory. Reference types are defined as classes, and examples include String, Array, delegates, and most of the types in the .NET Foundation Class Library.</p>
+<h1 id="passing-by-value">Passing By Value</h1>
+<p>All method parameters are passed by value by default, even reference types. This means a copy of the data the variable contains is passed in the method parameter. For value types, the variable contains the data itself, and the method receives a private copy. Any changes to the data are not visible to the caller.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -138,25 +137,37 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[Test]</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ValidateOverflowWithCompilerOptionUnchecked()
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
 {
-    <span style="color:#75715e">// Compile time error regardless of compiler option.
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//const int BigConstant = int.MaxValue + 1;
-</span><span style="color:#75715e"></span>
-    <span style="color:#66d9ef">int</span> i = <span style="color:#66d9ef">int</span>.MaxValue;
-    i++;
-    Assert.AreEqual(<span style="color:#66d9ef">int</span>.MinValue, i, <span style="color:#e6db74">&#34;No exception should be thrown when overflow checking is off.&#34;</span>);
+    <span style="color:#66d9ef">int</span> val1 = <span style="color:#ae81ff">1861</span>;
 
-    <span style="color:#66d9ef">uint</span> j = <span style="color:#66d9ef">uint</span>.MaxValue;
-    j++;
-    Assert.AreEqual(<span style="color:#66d9ef">uint</span>.MinValue, j, <span style="color:#e6db74">&#34;No exception should be thrown when overflow checking is off.&#34;</span>);
+    Console.WriteLine(<span style="color:#e6db74">$&#34;The value is {val1}.&#34;</span>);
+    
+    SomeMethod(val1);
+    
+    Console.WriteLine(<span style="color:#e6db74">$&#34;The value is {val1}.&#34;</span>);
 }
+
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> SomeMethod(<span style="color:#66d9ef">int</span> val2)
+{
+    val2 = <span style="color:#ae81ff">1939</span>; <span style="color:#75715e">// Updating val2 will not affect the value of val1.
+</span><span style="color:#75715e"></span>}
 </code></pre></td></tr></table>
 </div>
-</div><p>An exception of type <code>OverflowException</code> is thrown at runtime if the checked option is enabled.</p>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">The value is 1861.
+The value is 1861.
+</code></pre></td></tr></table>
+</div>
+</div><p>By default, reference types are passed by value like value types; however keep in mind the parameter passed into the method contains a copy of the memory address of the data on the managed heap. The address value remains the same, and no bytes are copied on the heap. This is an important distinction from value types. The receiving method can modify the object using a copy of the reference value, and the caller will see the change.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -173,26 +184,38 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[Test]</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ValidateOverflowWithCompilerOptionChecked()
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
 {
-    <span style="color:#75715e">// Compile time error regardless of compiler option.
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//const int BigConstant = int.MaxValue + 1;
-</span><span style="color:#75715e"></span>
-    <span style="color:#66d9ef">int</span> i = <span style="color:#66d9ef">int</span>.MaxValue;
-    Assert.Throws&lt;OverflowException&gt;(() =&gt; i++,
-        <span style="color:#e6db74">&#34;An exception should be thrown when overflow checking is on.&#34;</span>);
+    List&lt;<span style="color:#66d9ef">int</span>&gt; outerList = <span style="color:#66d9ef">new</span> List&lt;<span style="color:#66d9ef">int</span>&gt; {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>};
 
-    <span style="color:#66d9ef">uint</span> j = <span style="color:#66d9ef">uint</span>.MaxValue;
-    Assert.Throws&lt;OverflowException&gt;(() =&gt; j++,
-        <span style="color:#e6db74">&#34;An exception should be thrown when overflow checking is on.&#34;</span>);
+    Console.WriteLine(<span style="color:#e6db74">$&#34;The contents of the list are {string.Join(&#39;,&#39;, outerList)}.&#34;</span>);
+    
+    AddFive(outerList);
+    
+    Console.WriteLine(<span style="color:#e6db74">$&#34;The contents of the list are {string.Join(&#39;,&#39;, outerList)}.&#34;</span>);
+}
+
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> AddFive(List&lt;<span style="color:#66d9ef">int</span>&gt; innerList)
+{
+    innerList.Add(<span style="color:#ae81ff">5</span>);
 }
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="checked-blocks">Checked Blocks</h1>
-<p>These options work well for an entire assembly, but what if you need to enable overflow checking for some code blocks but leave it off for others? This is where the <code>checked</code> and <code>unchecked</code> keywords are useful. Assuming overflow checking is disabled by default, you can enable it for a section of code by adding <code>checked { }</code>.</p>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">The contents of the list are 1,2,3,4.
+The contents of the list are 1,2,3,4,5.
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="passing-by-reference">Passing By Reference</h1>
+<p>When you pass a value type by reference, the runtime does not create a copy of the data. Instead the method parameter refers to the same data as the calling method. Changes to the value type are visible by the caller.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -209,25 +232,38 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[Test]</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ValidateOverflowWithCheckedBlock()
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
 {
-    <span style="color:#66d9ef">int</span> i = <span style="color:#66d9ef">int</span>.MaxValue;
-    i++;
-    Assert.AreEqual(<span style="color:#66d9ef">int</span>.MinValue, i, <span style="color:#e6db74">&#34;Overflow checking is off by default.&#34;</span>);
+    <span style="color:#66d9ef">int</span> val1 = <span style="color:#ae81ff">1861</span>;
 
-    <span style="color:#66d9ef">checked</span>
-    {
-        i = <span style="color:#66d9ef">int</span>.MaxValue;
-        Assert.Throws&lt;OverflowException&gt;(() =&gt; i++,
-            <span style="color:#e6db74">&#34;An exception should be thrown when overflow checking is on.&#34;</span>);
-    }
+    Console.WriteLine(<span style="color:#e6db74">$&#34;The value is {val1}.&#34;</span>);
+    
+    SomeMethod(<span style="color:#66d9ef">ref</span> val1);
+    
+    Console.WriteLine(<span style="color:#e6db74">$&#34;The value is {val1}.&#34;</span>);
 }
+
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> SomeMethod(<span style="color:#66d9ef">ref</span> <span style="color:#66d9ef">int</span> val2)
+{
+    val2 = <span style="color:#ae81ff">1939</span>; <span style="color:#75715e">// Updating val2 will change the value of val1.
+</span><span style="color:#75715e"></span>}
 </code></pre></td></tr></table>
 </div>
-</div><p>Similarly, you can disable checking with <code>unchecked { }</code>. Constant overflows inside an unchecked block are permitted.</p>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">The value is 1861.
+The value is 1939.
+</code></pre></td></tr></table>
+</div>
+</div><p>This brings us to the titular question: <strong>what does it mean to pass a reference type variable by reference?</strong></p>
+<p>Let&rsquo;s take a look at the example below. It creates a list with the initial values: 1,2,3,4. The method <code>ChangeToNewList</code> updates the argument, passed by value, to point to a new list, 5,6,7,8, but you can see in the console output that <code>outerList</code> is unaffected.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -247,76 +283,38 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[Test]</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ValidateOverflowWithUncheckedBlock()
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
 {
-    <span style="color:#66d9ef">checked</span>
-    {
-        <span style="color:#66d9ef">int</span> i = <span style="color:#66d9ef">int</span>.MaxValue;
-        Assert.Throws&lt;OverflowException&gt;(() =&gt; i++,
-            <span style="color:#e6db74">&#34;An exception should be thrown when overflow checking is on.&#34;</span>);
+    List&lt;<span style="color:#66d9ef">int</span>&gt; outerList = <span style="color:#66d9ef">new</span> List&lt;<span style="color:#66d9ef">int</span>&gt; {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>};
+    
+    Console.WriteLine(<span style="color:#e6db74">$&#34;The contents of the list are {string.Join(&#39;,&#39;, outerList)}.&#34;</span>);
 
-        <span style="color:#66d9ef">unchecked</span>
-        {
-            i = <span style="color:#66d9ef">int</span>.MaxValue;
-            i++;
-            Assert.AreEqual(<span style="color:#66d9ef">int</span>.MinValue, i, <span style="color:#e6db74">&#34;Overflow checking is off.&#34;</span>);
+    ChangeToNewList(outerList);
+    
+    <span style="color:#75715e">// The list remains the same despite the assignment in ChangeToNewList.
+</span><span style="color:#75715e"></span>    Console.WriteLine(<span style="color:#e6db74">$&#34;The contents of the list are {string.Join(&#39;,&#39;, outerList)}.&#34;</span>);
+}
 
-            <span style="color:#75715e">// What about constants?
-</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> BigConstant = <span style="color:#66d9ef">int</span>.MaxValue + <span style="color:#ae81ff">1</span>;
-            Assert.AreEqual(<span style="color:#66d9ef">int</span>.MinValue, BigConstant,
-                <span style="color:#e6db74">&#34;Overflow checking is ignored for constants in an unchecked block.&#34;</span>);
-        }
-    }
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> ChangeToNewList(List&lt;<span style="color:#66d9ef">int</span>&gt; innerList)
+{
+    <span style="color:#75715e">// Update to a new list.
+</span><span style="color:#75715e"></span>    innerList = <span style="color:#66d9ef">new</span> List&lt;<span style="color:#66d9ef">int</span>&gt; {<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>};
 }
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="type-conversions">Type Conversions</h1>
-<p>Overflow checking also applies to type conversions. Below a large 64-bit integer is cast to a 32-bit integer in a checked block and causes an <code>OverflowException</code> to be thrown.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[Test]</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ValidateTypeConversionOverflowWithCheckedBlock()
-{
-    <span style="color:#66d9ef">long</span> l = <span style="color:#66d9ef">int</span>.MaxValue;
-    l++;
-
-    <span style="color:#66d9ef">int</span> i = (<span style="color:#66d9ef">int</span>)l;
-    Assert.AreEqual(<span style="color:#66d9ef">int</span>.MinValue, i, <span style="color:#e6db74">&#34;Overflow checking is off by default.&#34;</span>);
-
-    <span style="color:#66d9ef">checked</span>
-    {
-        Assert.Throws&lt;OverflowException&gt;(() =&gt; i = (<span style="color:#66d9ef">int</span>) l,
-            <span style="color:#e6db74">&#34;An exception should be thrown when overflow checking is on.&#34;</span>);
-    }
-}
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">The contents of the list are 1,2,3,4.
+The contents of the list are 1,2,3,4.
 </code></pre></td></tr></table>
 </div>
-</div><p>In an unchecked block, the cast succeeds for variables as well as constants.</p>
+</div><p>Now let&rsquo;s pass <code>outerList</code> by reference by adding the <code>ref</code> keyword. Changes to <code>outerList</code> will be visible by the calling method, but what is the value we&rsquo;re changing? It&rsquo;s a memory address. When <code>ChangeToNewList</code> updates the argument to point to a new memory address, the variable in the calling method is also updated to point to the new address - in other words, an entirely different object. You can see that in the example below.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -336,53 +334,38 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[Test]</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ValidateTypeConversionOverflowWithUncheckedBlock()
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
 {
-    <span style="color:#66d9ef">checked</span>
-    {
-        <span style="color:#66d9ef">long</span> l = <span style="color:#66d9ef">int</span>.MaxValue;
-        l++;
+    List&lt;<span style="color:#66d9ef">int</span>&gt; outerList = <span style="color:#66d9ef">new</span> List&lt;<span style="color:#66d9ef">int</span>&gt; {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>};
+    
+    Console.WriteLine(<span style="color:#e6db74">$&#34;The contents of the list are {string.Join(&#39;,&#39;, outerList)}.&#34;</span>);
 
-        <span style="color:#66d9ef">int</span> i;
-        Assert.Throws&lt;OverflowException&gt;(() =&gt; i = (<span style="color:#66d9ef">int</span>)l,
-            <span style="color:#e6db74">&#34;An exception should be thrown when overflow checking is on.&#34;</span>);
+    ChangeToNewList(<span style="color:#66d9ef">ref</span> outerList);
+    
+    <span style="color:#75715e">// The list is changed.
+</span><span style="color:#75715e"></span>    Console.WriteLine(<span style="color:#e6db74">$&#34;The contents of the list are {string.Join(&#39;,&#39;, outerList)}.&#34;</span>);
+}
 
-        <span style="color:#66d9ef">unchecked</span>
-        {
-            i = (<span style="color:#66d9ef">int</span>) l;
-            Assert.AreEqual(<span style="color:#66d9ef">int</span>.MinValue, i, <span style="color:#e6db74">&#34;Overflow checking is off.&#34;</span>);
-
-            <span style="color:#75715e">// What if we increment l and try again?
-</span><span style="color:#75715e"></span>            l++;
-            i = (<span style="color:#66d9ef">int</span>)l;
-            Assert.AreEqual(<span style="color:#66d9ef">int</span>.MinValue + <span style="color:#ae81ff">1</span>, i, <span style="color:#e6db74">&#34;The value continues to overflow in the negative range.&#34;</span>);
-
-            <span style="color:#75715e">// What about constants?
-</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> BigConstant = (<span style="color:#66d9ef">int</span>)<span style="color:#66d9ef">long</span>.MaxValue;
-            Assert.AreEqual(-<span style="color:#ae81ff">1</span>, BigConstant,
-                <span style="color:#e6db74">&#34;Overflow checking is ignored for constants in an unchecked block.&#34;</span>);
-        }
-    }
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> ChangeToNewList(<span style="color:#66d9ef">ref</span> List&lt;<span style="color:#66d9ef">int</span>&gt; innerList)
+{
+    <span style="color:#75715e">// Update to a new list.
+</span><span style="color:#75715e"></span>    innerList = <span style="color:#66d9ef">new</span> List&lt;<span style="color:#66d9ef">int</span>&gt; {<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>};
 }
 </code></pre></td></tr></table>
 </div>
-</div><p>To wrap up, overflow checking is turned off for integers by default except for constants. You can override this behavior using the <code>/checked[+|-]</code> compiler option or the <code>checked</code> and <code>unchecked</code> keywords. Interestingly, constants can overflow inside of an unchecked block although that doesn&rsquo;t seem very useful.</p>
-
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">The contents of the list are 1,2,3,4.
+The contents of the list are 5,6,7,8.
+</code></pre></td></tr></table>
+</div>
+</div>
       
     </div>
     

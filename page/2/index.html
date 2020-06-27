@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.62.2" />
+	<meta name="generator" content="Hugo 0.72.0" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
@@ -112,6 +112,35 @@
   
   | <a class="subtitle is-6" href="/tags/c-sharp">#c-sharp</a>
   
+  | <a class="subtitle is-6" href="/tags/dotnet">#dotnet</a>
+  
+
+        
+      </div>
+      <h2 class="subtitle is-6 date">August 24, 2018</h2>
+      <h1 class="title"><a href="/posts/2018/08/running-specflow-scenarios-in-parallel/">Running SpecFlow Scenarios in Parallel</a></h1>
+      <div class="content">
+        As of SpecFlow version 2.0, you can run scenarios in parallel. This means faster execution times and faster feedback in your continuous integration process.
+Memory Isolation To enable parallel execution, you must use a test runner that supports it. Available runners include NUnit 3.0, xUnit 2.0, and the SpecFlow+ Runner (specrun). Specrun is a commercial product, but it has advanced features like memory isolation via an app domain or process. NUnit and xUnit don&rsquo;t support memory isolation, so they requre your tests to be thread safe.
+        
+        <a class="button is-link" href="/posts/2018/08/running-specflow-scenarios-in-parallel/" style="height:28px">
+          Read more
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <div class="subtitle tags is-6 is-pulled-right">
+        
+        
+<a class="subtitle is-6" href="/tags/specflow">#specflow</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/c-sharp">#c-sharp</a>
+  
   | <a class="subtitle is-6" href="/tags/gherkin">#gherkin</a>
   
   | <a class="subtitle is-6" href="/tags/dotnet">#dotnet</a>
@@ -123,7 +152,7 @@
       <h1 class="title"><a href="/posts/2018/08/reusable-bindings-in-specflow/">Reusable Bindings in SpecFlow</a></h1>
       <div class="content">
         As your application grows, your SpecFlow test suite needs to grow with it. Reusable bindings are essentional to prevent your code from becoming a bloated mess. Fortunately, the SpecFlow runtime has reusability in mind with a built-in inversion of control (IoC) framework and step argument transformations. With these features you can create reusable bindings that make test creation more productive.
-Problems with Inheritance Before digging into IoC, I'll take a moment to cover why you shouldn't use inheritance in your bindings.
+Problems with Inheritance Before digging into IoC, I&rsquo;ll take a moment to cover why you shouldn&rsquo;t use inheritance in your bindings.
         
         <a class="button is-link" href="/posts/2018/08/reusable-bindings-in-specflow/" style="height:28px">
           Read more
@@ -153,8 +182,8 @@ Problems with Inheritance Before digging into IoC, I'll take a moment to cover w
       <h2 class="subtitle is-6 date">August 10, 2018</h2>
       <h1 class="title"><a href="/posts/2018/08/working-effectively-with-specflow-tables/">Working Effectively with SpecFlow Tables</a></h1>
       <div class="content">
-        The Gherkin DSL defines data tables as a way of passing a list of values to a step definition. Gherkin tables use the pipe character | to delimit column names and values. They're easy to read and understand by both business and technical people.
-While they work great in Gherkin, tables don't translate well to strongly typed .NET languages. They are converted to an instance of the Table type in SpecFlow bindings.
+        The Gherkin DSL defines data tables as a way of passing a list of values to a step definition. Gherkin tables use the pipe character | to delimit column names and values. They&rsquo;re easy to read and understand by both business and technical people.
+While they work great in Gherkin, tables don&rsquo;t translate well to strongly typed .NET languages. They are converted to an instance of the Table type in SpecFlow bindings.
         
         <a class="button is-link" href="/posts/2018/08/working-effectively-with-specflow-tables/" style="height:28px">
           Read more
@@ -180,8 +209,8 @@ While they work great in Gherkin, tables don't translate well to strongly typed 
       <h2 class="subtitle is-6 date">August 10, 2018</h2>
       <h1 class="title"><a href="/posts/2018/08/gherkin-tips/">Gherkin Tips</a></h1>
       <div class="content">
-        [Gherkin] is a Business Readable, Domain Specific Language that lets you describe software's behaviour without detailing how that behaviour is implemented. - Gherkin Wiki
- These Gherkin best practices were originally included in an early draft of a talk I gave on SpecFlow. Ultimately, I took them out because they didn't fit well with the topic, so I put them into a blog post.
+        [Gherkin] is a Business Readable, Domain Specific Language that lets you describe software&rsquo;s behaviour without detailing how that behaviour is implemented. - Gherkin Wiki
+ These Gherkin best practices were originally included in an early draft of a talk I gave on SpecFlow. Ultimately, I took them out because they didn&rsquo;t fit well with the topic, so I put them into a blog post.
 Table values should be atomic Bindings that take a table argument will almost always convert the table to a C# object for easy manipulation.
         
         <a class="button is-link" href="/posts/2018/08/gherkin-tips/" style="height:28px">
@@ -212,7 +241,7 @@ Table values should be atomic Bindings that take a table argument will almost al
       <h2 class="subtitle is-6 date">August 8, 2018</h2>
       <h1 class="title"><a href="/posts/2018/08/specflow-basics/">SpecFlow Basics</a></h1>
       <div class="content">
-        SpecFlow is hands down my favorite testing tool. I've been blogging about it since 2013 covering mostly advanced topics. In this post, I'll go back to the beginning and briefly cover the basics to give you an idea of what it can do.
+        SpecFlow is hands down my favorite testing tool. I&rsquo;ve been blogging about it since 2013 covering mostly advanced topics. In this post, I&rsquo;ll go back to the beginning and briefly cover the basics to give you an idea of what it can do.
 What is SpecFlow? SpecFlow is a tool that allows you to:
  Define, manage, and automate human-readable acceptance tests in .NET. Enable BDD with easy to understand tests.
         
@@ -245,33 +274,6 @@ One such part is overflow checking for integral operations.
 Compiler Option By default, integral operations are not checked for overflows either by the C# compiler or at runtime.
         
         <a class="button is-link" href="/posts/2017/12/the-csharp-language-overflow-checking-for-integral-operations/" style="height:28px">
-          Read more
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-        
-<a class="subtitle is-6" href="/tags/specflow">#specflow</a>
-
-
-
-  
-  | <a class="subtitle is-6" href="/tags/c-sharp">#c-sharp</a>
-  
-
-        
-      </div>
-      <h2 class="subtitle is-6 date">October 22, 2017</h2>
-      <h1 class="title"><a href="/posts/2017/10/specflow-nunit3-generator-plugin/">SpecFlow NUnit3 Generator Plugin</a></h1>
-      <div class="content">
-        I recently created a SpecFlow plugin to solve a peculiar problem with NUnit test code generation. The issue is SpecFlow will generate test code that doesn't compile when the .NET project containing the SpecFlow scenarios has a default namespace with the word NUnit. For example, if your project has the namespace IntegrationTests.NUnit, then you'll receive the following error when trying to build.
- The type or namespace name &lsquo;Framework&rsquo; does not exist in the namespace &lsquo;IntegrationTests.
-        
-        <a class="button is-link" href="/posts/2017/10/specflow-nunit3-generator-plugin/" style="height:28px">
           Read more
         </a>
         

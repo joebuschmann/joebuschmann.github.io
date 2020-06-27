@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
-    <lastBuildDate>Tue, 11 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,18 @@
     <item>
       <title>c-sharp</title>
       <link>/tags/c-sharp/</link>
-      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/c-sharp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dotnet</title>
+      <link>/tags/dotnet/</link>
+      <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/dotnet/</guid>
       <description></description>
     </item>
     
@@ -27,15 +36,6 @@
       <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/cli/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dotnet</title>
-      <link>/tags/dotnet/</link>
-      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/dotnet/</guid>
       <description></description>
     </item>
     

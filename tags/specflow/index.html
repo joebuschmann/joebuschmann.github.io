@@ -179,7 +179,7 @@ As the number of features grows, scenarios and bindings are going to get lost in
       <h1 class="title"><a href="/posts/2018/08/running-specflow-scenarios-in-parallel/">Running SpecFlow Scenarios in Parallel</a></h1>
       <div class="content">
         As of SpecFlow version 2.0, you can run scenarios in parallel. This means faster execution times and faster feedback in your continuous integration process.
-Memory Isolation To enable parallel execution, you must use a test runner that supports it. Available runners include NUnit 3.0, xUnit 2.0, and the SpecFlow+ Runner (specrun). Specrun is a commercial product, but it has advanced features like memory isolation via an app domain or process. NUnit and xUnit don't support memory isolation, so they requre your tests to be thread safe.
+Memory Isolation To enable parallel execution, you must use a test runner that supports it. Available runners include NUnit 3.0, xUnit 2.0, and the SpecFlow+ Runner (specrun). Specrun is a commercial product, but it has advanced features like memory isolation via an app domain or process. NUnit and xUnit don&rsquo;t support memory isolation, so they requre your tests to be thread safe.
         
         <a class="button is-link" href="/posts/2018/08/running-specflow-scenarios-in-parallel/" style="height:28px">
           Read more
@@ -210,7 +210,7 @@ Memory Isolation To enable parallel execution, you must use a test runner that s
       <h1 class="title"><a href="/posts/2018/08/reusable-bindings-in-specflow/">Reusable Bindings in SpecFlow</a></h1>
       <div class="content">
         As your application grows, your SpecFlow test suite needs to grow with it. Reusable bindings are essentional to prevent your code from becoming a bloated mess. Fortunately, the SpecFlow runtime has reusability in mind with a built-in inversion of control (IoC) framework and step argument transformations. With these features you can create reusable bindings that make test creation more productive.
-Problems with Inheritance Before digging into IoC, I'll take a moment to cover why you shouldn't use inheritance in your bindings.
+Problems with Inheritance Before digging into IoC, I&rsquo;ll take a moment to cover why you shouldn&rsquo;t use inheritance in your bindings.
         
         <a class="button is-link" href="/posts/2018/08/reusable-bindings-in-specflow/" style="height:28px">
           Read more
@@ -240,8 +240,8 @@ Problems with Inheritance Before digging into IoC, I'll take a moment to cover w
       <h2 class="subtitle is-6 date">August 10, 2018</h2>
       <h1 class="title"><a href="/posts/2018/08/working-effectively-with-specflow-tables/">Working Effectively with SpecFlow Tables</a></h1>
       <div class="content">
-        The Gherkin DSL defines data tables as a way of passing a list of values to a step definition. Gherkin tables use the pipe character | to delimit column names and values. They're easy to read and understand by both business and technical people.
-While they work great in Gherkin, tables don't translate well to strongly typed .NET languages. They are converted to an instance of the Table type in SpecFlow bindings.
+        The Gherkin DSL defines data tables as a way of passing a list of values to a step definition. Gherkin tables use the pipe character | to delimit column names and values. They&rsquo;re easy to read and understand by both business and technical people.
+While they work great in Gherkin, tables don&rsquo;t translate well to strongly typed .NET languages. They are converted to an instance of the Table type in SpecFlow bindings.
         
         <a class="button is-link" href="/posts/2018/08/working-effectively-with-specflow-tables/" style="height:28px">
           Read more
@@ -267,8 +267,8 @@ While they work great in Gherkin, tables don't translate well to strongly typed 
       <h2 class="subtitle is-6 date">August 10, 2018</h2>
       <h1 class="title"><a href="/posts/2018/08/gherkin-tips/">Gherkin Tips</a></h1>
       <div class="content">
-        [Gherkin] is a Business Readable, Domain Specific Language that lets you describe software's behaviour without detailing how that behaviour is implemented. - Gherkin Wiki
- These Gherkin best practices were originally included in an early draft of a talk I gave on SpecFlow. Ultimately, I took them out because they didn't fit well with the topic, so I put them into a blog post.
+        [Gherkin] is a Business Readable, Domain Specific Language that lets you describe software&rsquo;s behaviour without detailing how that behaviour is implemented. - Gherkin Wiki
+ These Gherkin best practices were originally included in an early draft of a talk I gave on SpecFlow. Ultimately, I took them out because they didn&rsquo;t fit well with the topic, so I put them into a blog post.
 Table values should be atomic Bindings that take a table argument will almost always convert the table to a C# object for easy manipulation.
         
         <a class="button is-link" href="/posts/2018/08/gherkin-tips/" style="height:28px">

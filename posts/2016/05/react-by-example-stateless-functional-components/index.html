@@ -116,7 +116,7 @@
     <h1 class="title">React by Example: Stateless Functional Components</h1>
     
     <div class="content">
-      <p>In v0.14 the React team introduced <a href="https://facebook.github.io/react/docs/reusable-components.html#stateless-functions">stateless functional components</a>. They are implemented by functions that take a props argument and return JSX. They're simpler and offer performance benefits. The drawbacks are the lack of state and the inability to interact directly with the DOM.</p>
+      <p>In v0.14 the React team introduced <a href="https://facebook.github.io/react/docs/reusable-components.html#stateless-functions">stateless functional components</a>. They are implemented by functions that take a props argument and return JSX. They&rsquo;re simpler and offer performance benefits. The drawbacks are the lack of state and the inability to interact directly with the DOM.</p>
 <h4 id="icon-component">Icon Component</h4>
 <p>In a typical app, most React components will be presentational only and should be stateless functional components. A good example is an Icon component I created to encapsulate <a href="https://fortawesome.github.io/Font-Awesome/icons/">Font Awesome icons</a>. The component renders an <code>&lt;i&gt;&lt;/i&gt;</code> HTML element with the proper Font Awesome classes. For example, the JSX declaration <code>&lt;Icon name=&quot;envelope&quot; fixedWidth /&gt;</code> renders the HTML <code>&lt;i class=&quot;fa fa-envelope fa-fw&quot;&gt;&lt;/i&gt;</code> which displays an envelope icon with a fixed width.</p>
 <script src="https://gist.github.com/joebuschmann/00f5f5068b1bbcb84361d73d51139f45.js"></script>
@@ -129,7 +129,7 @@ var classnames = require('classnames');
 var Icon = function (props) {
     // Snip
 };
-</code></pre><p>The return value is a JSX snippet. <a href="https://facebook.github.io/react/docs/jsx-in-depth.html">JSX</a> is React's way of describing how the component should be rendered. It's similar to HTML, but it needs to be <a href="https://babeljs.io/blog/2015/02/23/babel-loves-react">translated to Javascript</a> before it will work in the browser.</p>
+</code></pre><p>The return value is a JSX snippet. <a href="https://facebook.github.io/react/docs/jsx-in-depth.html">JSX</a> is React&rsquo;s way of describing how the component should be rendered. It&rsquo;s similar to HTML, but it needs to be <a href="https://babeljs.io/blog/2015/02/23/babel-loves-react">translated to Javascript</a> before it will work in the browser.</p>
 <pre><code>return &lt;i {...elementProps} className={className}&gt;&lt;/i&gt;;
 </code></pre><p>After the function declaration, a property named <code>propTypes</code> is added to the function. More on <code>propTypes</code> in the next section.</p>
 <p>Finally, the <code>Icon</code> function is exported via <code>module.exports</code>.</p>
@@ -149,7 +149,7 @@ var Icon = function (props) {
         'fa-fw': props.fixedWidth
     });
 </code></pre><h4 id="filtering-proptypes">Filtering PropTypes</h4>
-<p>The available props aren't limited to those defined in <code>propTypes</code>. Consumers of <code>Icon</code> can supply extra props that are applied directly to the <code>&lt;i&gt;&lt;/i&gt;</code> element using the <a href="https://facebook.github.io/react/docs/jsx-spread.html">spread operator</a>.</p>
+<p>The available props aren&rsquo;t limited to those defined in <code>propTypes</code>. Consumers of <code>Icon</code> can supply extra props that are applied directly to the <code>&lt;i&gt;&lt;/i&gt;</code> element using the <a href="https://facebook.github.io/react/docs/jsx-spread.html">spread operator</a>.</p>
 <pre><code>&lt;i {...elementProps} className={className}&gt;&lt;/i&gt;
 </code></pre><p>Before they are added to the element, an additional step is needed to filter out the props specified by <code>propTypes</code>. This prevents name, spin, and fixedWidth from being included in the final HTML output as attributes.</p>
 <pre><code>var elementProps = filterKeys(props, Icon.propTypes);
@@ -169,9 +169,9 @@ if (props.waiting) {
 } else if (props.icon) {
     icon = &lt;Icon name={props.icon} fixedWidth style={iconStyle} /&gt;;
 }
-</code></pre><p>Next the icon is added to the JSX returned by the function. The value of the icon variable may be null, but that's fine. React will ignore any null or undefined values.</p>
+</code></pre><p>Next the icon is added to the JSX returned by the function. The value of the icon variable may be null, but that&rsquo;s fine. React will ignore any null or undefined values.</p>
 <pre><code>return &lt;button {...elementProps} type=&quot;button&quot; onClick={onClick}&gt;{icon}{props.children}&lt;/button&gt;;
-</code></pre><p>The snippet below creates a button with an envelope icon and sets the value of <code>waiting</code> to <code>this.state.waiting</code>. This state value comes from a stateful component that's hosting the button. As the parent component's value for <code>this.state.waiting</code> changes, the button will be re-rendered with the new prop values.</p>
+</code></pre><p>The snippet below creates a button with an envelope icon and sets the value of <code>waiting</code> to <code>this.state.waiting</code>. This state value comes from a stateful component that&rsquo;s hosting the button. As the parent component&rsquo;s value for <code>this.state.waiting</code> changes, the button will be re-rendered with the new prop values.</p>
 <pre><code>var Button = require('button');
 
 &lt;Button className=&quot;btn btn-primary&quot; onClick={this.send} icon=&quot;envelope&quot; waiting={this.state.waiting}&gt;Send Message&lt;/Button&gt;

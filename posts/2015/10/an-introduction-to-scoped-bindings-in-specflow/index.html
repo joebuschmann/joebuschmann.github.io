@@ -118,11 +118,11 @@
     <h1 class="title">An Introduction to Scoped Bindings in SpecFlow</h1>
     
     <div class="content">
-      <p>One nice aspect of SpecFlow is the ability to scope bindings by feature title, scenario title, or tag. Normally bindings are global to the project, but a binding's scope can be restricted using the <code>Scope</code> attribute. I like to think of it as similar to the <code>private</code> and <code>public</code> class modifiers in C#.</p>
+      <p>One nice aspect of SpecFlow is the ability to scope bindings by feature title, scenario title, or tag. Normally bindings are global to the project, but a binding&rsquo;s scope can be restricted using the <code>Scope</code> attribute. I like to think of it as similar to the <code>private</code> and <code>public</code> class modifiers in C#.</p>
 <p>Consider the Gherkin below.</p>
 <script src="https://gist.github.com/joebuschmann/26a8482d54d97c0761e9.js"></script>
 <p>It is a single feature with one scenario and two tags. One tag is at the feature level and the other at the scenario level.</p>
-<p>The feature's corresponding steps can be scoped by:</p>
+<p>The feature&rsquo;s corresponding steps can be scoped by:</p>
 <p><strong>Scenario Title</strong></p>
 <script src="https://gist.github.com/joebuschmann/2df26540a2ae3a5fa369.js"></script>
 <p><strong>Scenario Tag</strong></p>
@@ -133,7 +133,7 @@
 <script src="https://gist.github.com/joebuschmann/0ae0cbd4163e053d1e40.js"></script>
 <p>In these snippets, the <code>Scope</code> attribute is applied at the class level, but you can also put them on individual methods. When the SpecFlow test runner executes the bindings, it will match the Gherkin to methods based on scoping rules. If there are multiple matches, the most restrictive match is used.</p>
 <h4 id="same-gherkin-different-bindings">Same Gherkin, Different Bindings</h4>
-<p>To illustrate the usefulness of scoped bindings, consider the following feature that invokes a service with content serialized to XML, JSON, and Form-UrlEncoding. The text of the <code>When</code> step is the same in the Gherkin for all three scenarios, but each bound method is different. Without scoped bindings, this feature won't run because the SpecFlow runtime can't determine which method to execute.</p>
+<p>To illustrate the usefulness of scoped bindings, consider the following feature that invokes a service with content serialized to XML, JSON, and Form-UrlEncoding. The text of the <code>When</code> step is the same in the Gherkin for all three scenarios, but each bound method is different. Without scoped bindings, this feature won&rsquo;t run because the SpecFlow runtime can&rsquo;t determine which method to execute.</p>
 <script src="https://gist.github.com/joebuschmann/72554b4c76974e70dedf.js"></script>
 <script src="https://gist.github.com/joebuschmann/9db7552ff3a22209dfce.js"></script>
 <p>Scoped bindings can help. You could scope each method by scenario title.</p>
@@ -142,7 +142,7 @@
 <script src="https://gist.github.com/joebuschmann/9e9ae7dab81f27cfee61.js"></script>
 <script src="https://gist.github.com/joebuschmann/fca3c06961a6dd0b7443.js"></script>
 <p>While this example works well for demonstrating the power of scoped bindings, I generally avoid coupling step definitions to Gherkin in all but the simplest features. In fact, this type of coupling has been identified as an <a href="https://github.com/cucumber/cucumber/wiki/Feature-Coupled-Step-Definitions-%28Antipattern%29">anti-pattern</a>.</p>
-<p>So how would I fix this? That's the subject of <a href="/posts/2015/10/specflow-tags-done-right">my next post</a>. In the meantime, you can read more about scoped bindings in the <a href="http://www.specflow.org/documentation/Scoped-Bindings/">SpecFlow documentation</a>.</p>
+<p>So how would I fix this? That&rsquo;s the subject of <a href="/posts/2015/10/specflow-tags-done-right">my next post</a>. In the meantime, you can read more about scoped bindings in the <a href="http://www.specflow.org/documentation/Scoped-Bindings/">SpecFlow documentation</a>.</p>
 
       
     </div>

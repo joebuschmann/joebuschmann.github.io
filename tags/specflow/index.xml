@@ -39,7 +39,7 @@ As the number of features grows, scenarios and bindings are going to get lost in
       
       <guid>/posts/2018/08/running-specflow-scenarios-in-parallel/</guid>
       <description>As of SpecFlow version 2.0, you can run scenarios in parallel. This means faster execution times and faster feedback in your continuous integration process.
-Memory Isolation To enable parallel execution, you must use a test runner that supports it. Available runners include NUnit 3.0, xUnit 2.0, and the SpecFlow+ Runner (specrun). Specrun is a commercial product, but it has advanced features like memory isolation via an app domain or process. NUnit and xUnit don&#39;t support memory isolation, so they requre your tests to be thread safe.</description>
+Memory Isolation To enable parallel execution, you must use a test runner that supports it. Available runners include NUnit 3.0, xUnit 2.0, and the SpecFlow+ Runner (specrun). Specrun is a commercial product, but it has advanced features like memory isolation via an app domain or process. NUnit and xUnit don&amp;rsquo;t support memory isolation, so they requre your tests to be thread safe.</description>
     </item>
     
     <item>
@@ -49,7 +49,7 @@ Memory Isolation To enable parallel execution, you must use a test runner that s
       
       <guid>/posts/2018/08/reusable-bindings-in-specflow/</guid>
       <description>As your application grows, your SpecFlow test suite needs to grow with it. Reusable bindings are essentional to prevent your code from becoming a bloated mess. Fortunately, the SpecFlow runtime has reusability in mind with a built-in inversion of control (IoC) framework and step argument transformations. With these features you can create reusable bindings that make test creation more productive.
-Problems with Inheritance Before digging into IoC, I&#39;ll take a moment to cover why you shouldn&#39;t use inheritance in your bindings.</description>
+Problems with Inheritance Before digging into IoC, I&amp;rsquo;ll take a moment to cover why you shouldn&amp;rsquo;t use inheritance in your bindings.</description>
     </item>
     
     <item>
@@ -58,8 +58,8 @@ Problems with Inheritance Before digging into IoC, I&#39;ll take a moment to cov
       <pubDate>Fri, 10 Aug 2018 21:41:47 +0000</pubDate>
       
       <guid>/posts/2018/08/working-effectively-with-specflow-tables/</guid>
-      <description>The Gherkin DSL defines data tables as a way of passing a list of values to a step definition. Gherkin tables use the pipe character | to delimit column names and values. They&#39;re easy to read and understand by both business and technical people.
-While they work great in Gherkin, tables don&#39;t translate well to strongly typed .NET languages. They are converted to an instance of the Table type in SpecFlow bindings.</description>
+      <description>The Gherkin DSL defines data tables as a way of passing a list of values to a step definition. Gherkin tables use the pipe character | to delimit column names and values. They&amp;rsquo;re easy to read and understand by both business and technical people.
+While they work great in Gherkin, tables don&amp;rsquo;t translate well to strongly typed .NET languages. They are converted to an instance of the Table type in SpecFlow bindings.</description>
     </item>
     
     <item>
@@ -68,8 +68,8 @@ While they work great in Gherkin, tables don&#39;t translate well to strongly ty
       <pubDate>Fri, 10 Aug 2018 13:22:54 +0000</pubDate>
       
       <guid>/posts/2018/08/gherkin-tips/</guid>
-      <description>[Gherkin] is a Business Readable, Domain Specific Language that lets you describe software&#39;s behaviour without detailing how that behaviour is implemented. - Gherkin Wiki
- These Gherkin best practices were originally included in an early draft of a talk I gave on SpecFlow. Ultimately, I took them out because they didn&#39;t fit well with the topic, so I put them into a blog post.
+      <description>[Gherkin] is a Business Readable, Domain Specific Language that lets you describe software&amp;rsquo;s behaviour without detailing how that behaviour is implemented. - Gherkin Wiki
+ These Gherkin best practices were originally included in an early draft of a talk I gave on SpecFlow. Ultimately, I took them out because they didn&amp;rsquo;t fit well with the topic, so I put them into a blog post.
 Table values should be atomic Bindings that take a table argument will almost always convert the table to a C# object for easy manipulation.</description>
     </item>
     
@@ -79,7 +79,7 @@ Table values should be atomic Bindings that take a table argument will almost al
       <pubDate>Wed, 08 Aug 2018 13:41:40 +0000</pubDate>
       
       <guid>/posts/2018/08/specflow-basics/</guid>
-      <description>SpecFlow is hands down my favorite testing tool. I&#39;ve been blogging about it since 2013 covering mostly advanced topics. In this post, I&#39;ll go back to the beginning and briefly cover the basics to give you an idea of what it can do.
+      <description>SpecFlow is hands down my favorite testing tool. I&amp;rsquo;ve been blogging about it since 2013 covering mostly advanced topics. In this post, I&amp;rsquo;ll go back to the beginning and briefly cover the basics to give you an idea of what it can do.
 What is SpecFlow? SpecFlow is a tool that allows you to:
  Define, manage, and automate human-readable acceptance tests in .NET. Enable BDD with easy to understand tests.</description>
     </item>
@@ -90,7 +90,7 @@ What is SpecFlow? SpecFlow is a tool that allows you to:
       <pubDate>Sun, 22 Oct 2017 02:44:18 +0000</pubDate>
       
       <guid>/posts/2017/10/specflow-nunit3-generator-plugin/</guid>
-      <description>I recently created a SpecFlow plugin to solve a peculiar problem with NUnit test code generation. The issue is SpecFlow will generate test code that doesn&#39;t compile when the .NET project containing the SpecFlow scenarios has a default namespace with the word NUnit. For example, if your project has the namespace IntegrationTests.NUnit, then you&#39;ll receive the following error when trying to build.
+      <description>I recently created a SpecFlow plugin to solve a peculiar problem with NUnit test code generation. The issue is SpecFlow will generate test code that doesn&amp;rsquo;t compile when the .NET project containing the SpecFlow scenarios has a default namespace with the word NUnit. For example, if your project has the namespace IntegrationTests.NUnit, then you&amp;rsquo;ll receive the following error when trying to build.
  The type or namespace name &amp;lsquo;Framework&amp;rsquo; does not exist in the namespace &amp;lsquo;IntegrationTests.</description>
     </item>
     
@@ -100,8 +100,8 @@ What is SpecFlow? SpecFlow is a tool that allows you to:
       <pubDate>Tue, 30 May 2017 19:54:01 +0000</pubDate>
       
       <guid>/posts/2017/05/getting-started-with-selenium-specflow-and-.net/</guid>
-      <description>Selenium is a library used to automate web browsers. It uses a common web driver interface, and each web browser, Chrome, Firefox, IE, has a corresponding implementation that takes advantage of the browser&#39;s native API.
-I don&#39;t have much experience with browser automation. In fact, I try to avoid it as much as possible in favor of testing at the unit and service level. Tests running through the browser tend to be brittle due to the non-deterministic nature of web pages.</description>
+      <description>Selenium is a library used to automate web browsers. It uses a common web driver interface, and each web browser, Chrome, Firefox, IE, has a corresponding implementation that takes advantage of the browser&amp;rsquo;s native API.
+I don&amp;rsquo;t have much experience with browser automation. In fact, I try to avoid it as much as possible in favor of testing at the unit and service level. Tests running through the browser tend to be brittle due to the non-deterministic nature of web pages.</description>
     </item>
     
     <item>
@@ -110,7 +110,7 @@ I don&#39;t have much experience with browser automation. In fact, I try to avoi
       <pubDate>Mon, 26 Oct 2015 13:30:51 +0000</pubDate>
       
       <guid>/posts/2015/10/specflow-tags-done-right/</guid>
-      <description>In a previous post, I covered scoped bindings in SpecFlow and ended with an example of how not to use tags. In this post, I&#39;ll cover the &amp;ldquo;right way&amp;rdquo; and demonstrate how to avoid coupling features to step definitions. But first, a quick primer on tags.
+      <description>In a previous post, I covered scoped bindings in SpecFlow and ended with an example of how not to use tags. In this post, I&amp;rsquo;ll cover the &amp;ldquo;right way&amp;rdquo; and demonstrate how to avoid coupling features to step definitions. But first, a quick primer on tags.
 What Are Tags? Tags are used in Gherkin to mark features or scenarios. They begin with the @ character in Gherkin, but in step definitions the @ is removed.</description>
     </item>
     
@@ -120,7 +120,7 @@ What Are Tags? Tags are used in Gherkin to mark features or scenarios. They begi
       <pubDate>Thu, 22 Oct 2015 12:28:04 +0000</pubDate>
       
       <guid>/posts/2015/10/an-introduction-to-scoped-bindings-in-specflow/</guid>
-      <description>One nice aspect of SpecFlow is the ability to scope bindings by feature title, scenario title, or tag. Normally bindings are global to the project, but a binding&#39;s scope can be restricted using the Scope attribute. I like to think of it as similar to the private and public class modifiers in C#.
+      <description>One nice aspect of SpecFlow is the ability to scope bindings by feature title, scenario title, or tag. Normally bindings are global to the project, but a binding&amp;rsquo;s scope can be restricted using the Scope attribute. I like to think of it as similar to the private and public class modifiers in C#.
 Consider the Gherkin below.
 It is a single feature with one scenario and two tags. One tag is at the feature level and the other at the scenario level.</description>
     </item>
@@ -131,7 +131,7 @@ Consider the Gherkin below.
       <pubDate>Tue, 22 Sep 2015 12:15:32 +0000</pubDate>
       
       <guid>/posts/2015/09/refactoring-to-composable-specflow-steps/</guid>
-      <description>I&#39;ve seen some pretty bad SpecFlow code. Code that seems to violate every good practice out there. Poor reuse. Copy and paste everywhere. Test code is the hotel room of the software world. People are sloppier and more careless than they otherwise would be. I&#39;m not sure why that is. Perhaps because tests are not seen as &amp;ldquo;real code&amp;rdquo;. But as a testing code base grows from dozens to hundreds to even a thousand or more test cases, having well-factored composable SpecFlow steps becomes critical.</description>
+      <description>I&amp;rsquo;ve seen some pretty bad SpecFlow code. Code that seems to violate every good practice out there. Poor reuse. Copy and paste everywhere. Test code is the hotel room of the software world. People are sloppier and more careless than they otherwise would be. I&amp;rsquo;m not sure why that is. Perhaps because tests are not seen as &amp;ldquo;real code&amp;rdquo;. But as a testing code base grows from dozens to hundreds to even a thousand or more test cases, having well-factored composable SpecFlow steps becomes critical.</description>
     </item>
     
     <item>
@@ -149,7 +149,7 @@ Consider the Gherkin below.
       <pubDate>Sat, 18 Oct 2014 10:20:35 +0000</pubDate>
       
       <guid>/posts/2014/10/useful-regex-for-specflow-bindings/</guid>
-      <description>Below is a list of useful regular expressions (regex) for annotating SpecFlow bindings. I&#39;m treating this post as a reference and will be updating it with new items from time to time.
+      <description>Below is a list of useful regular expressions (regex) for annotating SpecFlow bindings. I&amp;rsquo;m treating this post as a reference and will be updating it with new items from time to time.
 Singular or Plural Support singular or plural wording.
 Filter for Enum Values If your binding takes an enumeration for an argument, you can limit the inputs from the Gherkin to just the valid values. In the snippets below, the possible values for the SortOrder argument are limited by the regex (ascending|descending) thus avoiding any runtime exeptions due to a bad value.</description>
     </item>
@@ -180,7 +180,7 @@ The intent of the Cucumber syntax is to express business requirements in the lan
       
       <guid>/posts/2013/07/more-specflow-tips/</guid>
       <description>UPDATE (11/18/2016):
- I&#39;ve written a number of posts since this one was published that cover advanced SpecFlow topics like composable steps, tags done right, managing state, useful regex, etc. For a list of all my SpecFlow writing, you can click on the SpecFlow tag. SpecFlow is a fantastic tool that&#39;s changed the way I develop software, and I hope it does the same for you. Happy testing!
+ I&amp;rsquo;ve written a number of posts since this one was published that cover advanced SpecFlow topics like composable steps, tags done right, managing state, useful regex, etc. For a list of all my SpecFlow writing, you can click on the SpecFlow tag. SpecFlow is a fantastic tool that&amp;rsquo;s changed the way I develop software, and I hope it does the same for you. Happy testing!
  My last post covered three tips or best practices for SpecFlow that covered manipulating the current ScenarioContext with extension methods, binding multiple Given/When/Then attributes, and using hooks.</description>
     </item>
     
@@ -191,7 +191,7 @@ The intent of the Cucumber syntax is to express business requirements in the lan
       
       <guid>/posts/2013/02/some-specflow-tips/</guid>
       <description>UPDATE (11/18/2016):
- I&#39;ve written a number of posts since this one was published that cover advanced SpecFlow topics like composable steps, tags done right, managing state, useful regex, etc. For a list of all my SpecFlow writing, you can click on the SpecFlow tag. SpecFlow is a fantastic tool that&#39;s changed the way I develop software, and I hope it does the same for you. Happy testing!
+ I&amp;rsquo;ve written a number of posts since this one was published that cover advanced SpecFlow topics like composable steps, tags done right, managing state, useful regex, etc. For a list of all my SpecFlow writing, you can click on the SpecFlow tag. SpecFlow is a fantastic tool that&amp;rsquo;s changed the way I develop software, and I hope it does the same for you. Happy testing!
  Late last year a co-worker Jay Brummels introduced our development group to SpecFlow a .</description>
     </item>
     

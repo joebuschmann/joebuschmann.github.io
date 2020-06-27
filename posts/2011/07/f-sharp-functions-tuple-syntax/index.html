@@ -116,7 +116,7 @@
     <h1 class="title">F# Functions: Tuple Syntax</h1>
     
     <div class="content">
-      <p>I'm relatively new to F# and functional programming and recently worked through an issue that had me perplexed. The issue was with creating functions with the &ldquo;tuple syntax&rdquo; versus the normal syntax of separating arguments by spaces.</p>
+      <p>I&rsquo;m relatively new to F# and functional programming and recently worked through an issue that had me perplexed. The issue was with creating functions with the &ldquo;tuple syntax&rdquo; versus the normal syntax of separating arguments by spaces.</p>
 <p>Consider the simple functions below that adds numeric arguments together. They are constructed in two ways. The first is by using a tuple to group the two arguments together. It looks very similar to the syntax from other languages such as C#. In the second declaration, the arguments are separated by spaces.</p>
 <pre style="font-family: consolas; background: white; color: black; font-size: 13px;"><span style="color: green;">// The arguments are grouped using a tuple.</span>
 
@@ -127,7 +127,7 @@
 <span style="color: green;">// The arguments are listed separately.</span>
 
 <span style="color: blue;">let</span> add2 x y = x + y</pre>
-<p>I initially thought that the signatures of the two functions were the same: <em>int -&gt; int -&gt; int</em>; however that isn't the case. The signature for the first is: <em>int * int -&gt; int</em> with a tuple being passed as the single argument. So the tuple syntax is more than just another way of doing the same thing. A tuple is actually created, and it's arguments are passed to the function body. I discovered this by trying to interchange the two styles when calling the methods. This left me scratching my head trying to figure out where the syntax problem was.</p>
+<p>I initially thought that the signatures of the two functions were the same: <em>int -&gt; int -&gt; int</em>; however that isn&rsquo;t the case. The signature for the first is: <em>int * int -&gt; int</em> with a tuple being passed as the single argument. So the tuple syntax is more than just another way of doing the same thing. A tuple is actually created, and it&rsquo;s arguments are passed to the function body. I discovered this by trying to interchange the two styles when calling the methods. This left me scratching my head trying to figure out where the syntax problem was.</p>
 <p>The snippet below from the F# Interactive Window shows an attempt to call the add1 function without using the tuple syntax. Notice the error message.</p>
 <pre style="font-family: consolas; background: white; color: black; font-size: 13px;">&gt; let add1(x, y) = x + y;;
 
@@ -192,7 +192,7 @@ but here has type
 
 
 val it : int = 7</pre>
-<p>Because the tuple syntax resembles how you would create a method in C#, I thought it was simply another way of declaring a function with multiple arguments, but that's not the case. It creates a function with a single argument, a tuple, which has multiple values.</p>
+<p>Because the tuple syntax resembles how you would create a method in C#, I thought it was simply another way of declaring a function with multiple arguments, but that&rsquo;s not the case. It creates a function with a single argument, a tuple, which has multiple values.</p>
 <p>Which way is preferred? Well, that depends on the situation. If the two arguments are related in some way, then grouping them as a tuple makes sense. If they are unrelated, then the space delimited syntax would be better so callers could take advantage of partial function application and other functional language features.</p>
 
       

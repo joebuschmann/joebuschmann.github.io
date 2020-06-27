@@ -116,14 +116,14 @@
     <h1 class="title">React By Example: Mixins</h1>
     
     <div class="content">
-      <p>Components are React's preferred reuse mechanism, but it's not the only one. Sometimes different components share the same functions. It may be awkward to wrap these cross-cutting concerns in a higher order component, or the common code may need access to a component's state. In these scenarios, React <strong>mixins</strong> are useful.</p>
-<p>Before I continue, I should note mixins seem to be <a href="https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.3umfys9zz">on the way out</a>. The React team is focused on making components more powerful versus continuing to build on the mixin concept. In fact, React's ES6 syntax doesn't support them at all.</p>
-<p>That's too bad because I like <a href="https://facebook.github.io/react/docs/reusable-components.html#mixins">mixins</a>. I feel they're easier to use than higher order components. So until the React team rips them out of the codebase, <a href="https://en.wikipedia.org/wiki/Battle_of_Mobile_Bay#Damn_the_torpedoes">damn the torpedos, full speed ahead</a>!</p>
+      <p>Components are React&rsquo;s preferred reuse mechanism, but it&rsquo;s not the only one. Sometimes different components share the same functions. It may be awkward to wrap these cross-cutting concerns in a higher order component, or the common code may need access to a component&rsquo;s state. In these scenarios, React <strong>mixins</strong> are useful.</p>
+<p>Before I continue, I should note mixins seem to be <a href="https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.3umfys9zz">on the way out</a>. The React team is focused on making components more powerful versus continuing to build on the mixin concept. In fact, React&rsquo;s ES6 syntax doesn&rsquo;t support them at all.</p>
+<p>That&rsquo;s too bad because I like <a href="https://facebook.github.io/react/docs/reusable-components.html#mixins">mixins</a>. I feel they&rsquo;re easier to use than higher order components. So until the React team rips them out of the codebase, <a href="https://en.wikipedia.org/wiki/Battle_of_Mobile_Bay#Damn_the_torpedoes">damn the torpedos, full speed ahead</a>!</p>
 <h4 id="detecting-clicks-outside-of-a-component">Detecting Clicks Outside of a Component</h4>
 <p>One asset that came out of a recent React app is a mixin to detect clicks outside of a component. It works by invoking a callback whenever a click event fires outside of the target component or one of its child elements. I use it to close popup panels like the options list of a custom dropdown or a modal dialog.</p>
 <script src="https://gist.github.com/joebuschmann/9a1944ea8c8f36557234.js"></script>
 <h4 id="how-it-works">How It Works</h4>
-<p>The ClickAway mixin works by taking advantage of a couple of React's <a href="https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods">component lifecycle methods</a>. It implements <code>componentDidMount</code> to attach a unique ID to the component's top level DOM node. The ID is used to identify the component when tracking click events.</p>
+<p>The ClickAway mixin works by taking advantage of a couple of React&rsquo;s <a href="https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods">component lifecycle methods</a>. It implements <code>componentDidMount</code> to attach a unique ID to the component&rsquo;s top level DOM node. The ID is used to identify the component when tracking click events.</p>
 <pre><code>var elementId = id++;
 var element = ReactDOM.findDOMNode(self);
 element.setAttribute(attributeName, elementId);
@@ -140,11 +140,11 @@ window.document.addEventListener('click', self.clickAway);
     window.document.removeEventListener('click', this.clickAway);
 }
 </code></pre><h4 id="how-to-use-it">How to Use It</h4>
-<p>A quick note before I continue. I use a module bundler like <a href="http://browserify.org/">Browserify</a> or <a href="https://webpack.github.io/">Webpack</a> to manage React apps. Module bundlers enable dependency management via <code>require</code> and <code>module.exports</code> à la Node.js but on the client. If you've never used one, I recommend it. I went with Browserify because it's simpler to set up. ClickAway.js is organized as a module, and you'll need a bundler to consume it.</p>
+<p>A quick note before I continue. I use a module bundler like <a href="http://browserify.org/">Browserify</a> or <a href="https://webpack.github.io/">Webpack</a> to manage React apps. Module bundlers enable dependency management via <code>require</code> and <code>module.exports</code> à la Node.js but on the client. If you&rsquo;ve never used one, I recommend it. I went with Browserify because it&rsquo;s simpler to set up. ClickAway.js is organized as a module, and you&rsquo;ll need a bundler to consume it.</p>
 <p>ClickAway is useful for dropdowns and modal panels which need to close when the user clicks elsewhere on the page.</p>
 <p>To use it, first import it via <code>require</code>.</p>
 <pre><code>var ClickAway = require('../mixin/clickAway');
-</code></pre><p>Mixins are included in a component by adding a mixins property to the component's class specification. Its value is set to an array of mixin components.</p>
+</code></pre><p>Mixins are included in a component by adding a mixins property to the component&rsquo;s class specification. Its value is set to an array of mixin components.</p>
 <pre><code>// Mixin to detect clicks outside of this component.
 mixins: [ClickAway],
 </code></pre><p>Finally, provide an implementation for the <code>onClickAway</code> callback. In the case of the popup panel, it invokes an <code>onClose</code> callback to notify the parent component it should be closed.</p>
@@ -157,7 +157,7 @@ onClickAway: function () {
 </code></pre><p>The full source is below.</p>
 <script src="https://gist.github.com/joebuschmann/496739e921fa4fc6d0c4d76aa8c37a70.js"></script>
 <h4 id="a-better-way">A Better Way?</h4>
-<p>I'm sure there's a better way to detect outside clicks. Perhaps with some kind of hit test? If you have any suggestions, please let me know. In the meantime, this mixin works on Firefox, Chrome, and IE 9+.</p>
+<p>I&rsquo;m sure there&rsquo;s a better way to detect outside clicks. Perhaps with some kind of hit test? If you have any suggestions, please let me know. In the meantime, this mixin works on Firefox, Chrome, and IE 9+.</p>
 
       
     </div>

@@ -118,7 +118,7 @@
     <h1 class="title">String.Empty Versus &#34;&#34;</h1>
     
     <div class="content">
-      <p>If you've been in the .NET world for any length of time, you'll eventually come across someone who claims <code>String.Empty</code> performs better than <code>&quot;&quot;</code>. I was always skeptical of this claim because this scenario seemed like something the compiler could optimize. And because the .NET runtime manages string literals in an intern pool, my guess was they would both point to the same value. That's what I suspected anyway but didn't have any proof.</p>
+      <p>If you&rsquo;ve been in the .NET world for any length of time, you&rsquo;ll eventually come across someone who claims <code>String.Empty</code> performs better than <code>&quot;&quot;</code>. I was always skeptical of this claim because this scenario seemed like something the compiler could optimize. And because the .NET runtime manages string literals in an intern pool, my guess was they would both point to the same value. That&rsquo;s what I suspected anyway but didn&rsquo;t have any proof.</p>
 <p>Finally, I decided to write a short program to find out the truth. In the code below, lines 10 and 11 create two empty string variables. One is initialized with <code>String.Empty</code> and the other <code>&quot;&quot;</code>. Lines 13-17 check that both are interned, their values are equal, and the references are equal.</p>
 <script src="https://gist.github.com/joebuschmann/df3119d149505c44a60a.js"></script>
 <p>The results seem to suggest both <code>String.Empty</code> and <code>&quot;&quot;</code> point to the same interned string literal. Just to be extra safe, I looked at the disassembly for the two assignment statements.</p>

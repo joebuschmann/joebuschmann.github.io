@@ -119,8 +119,8 @@
     
     <div class="content">
       <p><img src="/images/mailboxes.jpg#c" alt="Mailboxes"></p>
-<p>Up until version 2016, Microsoft's SQL Server didn't support row-level security (RLS) - a feature that's been around in Oracle and IBM's offerings for a while. If you ran SQL Server and needed RLS, you had to build your own scheme which is exactly what I had to do for a recent project. I needed RLS for a new data warehouse I was building using SQL Server 2014. The requirements called for storing sensitive financial and sales data from multiple users in the same tables. I needed a scheme where a user could connect and extract just their data without seeing information for any others. Without native RLS, it is doable but takes some work.</p>
-<p>In this post, I'll cover the approach I settled on and then discuss my plan for migrating to native RLS in SQL Server 2016.</p>
+<p>Up until version 2016, Microsoft&rsquo;s SQL Server didn&rsquo;t support row-level security (RLS) - a feature that&rsquo;s been around in Oracle and IBM&rsquo;s offerings for a while. If you ran SQL Server and needed RLS, you had to build your own scheme which is exactly what I had to do for a recent project. I needed RLS for a new data warehouse I was building using SQL Server 2014. The requirements called for storing sensitive financial and sales data from multiple users in the same tables. I needed a scheme where a user could connect and extract just their data without seeing information for any others. Without native RLS, it is doable but takes some work.</p>
+<p>In this post, I&rsquo;ll cover the approach I settled on and then discuss my plan for migrating to native RLS in SQL Server 2016.</p>
 <h1 id="table-structure">Table Structure</h1>
 <p>My first step was to add a column to each table named <strong>UserId</strong> to identify the owner of the row. Its value could be used to filter out rows belonging to other users. For example, the <strong>baseAccount</strong> table below represents a typical setup.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -171,7 +171,7 @@
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">VIEW</span> [dbo].[Account]
 <span style="color:#66d9ef">AS</span>
 <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> dbo.baseAccount
-<span style="color:#66d9ef">WHERE</span> USER_NAME() <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">dbo</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">OR</span> dbo.baseAccount.UserId <span style="color:#f92672">=</span> USER_NAME()
+<span style="color:#66d9ef">WHERE</span> USER_NAME() <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;dbo&#39;</span> <span style="color:#66d9ef">OR</span> dbo.baseAccount.UserId <span style="color:#f92672">=</span> USER_NAME()
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="restricting-access">Restricting Access</h1>
@@ -215,7 +215,7 @@
 </div>
 </div><p>At this point I had a simple row-level security scheme. When John Smith queries the database with his Windows account, he will only see data for his user. All other rows will be filtered out by the views.</p>
 <h1 id="native-rls-in-sql-server-2016">Native RLS in SQL Server 2016</h1>
-<p>This was a lot of work for something that should be native to any mainstream DBMS. SQL Server 2016 fixes this problem with the introduction of security policies for row-level security. Fortunately, the RLS setup I've described so far can be changed fairly easily to use security policies. The logins, users, and roles remain the same, but the views are replaced with a security policy per table. Each security policy uses a function to determine row-level access.</p>
+<p>This was a lot of work for something that should be native to any mainstream DBMS. SQL Server 2016 fixes this problem with the introduction of security policies for row-level security. Fortunately, the RLS setup I&rsquo;ve described so far can be changed fairly easily to use security policies. The logins, users, and roles remain the same, but the views are replaced with a security policy per table. Each security policy uses a function to determine row-level access.</p>
 <h2 id="views-and-tables">Views and Tables</h2>
 <p>The views are no longer needed and can be dropped. The <strong>base</strong> prefix is removed from each table name, and SELECT permission is granted for the <strong>useraccess</strong> role.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -229,7 +229,7 @@
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">VIEW</span> dbo.[Account];
 
-<span style="color:#66d9ef">EXEC</span> sp_rename <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">dbo.baseAccount</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Account</span><span style="color:#e6db74">&#39;</span>;
+<span style="color:#66d9ef">EXEC</span> sp_rename <span style="color:#e6db74">&#39;dbo.baseAccount&#39;</span>, <span style="color:#e6db74">&#39;Account&#39;</span>;
 
 <span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">ON</span> [Account] <span style="color:#66d9ef">TO</span> [useraccess];
 </code></pre></td></tr></table>
@@ -253,7 +253,7 @@
 <span style="color:#66d9ef">WITH</span> SCHEMABINDING
 <span style="color:#66d9ef">AS</span>
 <span style="color:#66d9ef">RETURN</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">AS</span> AccessRight
-    <span style="color:#66d9ef">WHERE</span> USER_NAME() <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">dbo</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">OR</span> USER_NAME() <span style="color:#f92672">=</span> <span style="color:#f92672">@</span>userId
+    <span style="color:#66d9ef">WHERE</span> USER_NAME() <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;dbo&#39;</span> <span style="color:#66d9ef">OR</span> USER_NAME() <span style="color:#f92672">=</span> <span style="color:#f92672">@</span>userId
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="security-policy">Security Policy</h2>
@@ -271,7 +271,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><hr />
-<p>Those are examples of RLS implemented with and without security policies. I have yet to use SQL Server 2016 in production, but I'm looking forward to the simplicity that native RLS will bring.</p>
+<p>Those are examples of RLS implemented with and without security policies. I have yet to use SQL Server 2016 in production, but I&rsquo;m looking forward to the simplicity that native RLS will bring.</p>
 
       
     </div>

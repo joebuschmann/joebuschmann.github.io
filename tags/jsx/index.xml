@@ -18,8 +18,8 @@
       <pubDate>Sun, 31 Jul 2016 19:30:54 +0000</pubDate>
       
       <guid>/posts/2016/07/in-defense-of-jsx/</guid>
-      <description>JSX is the much maligned JavaScript syntax extension that tells React how to build the UI. It gets translated into JavaScript which then builds out the virtual DOM. Later the virtual DOM is translated into the real DOM, and you&#39;ve got a UI.
-For some reason many people don&#39;t like JSX. Their criticism usually goes along the lines of: JSX is ugly and you shouldn&#39;t mix the view and controller. You should have separation of concerns (aka MVC) for better reuse.</description>
+      <description>JSX is the much maligned JavaScript syntax extension that tells React how to build the UI. It gets translated into JavaScript which then builds out the virtual DOM. Later the virtual DOM is translated into the real DOM, and you&amp;rsquo;ve got a UI.
+For some reason many people don&amp;rsquo;t like JSX. Their criticism usually goes along the lines of: JSX is ugly and you shouldn&amp;rsquo;t mix the view and controller. You should have separation of concerns (aka MVC) for better reuse.</description>
     </item>
     
   </channel>

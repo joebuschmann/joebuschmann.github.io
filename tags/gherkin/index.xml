@@ -29,7 +29,7 @@ Over the next few weeks, I created a series of posts, one for each section of th
       
       <guid>/posts/2018/08/reusable-bindings-in-specflow/</guid>
       <description>As your application grows, your SpecFlow test suite needs to grow with it. Reusable bindings are essentional to prevent your code from becoming a bloated mess. Fortunately, the SpecFlow runtime has reusability in mind with a built-in inversion of control (IoC) framework and step argument transformations. With these features you can create reusable bindings that make test creation more productive.
-Problems with Inheritance Before digging into IoC, I&#39;ll take a moment to cover why you shouldn&#39;t use inheritance in your bindings.</description>
+Problems with Inheritance Before digging into IoC, I&amp;rsquo;ll take a moment to cover why you shouldn&amp;rsquo;t use inheritance in your bindings.</description>
     </item>
     
     <item>
@@ -38,8 +38,8 @@ Problems with Inheritance Before digging into IoC, I&#39;ll take a moment to cov
       <pubDate>Fri, 10 Aug 2018 21:41:47 +0000</pubDate>
       
       <guid>/posts/2018/08/working-effectively-with-specflow-tables/</guid>
-      <description>The Gherkin DSL defines data tables as a way of passing a list of values to a step definition. Gherkin tables use the pipe character | to delimit column names and values. They&#39;re easy to read and understand by both business and technical people.
-While they work great in Gherkin, tables don&#39;t translate well to strongly typed .NET languages. They are converted to an instance of the Table type in SpecFlow bindings.</description>
+      <description>The Gherkin DSL defines data tables as a way of passing a list of values to a step definition. Gherkin tables use the pipe character | to delimit column names and values. They&amp;rsquo;re easy to read and understand by both business and technical people.
+While they work great in Gherkin, tables don&amp;rsquo;t translate well to strongly typed .NET languages. They are converted to an instance of the Table type in SpecFlow bindings.</description>
     </item>
     
     <item>
@@ -48,8 +48,8 @@ While they work great in Gherkin, tables don&#39;t translate well to strongly ty
       <pubDate>Fri, 10 Aug 2018 13:22:54 +0000</pubDate>
       
       <guid>/posts/2018/08/gherkin-tips/</guid>
-      <description>[Gherkin] is a Business Readable, Domain Specific Language that lets you describe software&#39;s behaviour without detailing how that behaviour is implemented. - Gherkin Wiki
- These Gherkin best practices were originally included in an early draft of a talk I gave on SpecFlow. Ultimately, I took them out because they didn&#39;t fit well with the topic, so I put them into a blog post.
+      <description>[Gherkin] is a Business Readable, Domain Specific Language that lets you describe software&amp;rsquo;s behaviour without detailing how that behaviour is implemented. - Gherkin Wiki
+ These Gherkin best practices were originally included in an early draft of a talk I gave on SpecFlow. Ultimately, I took them out because they didn&amp;rsquo;t fit well with the topic, so I put them into a blog post.
 Table values should be atomic Bindings that take a table argument will almost always convert the table to a C# object for easy manipulation.</description>
     </item>
     
@@ -59,7 +59,7 @@ Table values should be atomic Bindings that take a table argument will almost al
       <pubDate>Wed, 08 Aug 2018 13:41:40 +0000</pubDate>
       
       <guid>/posts/2018/08/specflow-basics/</guid>
-      <description>SpecFlow is hands down my favorite testing tool. I&#39;ve been blogging about it since 2013 covering mostly advanced topics. In this post, I&#39;ll go back to the beginning and briefly cover the basics to give you an idea of what it can do.
+      <description>SpecFlow is hands down my favorite testing tool. I&amp;rsquo;ve been blogging about it since 2013 covering mostly advanced topics. In this post, I&amp;rsquo;ll go back to the beginning and briefly cover the basics to give you an idea of what it can do.
 What is SpecFlow? SpecFlow is a tool that allows you to:
  Define, manage, and automate human-readable acceptance tests in .NET. Enable BDD with easy to understand tests.</description>
     </item>

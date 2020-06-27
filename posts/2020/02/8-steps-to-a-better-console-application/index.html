@@ -118,8 +118,7 @@
     <h1 class="title">8 Steps to a Better Console Application</h1>
     
     <div class="content">
-      <p>The console application is the workhorse of the software world. It isn't flashy like its graphical cousins the desktop and web app. It isn't sought after like the mobile app. Graphical user interfaces compose images, sophisticated widgets, and animations, but the humble command-line interface (CLI) has none of that. It runs in shells with strange names like Bourne-Again Shell (Bash), Korn Shell, and CMD.EXE. Its tools are simple lines of text printed to a terminal or redirected to a file.</p>
-<p>Some of these console apps are ephemeral - created to solve a problem and discarded afterward. Others work hard behind the scenes to support essential services like maintenance and CI/CD. Despite its apparent simplicity, writing a good CLI is more difficult than you would expect. Many developers get the basics wrong and limit the effectiveness of their software as a result. In the 1970s, Doug McIlroy first expressed the Unix Philosophy for building console apps. It was later summarized by Peter H. Salus in <em>A Quarter-Century of Unix (1994)</em>.</p>
+      <p>Despite its apparent simplicity, writing a good console application is more difficult than you would expect. Many developers get the basics wrong and limit the effectiveness of their software as a result. In the 1970s, Doug McIlroy first expressed the Unix Philosophy for building apps with a good CLI. It was later summarized by Peter H. Salus in <em>A Quarter-Century of Unix (1994)</em>.</p>
 <blockquote>
 <p>The Unix Philosophy</p>
 <ul>
@@ -128,10 +127,10 @@
 <li>Write programs to handle text streams, because that is a universal interface.</li>
 </ul>
 </blockquote>
-<p>Inspired by this philosophy and my own experience, I've compiled 8 design recommendations for a good CLI.</p>
+<p>Inspired by this philosophy and my own experience, I&rsquo;ve compiled 8 design recommendations for console apps.</p>
 <h1 id="provide-help-in-the-terminal">Provide Help in the Terminal</h1>
 <p><img src="/images/help-button.jpg#c" alt="Help"></p>
-<p>A good README or online documentation is fine, but help in the terminal is divine. It's more accessible and allows users to stay in the terminal. You should support several different ways to diplay help.</p>
+<p>A good README or online documentation is fine, but help in the terminal is divine. It&rsquo;s more accessible and allows users to stay in the terminal. You should support several different ways to diplay help.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -157,7 +156,7 @@ Usage: grep <span style="color:#f92672">[</span>OPTION<span style="color:#f92672
 Try <span style="color:#e6db74">&#39;grep --help&#39;</span> <span style="color:#66d9ef">for</span> more information.
 </code></pre></td></tr></table>
 </div>
-</div><p>There are excellent libraries that make providing help much easier. The one I'm most familiar with is <a href="https://github.com/commandlineparser/commandline">Command Line Parser</a> for .NET. It enforces a consistent syntax and provides help and version information automatically. And speaking of version, you should provide that as well.</p>
+</div><p>There are excellent libraries that make providing help much easier. The one I&rsquo;m most familiar with is <a href="https://github.com/commandlineparser/commandline">Command Line Parser</a> for .NET. It enforces a consistent syntax and provides help and version information automatically. And speaking of version, you should provide that as well.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -181,7 +180,7 @@ Written by Mike Haertel and others, see &lt;http://git.sv.gnu.org/cgit/grep.git/
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="use-a-consistent-cli-syntax">Use a Consistent CLI Syntax</h1>
-<p>Consistency is important for your app's command-line interface. Decide up front what kind of syntax the app will need. Will it require subcommands? How will the option flags be structured? Will it accept short names as well as long names?</p>
+<p>Consistency is important for your app&rsquo;s command-line interface. Decide up front what kind of syntax the app will need. Will it require subcommands? How will the option flags be structured? Will it accept short names as well as long names?</p>
 <p>Platforms like Kubernetes and AWS provide command-line tools for interacting with their services. The syntax is straightforward and consistent.</p>
 <pre><code># Kubernetes
 kubectl [command] [TYPE] [NAME] [flags]
@@ -349,9 +348,9 @@ File deleted at gb.txt.
 <p>[Ken Thompson] put pipes into Unix - all in one night. And the next morning we had this orgy of one-liners.</p>
 <p>Doug McIlroy from <em>The Unix Oral History Project</em></p>
 </blockquote>
-<p>Console apps have at their disposal three data streams. They are <a href="http://www.linfo.org/standard_input.html">standard input</a> (stdin) for input data, <a href="http://www.linfo.org/standard_output.html">standard output</a> (stdout) for output data, and <a href="http://www.linfo.org/standard_error.html">standard error</a> (stderr) for error messages. All three streams read or write to the terminal by default, but they can be redirected to read from files or other programs&rsquo; output (stdin) or write to files or other program's input (stdout and stderr). The syntax to do this in Bash or Windows Command shell is a vertical bar or pipe <code>|</code>. You can use pipes to create data processing pipelines that pass data from app to app. There's also additional syntax for reading from a file <code>&lt;</code> and writing to a file <code>&gt;</code>.</p>
+<p>Console apps have at their disposal three data streams. They are <a href="http://www.linfo.org/standard_input.html">standard input</a> (stdin) for input data, <a href="http://www.linfo.org/standard_output.html">standard output</a> (stdout) for output data, and <a href="http://www.linfo.org/standard_error.html">standard error</a> (stderr) for error messages. All three streams read or write to the terminal by default, but they can be redirected to read from files or other programs&rsquo; output (stdin) or write to files or other program&rsquo;s input (stdout and stderr). The syntax to do this in Bash or Windows Command shell is a vertical bar or pipe <code>|</code>. You can use pipes to create data processing pipelines that pass data from app to app. There&rsquo;s also additional syntax for reading from a file <code>&lt;</code> and writing to a file <code>&gt;</code>.</p>
 <p><img src="/images/shell-pipelines.png#c" alt="Shell Pipelines"></p>
-<p>Let's say you want to search for all Powerpoint files in a directory and page through the results.</p>
+<p>Let&rsquo;s say you want to search for all Powerpoint files in a directory and page through the results.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -370,9 +369,9 @@ File deleted at gb.txt.
 </code></pre></td></tr></table>
 </div>
 </div><p>Pipes are essential for supporting the Unix philosophy of small focused programs that do one thing well. These programs become more useful if they can be composed into pipelines to do complex operations. Your console app should support this concept by reading from stdin and writing to stdout.</p>
-<h1 id="dont-cross-the-streams">Don't Cross the Streams</h1>
-<p><img src="/images/dont-cross-the-streams.png#c" alt="Don't Cross the Streams"></p>
-<p>There are two output streams: <strong>stdout</strong> and <strong>stderr</strong>, and both serve different purposes. Stdout is for data only. Anything else, errors, warnings, and progress messages, should go to stderr. Don't mix the two. Ever. If you do, you'll break the pipeline by making it difficult for the next app in the chain to process the output data.</p>
+<h1 id="dont-cross-the-streams">Don&rsquo;t Cross the Streams</h1>
+<p><img src="/images/dont-cross-the-streams.png#c" alt="Don&rsquo;t Cross the Streams"></p>
+<p>There are two output streams: <strong>stdout</strong> and <strong>stderr</strong>, and both serve different purposes. Stdout is for data only. Anything else, errors, warnings, and progress messages, should go to stderr. Don&rsquo;t mix the two. Ever. If you do, you&rsquo;ll break the pipeline by making it difficult for the next app in the chain to process the output data.</p>
 <p>In .NET, you write a line of text to stdout using <code>Console.WriteLine</code> which is a wrapper around <code>Console.Out.WriteLine</code>. For stderr, use <code>Console.Error.WriteLine</code>.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -462,11 +461,11 @@ Printed <span style="color:#ae81ff">4</span> of 4.
 </div>
 </div><h1 id="read-and-write-files-with-options-and-streams">Read and Write Files with Options and Streams</h1>
 <blockquote>
-<p>They all had file arguments; grep had a file argument, and cat had a file argument, and Thompson saw that that wasn't going to fit with this scheme of things and he went in and changed all those programs in the same night.</p>
+<p>They all had file arguments; grep had a file argument, and cat had a file argument, and Thompson saw that that wasn&rsquo;t going to fit with this scheme of things and he went in and changed all those programs in the same night.</p>
 <p>Doug McIlroy from <em>The Unix Oral History Project</em></p>
 </blockquote>
-<p>After Ken Thompson added pipes to Unix, he realized the utilities written for the new operating system had file arguments but didn't take standard input or use standard output. They couldn't be chained to create pipelines. He changed those apps to use stdin and stdout in addition to file arguments. You should do the same for your apps that work with files.</p>
-<p>Let's look at <code>grep</code> as an example. It takes both a file argument and reads from stdin.</p>
+<p>After Ken Thompson added pipes to Unix, he realized the utilities written for the new operating system had file arguments but didn&rsquo;t take standard input or use standard output. They couldn&rsquo;t be chained to create pipelines. He changed those apps to use stdin and stdout in addition to file arguments. You should do the same for your apps that work with files.</p>
+<p>Let&rsquo;s look at <code>grep</code> as an example. It takes both a file argument and reads from stdin.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -712,8 +711,8 @@ Egon Spengler
 Winston Zeddemore
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="dont-reinvent-the-wheel">Don't Reinvent the Wheel</h1>
-<p>When your console app supports stdin/stdout/stderr, then its users can leverage the existing ecosystem of command-line tools. You don't need to provide paging. Users can pipe into <code>less</code>. Need to filter? Use <code>grep</code>. Need file IO? Use the redirection operators: <code>&gt;</code>, <code>&lt;</code>, <code>&gt;&gt;</code>.</p>
+</div><h1 id="dont-reinvent-the-wheel">Don&rsquo;t Reinvent the Wheel</h1>
+<p>When your console app supports stdin/stdout/stderr, then its users can leverage the existing ecosystem of command-line tools. You don&rsquo;t need to provide paging. Users can pipe into <code>less</code>. Need to filter? Use <code>grep</code>. Need file IO? Use the redirection operators: <code>&gt;</code>, <code>&lt;</code>, <code>&gt;&gt;</code>.</p>
 <p>The following utilities are available for Unix-like environments running Bash and recent versions Command shell for Windows. They are great for building pipelines that process text.</p>
 <table>
 <thead>
@@ -733,7 +732,7 @@ Winston Zeddemore
 </tr>
 <tr>
 <td><code>COMMAND &lt; in.txt</code></td>
-<td>Redirect a file's contents to stdin.</td>
+<td>Redirect a file&rsquo;s contents to stdin.</td>
 </tr>
 <tr>
 <td><code>less</code>/<code>more</code></td>
@@ -775,12 +774,12 @@ Winston Zeddemore
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed <span style="color:#e6db74">&#39;s/\s/\n/g&#39;</span> &lt; 2020-01-26-8-steps-to-a-better-console-application.markdown | tr <span style="color:#e6db74">&#39;[:upper:]&#39;</span> <span style="color:#e6db74">&#39;[:lower:]&#39;</span> | grep <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">^\w*</span>$<span style="color:#e6db74">&#34;</span> | grep <span style="color:#f92672">[</span>^0-9*<span style="color:#f92672">]</span> | sort | uniq &gt; unique-words.txt
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed <span style="color:#e6db74">&#39;s/\s/\n/g&#39;</span> &lt; 2020-01-26-8-steps-to-a-better-console-application.markdown | tr <span style="color:#e6db74">&#39;[:upper:]&#39;</span> <span style="color:#e6db74">&#39;[:lower:]&#39;</span> | grep <span style="color:#e6db74">&#34;^\w*</span>$<span style="color:#e6db74">&#34;</span> | grep <span style="color:#f92672">[</span>^0-9*<span style="color:#f92672">]</span> | sort | uniq &gt; unique-words.txt
 </code></pre></td></tr></table>
 </div>
 </div><h1 id="have-a-structured-data-option">Have a Structured Data Option</h1>
 <p>All output text should be human-readable by default, preferably simple lists of text delimited by line breaks, however you should consider adding a structured data option to your apps. Output as JSON or XML is useful for many scripts. The data can be parsed and acted upon in an automated way.</p>
-<p>Let's update our Ghostbusters app to include the option to output the characters in JSON format.</p>
+<p>Let&rsquo;s update our Ghostbusters app to include the option to output the characters in JSON format.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -902,7 +901,7 @@ Winston Zeddemore
 <span style="color:#f92672">]</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Next we consume the output with <a href="https://stedolan.github.io/jq/">jq - a command-line JSON processor</a>. We can filter the contents to just the actor's names.</p>
+</div><p>Next we consume the output with <a href="https://stedolan.github.io/jq/">jq - a command-line JSON processor</a>. We can filter the contents to just the actor&rsquo;s names.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -941,9 +940,9 @@ Winston Zeddemore
 <li>Use a Consistent CLI Syntax</li>
 <li>Use Subcommands for Complex Apps</li>
 <li>Code for Pipes</li>
-<li>Don't Cross the Streams</li>
+<li>Don&rsquo;t Cross the Streams</li>
 <li>Read and Write Files with Options and Streams</li>
-<li>Don't Reinvent the Wheel</li>
+<li>Don&rsquo;t Reinvent the Wheel</li>
 <li>Have a Structured Data Option</li>
 </ol>
 <h1 id="references">References</h1>

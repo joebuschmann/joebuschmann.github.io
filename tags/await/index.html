@@ -152,7 +152,7 @@
       <h2 class="subtitle is-6 date">March 25, 2015</h2>
       <h1 class="title"><a href="/posts/2015/03/async/await-and-recursion/">Async/Await and Recursion</a></h1>
       <div class="content">
-        While using the new async/await keywords in C# 5.0 for the first time, I noticed an interesting aspect to how recursive methods behave when using await. For one method I was working on, Resharper notified me of a possible stack overflow exception with a &ldquo;function is recursive on all paths&rdquo; warning, but it didn't fail at runtime. Instead, it continued happily calling itself with no issues.
+        While using the new async/await keywords in C# 5.0 for the first time, I noticed an interesting aspect to how recursive methods behave when using await. For one method I was working on, Resharper notified me of a possible stack overflow exception with a &ldquo;function is recursive on all paths&rdquo; warning, but it didn&rsquo;t fail at runtime. Instead, it continued happily calling itself with no issues.
 What keeps it from failing is the use of the await keyword when calling DoWorkAsync().
         
         <a class="button is-link" href="/posts/2015/03/async/await-and-recursion/" style="height:28px">

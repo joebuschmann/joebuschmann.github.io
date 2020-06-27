@@ -48,7 +48,7 @@ Recently I decided to come to grips with this weakness and parse a text file con
       <pubDate>Mon, 18 Jul 2011 19:35:42 +0000</pubDate>
       
       <guid>/posts/2011/07/f-sharp-functions-tuple-syntax/</guid>
-      <description>I&#39;m relatively new to F# and functional programming and recently worked through an issue that had me perplexed. The issue was with creating functions with the &amp;ldquo;tuple syntax&amp;rdquo; versus the normal syntax of separating arguments by spaces.
+      <description>I&amp;rsquo;m relatively new to F# and functional programming and recently worked through an issue that had me perplexed. The issue was with creating functions with the &amp;ldquo;tuple syntax&amp;rdquo; versus the normal syntax of separating arguments by spaces.
 Consider the simple functions below that adds numeric arguments together. They are constructed in two ways. The first is by using a tuple to group the two arguments together. It looks very similar to the syntax from other languages such as C#.</description>
     </item>
     
@@ -58,7 +58,7 @@ Consider the simple functions below that adds numeric arguments together. They a
       <pubDate>Sat, 16 Jul 2011 14:08:34 +0000</pubDate>
       
       <guid>/posts/2011/07/my-first-blog-post/</guid>
-      <description>I&#39;ve always told myself that I needed to start blogging and get my thoughts out there. Well, after years of putting it off, I finally got started. I decided to write about what I love (besides my family of course): writing software using .NET. I&#39;ll start out focusing on C# and F# language features. I&#39;m proficient in C# but just starting out with F#. Functional programming is very different from what I&#39;m used to; however, I&#39;m liking it more and more.</description>
+      <description>I&amp;rsquo;ve always told myself that I needed to start blogging and get my thoughts out there. Well, after years of putting it off, I finally got started. I decided to write about what I love (besides my family of course): writing software using .NET. I&amp;rsquo;ll start out focusing on C# and F# language features. I&amp;rsquo;m proficient in C# but just starting out with F#. Functional programming is very different from what I&amp;rsquo;m used to; however, I&amp;rsquo;m liking it more and more.</description>
     </item>
     
   </channel>

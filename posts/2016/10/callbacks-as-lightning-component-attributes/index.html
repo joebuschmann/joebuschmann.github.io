@@ -120,10 +120,10 @@
     <div class="content">
       <p>Last week I posed a question on <a href="http://salesforce.stackexchange.com/questions/144087/how-do-i-pass-a-function-as-a-lightning-component-attribute">salesforce.stackexchange.com</a> asking how to pass a function as an attribute in a Lightning Component. As a newbie to the Lightning Component framework (and the Salesforce platform), I found it odd callbacks were not included as one of the <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/ref_aura_attribute.htm">supported attribute types</a>. The dearth of responses to my question surprised me. Eventually I found the answer when researching <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/events_component.htm">Component Events</a>.</p>
 <h4 id="lightning-events">Lightning Events</h4>
-<p>Before I elaborate, I have to say the Lightning framework's approach to callbacks or events seems excessive. My previous two web apps used React which has no separate concept of an event. React treats callback functions as any other data, and they are passed through the component hierarchy as attributes. The Lightning approach is to separate callbacks and data (strings, integers, arrays, object). Callbacks are encapsulated into events, and data are defined through strongly typed attributes.</p>
-<p>I would prefer the event concept go away altogether and be replaced with a simple callback or function attribute type. Unfortunately, that's not how Lightning works, so I won't belabor the point any further. Instead I'll focus on how you can pass callbacks to your Lightning components using events.</p>
+<p>Before I elaborate, I have to say the Lightning framework&rsquo;s approach to callbacks or events seems excessive. My previous two web apps used React which has no separate concept of an event. React treats callback functions as any other data, and they are passed through the component hierarchy as attributes. The Lightning approach is to separate callbacks and data (strings, integers, arrays, object). Callbacks are encapsulated into events, and data are defined through strongly typed attributes.</p>
+<p>I would prefer the event concept go away altogether and be replaced with a simple callback or function attribute type. Unfortunately, that&rsquo;s not how Lightning works, so I won&rsquo;t belabor the point any further. Instead I&rsquo;ll focus on how you can pass callbacks to your Lightning components using events.</p>
 <h4 id="mybuttoncmp">myButton.cmp</h4>
-<p>To help illustrate my thoughts, below is a Lightning component called <strong>myButton</strong>. It's a wrapper around the standard <code>&lt;button&gt;</code> element that adds behavior to each click event. The behavior could be tracking for marketing purposes or any other common function. <strong>myButton</strong> exposes a single event named <em>press</em>.</p>
+<p>To help illustrate my thoughts, below is a Lightning component called <strong>myButton</strong>. It&rsquo;s a wrapper around the standard <code>&lt;button&gt;</code> element that adds behavior to each click event. The behavior could be tracking for marketing purposes or any other common function. <strong>myButton</strong> exposes a single event named <em>press</em>.</p>
 <p><strong>pressEvent.evt</strong></p>
 <pre><code>&lt;aura:event type=&quot;COMPONENT&quot; /&gt;
 </code></pre><p><strong>myButton.cmp</strong></p>
@@ -174,7 +174,7 @@
 })
 </code></pre><p>Of course, there are times when you would want all press events routed through the same handler, but that would be the exception rather than the rule.</p>
 <h4 id="callbacks-as-attributes">Callbacks As Attributes</h4>
-<p>The alternative to <code>&lt;aura:handler&gt;</code> is to pass a callback as an attribute. Unfortunately, this isn't clear from the official documentation. I discovered it in the answer to <a href="http://salesforce.stackexchange.com/questions/89757/aurahandler-has-invalid-name-attribute-value#89759">an unrelated Stack Exchange question</a>. Essentially, you can pass event handlers to <code>&lt;aura:registerEvent&gt;</code> the same way you pass data to <code>&lt;aura:attribute&gt;</code>. I'm not sure why the Salesforce documentation doesn't emphasize this more.</p>
+<p>The alternative to <code>&lt;aura:handler&gt;</code> is to pass a callback as an attribute. Unfortunately, this isn&rsquo;t clear from the official documentation. I discovered it in the answer to <a href="http://salesforce.stackexchange.com/questions/89757/aurahandler-has-invalid-name-attribute-value#89759">an unrelated Stack Exchange question</a>. Essentially, you can pass event handlers to <code>&lt;aura:registerEvent&gt;</code> the same way you pass data to <code>&lt;aura:attribute&gt;</code>. I&rsquo;m not sure why the Salesforce documentation doesn&rsquo;t emphasize this more.</p>
 <p>With this in mind, you can rewrite <strong>myButtonConsumer</strong> as follows:</p>
 <p><strong>myButtonConsumer.cmp</strong></p>
 <pre><code>&lt;aura:component&gt;
@@ -194,10 +194,10 @@
         alert('Cancel pressed!');
     }
 })
-</code></pre><p>That's it. The <code>press</code> event is wired up to the controller via an attribute. The <code>&lt;aura:handler&gt;</code> element goes away. I much prefer this approach. It requires one fewer element and better encapsulates component markup.</p>
-<h4 id="wheres-the-documentation">Where's the Documentation?</h4>
-<p>I'm not sure why Saleforce chooses not to document the second approach to event handling. Maybe it is deprecated? I doubt it. My best guess is <code>&lt;aura:handler&gt;</code> is their preferred way.</p>
-<p>If anyone has an answer, I'd love to hear from you in the comments.</p>
+</code></pre><p>That&rsquo;s it. The <code>press</code> event is wired up to the controller via an attribute. The <code>&lt;aura:handler&gt;</code> element goes away. I much prefer this approach. It requires one fewer element and better encapsulates component markup.</p>
+<h4 id="wheres-the-documentation">Where&rsquo;s the Documentation?</h4>
+<p>I&rsquo;m not sure why Saleforce chooses not to document the second approach to event handling. Maybe it is deprecated? I doubt it. My best guess is <code>&lt;aura:handler&gt;</code> is their preferred way.</p>
+<p>If anyone has an answer, I&rsquo;d love to hear from you in the comments.</p>
 
       
     </div>

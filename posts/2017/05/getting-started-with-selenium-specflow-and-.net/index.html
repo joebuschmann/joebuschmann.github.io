@@ -118,11 +118,11 @@
     <h1 class="title">Getting Started with Selenium, SpecFlow, and .NET</h1>
     
     <div class="content">
-      <p>Selenium is a library used to automate web browsers. It uses a common web driver interface, and each web browser, Chrome, Firefox, IE, has a corresponding implementation that takes advantage of the browser's native API.</p>
-<p>I don't have much experience with browser automation. In fact, I try to avoid it as much as possible in favor of testing at the unit and service level. Tests running through the browser tend to be brittle due to the non-deterministic nature of web pages. Despite this, familiarity with Selenium is still valuable due to its popularity.</p>
+      <p>Selenium is a library used to automate web browsers. It uses a common web driver interface, and each web browser, Chrome, Firefox, IE, has a corresponding implementation that takes advantage of the browser&rsquo;s native API.</p>
+<p>I don&rsquo;t have much experience with browser automation. In fact, I try to avoid it as much as possible in favor of testing at the unit and service level. Tests running through the browser tend to be brittle due to the non-deterministic nature of web pages. Despite this, familiarity with Selenium is still valuable due to its popularity.</p>
 <p>The following is a guide to get newcomers up and running with Selenium in .NET. It includes project setup, a simple scenario, and refactoring for more maintainable code.</p>
 <h4 id="nuget-packages">NuGet Packages</h4>
-<p>Before we get into the details of Selenium, you'll need to create a new project in Visual Studio and add some dependencies from NuGet. Below are the NuGet packages I typically include.</p>
+<p>Before we get into the details of Selenium, you&rsquo;ll need to create a new project in Visual Studio and add some dependencies from NuGet. Below are the NuGet packages I typically include.</p>
 <ol>
 <li>NUnit (or any other unit testing framework supported by SpecFlow)</li>
 <li>SpecFlow</li>
@@ -131,15 +131,15 @@
 <li>Selenium.Support (optional)</li>
 <li>NUnit.ConsoleRunner (optional)</li>
 </ol>
-<p><strong>Selenium.Support</strong> is optional but highly recommended. It contains useful helper methods that complement the Selenium.WebDriver API. For example, the Selenium API is asynchronous and non-deterministic, and Selenium.Support's waiting methods make using it much easier.</p>
-<p>NUnit.ConsoleRunner is also optional if you're using NUnit and need a test runner. Other options include using Resharper's test runner or NUnit's CLI.</p>
+<p><strong>Selenium.Support</strong> is optional but highly recommended. It contains useful helper methods that complement the Selenium.WebDriver API. For example, the Selenium API is asynchronous and non-deterministic, and Selenium.Support&rsquo;s waiting methods make using it much easier.</p>
+<p>NUnit.ConsoleRunner is also optional if you&rsquo;re using NUnit and need a test runner. Other options include using Resharper&rsquo;s test runner or NUnit&rsquo;s CLI.</p>
 <h4 id="google-search">Google Search</h4>
 <p>Now that the project is set up, the next step is to choose a simple example to demonstrate the basics of Selenium. I went with validating a Google search. The SpecFlow feature definition below includes Gherkin for validating a search for the keyword <em>kittens</em>.</p>
 <script src="https://gist.github.com/joebuschmann/53ab562884b47378fe577dc9a70a205a.js"></script>
 <p>Next I added a SpecFlow step definition file.</p>
 <script src="https://gist.github.com/joebuschmann/a919a84a75081008151ef7da71bbb428.js"></script>
 <h4 id="iwebdriver">IWebDriver</h4>
-<p>At this point the test should run and pass. Let's take a closer look at how Selenium works. The core of its architecture includes the <code>IWebDriver</code> interface and an implementation for each of the major browsers. In this example, I went with the Chrome driver; however, a more robust test suite would include the other browsers and the ability to switch between them.</p>
+<p>At this point the test should run and pass. Let&rsquo;s take a closer look at how Selenium works. The core of its architecture includes the <code>IWebDriver</code> interface and an implementation for each of the major browsers. In this example, I went with the Chrome driver; however, a more robust test suite would include the other browsers and the ability to switch between them.</p>
 <pre><code>private readonly IWebDriver _webDriver;
 </code></pre><p>The web driver field is declared as <code>IWebDriver</code> and is assigned in the constructor.</p>
 <pre><code>_webDriver = new ChromeDriver();
@@ -152,7 +152,7 @@
 {
     PollingInterval = TimeSpan.FromMilliseconds(100)
 };
-</code></pre><p>The <code>WebDriverWait</code> class is useful when you need to find dynamic HTML elements on a page like those created after an XHR request. You don't know when the elements will appear, so the test steps need to poll until they load.</p>
+</code></pre><p>The <code>WebDriverWait</code> class is useful when you need to find dynamic HTML elements on a page like those created after an XHR request. You don&rsquo;t know when the elements will appear, so the test steps need to poll until they load.</p>
 <pre><code>IWebElement searchResultsHeader = _defaultWait.Until(d =&gt;
 {
     var results = d.FindElements(By.CssSelector(&quot;h2&quot;));
@@ -175,7 +175,7 @@ public void CleanUp()
     _webDriver.Quit();
 }
 </code></pre><h4 id="refactoring-for-composition">Refactoring for Composition</h4>
-<p>At this point, the test runs well as an isolated example, but it could be improved to make it more <a href="https://en.wikipedia.org/wiki/Composability">composable</a>. Design choices like setting the browser and default wait parameters within the class make it difficult to reuse. What if we wanted to do a test run with Firefox? Or change the timeout to 10 seconds for a particular environment? One option is to create a base class with subclasses for  each browser. Another is to take advantage of SpecFlow's DI framework to inject dependencies like the IWebDriver implementation.</p>
+<p>At this point, the test runs well as an isolated example, but it could be improved to make it more <a href="https://en.wikipedia.org/wiki/Composability">composable</a>. Design choices like setting the browser and default wait parameters within the class make it difficult to reuse. What if we wanted to do a test run with Firefox? Or change the timeout to 10 seconds for a particular environment? One option is to create a base class with subclasses for  each browser. Another is to take advantage of SpecFlow&rsquo;s DI framework to inject dependencies like the IWebDriver implementation.</p>
 <p>I decided to go with DI over subclassing. I pulled the web driver setup and tear-down code out of the <code>GoogleSearch</code> class and into its own class called <code>BootstrapSelenium</code>. I also moved the default wait code. In addition I added some application settings to make the web driver type and wait timeout/poll interval configurable. As more tests are added, they will not need to configure their own web drivers.</p>
 <p>Another advantage of this change is <code>GoogleSearch</code> becomes solely focused on providing the step implementations for the Gherkin, and the bootstrap class handles test setup and tear-down. Each class is simpler and more in line with the <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">single responsibility principle</a>.</p>
 <p>Below are the two refactored classes. You can find the <a href="https://github.com/joebuschmann/selenium-demo">full source on GitHub</a>.</p>

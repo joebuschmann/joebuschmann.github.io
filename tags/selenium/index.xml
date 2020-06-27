@@ -18,8 +18,8 @@
       <pubDate>Tue, 30 May 2017 19:54:01 +0000</pubDate>
       
       <guid>/posts/2017/05/getting-started-with-selenium-specflow-and-.net/</guid>
-      <description>Selenium is a library used to automate web browsers. It uses a common web driver interface, and each web browser, Chrome, Firefox, IE, has a corresponding implementation that takes advantage of the browser&#39;s native API.
-I don&#39;t have much experience with browser automation. In fact, I try to avoid it as much as possible in favor of testing at the unit and service level. Tests running through the browser tend to be brittle due to the non-deterministic nature of web pages.</description>
+      <description>Selenium is a library used to automate web browsers. It uses a common web driver interface, and each web browser, Chrome, Firefox, IE, has a corresponding implementation that takes advantage of the browser&amp;rsquo;s native API.
+I don&amp;rsquo;t have much experience with browser automation. In fact, I try to avoid it as much as possible in favor of testing at the unit and service level. Tests running through the browser tend to be brittle due to the non-deterministic nature of web pages.</description>
     </item>
     
   </channel>

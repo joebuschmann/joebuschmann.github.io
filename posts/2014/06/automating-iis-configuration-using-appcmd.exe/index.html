@@ -118,7 +118,7 @@
     <div class="content">
       <p>A couple weeks ago I wrote a script to completely automate the set up of IIS for some system tests at work. The tests require three IIS applications along with unique application pools, and the applications need to be segregated under a virtual directory to isolate them from other automated tests. This was done for a local set up for application developers.</p>
 <p>This simple script took what could have been an error prone manual process and made it quick and mostly fool proof.</p>
-<p>If you're not familiar with appcmd.exe, it is a command line utility for managing IIS 7+. Pretty much anything you can do with the IIS Manager GUI you can do with appcmd. The API is elegant and well thought out. Each invocation of appcmd requires two arguments, a command and an object type. The optional arguments include the object identifier and configuration parameters.</p>
+<p>If you&rsquo;re not familiar with appcmd.exe, it is a command line utility for managing IIS 7+. Pretty much anything you can do with the IIS Manager GUI you can do with appcmd. The API is elegant and well thought out. Each invocation of appcmd requires two arguments, a command and an object type. The optional arguments include the object identifier and configuration parameters.</p>
 <p>Say you want to get a list of all web applications:</p>
 <pre><code>C:\Windows\System32\inetsrv&gt;appcmd list app
 </code></pre><p>Or you want to add a web app:</p>

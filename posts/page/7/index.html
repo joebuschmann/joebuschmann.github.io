@@ -104,6 +104,36 @@
       <div class="subtitle tags is-6 is-pulled-right">
         
         
+<a class="subtitle is-6" href="/tags/specflow">#specflow</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/dotnet">#dotnet</a>
+  
+  | <a class="subtitle is-6" href="/tags/c-sharp">#c-sharp</a>
+  
+
+        
+      </div>
+      <h2 class="subtitle is-6 date">October 22, 2015</h2>
+      <h1 class="title"><a href="/posts/2015/10/an-introduction-to-scoped-bindings-in-specflow/">An Introduction to Scoped Bindings in SpecFlow</a></h1>
+      <div class="content">
+        One nice aspect of SpecFlow is the ability to scope bindings by feature title, scenario title, or tag. Normally bindings are global to the project, but a binding&rsquo;s scope can be restricted using the Scope attribute. I like to think of it as similar to the private and public class modifiers in C#.
+Consider the Gherkin below.
+It is a single feature with one scenario and two tags. One tag is at the feature level and the other at the scenario level.
+        
+        <a class="button is-link" href="/posts/2015/10/an-introduction-to-scoped-bindings-in-specflow/" style="height:28px">
+          Read more
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <div class="subtitle tags is-6 is-pulled-right">
+        
+        
 <a class="subtitle is-6" href="/tags/dotnet">#dotnet</a>
 
 
@@ -119,7 +149,7 @@
       <h2 class="subtitle is-6 date">September 22, 2015</h2>
       <h1 class="title"><a href="/posts/2015/09/refactoring-to-composable-specflow-steps/">Refactoring to Composable SpecFlow Steps</a></h1>
       <div class="content">
-        I've seen some pretty bad SpecFlow code. Code that seems to violate every good practice out there. Poor reuse. Copy and paste everywhere. Test code is the hotel room of the software world. People are sloppier and more careless than they otherwise would be. I'm not sure why that is. Perhaps because tests are not seen as &ldquo;real code&rdquo;. But as a testing code base grows from dozens to hundreds to even a thousand or more test cases, having well-factored composable SpecFlow steps becomes critical.
+        I&rsquo;ve seen some pretty bad SpecFlow code. Code that seems to violate every good practice out there. Poor reuse. Copy and paste everywhere. Test code is the hotel room of the software world. People are sloppier and more careless than they otherwise would be. I&rsquo;m not sure why that is. Perhaps because tests are not seen as &ldquo;real code&rdquo;. But as a testing code base grows from dozens to hundreds to even a thousand or more test cases, having well-factored composable SpecFlow steps becomes critical.
         
         <a class="button is-link" href="/posts/2015/09/refactoring-to-composable-specflow-steps/" style="height:28px">
           Read more
@@ -145,8 +175,8 @@
       <h2 class="subtitle is-6 date">August 18, 2015</h2>
       <h1 class="title"><a href="/posts/2015/08/tidying-up-code-with-c#s-using-alias-directives/">Tidying Up Code with C#&#39;s Using Alias Directives</a></h1>
       <div class="content">
-        The C# language's using alias directives or namespace and type aliases provide a way to disambiguate between namespaces or types with the same name. For example, both the System.Net and Nancy libraries have a type named HttpStatusCode. If you happen to import both namespaces in a file, then the types need to be fully qualified or else the compiler will fail with the error:
- 'HttpStatusCode&rsquo; is an ambiguous reference between &lsquo;Nancy.
+        The C# language&rsquo;s using alias directives or namespace and type aliases provide a way to disambiguate between namespaces or types with the same name. For example, both the System.Net and Nancy libraries have a type named HttpStatusCode. If you happen to import both namespaces in a file, then the types need to be fully qualified or else the compiler will fail with the error:
+ &lsquo;HttpStatusCode&rsquo; is an ambiguous reference between &lsquo;Nancy.
         
         <a class="button is-link" href="/posts/2015/08/tidying-up-code-with-c#s-using-alias-directives/" style="height:28px">
           Read more
@@ -178,7 +208,7 @@
       <div class="content">
         We all have those days where we spend hours trying to solve a seemingly simple problem only to smack ourselves in the head when we finally figure it out. Missing quotes, forgetting to flush a StreamWriter, etc. If only we could get back all the wasted time.
 Well, this week I wrestled with more gotchas than usual. Below are the ones that burned most of my time.
-Streams Don't forget to flush a StreamWriter when you're done.
+Streams Don&rsquo;t forget to flush a StreamWriter when you&rsquo;re done.
         
         <a class="button is-link" href="/posts/2015/08/this-week-in-programming-gotchas/" style="height:28px">
           Read more
@@ -206,7 +236,7 @@ Streams Don't forget to flush a StreamWriter when you're done.
       <h2 class="subtitle is-6 date">August 6, 2015</h2>
       <h1 class="title"><a href="/posts/2015/08/string.empty-versus/">String.Empty Versus &#34;&#34;</a></h1>
       <div class="content">
-        If you've been in the .NET world for any length of time, you'll eventually come across someone who claims String.Empty performs better than &quot;&quot;. I was always skeptical of this claim because this scenario seemed like something the compiler could optimize. And because the .NET runtime manages string literals in an intern pool, my guess was they would both point to the same value. That's what I suspected anyway but didn't have any proof.
+        If you&rsquo;ve been in the .NET world for any length of time, you&rsquo;ll eventually come across someone who claims String.Empty performs better than &quot;&quot;. I was always skeptical of this claim because this scenario seemed like something the compiler could optimize. And because the .NET runtime manages string literals in an intern pool, my guess was they would both point to the same value. That&rsquo;s what I suspected anyway but didn&rsquo;t have any proof.
         
         <a class="button is-link" href="/posts/2015/08/string.empty-versus/" style="height:28px">
           Read more
@@ -234,32 +264,10 @@ Streams Don't forget to flush a StreamWriter when you're done.
       <h2 class="subtitle is-6 date">March 25, 2015</h2>
       <h1 class="title"><a href="/posts/2015/03/async/await-and-recursion/">Async/Await and Recursion</a></h1>
       <div class="content">
-        While using the new async/await keywords in C# 5.0 for the first time, I noticed an interesting aspect to how recursive methods behave when using await. For one method I was working on, Resharper notified me of a possible stack overflow exception with a &ldquo;function is recursive on all paths&rdquo; warning, but it didn't fail at runtime. Instead, it continued happily calling itself with no issues.
+        While using the new async/await keywords in C# 5.0 for the first time, I noticed an interesting aspect to how recursive methods behave when using await. For one method I was working on, Resharper notified me of a possible stack overflow exception with a &ldquo;function is recursive on all paths&rdquo; warning, but it didn&rsquo;t fail at runtime. Instead, it continued happily calling itself with no issues.
 What keeps it from failing is the use of the await keyword when calling DoWorkAsync().
         
         <a class="button is-link" href="/posts/2015/03/async/await-and-recursion/" style="height:28px">
-          Read more
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-        
-<a class="subtitle is-6" href="/tags/best-practices-2">#best-practices-2</a>
-
-
-
-        
-      </div>
-      <h2 class="subtitle is-6 date">February 17, 2015</h2>
-      <h1 class="title"><a href="/posts/2015/02/a-shared-development-database-is-bad...very-bad/">A Shared Development Database is Bad...Very Bad</a></h1>
-      <div class="content">
-        The software development group at my office has a shared database that developers connect to for their daily work. In the last few months, the number of developers has doubled, and the practice of using the shared database has not scaled well. It has caused frustration as members of one team make schema changes before another team can consume them. The resulting breakages has led to lost productivity. To make matters worse, the same database serves as a reference for the daily migration process.
-        
-        <a class="button is-link" href="/posts/2015/02/a-shared-development-database-is-bad...very-bad/" style="height:28px">
           Read more
         </a>
         

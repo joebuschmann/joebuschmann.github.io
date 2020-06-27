@@ -118,9 +118,9 @@
     <h1 class="title">Salesforce Lightning - Fixing the Built-in Components</h1>
     
     <div class="content">
-      <p>If you've developed with the Salesforce Lightning Framework, you're probably familiar with the <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/aura_compref.htm">Lightning components</a> available in the UI namespace. They include <strong>ui:button</strong> and <strong>ui:inputText</strong> among others. These out-of-the-box components are intended to get you up and running quickly, but the reality is they're pretty buggy. It can take some tweaking to get them to look right.</p>
+      <p>If you&rsquo;ve developed with the Salesforce Lightning Framework, you&rsquo;re probably familiar with the <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/aura_compref.htm">Lightning components</a> available in the UI namespace. They include <strong>ui:button</strong> and <strong>ui:inputText</strong> among others. These out-of-the-box components are intended to get you up and running quickly, but the reality is they&rsquo;re pretty buggy. It can take some tweaking to get them to look right.</p>
 <h4 id="issues-with-uiinputdatetime">Issues with ui:inputDateTime</h4>
-<p>A prime example of this is <strong>ui:inputDateTime</strong>. If you use it in conjunction with the SLDS classes <strong>slds-input</strong> and <strong>slds-form-element__label</strong>, the component's layout gets out of whack.</p>
+<p>A prime example of this is <strong>ui:inputDateTime</strong>. If you use it in conjunction with the SLDS classes <strong>slds-input</strong> and <strong>slds-form-element__label</strong>, the component&rsquo;s layout gets out of whack.</p>
 <pre><code>&lt;div class=&quot;slds-form-element__control&quot;&gt;
     &lt;ui:inputDateTime aura:id=&quot;startdate&quot; label=&quot;Start&quot;
                       class=&quot;slds-input&quot;
@@ -130,11 +130,11 @@
 &lt;/div&gt;
 </code></pre><p>The slds-input class forces a width of 100% on the input textboxes which pushes the calendar icons to the next line.</p>
 <p><img src="/images/ui-datetime-no-fix-1.png" alt="ui:inputDateTime"></p>
-<p>Even worse, when you click the icon for the time selection, the list doesn't appear under the textbox like it should. Instead it is positioned to the far left.</p>
+<p>Even worse, when you click the icon for the time selection, the list doesn&rsquo;t appear under the textbox like it should. Instead it is positioned to the far left.</p>
 <p><img src="/images/ui-datetime-no-fix-2.png" alt="ui:inputDateTime"></p>
-<p>The fixes turn out to be straightforward, but there are many annoyances with these components. You'll find yourself tweaking them to get the look just right.</p>
+<p>The fixes turn out to be straightforward, but there are many annoyances with these components. You&rsquo;ll find yourself tweaking them to get the look just right.</p>
 <h4 id="component-inheritance">Component Inheritance</h4>
-<p>An approach I've been using is to wrap the built-in components using component inheritance. To fix the calendar icons, I extended ui:inputDateTime and included custom CSS to position the icons and the time list. I also included the SLDS classes as defaults. This is a nice way to encapsulate tweaks for the built-in components and make them much easier to use.</p>
+<p>An approach I&rsquo;ve been using is to wrap the built-in components using component inheritance. To fix the calendar icons, I extended ui:inputDateTime and included custom CSS to position the icons and the time list. I also included the SLDS classes as defaults. This is a nice way to encapsulate tweaks for the built-in components and make them much easier to use.</p>
 <p><strong>inputDateTimeCustom.cmp</strong></p>
 <pre><code>&lt;aura:component extends=&quot;ui:inputDateTime&quot;&gt;
 	&lt;!-- Provide SLDS default classes for the input and label.  --&gt;
@@ -185,7 +185,7 @@
 </code></pre><p>Ahhh. Much better!</p>
 <p><img src="/images/ui-datetime-fix.png" alt="ui:inputDateTime"></p>
 <h4 id="the-lightning-namespace">The Lightning Namespace</h4>
-<p>In the Winter &lsquo;17 release, Salesforce introduced a new namespace called <strong>lightning</strong>. It includes a number of components designed to integrate better with the look and feel of the Lightning experience. I don't know for sure, but my sense is they will eventually supersede the components in the UI namespace. Hopefully, they will provide a better out-of-the-box experience.</p>
+<p>In the Winter &lsquo;17 release, Salesforce introduced a new namespace called <strong>lightning</strong>. It includes a number of components designed to integrate better with the look and feel of the Lightning experience. I don&rsquo;t know for sure, but my sense is they will eventually supersede the components in the UI namespace. Hopefully, they will provide a better out-of-the-box experience.</p>
 
       
     </div>

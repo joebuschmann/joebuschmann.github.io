@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Joe Buschmann 2020</copyright>
-    <lastBuildDate>Tue, 11 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/c-sharp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What Does It Mean to Pass a Reference Type Variable by Reference?</title>
+      <link>/posts/2020/06/what-does-it-mean-to-pass-a-reference-type-variable-by-reference/</link>
+      <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2020/06/what-does-it-mean-to-pass-a-reference-type-variable-by-reference/</guid>
+      <description>Value and Reference Types Before we get to the answer, let&amp;rsquo;s review the two basic types in .NET: value types and reference types. Variables of value types directly contain their data according to the Microsoft docs. If you assign one value type variable to another, the .NET runtime will make a copy of its data. Operations on one variable will not affect another (with one exception as we&amp;rsquo;ll see). Value types are defined as structures or enumerations, and examples include the .</description>
+    </item>
     
     <item>
       <title>8 Steps to a Better Console Application</title>
@@ -18,7 +27,9 @@
       <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/posts/2020/02/8-steps-to-a-better-console-application/</guid>
-      <description>The console application is the workhorse of the software world. It isn&#39;t flashy like its graphical cousins the desktop and web app. It isn&#39;t sought after like the mobile app. Graphical user interfaces compose images, sophisticated widgets, and animations, but the humble command-line interface (CLI) has none of that. It runs in shells with strange names like Bourne-Again Shell (Bash), Korn Shell, and CMD.EXE. Its tools are simple lines of text printed to a terminal or redirected to a file.</description>
+      <description>Despite its apparent simplicity, writing a good console application is more difficult than you would expect. Many developers get the basics wrong and limit the effectiveness of their software as a result. In the 1970s, Doug McIlroy first expressed the Unix Philosophy for building apps with a good CLI. It was later summarized by Peter H. Salus in A Quarter-Century of Unix (1994).
+ The Unix Philosophy
+ Write programs that do one thing and do it well.</description>
     </item>
     
     <item>
@@ -38,7 +49,7 @@ Over the next few weeks, I created a series of posts, one for each section of th
       
       <guid>/posts/2018/08/running-specflow-scenarios-in-parallel/</guid>
       <description>As of SpecFlow version 2.0, you can run scenarios in parallel. This means faster execution times and faster feedback in your continuous integration process.
-Memory Isolation To enable parallel execution, you must use a test runner that supports it. Available runners include NUnit 3.0, xUnit 2.0, and the SpecFlow+ Runner (specrun). Specrun is a commercial product, but it has advanced features like memory isolation via an app domain or process. NUnit and xUnit don&#39;t support memory isolation, so they requre your tests to be thread safe.</description>
+Memory Isolation To enable parallel execution, you must use a test runner that supports it. Available runners include NUnit 3.0, xUnit 2.0, and the SpecFlow+ Runner (specrun). Specrun is a commercial product, but it has advanced features like memory isolation via an app domain or process. NUnit and xUnit don&amp;rsquo;t support memory isolation, so they requre your tests to be thread safe.</description>
     </item>
     
     <item>
@@ -48,7 +59,7 @@ Memory Isolation To enable parallel execution, you must use a test runner that s
       
       <guid>/posts/2018/08/reusable-bindings-in-specflow/</guid>
       <description>As your application grows, your SpecFlow test suite needs to grow with it. Reusable bindings are essentional to prevent your code from becoming a bloated mess. Fortunately, the SpecFlow runtime has reusability in mind with a built-in inversion of control (IoC) framework and step argument transformations. With these features you can create reusable bindings that make test creation more productive.
-Problems with Inheritance Before digging into IoC, I&#39;ll take a moment to cover why you shouldn&#39;t use inheritance in your bindings.</description>
+Problems with Inheritance Before digging into IoC, I&amp;rsquo;ll take a moment to cover why you shouldn&amp;rsquo;t use inheritance in your bindings.</description>
     </item>
     
     <item>
@@ -57,8 +68,8 @@ Problems with Inheritance Before digging into IoC, I&#39;ll take a moment to cov
       <pubDate>Fri, 10 Aug 2018 21:41:47 +0000</pubDate>
       
       <guid>/posts/2018/08/working-effectively-with-specflow-tables/</guid>
-      <description>The Gherkin DSL defines data tables as a way of passing a list of values to a step definition. Gherkin tables use the pipe character | to delimit column names and values. They&#39;re easy to read and understand by both business and technical people.
-While they work great in Gherkin, tables don&#39;t translate well to strongly typed .NET languages. They are converted to an instance of the Table type in SpecFlow bindings.</description>
+      <description>The Gherkin DSL defines data tables as a way of passing a list of values to a step definition. Gherkin tables use the pipe character | to delimit column names and values. They&amp;rsquo;re easy to read and understand by both business and technical people.
+While they work great in Gherkin, tables don&amp;rsquo;t translate well to strongly typed .NET languages. They are converted to an instance of the Table type in SpecFlow bindings.</description>
     </item>
     
     <item>
@@ -67,7 +78,7 @@ While they work great in Gherkin, tables don&#39;t translate well to strongly ty
       <pubDate>Wed, 08 Aug 2018 13:41:40 +0000</pubDate>
       
       <guid>/posts/2018/08/specflow-basics/</guid>
-      <description>SpecFlow is hands down my favorite testing tool. I&#39;ve been blogging about it since 2013 covering mostly advanced topics. In this post, I&#39;ll go back to the beginning and briefly cover the basics to give you an idea of what it can do.
+      <description>SpecFlow is hands down my favorite testing tool. I&amp;rsquo;ve been blogging about it since 2013 covering mostly advanced topics. In this post, I&amp;rsquo;ll go back to the beginning and briefly cover the basics to give you an idea of what it can do.
 What is SpecFlow? SpecFlow is a tool that allows you to:
  Define, manage, and automate human-readable acceptance tests in .NET. Enable BDD with easy to understand tests.</description>
     </item>
@@ -89,7 +100,7 @@ Compiler Option By default, integral operations are not checked for overflows ei
       <pubDate>Sun, 22 Oct 2017 02:44:18 +0000</pubDate>
       
       <guid>/posts/2017/10/specflow-nunit3-generator-plugin/</guid>
-      <description>I recently created a SpecFlow plugin to solve a peculiar problem with NUnit test code generation. The issue is SpecFlow will generate test code that doesn&#39;t compile when the .NET project containing the SpecFlow scenarios has a default namespace with the word NUnit. For example, if your project has the namespace IntegrationTests.NUnit, then you&#39;ll receive the following error when trying to build.
+      <description>I recently created a SpecFlow plugin to solve a peculiar problem with NUnit test code generation. The issue is SpecFlow will generate test code that doesn&amp;rsquo;t compile when the .NET project containing the SpecFlow scenarios has a default namespace with the word NUnit. For example, if your project has the namespace IntegrationTests.NUnit, then you&amp;rsquo;ll receive the following error when trying to build.
  The type or namespace name &amp;lsquo;Framework&amp;rsquo; does not exist in the namespace &amp;lsquo;IntegrationTests.</description>
     </item>
     
@@ -108,7 +119,7 @@ Compiler Option By default, integral operations are not checked for overflows ei
       <pubDate>Fri, 08 Jul 2016 01:04:00 +0000</pubDate>
       
       <guid>/posts/2016/07/top-6-industry-shifts-during-my-it-career/</guid>
-      <description>In the fall of 1999, I dropped my plans to attend grad school to embark on a career in IT. The industry has changed considerably since then mostly for the better. In fact I&#39;ve never been more excited to be a software developer.
+      <description>In the fall of 1999, I dropped my plans to attend grad school to embark on a career in IT. The industry has changed considerably since then mostly for the better. In fact I&amp;rsquo;ve never been more excited to be a software developer.
 As part of a personal retrospective on my career, below are my thoughts on the top six shifts in IT. By a &amp;ldquo;shift&amp;rdquo; I mean a change that has profoundly affected the way developers go about their daily work.</description>
     </item>
     
@@ -119,7 +130,7 @@ As part of a personal retrospective on my career, below are my thoughts on the t
       
       <guid>/posts/2015/12/a-short-and-easy-introduction-to-.nets-task-class/</guid>
       <description>Task.Run You can use Task.Run to schedule a delegate to run on the thread pool. The method returns a new task, and if the work is complete, the result will be available via Task.Result. If not, Task.Result will block until it is complete.
-1 2 3 4 5 6 7 8 9 10 11 12  private void button_Click(object sender, EventArgs e){Task&amp;lt;DateTime&amp;gt; task = Task.Run(() =&amp;gt; GetDateTime());lblDateTime.Text = task.</description>
+1 2 3 4 5 6 7 8 9 10 11 12  private void button_Click(object sender, EventArgs e) { Task&amp;lt;DateTime&amp;gt; task = Task.Run(() =&amp;gt; GetDateTime()); lblDateTime.Text = task.</description>
     </item>
     
     <item>
@@ -128,7 +139,7 @@ As part of a personal retrospective on my career, below are my thoughts on the t
       <pubDate>Mon, 26 Oct 2015 13:30:51 +0000</pubDate>
       
       <guid>/posts/2015/10/specflow-tags-done-right/</guid>
-      <description>In a previous post, I covered scoped bindings in SpecFlow and ended with an example of how not to use tags. In this post, I&#39;ll cover the &amp;ldquo;right way&amp;rdquo; and demonstrate how to avoid coupling features to step definitions. But first, a quick primer on tags.
+      <description>In a previous post, I covered scoped bindings in SpecFlow and ended with an example of how not to use tags. In this post, I&amp;rsquo;ll cover the &amp;ldquo;right way&amp;rdquo; and demonstrate how to avoid coupling features to step definitions. But first, a quick primer on tags.
 What Are Tags? Tags are used in Gherkin to mark features or scenarios. They begin with the @ character in Gherkin, but in step definitions the @ is removed.</description>
     </item>
     
@@ -138,7 +149,7 @@ What Are Tags? Tags are used in Gherkin to mark features or scenarios. They begi
       <pubDate>Thu, 22 Oct 2015 12:28:04 +0000</pubDate>
       
       <guid>/posts/2015/10/an-introduction-to-scoped-bindings-in-specflow/</guid>
-      <description>One nice aspect of SpecFlow is the ability to scope bindings by feature title, scenario title, or tag. Normally bindings are global to the project, but a binding&#39;s scope can be restricted using the Scope attribute. I like to think of it as similar to the private and public class modifiers in C#.
+      <description>One nice aspect of SpecFlow is the ability to scope bindings by feature title, scenario title, or tag. Normally bindings are global to the project, but a binding&amp;rsquo;s scope can be restricted using the Scope attribute. I like to think of it as similar to the private and public class modifiers in C#.
 Consider the Gherkin below.
 It is a single feature with one scenario and two tags. One tag is at the feature level and the other at the scenario level.</description>
     </item>
@@ -149,7 +160,7 @@ Consider the Gherkin below.
       <pubDate>Tue, 22 Sep 2015 12:15:32 +0000</pubDate>
       
       <guid>/posts/2015/09/refactoring-to-composable-specflow-steps/</guid>
-      <description>I&#39;ve seen some pretty bad SpecFlow code. Code that seems to violate every good practice out there. Poor reuse. Copy and paste everywhere. Test code is the hotel room of the software world. People are sloppier and more careless than they otherwise would be. I&#39;m not sure why that is. Perhaps because tests are not seen as &amp;ldquo;real code&amp;rdquo;. But as a testing code base grows from dozens to hundreds to even a thousand or more test cases, having well-factored composable SpecFlow steps becomes critical.</description>
+      <description>I&amp;rsquo;ve seen some pretty bad SpecFlow code. Code that seems to violate every good practice out there. Poor reuse. Copy and paste everywhere. Test code is the hotel room of the software world. People are sloppier and more careless than they otherwise would be. I&amp;rsquo;m not sure why that is. Perhaps because tests are not seen as &amp;ldquo;real code&amp;rdquo;. But as a testing code base grows from dozens to hundreds to even a thousand or more test cases, having well-factored composable SpecFlow steps becomes critical.</description>
     </item>
     
     <item>
@@ -158,8 +169,8 @@ Consider the Gherkin below.
       <pubDate>Tue, 18 Aug 2015 21:52:34 +0000</pubDate>
       
       <guid>/posts/2015/08/tidying-up-code-with-c#s-using-alias-directives/</guid>
-      <description>The C# language&#39;s using alias directives or namespace and type aliases provide a way to disambiguate between namespaces or types with the same name. For example, both the System.Net and Nancy libraries have a type named HttpStatusCode. If you happen to import both namespaces in a file, then the types need to be fully qualified or else the compiler will fail with the error:
- &#39;HttpStatusCode&amp;rsquo; is an ambiguous reference between &amp;lsquo;Nancy.</description>
+      <description>The C# language&amp;rsquo;s using alias directives or namespace and type aliases provide a way to disambiguate between namespaces or types with the same name. For example, both the System.Net and Nancy libraries have a type named HttpStatusCode. If you happen to import both namespaces in a file, then the types need to be fully qualified or else the compiler will fail with the error:
+ &amp;lsquo;HttpStatusCode&amp;rsquo; is an ambiguous reference between &amp;lsquo;Nancy.</description>
     </item>
     
     <item>
@@ -170,7 +181,7 @@ Consider the Gherkin below.
       <guid>/posts/2015/08/this-week-in-programming-gotchas/</guid>
       <description>We all have those days where we spend hours trying to solve a seemingly simple problem only to smack ourselves in the head when we finally figure it out. Missing quotes, forgetting to flush a StreamWriter, etc. If only we could get back all the wasted time.
 Well, this week I wrestled with more gotchas than usual. Below are the ones that burned most of my time.
-Streams Don&#39;t forget to flush a StreamWriter when you&#39;re done.</description>
+Streams Don&amp;rsquo;t forget to flush a StreamWriter when you&amp;rsquo;re done.</description>
     </item>
     
     <item>
@@ -179,7 +190,7 @@ Streams Don&#39;t forget to flush a StreamWriter when you&#39;re done.</descript
       <pubDate>Thu, 06 Aug 2015 15:22:10 +0000</pubDate>
       
       <guid>/posts/2015/08/string.empty-versus/</guid>
-      <description>If you&#39;ve been in the .NET world for any length of time, you&#39;ll eventually come across someone who claims String.Empty performs better than &amp;quot;&amp;quot;. I was always skeptical of this claim because this scenario seemed like something the compiler could optimize. And because the .NET runtime manages string literals in an intern pool, my guess was they would both point to the same value. That&#39;s what I suspected anyway but didn&#39;t have any proof.</description>
+      <description>If you&amp;rsquo;ve been in the .NET world for any length of time, you&amp;rsquo;ll eventually come across someone who claims String.Empty performs better than &amp;quot;&amp;quot;. I was always skeptical of this claim because this scenario seemed like something the compiler could optimize. And because the .NET runtime manages string literals in an intern pool, my guess was they would both point to the same value. That&amp;rsquo;s what I suspected anyway but didn&amp;rsquo;t have any proof.</description>
     </item>
     
     <item>
@@ -188,7 +199,7 @@ Streams Don&#39;t forget to flush a StreamWriter when you&#39;re done.</descript
       <pubDate>Wed, 25 Mar 2015 18:52:22 +0000</pubDate>
       
       <guid>/posts/2015/03/async/await-and-recursion/</guid>
-      <description>While using the new async/await keywords in C# 5.0 for the first time, I noticed an interesting aspect to how recursive methods behave when using await. For one method I was working on, Resharper notified me of a possible stack overflow exception with a &amp;ldquo;function is recursive on all paths&amp;rdquo; warning, but it didn&#39;t fail at runtime. Instead, it continued happily calling itself with no issues.
+      <description>While using the new async/await keywords in C# 5.0 for the first time, I noticed an interesting aspect to how recursive methods behave when using await. For one method I was working on, Resharper notified me of a possible stack overflow exception with a &amp;ldquo;function is recursive on all paths&amp;rdquo; warning, but it didn&amp;rsquo;t fail at runtime. Instead, it continued happily calling itself with no issues.
 What keeps it from failing is the use of the await keyword when calling DoWorkAsync().</description>
     </item>
     
@@ -217,7 +228,7 @@ I recently ran into this issue with a SQL Server database. I needed to trim data
       <pubDate>Sat, 18 Oct 2014 10:20:35 +0000</pubDate>
       
       <guid>/posts/2014/10/useful-regex-for-specflow-bindings/</guid>
-      <description>Below is a list of useful regular expressions (regex) for annotating SpecFlow bindings. I&#39;m treating this post as a reference and will be updating it with new items from time to time.
+      <description>Below is a list of useful regular expressions (regex) for annotating SpecFlow bindings. I&amp;rsquo;m treating this post as a reference and will be updating it with new items from time to time.
 Singular or Plural Support singular or plural wording.
 Filter for Enum Values If your binding takes an enumeration for an argument, you can limit the inputs from the Gherkin to just the valid values. In the snippets below, the possible values for the SortOrder argument are limited by the regex (ascending|descending) thus avoiding any runtime exeptions due to a bad value.</description>
     </item>
@@ -249,7 +260,7 @@ A good example can be found in the Specflow source code. The TechTalk.SpecFlow.A
       
       <guid>/posts/2013/07/more-specflow-tips/</guid>
       <description>UPDATE (11/18/2016):
- I&#39;ve written a number of posts since this one was published that cover advanced SpecFlow topics like composable steps, tags done right, managing state, useful regex, etc. For a list of all my SpecFlow writing, you can click on the SpecFlow tag. SpecFlow is a fantastic tool that&#39;s changed the way I develop software, and I hope it does the same for you. Happy testing!
+ I&amp;rsquo;ve written a number of posts since this one was published that cover advanced SpecFlow topics like composable steps, tags done right, managing state, useful regex, etc. For a list of all my SpecFlow writing, you can click on the SpecFlow tag. SpecFlow is a fantastic tool that&amp;rsquo;s changed the way I develop software, and I hope it does the same for you. Happy testing!
  My last post covered three tips or best practices for SpecFlow that covered manipulating the current ScenarioContext with extension methods, binding multiple Given/When/Then attributes, and using hooks.</description>
     </item>
     
@@ -260,7 +271,7 @@ A good example can be found in the Specflow source code. The TechTalk.SpecFlow.A
       
       <guid>/posts/2013/02/some-specflow-tips/</guid>
       <description>UPDATE (11/18/2016):
- I&#39;ve written a number of posts since this one was published that cover advanced SpecFlow topics like composable steps, tags done right, managing state, useful regex, etc. For a list of all my SpecFlow writing, you can click on the SpecFlow tag. SpecFlow is a fantastic tool that&#39;s changed the way I develop software, and I hope it does the same for you. Happy testing!
+ I&amp;rsquo;ve written a number of posts since this one was published that cover advanced SpecFlow topics like composable steps, tags done right, managing state, useful regex, etc. For a list of all my SpecFlow writing, you can click on the SpecFlow tag. SpecFlow is a fantastic tool that&amp;rsquo;s changed the way I develop software, and I hope it does the same for you. Happy testing!
  Late last year a co-worker Jay Brummels introduced our development group to SpecFlow a .</description>
     </item>
     
@@ -270,7 +281,7 @@ A good example can be found in the Specflow source code. The TechTalk.SpecFlow.A
       <pubDate>Mon, 31 Dec 2012 14:54:43 +0000</pubDate>
       
       <guid>/posts/2012/12/lessons-from-the-past-year/</guid>
-      <description>As 2012 comes to a close, it&#39;s time to look back on some of the things I&#39;ve learned. During the past year, my focus has been on enterprise service development, and thanks to a talented software architect and co-worker Kelly Brownsberger, I feel much more confident with my development skills. Together we focused on re-architecting and refactoring large portions of an ordering service. Now, looking back, three lessons in particular have stuck with me and changed the way I develop software.</description>
+      <description>As 2012 comes to a close, it&amp;rsquo;s time to look back on some of the things I&amp;rsquo;ve learned. During the past year, my focus has been on enterprise service development, and thanks to a talented software architect and co-worker Kelly Brownsberger, I feel much more confident with my development skills. Together we focused on re-architecting and refactoring large portions of an ordering service. Now, looking back, three lessons in particular have stuck with me and changed the way I develop software.</description>
     </item>
     
     <item>
@@ -308,7 +319,7 @@ Below is an example of this scenario.&amp;nbsp; It is a Windows form with a sing
       <pubDate>Mon, 30 Jan 2012 20:38:44 +0000</pubDate>
       
       <guid>/posts/2012/01/the-best-design-patterns/</guid>
-      <description>The first time I read the Gang of Four Design Patterns book, I was impressed, no blown away, by the brilliance of what I was reading. The Visitor pattern utilizing double-dispatch. Brilliant. Chain of Responsibility. Why didn&#39;t I think of that? Adapter. Simple and powerful.
+      <description>The first time I read the Gang of Four Design Patterns book, I was impressed, no blown away, by the brilliance of what I was reading. The Visitor pattern utilizing double-dispatch. Brilliant. Chain of Responsibility. Why didn&amp;rsquo;t I think of that? Adapter. Simple and powerful.
 Of course I was itching to start implementing these patterns. In practice though they seemed to be applicable only in rare situations. Adapter, Builder, Factory, Strategy, were the most useful.</description>
     </item>
     
@@ -350,7 +361,7 @@ Windows Forms have two properties, AcceptButton and CancelButton, for determinin
       <pubDate>Sat, 16 Jul 2011 14:08:34 +0000</pubDate>
       
       <guid>/posts/2011/07/my-first-blog-post/</guid>
-      <description>I&#39;ve always told myself that I needed to start blogging and get my thoughts out there. Well, after years of putting it off, I finally got started. I decided to write about what I love (besides my family of course): writing software using .NET. I&#39;ll start out focusing on C# and F# language features. I&#39;m proficient in C# but just starting out with F#. Functional programming is very different from what I&#39;m used to; however, I&#39;m liking it more and more.</description>
+      <description>I&amp;rsquo;ve always told myself that I needed to start blogging and get my thoughts out there. Well, after years of putting it off, I finally got started. I decided to write about what I love (besides my family of course): writing software using .NET. I&amp;rsquo;ll start out focusing on C# and F# language features. I&amp;rsquo;m proficient in C# but just starting out with F#. Functional programming is very different from what I&amp;rsquo;m used to; however, I&amp;rsquo;m liking it more and more.</description>
     </item>
     
   </channel>

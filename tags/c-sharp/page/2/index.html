@@ -105,6 +105,38 @@
       <div class="subtitle tags is-6 is-pulled-right">
         
         
+<a class="subtitle is-6" href="/tags/specflow">#specflow</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/c-sharp">#c-sharp</a>
+  
+  | <a class="subtitle is-6" href="/tags/gherkin">#gherkin</a>
+  
+  | <a class="subtitle is-6" href="/tags/dotnet">#dotnet</a>
+  
+
+        
+      </div>
+      <h2 class="subtitle is-6 date">August 8, 2018</h2>
+      <h1 class="title"><a href="/posts/2018/08/specflow-basics/">SpecFlow Basics</a></h1>
+      <div class="content">
+        SpecFlow is hands down my favorite testing tool. I&rsquo;ve been blogging about it since 2013 covering mostly advanced topics. In this post, I&rsquo;ll go back to the beginning and briefly cover the basics to give you an idea of what it can do.
+What is SpecFlow? SpecFlow is a tool that allows you to:
+ Define, manage, and automate human-readable acceptance tests in .NET. Enable BDD with easy to understand tests.
+        
+        <a class="button is-link" href="/posts/2018/08/specflow-basics/" style="height:28px">
+          Read more
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <div class="subtitle tags is-6 is-pulled-right">
+        
+        
 <a class="subtitle is-6" href="/tags/c-sharp">#c-sharp</a>
 
 
@@ -146,7 +178,7 @@ Compiler Option By default, integral operations are not checked for overflows ei
       <h2 class="subtitle is-6 date">October 22, 2017</h2>
       <h1 class="title"><a href="/posts/2017/10/specflow-nunit3-generator-plugin/">SpecFlow NUnit3 Generator Plugin</a></h1>
       <div class="content">
-        I recently created a SpecFlow plugin to solve a peculiar problem with NUnit test code generation. The issue is SpecFlow will generate test code that doesn't compile when the .NET project containing the SpecFlow scenarios has a default namespace with the word NUnit. For example, if your project has the namespace IntegrationTests.NUnit, then you'll receive the following error when trying to build.
+        I recently created a SpecFlow plugin to solve a peculiar problem with NUnit test code generation. The issue is SpecFlow will generate test code that doesn&rsquo;t compile when the .NET project containing the SpecFlow scenarios has a default namespace with the word NUnit. For example, if your project has the namespace IntegrationTests.NUnit, then you&rsquo;ll receive the following error when trying to build.
  The type or namespace name &lsquo;Framework&rsquo; does not exist in the namespace &lsquo;IntegrationTests.
         
         <a class="button is-link" href="/posts/2017/10/specflow-nunit3-generator-plugin/" style="height:28px">
@@ -211,7 +243,7 @@ Compiler Option By default, integral operations are not checked for overflows ei
       <h2 class="subtitle is-6 date">July 8, 2016</h2>
       <h1 class="title"><a href="/posts/2016/07/top-6-industry-shifts-during-my-it-career/">Top 6 Industry Shifts During My IT Career</a></h1>
       <div class="content">
-        In the fall of 1999, I dropped my plans to attend grad school to embark on a career in IT. The industry has changed considerably since then mostly for the better. In fact I've never been more excited to be a software developer.
+        In the fall of 1999, I dropped my plans to attend grad school to embark on a career in IT. The industry has changed considerably since then mostly for the better. In fact I&rsquo;ve never been more excited to be a software developer.
 As part of a personal retrospective on my career, below are my thoughts on the top six shifts in IT. By a &ldquo;shift&rdquo; I mean a change that has profoundly affected the way developers go about their daily work.
         
         <a class="button is-link" href="/posts/2016/07/top-6-industry-shifts-during-my-it-career/" style="height:28px">
@@ -245,38 +277,9 @@ As part of a personal retrospective on my career, below are my thoughts on the t
       <h1 class="title"><a href="/posts/2015/12/a-short-and-easy-introduction-to-.nets-task-class/">A Short and Easy Introduction to .NET&#39;s Task Class</a></h1>
       <div class="content">
         Task.Run You can use Task.Run to schedule a delegate to run on the thread pool. The method returns a new task, and if the work is complete, the result will be available via Task.Result. If not, Task.Result will block until it is complete.
-1 2 3 4 5 6 7 8 9 10 11 12  private void button_Click(object sender, EventArgs e){Task&lt;DateTime&gt; task = Task.Run(() =&gt; GetDateTime());lblDateTime.Text = task.
+1 2 3 4 5 6 7 8 9 10 11 12  private void button_Click(object sender, EventArgs e) { Task&lt;DateTime&gt; task = Task.Run(() =&gt; GetDateTime()); lblDateTime.Text = task.
         
         <a class="button is-link" href="/posts/2015/12/a-short-and-easy-introduction-to-.nets-task-class/" style="height:28px">
-          Read more
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-        
-<a class="subtitle is-6" href="/tags/specflow">#specflow</a>
-
-
-
-  
-  | <a class="subtitle is-6" href="/tags/dotnet">#dotnet</a>
-  
-  | <a class="subtitle is-6" href="/tags/c-sharp">#c-sharp</a>
-  
-
-        
-      </div>
-      <h2 class="subtitle is-6 date">October 26, 2015</h2>
-      <h1 class="title"><a href="/posts/2015/10/specflow-tags-done-right/">SpecFlow Tags Done Right</a></h1>
-      <div class="content">
-        In a previous post, I covered scoped bindings in SpecFlow and ended with an example of how not to use tags. In this post, I'll cover the &ldquo;right way&rdquo; and demonstrate how to avoid coupling features to step definitions. But first, a quick primer on tags.
-What Are Tags? Tags are used in Gherkin to mark features or scenarios. They begin with the @ character in Gherkin, but in step definitions the @ is removed.
-        
-        <a class="button is-link" href="/posts/2015/10/specflow-tags-done-right/" style="height:28px">
           Read more
         </a>
         

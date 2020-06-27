@@ -244,9 +244,7 @@
         }
 
     }</pre>
-
-This is a useful technique, but I don't like the way each implementation of an interface member in the ApplicationSettingsInstance class has to delegate to the private instance field. I've always thought it would be nice if C# had a feature where you could specify that a particular interface is implemented by a private member. Then the C# compiler could automatically fill in the interface implementation with calls to the private member. The syntax could look something like the example below. The _instance field implements the interface, and the interface members go away.
-
+<p>This is a useful technique, but I don&rsquo;t like the way each implementation of an interface member in the ApplicationSettingsInstance class has to delegate to the private instance field. I&rsquo;ve always thought it would be nice if C# had a feature where you could specify that a particular interface is implemented by a private member. Then the C# compiler could automatically fill in the interface implementation with calls to the private member. The syntax could look something like the example below. The _instance field implements the interface, and the interface members go away.</p>
 <pre class="csharpcode">    <span class="rem">/// &lt;summary&gt;</span>
 
     <span class="rem">/// Container-friendly or injectable instance of IApplicationSettings.</span>
@@ -274,8 +272,8 @@ This is a useful technique, but I don't like the way each implementation of an i
         }
 
     }</pre>
+<p>I&rsquo;m not sure if any other languages have a feature like this. It seems like it would be fairly simple to implement. In the meantime, I&rsquo;m adding it to my fantasy feature list.</p>
 
-I'm not sure if any other languages have a feature like this. It seems like it would be fairly simple to implement. In the meantime, I'm adding it to my fantasy feature list.
       
     </div>
     

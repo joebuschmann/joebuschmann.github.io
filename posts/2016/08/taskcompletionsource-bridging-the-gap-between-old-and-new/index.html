@@ -133,13 +133,13 @@
 <h4 id="asynchronous-calls-with-iwstrustchannelcontract">Asynchronous Calls with IWSTrustChannelContract</h4>
 <p>An example of an older asynchronous API is the interface <code>IWSTrustChannelContract</code>. It defines a contract for interacting with a security token service. The synchronous method <code>Issue()</code> takes a token request object and returns a security token or raises an exception for an invalid request. The asynchronous equivalent is the method pair <code>BeginIssue()</code> and <code>EndIssue()</code> also defined on the interface. BeginIssue takes three arguments, the request object, a callback, and a state object, and kicks off the work. EndIssue is invoked by the callback to retrieve the results.</p>
 <script src="https://gist.github.com/joebuschmann/7cf72676354e17b7318ad120acf898e1.js"></script>
-<p>I won't go into the details behind issuing tokens. Instead I'll focus on how TaskCompletionSource can be used to wrap the BeginIssue/EndIssue methods with a task. The example below does just that. The method <strong>IssueAsync</strong> takes four arguments and returns an instance of <code>Task&lt;SecurityToken&gt;</code>. The details of invoking BeginIssue and EndIssue are hidden from the caller.</p>
+<p>I won&rsquo;t go into the details behind issuing tokens. Instead I&rsquo;ll focus on how TaskCompletionSource can be used to wrap the BeginIssue/EndIssue methods with a task. The example below does just that. The method <strong>IssueAsync</strong> takes four arguments and returns an instance of <code>Task&lt;SecurityToken&gt;</code>. The details of invoking BeginIssue and EndIssue are hidden from the caller.</p>
 <script src="https://gist.github.com/joebuschmann/d8388de7a15009fd3e907d8894abeb37.js"></script>
 <p>The first line initializes a new instance of <code>TaskCompletionSource</code>. It will be used later when invoking the Begin/End methods.</p>
 <pre><code>TaskCompletionSource&lt;SecurityToken&gt; tcs = new TaskCompletionSource&lt;SecurityToken&gt;();
 </code></pre><p>The last line of the method returns the wrapped Task instance.</p>
 <pre><code>return tcs.Task;
-</code></pre><p>All the interesting parts are in between. There are a few lines to set up an instance of <code>IWSTrustChannelContract</code>, but you can skim through those until you get to <code>channel.BeginIssue()</code>. This is where TaskCompletionSource comes into play. BeginIssue is passed the request and a callback to be invoked when the asynchronous work is complete. The state argument isn't relevant in this case so null will suffice.</p>
+</code></pre><p>All the interesting parts are in between. There are a few lines to set up an instance of <code>IWSTrustChannelContract</code>, but you can skim through those until you get to <code>channel.BeginIssue()</code>. This is where TaskCompletionSource comes into play. BeginIssue is passed the request and a callback to be invoked when the asynchronous work is complete. The state argument isn&rsquo;t relevant in this case so null will suffice.</p>
 <pre><code>channel.BeginIssue(requestSecurityToken, asyncResult =&gt;
 {
     try

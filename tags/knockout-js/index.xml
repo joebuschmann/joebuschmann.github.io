@@ -20,7 +20,7 @@
       <guid>/posts/2015/08/this-week-in-programming-gotchas/</guid>
       <description>We all have those days where we spend hours trying to solve a seemingly simple problem only to smack ourselves in the head when we finally figure it out. Missing quotes, forgetting to flush a StreamWriter, etc. If only we could get back all the wasted time.
 Well, this week I wrestled with more gotchas than usual. Below are the ones that burned most of my time.
-Streams Don&#39;t forget to flush a StreamWriter when you&#39;re done.</description>
+Streams Don&amp;rsquo;t forget to flush a StreamWriter when you&amp;rsquo;re done.</description>
     </item>
     
   </channel>

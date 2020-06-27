@@ -125,7 +125,7 @@
       <h1 class="title"><a href="/posts/2015/12/a-short-and-easy-introduction-to-.nets-task-class/">A Short and Easy Introduction to .NET&#39;s Task Class</a></h1>
       <div class="content">
         Task.Run You can use Task.Run to schedule a delegate to run on the thread pool. The method returns a new task, and if the work is complete, the result will be available via Task.Result. If not, Task.Result will block until it is complete.
-1 2 3 4 5 6 7 8 9 10 11 12  private void button_Click(object sender, EventArgs e){Task&lt;DateTime&gt; task = Task.Run(() =&gt; GetDateTime());lblDateTime.Text = task.
+1 2 3 4 5 6 7 8 9 10 11 12  private void button_Click(object sender, EventArgs e) { Task&lt;DateTime&gt; task = Task.Run(() =&gt; GetDateTime()); lblDateTime.Text = task.
         
         <a class="button is-link" href="/posts/2015/12/a-short-and-easy-introduction-to-.nets-task-class/" style="height:28px">
           Read more

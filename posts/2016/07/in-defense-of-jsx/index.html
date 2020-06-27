@@ -118,22 +118,22 @@
     <h1 class="title">In Defense of JSX</h1>
     
     <div class="content">
-      <p>JSX is the much maligned JavaScript syntax extension that tells React how to build the UI. It gets translated into JavaScript which then builds out the virtual DOM. Later the virtual DOM is translated into the real DOM, and you've got a UI.</p>
-<p>For some reason many people don't like JSX. Their criticism usually goes along the lines of: <em>JSX is ugly and you shouldn't mix the view and controller. You should have separation of concerns (aka MVC) for better reuse.</em> Well, after building two medium-sized React apps, I think mixing the view and controller is exactly what you should be doing. This approach leads to components which are highly reusable.</p>
+      <p>JSX is the much maligned JavaScript syntax extension that tells React how to build the UI. It gets translated into JavaScript which then builds out the virtual DOM. Later the virtual DOM is translated into the real DOM, and you&rsquo;ve got a UI.</p>
+<p>For some reason many people don&rsquo;t like JSX. Their criticism usually goes along the lines of: <em>JSX is ugly and you shouldn&rsquo;t mix the view and controller. You should have separation of concerns (aka MVC) for better reuse.</em> Well, after building two medium-sized React apps, I think mixing the view and controller is exactly what you should be doing. This approach leads to components which are highly reusable.</p>
 <h4 id="seriously---why-mvc">Seriously - Why MVC?</h4>
 <p>Before I continue my defense of JSX, a bit about MVC (or MVVM or MVP). The main goal of the MVC pattern is to separate the concerns of the UI into a model, view, and controller. The model is the data that drives the UI. The view is what gets rendered to the screen. The controller is the glue holding it all together.</p>
-<p>Loose coupling is a purported benefit of MVC, but the reality is it leads to plenty of coupling between the model, view, and controller. That's been my experience anyway. Maybe I haven't worked on the right projects or with the right people. I've only seen views and controllers reused in the most trivial of cases. Just because MVC takes all the JavaScript out of the HTML doesn't mean the three parts can exist separately. They still need each other to produce an app.</p>
-<p><strong>Don't get me wrong. I'm very much for separation of concerns. I just think MVC takes it too far.</strong></p>
+<p>Loose coupling is a purported benefit of MVC, but the reality is it leads to plenty of coupling between the model, view, and controller. That&rsquo;s been my experience anyway. Maybe I haven&rsquo;t worked on the right projects or with the right people. I&rsquo;ve only seen views and controllers reused in the most trivial of cases. Just because MVC takes all the JavaScript out of the HTML doesn&rsquo;t mean the three parts can exist separately. They still need each other to produce an app.</p>
+<p><strong>Don&rsquo;t get me wrong. I&rsquo;m very much for separation of concerns. I just think MVC takes it too far.</strong></p>
 <p>What about JSX? What are some of the critiques and why are they misguided?</p>
 <h4 id="jsx-couples-the-model-view-and-controller">JSX Couples the Model, View, and Controller</h4>
 <p>Dan Yoder over at Panda Strike wrote a little over a year ago about why <a href="https://www.pandastrike.com/posts/20150311-react-bad-idea">React is a terrible idea</a>. The post is well-written, and I recommend reading it. He makes makes good points especially about web components being the future. But I disagree with his criticism of JSX.</p>
 <blockquote>
-<p><strong>Sure, you can use JSX if you want, but that's the worst part of React anyway. JSX wants you to couple your view with the model and controller. It's a bad idea. Don't do that.</strong> - Dan Yoder</p>
+<p><strong>Sure, you can use JSX if you want, but that&rsquo;s the worst part of React anyway. JSX wants you to couple your view with the model and controller. It&rsquo;s a bad idea. Don&rsquo;t do that.</strong> - Dan Yoder</p>
 </blockquote>
-<p>Let's for a moment put aside the conventional wisdom of decoupling the model, view, and controller. React components, including JSX, can be great examples of separation of concerns. A textbox component is concerned only with rendering a textbox. An address component is concerned only with displaying and editing an address. They can be plugged into the app in any page. Each component defines a contract for receiving data. Breaking components down into MVC parts doesn't add much. In fact, it makes things worse by adding unnecessary complexity.</p>
-<p><strong>I'll take reusable components over getting JavaScript out of my HTML.</strong></p>
+<p>Let&rsquo;s for a moment put aside the conventional wisdom of decoupling the model, view, and controller. React components, including JSX, can be great examples of separation of concerns. A textbox component is concerned only with rendering a textbox. An address component is concerned only with displaying and editing an address. They can be plugged into the app in any page. Each component defines a contract for receiving data. Breaking components down into MVC parts doesn&rsquo;t add much. In fact, it makes things worse by adding unnecessary complexity.</p>
+<p><strong>I&rsquo;ll take reusable components over getting JavaScript out of my HTML.</strong></p>
 <h4 id="jsx-is-ugly">JSX Is Ugly</h4>
-<p>JSX is essentially XML with some extensions to embed code, otherwise it looks much like HTML. If JSX is ugly, then so is HTML. To me, JSX isn't any worse than HTML littered with <em>ng-</em>* or *data-** attributes. Consider this example from the <a href="https://docs.angularjs.org/guide/controller">AngularJS Developer Guide</a>. Note <code>ng-controller</code>, <code>ng-click</code>, and the {% raw %}<code>{{ }}</code>{% endraw %} binding syntax.</p>
+<p>JSX is essentially XML with some extensions to embed code, otherwise it looks much like HTML. If JSX is ugly, then so is HTML. To me, JSX isn&rsquo;t any worse than HTML littered with <em>ng-</em>* or *data-** attributes. Consider this example from the <a href="https://docs.angularjs.org/guide/controller">AngularJS Developer Guide</a>. Note <code>ng-controller</code>, <code>ng-click</code>, and the {% raw %}<code>{{ }}</code>{% endraw %} binding syntax.</p>
 <pre><code>&lt;div ng-controller=&quot;SpicyController&quot;&gt;
  &lt;button ng-click=&quot;chiliSpicy()&quot;&gt;Chili&lt;/button&gt;
  &lt;button ng-click=&quot;jalapenoSpicy()&quot;&gt;Jalape├▒o&lt;/button&gt;
@@ -145,14 +145,14 @@
  &lt;button onClick={jalapenoSpicy()}&gt;Jalape├▒o&lt;/button&gt;
  &lt;p&gt;The food is {this.state.spice} spicy!&lt;/p&gt;
 &lt;/div&gt;
-</code></pre><p>Visually, they're very similar. It's difficult to make the case that one is worse than the other.</p>
+</code></pre><p>Visually, they&rsquo;re very similar. It&rsquo;s difficult to make the case that one is worse than the other.</p>
 <h4 id="classname-and-htmlfor">className and htmlFor</h4>
-<p>Related to the previous point is the use of <strong>className</strong> and <strong>htmlFor</strong>. The JSX designers couldn't use the keywords <strong>class</strong> or <strong>for</strong> since they are also keywords in JavaScript. JSX introduces <strong>className</strong> and <strong>htmlFor</strong> to work around this. Sure, it feels a bit hacky but is it really that big of a deal?</p>
+<p>Related to the previous point is the use of <strong>className</strong> and <strong>htmlFor</strong>. The JSX designers couldn&rsquo;t use the keywords <strong>class</strong> or <strong>for</strong> since they are also keywords in JavaScript. JSX introduces <strong>className</strong> and <strong>htmlFor</strong> to work around this. Sure, it feels a bit hacky but is it really that big of a deal?</p>
 <h4 id="transpilation">Transpilation</h4>
-<p>JSX has a transpilation step, but isn't transpilation becoming more common anyway? If you're using Typescript or ES6, you'll need to transpile. Why not throw in JSX?</p>
+<p>JSX has a transpilation step, but isn&rsquo;t transpilation becoming more common anyway? If you&rsquo;re using Typescript or ES6, you&rsquo;ll need to transpile. Why not throw in JSX?</p>
 <p><strong>UPDATE (8/29/2016)</strong> - In my original post, I failed to emphasize a very important point. Unlike the equivalent HTML, JSX is checked for correctness by the transpiler. This eliminates many of the silent binding errors present in native HTML and frameworks like Angular.</p>
 <h4 id="mvc-is-needed-for-testing">MVC Is Needed for Testing</h4>
-<p>Below is an example of a unit test for a React button component that uses <a href="https://facebook.github.io/jest/">Facebook's Jest, a unit testing framework</a>. It supports rendering Font Awesome icons and a wait spinner onto a button. The test is as straightforward as they come. The component is rendered into a string of HTML using <code>ReactDOMServer.renderToStaticMarkup()</code> and then validated against the expected markup.</p>
+<p>Below is an example of a unit test for a React button component that uses <a href="https://facebook.github.io/jest/">Facebook&rsquo;s Jest, a unit testing framework</a>. It supports rendering Font Awesome icons and a wait spinner onto a button. The test is as straightforward as they come. The component is rendered into a string of HTML using <code>ReactDOMServer.renderToStaticMarkup()</code> and then validated against the expected markup.</p>
 <p><strong>How would MVC make this any easier?</strong></p>
 <script src="https://gist.github.com/joebuschmann/9e54dd93900df7be4e0110808eb2def3.js"></script>
 <h4 id="long-live-jsx">Long Live JSX</h4>

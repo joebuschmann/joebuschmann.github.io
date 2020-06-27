@@ -28,7 +28,7 @@
       
       <guid>/posts/2015/12/a-short-and-easy-introduction-to-.nets-task-class/</guid>
       <description>Task.Run You can use Task.Run to schedule a delegate to run on the thread pool. The method returns a new task, and if the work is complete, the result will be available via Task.Result. If not, Task.Result will block until it is complete.
-1 2 3 4 5 6 7 8 9 10 11 12  private void button_Click(object sender, EventArgs e){Task&amp;lt;DateTime&amp;gt; task = Task.Run(() =&amp;gt; GetDateTime());lblDateTime.Text = task.</description>
+1 2 3 4 5 6 7 8 9 10 11 12  private void button_Click(object sender, EventArgs e) { Task&amp;lt;DateTime&amp;gt; task = Task.Run(() =&amp;gt; GetDateTime()); lblDateTime.Text = task.</description>
     </item>
     
     <item>
@@ -37,7 +37,7 @@
       <pubDate>Wed, 25 Mar 2015 18:52:22 +0000</pubDate>
       
       <guid>/posts/2015/03/async/await-and-recursion/</guid>
-      <description>While using the new async/await keywords in C# 5.0 for the first time, I noticed an interesting aspect to how recursive methods behave when using await. For one method I was working on, Resharper notified me of a possible stack overflow exception with a &amp;ldquo;function is recursive on all paths&amp;rdquo; warning, but it didn&#39;t fail at runtime. Instead, it continued happily calling itself with no issues.
+      <description>While using the new async/await keywords in C# 5.0 for the first time, I noticed an interesting aspect to how recursive methods behave when using await. For one method I was working on, Resharper notified me of a possible stack overflow exception with a &amp;ldquo;function is recursive on all paths&amp;rdquo; warning, but it didn&amp;rsquo;t fail at runtime. Instead, it continued happily calling itself with no issues.
 What keeps it from failing is the use of the await keyword when calling DoWorkAsync().</description>
     </item>
     
