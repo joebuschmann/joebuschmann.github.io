@@ -639,10 +639,6 @@ Winston Zeddemore
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> System;
@@ -671,17 +667,13 @@ Winston Zeddemore
         <span style="color:#75715e">// Get the output stream
 </span><span style="color:#75715e"></span>        Stream outputStream;
 
-        <span style="color:#66d9ef">if</span> (Console.IsOutputRedirected)
-        {
-            outputStream = Console.OpenStandardOutput();
-        }
-        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (args.Length &gt; <span style="color:#ae81ff">1</span>)
+        <span style="color:#66d9ef">if</span> (args.Length &gt; <span style="color:#ae81ff">1</span>)
         {
             outputStream = File.OpenWrite(args[<span style="color:#ae81ff">1</span>]);
         }
         <span style="color:#66d9ef">else</span>
         {
-            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> ArgumentException(<span style="color:#e6db74">&#34;No output file provided.&#34;</span>);
+            outputStream = Console.OpenStandardOutput();
         }
         
         <span style="color:#75715e">// Copy from input to output
@@ -824,9 +816,9 @@ Winston Zeddemore
             List&lt;Actor&gt; actors = <span style="color:#66d9ef">new</span> List&lt;Actor&gt;
             {
                 <span style="color:#66d9ef">new</span> Actor(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;Peter Venkman&#34;</span>, <span style="color:#e6db74">&#34;Bill Murray&#34;</span>),
-                <span style="color:#66d9ef">new</span> Actor(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;Raymond Stantz&#34;</span>, <span style="color:#e6db74">&#34;Dan Aykroyd&#34;</span>),
-                <span style="color:#66d9ef">new</span> Actor(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;Egon Spengler&#34;</span>, <span style="color:#e6db74">&#34;Harold Ramis&#34;</span>),
-                <span style="color:#66d9ef">new</span> Actor(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;Winston Zeddemore&#34;</span>, <span style="color:#e6db74">&#34;Ernie Hudson&#34;</span>)
+                <span style="color:#66d9ef">new</span> Actor(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;Raymond Stantz&#34;</span>, <span style="color:#e6db74">&#34;Dan Aykroyd&#34;</span>),
+                <span style="color:#66d9ef">new</span> Actor(<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;Egon Spengler&#34;</span>, <span style="color:#e6db74">&#34;Harold Ramis&#34;</span>),
+                <span style="color:#66d9ef">new</span> Actor(<span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#34;Winston Zeddemore&#34;</span>, <span style="color:#e6db74">&#34;Ernie Hudson&#34;</span>)
             };
 
             <span style="color:#66d9ef">string</span> output = JsonConvert.SerializeObject(actors, Formatting.Indented);
@@ -884,17 +876,17 @@ Winston Zeddemore
     <span style="color:#e6db74">&#34;Name&#34;</span>: <span style="color:#e6db74">&#34;Bill Murray&#34;</span>
   <span style="color:#f92672">}</span>,
   <span style="color:#f92672">{</span>
-    <span style="color:#e6db74">&#34;ID&#34;</span>: 1,
+    <span style="color:#e6db74">&#34;ID&#34;</span>: 2,
     <span style="color:#e6db74">&#34;ScreenName&#34;</span>: <span style="color:#e6db74">&#34;Raymond Stantz&#34;</span>,
     <span style="color:#e6db74">&#34;Name&#34;</span>: <span style="color:#e6db74">&#34;Dan Aykroyd&#34;</span>
   <span style="color:#f92672">}</span>,
   <span style="color:#f92672">{</span>
-    <span style="color:#e6db74">&#34;ID&#34;</span>: 1,
+    <span style="color:#e6db74">&#34;ID&#34;</span>: 3,
     <span style="color:#e6db74">&#34;ScreenName&#34;</span>: <span style="color:#e6db74">&#34;Egon Spengler&#34;</span>,
     <span style="color:#e6db74">&#34;Name&#34;</span>: <span style="color:#e6db74">&#34;Harold Ramis&#34;</span>
   <span style="color:#f92672">}</span>,
   <span style="color:#f92672">{</span>
-    <span style="color:#e6db74">&#34;ID&#34;</span>: 1,
+    <span style="color:#e6db74">&#34;ID&#34;</span>: 4,
     <span style="color:#e6db74">&#34;ScreenName&#34;</span>: <span style="color:#e6db74">&#34;Winston Zeddemore&#34;</span>,
     <span style="color:#e6db74">&#34;Name&#34;</span>: <span style="color:#e6db74">&#34;Ernie Hudson&#34;</span>
   <span style="color:#f92672">}</span>
